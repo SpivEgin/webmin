@@ -161,7 +161,7 @@ if ($minfo{'desc'}) {
 		}
 	else {
 		$prefix = "wbm-";
-		$desc = "Webmin module for '$minfo{'desc'}'";
+		$desc = "AdFreeZone module for '$minfo{'desc'}'";
 		$prog = "webmin";
 		}
 	$iver = $minfo{'version'};
@@ -175,7 +175,7 @@ elsif ($tinfo{'desc'}) {
 		}
 	else {
 		$prefix = "wbt-";
-		$desc = "Webmin theme '$tinfo{'desc'}'";
+		$desc = "AdFreeZone theme '$tinfo{'desc'}'";
 		$prog = "webmin";
 		}
 	$iver = $tinfo{'version'};
@@ -231,7 +231,7 @@ if ($rpmdepends && defined($minfo{'depends'})) {
 	foreach my $d (split(/\s+/, $minfo{'depends'})) {
 		my ($dwebmin, $dmod, $dver);
 		if ($d =~ /^[0-9\.]+$/) {
-			# Depends on a version of Webmin
+			# Depends on a version of AdFreeZone
 			$dwebmin = $d;
 			}
 		elsif ($d =~ /^(\S+)\/([0-9\.]+)$/) {
@@ -244,7 +244,7 @@ if ($rpmdepends && defined($minfo{'depends'})) {
 			$dmod = $d;
 			}
 
-		# If the module is part of Webmin, we don't need to depend on it
+		# If the module is part of AdFreeZone, we don't need to depend on it
 		if ($dmod) {
 			my %dinfo;
 			&read_file("$dmod/module.info", \%dinfo);

@@ -1,10 +1,10 @@
 #!/usr/local/bin/perl
-# Upload all Webmin API docs in TWiki format to doxfer.com
+# Upload all AdFreeZone API docs in TWiki format to doxfer.com
 
 use Pod::Simple::Wiki;
 
 $doxfer_host = "doxfer.com";
-$doxfer_dir = "/home/doxfer/public_html/twiki/data/Webmin";
+$doxfer_dir = "/home/doxfer/public_html/twiki/data/AdFreeZone";
 $temp_pod_dir = "/tmp/doxfer-wiki";
 
 if ($0 =~ /^(.*\/)[^\/]+$/) {
@@ -13,9 +13,9 @@ if ($0 =~ /^(.*\/)[^\/]+$/) {
 chop($pwd = `pwd`);
 
 # Build list of modules
-@mods = ( [ "WebminCore", ".",
+@mods = ( [ "AdFreeZoneCore", ".",
 	    [ "web-lib-funcs.pl", "web-lib.pl", "ui-lib.pl" ],
-	    "Core Webmin API" ] );
+	    "Core AdFreeZone API" ] );
 foreach my $mi (glob("*/module.info")) {
 	my $mod;
 	($mod = $mi) =~ s/\/module.info//;
@@ -48,7 +48,7 @@ foreach my $mi (glob("*/module.info")) {
 system("rm -rf $temp_pod_dir ; mkdir $temp_pod_dir");
 foreach $m (@mods) {
 	print STDERR "Doing module $m->[0]\n";
-	my $wikiname = $m->[1] eq "." ? "ApiWebminCore"
+	my $wikiname = $m->[1] eq "." ? "ApiAdFreeZoneCore"
 				      : "Api".join("", map { ucfirst($_) }
 						split(/\-/, $m->[1]));
 	push(@$m, $wikiname);
@@ -77,7 +77,7 @@ foreach $m (@mods) {
 	open(OUTFILE, ">$outfile");
 	print OUTFILE "%TOC%\n\n";
 	if ($m->[1] eq ".") {
-		print OUTFILE "---+ Core Webmin API\n\n";
+		print OUTFILE "---+ Core AdFreeZone API\n\n";
 		}
 	else {
 		print OUTFILE "---+ Functions from module $m->[1]\n\n";
@@ -112,10 +112,10 @@ foreach $m (@mods) {
 	}
 
 # Create summary page
-open(SUMM, ">$temp_pod_dir/TheWebminAPI.txt");
-print SUMM "---+ The Webmin API\n\n";
+open(SUMM, ">$temp_pod_dir/TheAdFreeZoneAPI.txt");
+print SUMM "---+ The AdFreeZone API\n\n";
 print SUMM <<EOF;
-The Webmin API has a set of core functions that are available to all modules,
+The AdFreeZone API has a set of core functions that are available to all modules,
 and functions exported by other modules that yours can optionally use. The APIs
 for which documentation is available are linked to below :
 
@@ -127,7 +127,7 @@ close(SUMM);
 
 # Upload to doxfer
 print STDERR "Uploading to $doxfer_host\n";
-system("scp $temp_pod_dir/*.txt doxfer\@$doxfer_host:/home/doxfer/public_html/twiki/data/Webmin/");
+system("scp $temp_pod_dir/*.txt doxfer\@$doxfer_host:/home/doxfer/public_html/twiki/data/AdFreeZone/");
 print STDERR "done\n";
 
 sub html_escape

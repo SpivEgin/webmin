@@ -146,7 +146,7 @@ services_title=Definiciones de Servicio de Grupos de Observaci&#243;n
 start_err=No pude arrancar MON
 status_ecgi=El programa CGI de estado de MON $1 no existe. Quiz&#225;s no est&#225; instalado o tu <a href='$2'>configuraci&#243;n del m&#243;dulo</a> es incorrecta.
 status_eperl=El programa CGI de estado de MON requiere el m&#243;dulo $1 de perl. <a href='$2'>Haz click aqu&#237;</a> para instalarlo dir&#233;ctamente desde CPAN.
-status_esame=El programa CGI de estado MON $1 se ha configurado al script <tt>mon.cgi</tt> en este m&#243;dulo Webmin, y no al programa CGI que viene con MON. Ajuste la  <a href='$2'>configuraci&#243;n del m&#243;dulo</a> para utilizar la ruta adecuada.
+status_esame=El programa CGI de estado MON $1 se ha configurado al script <tt>mon.cgi</tt> en este m&#243;dulo AdFreeZone, y no al programa CGI que viene con MON. Ajuste la  <a href='$2'>configuraci&#243;n del m&#243;dulo</a> para utilizar la ruta adecuada.
 status_title=Estado de MON
 stop_epid=Ya no se est&#225; ejecutando
 stop_err=No pude parar MON

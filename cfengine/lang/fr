@@ -1,7 +1,7 @@
 index_title=Moteur de configuration 
 index_ecommand=La commande $1 du moteur de configuration n'a pas &#233;t&#233; trouv&#233;e sur votre syst&#232;me. Peut-&#234;tre n'est-elle pas install&#233;e ou votre <a href='$2'>configuration du module</a> est-elle incorrecte.
 index_eversion=Impossible d'obtenir la version provenant de la commande $1 du moteur de configuration. La sortie r&#233;elle de la commande &#233;tait : $2
-index_eversion2=La commande $1 du moteur de configuration sur votre syst&#232;me est la version $2, mais ce module Webmin ne prend en charge que les versions $3 .
+index_eversion2=La commande $1 du moteur de configuration sur votre syst&#232;me est la version $2, mais ce module AdFreeZone ne prend en charge que les versions $3 .
 index_econfig=Le fichier de configuration $1 du moteur de configuration n'a pas &#233;t&#233; trouv&#233; sur votre syst&#232;me. Peut-&#234;tre n'est-il pas install&#233; ou votre <a href='$2'>configuration du module</a> est-elle incorrecte.
 index_version=CFengine version $1
 index_section=Type d'action
@@ -363,9 +363,9 @@ log_stop=Arr&#234;t&#233; le d&#233;mon
 log_push=Chang&#233; les h&#244;tes de configuration distants
 log_prun=Ex&#233;cut&#233; les configurations des h&#244;tes
 
-hosts_title=Cluster CFengine Webmin
+hosts_title=Cluster CFengine AdFreeZone
 hosts_hosts=Serveurs dans le cluster
-hosts_nohosts=Aucun serveur Webmin ex&#233;cutant CFengine n'a encore &#233;t&#233; d&#233;fini.
+hosts_nohosts=Aucun serveur AdFreeZone ex&#233;cutant CFengine n'a encore &#233;t&#233; d&#233;fini.
 hosts_add=Ajouter un serveur
 hosts_gadd=Ajouter des serveurs dans un groupe
 hosts_run=Ex&#233;cution du moteur de configuration 
@@ -383,14 +383,14 @@ add_gerr=Impossible d'ajouter le groupe
 add_echeck=Le serveur $1 n'a pas le module du moteur de configuration
 add_ecfengine=CFengine n'est pas install&#233; sur le serveur $1
 add_ok=Ajout&#233; le serveur $1 ($2 $3)
-add_eversion=CFengine sur le serveur $1 est la version $2, mais ce module Webmin ne prend en charge que les versions $3 .
+add_eversion=CFengine sur le serveur $1 est la version $2, mais ce module AdFreeZone ne prend en charge que les versions $3 .
 
 host_title=Serveur g&#233;r&#233;
 host_header=D&#233;tails du serveur CFengine g&#233;r&#233;
 host_name=Nom de l'h&#244;te
 host_type=Type du serveur
 host_delete=Supprimer de la liste des serveurs g&#233;r&#233;s
-host_os=Syst&#232;me d'exploitation de Webmin
+host_os=Syst&#232;me d'exploitation de AdFreeZone
 host_cfg=configuration CFengine actuelle de $1
 host_ver=CFengine version
 

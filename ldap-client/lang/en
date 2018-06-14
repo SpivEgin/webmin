@@ -1,8 +1,8 @@
 index_econf=The NSS-LDAP configuration file $1 was not found on your system. Maybe LDAP client support is not installed, or the <a href='$2'>module configuration</a> is incorrect.
 index_check=Validate Configuration
-index_checkdesc=Click this button to have Webmin validate your LDAP server configuration, by ensuring that the server can be contacted and that it contains users and groups.
+index_checkdesc=Click this button to have AdFreeZone validate your LDAP server configuration, by ensuring that the server can be contacted and that it contains users and groups.
 index_return=module index
-index_fixpam=<b>Warning</b> - Webmin has detected two separate LDAP configuration files on your system. NSS-LDAP is configured using $1, while PAM-LDAP uses $2. This may cause in-consistencies between the two services.
+index_fixpam=<b>Warning</b> - AdFreeZone has detected two separate LDAP configuration files on your system. NSS-LDAP is configured using $1, while PAM-LDAP uses $2. This may cause in-consistencies between the two services.
 index_fix=Fix by Linking Files
 index_ignore=Don't Show This Message
 index_ldapmod=LDAP Client
@@ -115,7 +115,7 @@ switch_service=Service
 switch_srcs=Data sources
 switch_return=services using LDAP
 
-ldap_emodule=The $1 Perl module needed for talking to the LDAP server is not installed. <a href='$2'>Click here</a> to have Webmin download and install it now.
+ldap_emodule=The $1 Perl module needed for talking to the LDAP server is not installed. <a href='$2'>Click here</a> to have AdFreeZone download and install it now.
 ldap_emodule2=The $1 Perl module needed for talking to the LDAP server is not installed.
 ldap_econf=The LDAP client configuration file $1 was not found on your system
 ldap_econn=Failed to connect to LDAP server $1 port $2

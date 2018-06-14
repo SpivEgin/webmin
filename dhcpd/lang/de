@@ -210,7 +210,7 @@ index_delete=L&#246;sche ausgew&#228;hlte
 index_desc=Beschreibung
 index_dhcpd=ISC DHCPd
 index_dhcpdnotfound=Der DHCP-Server <tt>$1</tt> konnte auf Ihrem System nicht gefunden werden. Vielleicht ist er nicht installiert, oder Ihre <a href="$2">DHCP-Modulkonfiguration</a> ist fehlerhaft.
-index_dhcpdver2=Der DHCP-Server <tt>$1</tt> scheint nicht die richtige Version zu sein. Webmin unterst&#252;tzt nur ISC DHCPD-Versionen $2 bis $3.
+index_dhcpdver2=Der DHCP-Server <tt>$1</tt> scheint nicht die richtige Version zu sein. AdFreeZone unterst&#252;tzt nur ISC DHCPD-Versionen $2 bis $3.
 index_ego=Bearbeite DHCP-Einstellungen und wende sie auf alle Subnetze, freigegebene Netzwerke, Hosts und Hostgruppen an
 index_gdom=Gruppe f&#252;r $1
 index_group=Gruppe:
@@ -350,7 +350,7 @@ plib_defrouters=Standard-Router
 plib_deny=Verweigern
 plib_dnsserv=DNS-Server
 plib_domname=Domainenname
-plib_eexpr=Dieser Abschnitt der DHCP-Konfiguration enth&#228;lt den Ausdruck Direktive $1, die nicht sicher von Webmin bearbeitet werden kann.
+plib_eexpr=Dieser Abschnitt der DHCP-Konfiguration enth&#228;lt den Ausdruck Direktive $1, die nicht sicher von AdFreeZone bearbeitet werden kann.
 plib_fontserv=Font-Server
 plib_forever=Endlos
 plib_ignore=Ignorieren

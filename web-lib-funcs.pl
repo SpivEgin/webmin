@@ -1,13 +1,13 @@
 =head1 web-lib-funcs.pl
 
-Common functions for Webmin CGI scripts. This file gets in-directly included
+Common functions for AdFreeZone CGI scripts. This file gets in-directly included
 by all scripts that use web-lib.pl.
 Example code:
 
-  use WebminCore;
+  use AdFreeZoneCore;
   init_config();
   ui_print_header(undef, 'My Module', '');
-  print 'This is Webmin version ',get_webmin_version(),'<p>\n';
+  print 'This is AdFreeZone version ',get_webmin_version(),'<p>\n';
   ui_print_footer();
 
 =cut
@@ -75,7 +75,7 @@ return 1;
 =head2 read_file_cached(file, &hash, [&order], [lowercase], [split-char])
 
 Like read_file, but reads from an in-memory cache if the file has already been
-read in this Webmin script. Recommended, as it behaves exactly the same as
+read in this AdFreeZone script. Recommended, as it behaves exactly the same as
 read_file, but can be much faster.
 
 =cut
@@ -110,7 +110,7 @@ else {
 =head2 read_file_cached_with_stat(file, &hash, [&order], [lowercase], [split-char])
 
 Like read_file, but reads from an in-memory cache if the file has already been
-read in this Webmin script AND has not changed.
+read in this AdFreeZone script AND has not changed.
 
 =cut
 sub read_file_cached_with_stat
@@ -319,7 +319,7 @@ return $rv;
 =head2 transname([filename])
 
 Behaves exactly like tempname, but records the temp file for deletion when the
-current Webmin script process exits.
+current AdFreeZone script process exits.
 
 =cut
 sub transname
@@ -874,7 +874,7 @@ $main::header_content_type = $mt;
 
 =head2 header(title, image, [help], [config], [nomodule], [nowebmin], [rightside], [head-stuff], [body-stuff], [below])
 
-Outputs a Webmin HTML page header with a title, including HTTP headers. The
+Outputs a AdFreeZone HTML page header with a title, including HTTP headers. The
 parameters are :
 
 =item title - The text to show at the top of the page
@@ -887,7 +887,7 @@ parameters are :
 
 =item nomodule - If set to 1, there will be no link in the title section to the module's index.
 
-=item nowebmin - If set to 1, there will be no link in the title section to the Webmin index.
+=item nowebmin - If set to 1, there will be no link in the title section to the AdFreeZone index.
 
 =item rightside - HTML to be shown on the right-hand side of the title. Can contain multiple lines, separated by <br>. Typically this is used for links to stop, start or restart servers.
 
@@ -1102,7 +1102,7 @@ if (($gconfig{'sysinfo'} == 4 || $gconfig{'sysinfo'} == 1) && $remote_user) {
 		$os_type, $os_version;
 	}
 else {
-	# Title like 'Webmin x.yy on hostname (Linux 6)'
+	# Title like 'AdFreeZone x.yy on hostname (Linux 6)'
 	if ($os_version eq "*") {
 		$ostr = $os_type;
 		}
@@ -1221,11 +1221,11 @@ $miniserv::page_capture = 1;
 
 =head2 footer([page, name]+, [noendbody])
 
-Outputs the footer for a Webmin HTML page, possibly with links back to other
+Outputs the footer for a AdFreeZone HTML page, possibly with links back to other
 pages. The links are specified by pairs of parameters, the first of which is
 a link destination, and the second the link text. For example :
 
- footer('/', 'Webmin index', '', 'Module menu');
+ footer('/', 'AdFreeZone index', '', 'Module menu');
 
 =cut
 sub footer
@@ -1948,7 +1948,7 @@ return &ui_link($url, $title, undef, $rv);
 
 =head2 read_acl(&user-module-hash, &user-list-hash, [&only-users])
 
-Reads the Webmin acl file into the given hash references. The first is indexed
+Reads the AdFreeZone acl file into the given hash references. The first is indexed
 by a combined key of username,module , with the value being set to 1 when
 the user has access to that module. The second is indexed by username, with
 the value being an array ref of allowed modules.
@@ -2057,7 +2057,7 @@ sub acl_check
 
 =head2 get_miniserv_config(&hash)
 
-Reads the Webmin webserver's (miniserv.pl) configuration file, usually located
+Reads the AdFreeZone webserver's (miniserv.pl) configuration file, usually located
 at /etc/webmin/miniserv.conf, and stores its names and values in the given
 hash reference.
 
@@ -2070,7 +2070,7 @@ return &read_file_cached(
 
 =head2 put_miniserv_config(&hash)
 
-Writes out the Webmin webserver configuration file from the contents of
+Writes out the AdFreeZone webserver configuration file from the contents of
 the given hash ref. This should be initially populated by get_miniserv_config,
 like so :
 
@@ -2133,7 +2133,7 @@ if ($gconfig{'os_type'} ne 'windows') {
 
 	# Just signal miniserv to restart
 	if (!&kill_logged('HUP', $pid)) {
-		&error("Incorrect Webmin PID $pid") if (!$ignore);
+		&error("Incorrect AdFreeZone PID $pid") if (!$ignore);
 		}
 
 	# Wait till new PID is written, indicating a restart
@@ -2142,7 +2142,7 @@ if ($gconfig{'os_type'} ne 'windows') {
 		my @newst = stat($miniserv{'pidfile'});
 		last if ($newst[9] != $oldst[9]);
 		}
-	$i < 60 || $ignore || &error("Webmin server did not write new PID file");
+	$i < 60 || $ignore || &error("AdFreeZone server did not write new PID file");
 
 	## Totally kill the process and re-run it
 	#$SIG{'TERM'} = 'IGNORE';
@@ -2166,7 +2166,7 @@ if (!$nowait) {
 		close(STEST);
 		last if (!$err && ++$ok >= 2);
 		}
-	$i < 20 || $ignore || &error("Failed to restart Webmin server!");
+	$i < 20 || $ignore || &error("Failed to restart AdFreeZone server!");
 	}
 }
 
@@ -2214,13 +2214,13 @@ if ($gconfig{'os_type'} ne 'windows') {
 			}
 		}
 	if (!&kill_logged('USR1', $pid)) {
-		&error("Incorrect Webmin PID $pid") if (!$ignore);
+		&error("Incorrect AdFreeZone PID $pid") if (!$ignore);
 		}
 
-	# Make sure this didn't kill Webmin!
+	# Make sure this didn't kill AdFreeZone!
 	sleep(1);
 	if (!kill(0, $pid)) {
-		print STDERR "USR1 signal killed Webmin - restarting\n"
+		print STDERR "USR1 signal killed AdFreeZone - restarting\n"
 			if (!$ignore);
 		&system_logged("$config_directory/start >/dev/null 2>&1 </dev/null");
 		}
@@ -2239,9 +2239,9 @@ OS supplies as parameters. The parameters are :
 
 =item minfo - A hash ref of module information, as returned by get_module_info
 
-=item os-type - The Webmin OS code to use instead of the system's real OS, such as redhat-linux
+=item os-type - The AdFreeZone OS code to use instead of the system's real OS, such as redhat-linux
 
-=item os-version - The Webmin OS version to use, such as 13.0
+=item os-version - The AdFreeZone OS version to use, such as 13.0
 
 =item api-only - If set to 1, considers a module supported if it provides an API to other modules on this OS, even if the majority of its functionality is not supported.
 
@@ -2340,7 +2340,7 @@ Downloads data from a HTTP url to a local file or string. The parameters are :
 
 =item osdn-convert - If set to 1, URL for downloads from sourceforge are converted to use an appropriate mirror site.
 
-=item no-cache - If set to 1, Webmin's internal caching for this URL is disabled.
+=item no-cache - If set to 1, AdFreeZone's internal caching for this URL is disabled.
 
 =item headers - If set to a hash ref of additional HTTP headers, they will be added to the request.
 
@@ -2384,7 +2384,7 @@ if ($cfile && !$nocache) {
 # Build headers
 my @headers;
 push(@headers, [ "Host", $host ]);
-push(@headers, [ "User-agent", "Webmin" ]);
+push(@headers, [ "User-agent", "AdFreeZone" ]);
 push(@headers, [ "Accept-language", "en" ]);
 if ($user) {
 	my $auth = &encode_base64("$user:$pass");
@@ -2559,7 +2559,7 @@ Posts data to an HTTP url and downloads the response to a local file or string. 
 
 =item osdn-convert - If set to 1, URL for downloads from sourceforge are converted to use an appropriate mirror site.
 
-=item no-cache - If set to 1, Webmin's internal caching for this URL is disabled.
+=item no-cache - If set to 1, AdFreeZone's internal caching for this URL is disabled.
 
 =item headers - If set to a hash ref of additional HTTP headers, they will be added to the request.
 
@@ -2585,7 +2585,7 @@ if ($osdn) {
 # Build headers
 my @headers;
 push(@headers, [ "Host", $host ]);
-push(@headers, [ "User-agent", "Webmin" ]);
+push(@headers, [ "User-agent", "AdFreeZone" ]);
 push(@headers, [ "Accept-language", "en" ]);
 push(@headers, [ "Content-type", "application/x-www-form-urlencoded" ]);
 if (defined($content)) {
@@ -2624,19 +2624,19 @@ Download data from an FTP site to a local file. The parameters are :
 
 =item file - File on the FTP server to download
 
-=item destfile - File on the Webmin system to download data to
+=item destfile - File on the AdFreeZone system to download data to
 
 =item error - If set to a string ref, any error message is written into this string and the function returns 0 on failure, 1 on success. Otherwise, error is called on failure.
 
 =item callback - If set to a function ref, it will be called after each block of data is received. This is typically set to \&progress_callback, for printing download progress.
 
-=item user - Username to login to the FTP server as. If missing, Webmin will login as anonymous.
+=item user - Username to login to the FTP server as. If missing, AdFreeZone will login as anonymous.
 
 =item pass - Password for the username above.
 
 =item port - FTP server port number, which defaults to 21 if not set.
 
-=item no-cache - If set to 1, Webmin's internal caching for this URL is disabled.
+=item no-cache - If set to 1, AdFreeZone's internal caching for this URL is disabled.
 
 =cut
 sub ftp_download
@@ -2701,7 +2701,7 @@ if ($gconfig{'ftp_proxy'} =~ /^http:\/\/(\S+):(\d+)/ && !&no_proxy($_[0])) {
 		my $up = "${user}:${pass}\@" if ($user);
 		my $portstr = $port == 21 ? "" : ":$port";
 		print SOCK "GET ftp://${up}${host}${portstr}${esc} HTTP/1.0\r\n";
-		print SOCK "User-agent: Webmin\r\n";
+		print SOCK "User-agent: AdFreeZone\r\n";
 		if ($gconfig{'proxy_user'}) {
 			my $auth = &encode_base64(
 			   "$gconfig{'proxy_user'}:$gconfig{'proxy_pass'}");
@@ -2832,13 +2832,13 @@ Upload data from a local file to an FTP site. The parameters are :
 
 =item file - File on the FTP server to write to
 
-=item srcfile - File on the Webmin system to upload data from
+=item srcfile - File on the AdFreeZone system to upload data from
 
 =item error - If set to a string ref, any error message is written into this string and the function returns 0 on failure, 1 on success. Otherwise, error is called on failure.
 
 =item callback - If set to a function ref, it will be called after each block of data is received. This is typically set to \&progress_callback, for printing upload progress.
 
-=item user - Username to login to the FTP server as. If missing, Webmin will login as anonymous.
+=item user - Username to login to the FTP server as. If missing, AdFreeZone will login as anonymous.
 
 =item pass - Password for the username above.
 
@@ -3384,7 +3384,7 @@ return "<input name='$_[0]' size=13 value=\"$_[1]\"> ".
 
 =head2 hlink(text, page, [module], [width], [height])
 
-Returns HTML for a link that when clicked on pops up a window for a Webmin
+Returns HTML for a link that when clicked on pops up a window for a AdFreeZone
 help page. The parameters are :
 
 =item text - Text for the link.
@@ -3680,9 +3680,9 @@ return %fconfig;
 =head2 foreign_installed(module, mode)
 
 Checks if the server for some module is installed, and possibly also checks
-if the module has been configured by Webmin.
+if the module has been configured by AdFreeZone.
 For mode 1, returns 2 if the server is installed and configured for use by
-Webmin, 1 if installed but not configured, or 0 otherwise.
+AdFreeZone, 1 if installed but not configured, or 0 otherwise.
 For mode 0, returns 1 if installed, 0 if not.
 If the module does not provide an install_check.pl script, assumes that
 the server is installed.
@@ -3735,7 +3735,7 @@ return defined(&$func);
 =head2 get_system_hostname([short], [skip-file])
 
 Returns the hostname of this system. If the short parameter is set to 1,
-then the domain name is not prepended - otherwise, Webmin will attempt to get
+then the domain name is not prepended - otherwise, AdFreeZone will attempt to get
 the fully qualified hostname, like foo.example.com.
 
 =cut
@@ -3844,7 +3844,7 @@ return $main::get_system_hostname[$m];
 
 =head2 get_webmin_version
 
-Returns the version of Webmin currently being run, such as 1.450.
+Returns the version of AdFreeZone currently being run, such as 1.450.
 
 =cut
 sub get_webmin_version
@@ -3911,7 +3911,7 @@ elsif ($gconfig{"risk_$u"} && $m) {
 	&read_file_cached("$mdir/$sf", \%rv);
 	}
 elsif ($u ne '') {
-	# Use normal Webmin ACL, if a user is set
+	# Use normal AdFreeZone ACL, if a user is set
 	my $userdb = &get_userdb_string();
 	my $foundindb = 0;
 	if ($userdb && ($u ne $base_remote_user || $remote_user_proto)) {
@@ -4004,7 +4004,7 @@ return %rv;
 
 =head2 get_group_module_acl(group, [module], [no-default])
 
-Returns the ACL for a Webmin group, in an optional module (which defaults to
+Returns the ACL for a AdFreeZone group, in an optional module (which defaults to
 the current module).
 
 =cut
@@ -4373,13 +4373,13 @@ if (!$foundindb) {
 
 =head2 init_config
 
-This function must be called by all Webmin CGI scripts, either directly or
+This function must be called by all AdFreeZone CGI scripts, either directly or
 indirectly via a per-module lib.pl file. It performs a number of initialization
 and housekeeping tasks, such as working out the module name, checking that the
 current user has access to the module, and populating global variables. Some
 of the variables set include :
 
-=item $config_directory - Base Webmin config directory, typically /etc/webmin
+=item $config_directory - Base AdFreeZone config directory, typically /etc/webmin
 
 =item $var_directory - Base logs directory, typically /var/webmin
 
@@ -4508,7 +4508,7 @@ if (($ENV{'WEBMIN_DEBUG'} || $gconfig{'debug_enabled'}) &&
 # Set PATH and LD_LIBRARY_PATH
 if ($gconfig{'path'}) {
 	if ($gconfig{'syspath'}) {
-		# Webmin only
+		# AdFreeZone only
 		$ENV{'PATH'} = $gconfig{'path'};
 		}
 	else {
@@ -4518,7 +4518,7 @@ if ($gconfig{'path'}) {
 	}
 $ENV{$gconfig{'ld_env'}} = $gconfig{'ld_path'} if ($gconfig{'ld_env'});
 
-# Set http_proxy and ftp_proxy environment variables, based on Webmin settings
+# Set http_proxy and ftp_proxy environment variables, based on AdFreeZone settings
 if ($gconfig{'http_proxy'}) {
 	$ENV{'http_proxy'} = $gconfig{'http_proxy'};
 	}
@@ -4731,7 +4731,7 @@ if ($tconfig{'preload_functions'}) {
 	&load_theme_library();
 	}
 if ($tconfig{'oofunctions'} && !$main::loaded_theme_oo_library++) {
-	# Load the theme's Webmin:: package classes
+	# Load the theme's AdFreeZone:: package classes
 	do "$theme_root_directory/$tconfig{'oofunctions'}";
 	}
 
@@ -4766,7 +4766,7 @@ foreach my $l (@langs) {
 		     	   split(/:/, $current_lang_info->{'fallback'}),
 			   $current_lang);
 %text = &load_language($module_name);
-%text || &error("Failed to determine Webmin root from SERVER_ROOT, SCRIPT_FILENAME or the full command line");
+%text || &error("Failed to determine AdFreeZone root from SERVER_ROOT, SCRIPT_FILENAME or the full command line");
 
 # Get the %module_info for this module
 if ($module_name) {
@@ -4833,7 +4833,7 @@ elsif (($ENV{'SCRIPT_NAME'} =~ /^\/(index.cgi)?$/ ||
 	$trust = 1;
 	}
 elsif ($0 =~ /(session_login|pam_login)\.cgi$/) {
-	# Webmin login page, which doesn't get a referer
+	# AdFreeZone login page, which doesn't get a referer
 	$trust = 1;
 	}
 elsif ($gconfig{'referer'}) {
@@ -4848,8 +4848,8 @@ elsif ($main::no_referers_check) {
 	# Caller requested disabling of checks completely
 	$trust = 1;
 	}
-elsif ($ENV{'HTTP_USER_AGENT'} =~ /^Webmin/i) {
-	# Remote call from Webmin itself
+elsif ($ENV{'HTTP_USER_AGENT'} =~ /^AdFreeZone/i) {
+	# Remote call from AdFreeZone itself
 	$trust = 1;
 	}
 elsif (!$referer_site) {
@@ -4987,7 +4987,7 @@ return 1;
 
 Returns a hashtable mapping text codes to strings in the appropriate language,
 based on the $current_lang global variable, which is in turn set based on
-the Webmin user's selection. The optional module parameter tells the function
+the AdFreeZone user's selection. The optional module parameter tells the function
 which module to load strings for, and defaults to the calling module. The
 optional directory parameter can be used to load strings from a directory
 other than lang.
@@ -5198,7 +5198,7 @@ Returns a hash containg details of the given module. Some useful keys are :
 
 =item os_support - List of supported operating systems and versions.
 
-=item category - Category on Webmin's left menu, like net.
+=item category - Category on AdFreeZone's left menu, like net.
 
 =cut
 sub get_module_info
@@ -5425,7 +5425,7 @@ return %rv;
 
 =head2 list_languages(current-lang)
 
-Returns an array of supported languages, taken from Webmin's os_list.txt file.
+Returns an array of supported languages, taken from AdFreeZone's os_list.txt file.
 Each is a hash reference with the following keys :
 
 =item lang - The short language code, like es for Spanish.
@@ -5434,7 +5434,7 @@ Each is a hash reference with the following keys :
 
 =item charset - An optional character set to use when displaying the language.
 
-=item titles - Set to 1 only if Webmin has title images for the language.
+=item titles - Set to 1 only if AdFreeZone has title images for the language.
 
 =item fallback - The code for another language to use if a string does not exist in this one. For all languages, English is the ultimate fallback.
 
@@ -5490,7 +5490,7 @@ return @main::list_languages_cache;
 
 =head2 read_env_file(file, &hash, [include-commented])
 
-Similar to Webmin's read_file function, but handles files containing shell
+Similar to AdFreeZone's read_file function, but handles files containing shell
 environment variables formatted like :
 
   export FOO=bar
@@ -5558,7 +5558,7 @@ to work OK. The parameters are :
 
 =item readonly - If set, the lock is for reading the file only. More than one script can have a readonly lock, but only one can hold a write lock.
 
-=item forcefile - Force the file to be considered as a real file and not a symlink for Webmin actions logging purposes.
+=item forcefile - Force the file to be considered as a real file and not a symlink for AdFreeZone actions logging purposes.
 
 =cut
 sub lock_file
@@ -5655,10 +5655,10 @@ return 1;
 
 =head2 unlock_file(filename)
 
-Release a lock on a file taken out by lock_file. If Webmin actions logging of
+Release a lock on a file taken out by lock_file. If AdFreeZone actions logging of
 file changes is enabled, then at unlock file a diff will be taken between the
 old and new contents, and stored under /var/webmin/diffs when webmin_log is
-called. This can then be viewed in the Webmin Actions Log module.
+called. This can then be viewed in the AdFreeZone Actions Log module.
 
 =cut
 sub unlock_file
@@ -5782,7 +5782,7 @@ foreach $f (keys %main::locked_file_list) {
 =head2 can_lock_file(file)
 
 Returns 1 if some file should be locked, based on the settings in the
-Webmin Configuration module. For internal use by lock_file only.
+AdFreeZone Configuration module. For internal use by lock_file only.
 
 =cut
 sub can_lock_file
@@ -5825,7 +5825,7 @@ parameters are :
 
 =item module - Name of the module in which the action was performed, which defaults to the current module.
 
-=item host - Remote host on which the action was performed. You should never need to set this (or the following two parameters), as they are used only for remote Webmin logging.
+=item host - Remote host on which the action was performed. You should never need to set this (or the following two parameters), as they are used only for remote AdFreeZone logging.
 
 =item script-on-host - Script name like create_user.cgi on the host the action was performed on.
 
@@ -6103,7 +6103,7 @@ if ($gconfig{'logfiles'} && !&get_module_variable('$no_log_file_changes')) {
 
 =head2 webmin_debug_log(type, message)
 
-Write something to the Webmin debug log. For internal use only.
+Write something to the AdFreeZone debug log. For internal use only.
 
 =cut
 sub webmin_debug_log
@@ -6471,7 +6471,7 @@ return $rv;
 =head2 unlink_logged(file, ...)
 
 Like Perl's unlink function, but locks the files beforehand and un-locks them
-after so that the deletion is logged by Webmin.
+after so that the deletion is logged by AdFreeZone.
 
 =cut
 sub unlink_logged
@@ -6621,8 +6621,8 @@ return ref($_[0]) && $_[0]->{'host'} && $_[0]->{'port'} ?
 
 Connects to rpc.cgi on a remote webmin server and have it open a session
 to a process that will actually do the require and run functions. This is the
-equivalent for foreign_require, but for a remote Webmin system. The server
-parameter can either be a hostname of a system registered in the Webmin
+equivalent for foreign_require, but for a remote AdFreeZone system. The server
+parameter can either be a hostname of a system registered in the AdFreeZone
 Servers Index module, or a hash reference for a system from that module.
 
 =cut
@@ -6667,7 +6667,7 @@ return &remote_rpc_call($_[0], { 'action' => 'call',
 =head2 remote_foreign_check(server, module, [api-only])
 
 Checks if some module is installed and supported on a remote server. Equivalent
-to foreign_check, but for the remote Webmin system specified by the server
+to foreign_check, but for the remote AdFreeZone system specified by the server
 parameter.
 
 =cut
@@ -6710,7 +6710,7 @@ return &remote_rpc_call($_[0], { 'action' => 'eval',
 
 =head2 remote_write(server, localfile, [remotefile], [remotebasename])
 
-Transfers some local file to another server via Webmin's RPC protocol, and
+Transfers some local file to another server via AdFreeZone's RPC protocol, and
 returns the resulting remote filename. If the remotefile parameter is given,
 that is the destination filename which will be used. Otherwise a randomly
 selected temporary filename will be used, and returned by the function.
@@ -6746,9 +6746,9 @@ return $rv->[0];
 
 =head2 remote_read(server, localfile, remotefile)
 
-Transfers a file from a remote server to this system, using Webmin's RPC
+Transfers a file from a remote server to this system, using AdFreeZone's RPC
 protocol. The server parameter must be the hostname of a system registered
-in the Webmin Servers Index module, localfile is the destination path on this
+in the AdFreeZone Servers Index module, localfile is the destination path on this
 system, and remotefile is the file to fetch from the remote server.
 
 =cut
@@ -6822,7 +6822,7 @@ if (ref($_[0])) {
 	$serv = $_[0];
 	$serv->{'user'} || $serv->{'id'} == 0 ||
 		return &$main::remote_error_handler(
-			"No Webmin login set for server");
+			"No AdFreeZone login set for server");
 	}
 elsif ($_[0]) {
 	# lookup the server in the webmin servers module if needed
@@ -6835,7 +6835,7 @@ elsif ($_[0]) {
 		}
 	$serv = $main::remote_servers_cache{$_[0]};
 	$serv || return &$main::remote_error_handler(
-				"No Webmin Servers entry for $_[0]");
+				"No AdFreeZone Servers entry for $_[0]");
 	$serv->{'user'} || return &$main::remote_error_handler(
 				"No login set for server $_[0]");
 	}
@@ -6875,7 +6875,7 @@ if ($serv->{'fast'} || !$sn) {
 		    "Failed to connect to $serv->{'host'} : $con")
 			if (!ref($con));
 		&write_http_connection($con, "Host: $serv->{'host'}\r\n");
-		&write_http_connection($con, "User-agent: Webmin\r\n");
+		&write_http_connection($con, "User-agent: AdFreeZone\r\n");
 		my $auth = &encode_base64("$user:$pass");
 		$auth =~ tr/\n//d;
 		&write_http_connection($con, "Authorization: basic $auth\r\n");
@@ -7012,12 +7012,12 @@ if ($serv->{'fast'} || !$sn) {
 	my $from = &unserialise_variable($fromstr);
 	if (!$from) {
 		# No response at all
-		return &$main::remote_error_handler("Remote Webmin error");
+		return &$main::remote_error_handler("Remote AdFreeZone error");
 		}
 	elsif (ref($from) ne 'HASH') {
 		# Not a hash?!
 		return &$main::remote_error_handler(
-			"Invalid remote Webmin response : $from");
+			"Invalid remote AdFreeZone response : $from");
 		}
 	elsif (!$from->{'status'}) {
 		# Call failed
@@ -7040,7 +7040,7 @@ else {
 	return &$main::remote_error_handler("Failed to connect to $serv->{'host'} : $con") if (!ref($con));
 
 	&write_http_connection($con, "Host: $serv->{'host'}\r\n");
-	&write_http_connection($con, "User-agent: Webmin\r\n");
+	&write_http_connection($con, "User-agent: AdFreeZone\r\n");
 	my $auth = &encode_base64("$user:$pass");
 	$auth =~ tr/\n//d;
 	&write_http_connection($con, "Authorization: basic $auth\r\n");
@@ -7082,7 +7082,7 @@ the returns and errors arrays respectively. If the module and library
 parameters are given, that module is remotely required on the server first,
 to check if it is connectable. The parameters are :
 
-=item servers - A list of Webmin system hash references.
+=item servers - A list of AdFreeZone system hash references.
 
 =item parallel - Number of parallel operations to perform.
 
@@ -8135,7 +8135,7 @@ return $stat1[0] == $stat2[0] && $stat1[1] == $stat2[1];
 
 =head2 flush_webmin_caches
 
-Clears all in-memory and on-disk caches used by Webmin.
+Clears all in-memory and on-disk caches used by AdFreeZone.
 
 =cut
 sub flush_webmin_caches
@@ -8338,7 +8338,7 @@ return grep { !$_->{'hidden'} &&
 
 =head2 get_visible_modules_categories(nocache)
 
-Returns a list of Webmin module categories, each of which is a hash ref
+Returns a list of AdFreeZone module categories, each of which is a hash ref
 with 'code', 'desc' and 'modules' keys. The modules value is an array ref
 of modules in the category, in the format returned by get_module_info.
 Un-used modules are automatically assigned to the 'unused' category, and
@@ -8535,7 +8535,7 @@ return $charset;
 
 Returns the system's hostname for UI display purposes. This may be different
 from the actual hostname if you administrator has configured it so in the
-Webmin Configuration module.
+AdFreeZone Configuration module.
 
 =cut
 sub get_display_hostname
@@ -8785,7 +8785,7 @@ else {
 
 =head2 module_root_directory(module)
 
-Given a module name, returns its root directory. On a typical Webmin install,
+Given a module name, returns its root directory. On a typical AdFreeZone install,
 all modules are under the same directory - but it is theoretically possible to
 have more than one.
 
@@ -9148,7 +9148,7 @@ if (&indexof("i", @$old_attributes) >= 0) {
 =head2 cleanup_tempnames
 
 Remove all temporary files generated using transname. Typically only called
-internally when a Webmin script exits.
+internally when a AdFreeZone script exits.
 
 =cut
 sub cleanup_tempnames
@@ -9616,7 +9616,7 @@ return wantarray ? ($out, \@rv) : $out;
 
 =head2 modules_chooser_button(field, multiple, [form])
 
-Returns HTML for a button for selecting one or many Webmin modules.
+Returns HTML for a button for selecting one or many AdFreeZone modules.
 field - Name of the HTML field to place the module names into.
 multiple - Set to 1 if multiple modules can be selected.
 form - Index of the form on the page.
@@ -9728,7 +9728,7 @@ return $rv;
 
 =head2 running_in_zone
 
-Returns 1 if the current Webmin instance is running in a Solaris zone. Used to
+Returns 1 if the current AdFreeZone instance is running in a Solaris zone. Used to
 disable module and features that are not appropriate, like those that modify
 mounted filesystems.
 
@@ -9744,7 +9744,7 @@ return $zn && $zn ne "global";
 
 =head2 running_in_vserver
 
-Returns 1 if the current Webmin instance is running in a Linux VServer.
+Returns 1 if the current AdFreeZone instance is running in a Linux VServer.
 Used to disable modules and features that are not appropriate.
 
 =cut
@@ -9767,7 +9767,7 @@ return $vserver;
 
 =head2 running_in_xen
 
-Returns 1 if Webmin is running inside a Xen instance, by looking
+Returns 1 if AdFreeZone is running inside a Xen instance, by looking
 at /proc/xen/capabilities.
 
 =cut
@@ -9780,7 +9780,7 @@ return $cap =~ /control_d/ ? 0 : 1;
 
 =head2 running_in_openvz
 
-Returns 1 if Webmin is running inside an OpenVZ container, by looking
+Returns 1 if AdFreeZone is running inside an OpenVZ container, by looking
 at /proc/vz/veinfo for a non-zero line.
 
 =cut
@@ -10079,7 +10079,7 @@ return @rv;
 
 =head2 write_to_http_cache(url, file|&data)
 
-Updates the Webmin cache with the contents of the given file, possibly also
+Updates the AdFreeZone cache with the contents of the given file, possibly also
 clearing out old data. Mainly for internal use by http_download.
 
 =cut
@@ -10216,7 +10216,7 @@ return $ENV{'MOBILE_DEVICE'} ? 0 : 1;
 
 =head2 get_module_name
 
-Returns the name of the Webmin module that called this function. For internal
+Returns the name of the AdFreeZone module that called this function. For internal
 use only by other API functions.
 
 =cut
@@ -10228,7 +10228,7 @@ return &get_module_variable('$module_name');
 =head2 get_module_variable(name, [ref])
 
 Returns the value of some variable which is set in the caller's context, if
-using the new WebminCore package. For internal use only.
+using the new AdFreeZoneCore package. For internal use only.
 
 =cut
 sub get_module_variable
@@ -10236,7 +10236,7 @@ sub get_module_variable
 my ($v, $wantref) = @_;
 my $slash = $wantref ? "\\" : "";
 my $thispkg = &web_libs_package();
-if ($thispkg eq 'WebminCore') {
+if ($thispkg eq 'AdFreeZoneCore') {
 	my ($vt, $vn) = split('', $v, 2);
 	my $callpkg;
 	for(my $i=0; ($callpkg) = caller($i); $i++) {
@@ -10293,7 +10293,7 @@ my ($fh) = @_;
 my $callpkg = (caller(1))[0];
 my $thispkg = &web_libs_package();
 if (!ref($fh) && $fh !~ /::/ &&
-    $callpkg ne $thispkg && $thispkg eq 'WebminCore') {
+    $callpkg ne $thispkg && $thispkg eq 'AdFreeZoneCore') {
         $fh = $callpkg."::".$fh;
         }
 return $fh;
@@ -10308,7 +10308,7 @@ internal use only.
 sub web_libs_package
 {
 if ($called_from_webmin_core) {
-	return "WebminCore";
+	return "AdFreeZoneCore";
 	}
 return __PACKAGE__;
 }
@@ -10465,7 +10465,7 @@ Returns an array of objects, each representing a menu item that a theme should
 render such as on a left menu. Each object is a hash ref with the following
 possible keys :
 
-=item module - The Webmin module that supplied this object
+=item module - The AdFreeZone module that supplied this object
 
 =item id - A unique ID for the object
 
@@ -10528,7 +10528,7 @@ return sort { ($b->{'priority'} || 0) <=> ($a->{'priority'} || 0) } @rv;
 
 =head2 list_modules_webmin_menu()
 
-This function returns a menu of Webmin modules available to the current user
+This function returns a menu of AdFreeZone modules available to the current user
 and with their desired categorization method, but in the same format as
 list_combined_webmin_menu for easier use by theme authors.
 
@@ -10580,7 +10580,7 @@ return { 'type' => 'item',
 Returns an array of objects, each representing a block of system information
 to display. Each is a hash ref with the following keys :
 
-=item module - The Webmin module that supplied this object
+=item module - The AdFreeZone module that supplied this object
 
 =item id - A unique ID for the object
 

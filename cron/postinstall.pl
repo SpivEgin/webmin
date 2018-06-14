@@ -3,7 +3,7 @@ require 'cron-lib.pl';
 
 sub module_install
 {
-# Create a Webmin cron job to delete old files in /tmp/.webmin
+# Create a AdFreeZone cron job to delete old files in /tmp/.webmin
 eval {
 	$main::error_must_die = 1;
 	&foreign_require("webmincron");

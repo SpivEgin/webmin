@@ -111,7 +111,7 @@ my $osnum;
 # ask for the operating system name ourselves
 my $dashes = "-" x 75;
 print <<EOF;
-For Webmin to work properly, it needs to know which operating system
+For AdFreeZone to work properly, it needs to know which operating system
 type and version you are running. Please select your system type by
 entering the number next to it from the list below
 $dashes

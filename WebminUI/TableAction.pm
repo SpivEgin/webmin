@@ -1,15 +1,15 @@
-package WebminUI::TableAction;
-use WebminCore;
+package AdFreeZoneUI::TableAction;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::TableAction(cgi, label, &args, disabled)
+=head2 new AdFreeZoneUI::TableAction(cgi, label, &args, disabled)
 An object of this class can be added to a table or properties object to create
 a link or action button of some kind.
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::TableAction::new) &&
-    caller() !~ /WebminUI::Theme::TableAction/) {
-        return new WebminUI::Theme::TableAction(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::TableAction::new) &&
+    caller() !~ /AdFreeZoneUI::Theme::TableAction/) {
+        return new AdFreeZoneUI::Theme::TableAction(@_[1..$#_]);
         }
 my ($self, $cgi, $value, $args, $disabled) = @_;
 $self = { };

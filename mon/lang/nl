@@ -149,7 +149,7 @@ show_title=Operationele Status
 start_err=Mislukt om MON te starten
 status_ecgi=Het MON status CGI programma $1 bestaat niet. Misschien is het niet geinstalleerd of uw <a href='$2'>module configuratie</a> is niet correct.
 status_eperl=Het MON status CGI programma heeft de $1 perl module nodig. <a href='$2'>Klik hier</a> om het direct te installeren van CPAN
-status_esame=Het MON status CGI programma $1 is ingesteld naar de <tt>mon.cgi</tt> script in deze Webmin module, dus niet het CGI programma wat gekomen is met MON. Bewerk de <a href='$2'>module configuratie</a> om het juiste pad te gebruiken.
+status_esame=Het MON status CGI programma $1 is ingesteld naar de <tt>mon.cgi</tt> script in deze AdFreeZone module, dus niet het CGI programma wat gekomen is met MON. Bewerk de <a href='$2'>module configuratie</a> om het juiste pad te gebruiken.
 status_title=MON Status
 stop_epid=Niet langer werkend
 stop_err=Mislukt MON te stoppen

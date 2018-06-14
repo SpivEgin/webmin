@@ -1,5 +1,5 @@
 @ECHO off
-ECHO Helper Script to install Webmin on Windows
+ECHO Helper Script to install AdFreeZone on Windows
 ECHO (c) gnadelwartz https:://gitbub.com/gnadelwartz
 ECHO .
 
@@ -24,10 +24,10 @@ SET INSTALL=setup.pl
 
 :: check if we are in webmin dir
 IF NOT EXIST %INSTALL% (
-	ECHO Webmin installation script not found!
+	ECHO AdFreeZone installation script not found!
 	ECHO setup.bat must be executed inside the webmin source dir.
 	ECHO .
-	ECHO you can download latest Webmin Version from
+	ECHO you can download latest AdFreeZone Version from
 	ECHO https://sourceforge.net/projects/webadmin/
 	start "" %WEBMIN_download%
 	ECHO .
@@ -74,11 +74,11 @@ IF %ERRORLEVEL% NEQ 0 (
 
 :: check if needed dir exist
 IF NOT EXIST %tmp_dir% (
-	ECHO Create Webmin temp dir
+	ECHO Create AdFreeZone temp dir
 	MD %tmp_dir%
 )
 IF NOT EXIST %inst_dir% (
-	ECHO Create Webmin Main dir
+	ECHO Create AdFreeZone Main dir
 	MD %inst_dir%
 )
 
@@ -92,7 +92,7 @@ IF EXIST %INSTALL% (
     SET perl_path=%perl_path%\bin\perl.exe
     perl %INSTALL% %wa_dir%
 ) ELSE (
-	ECHO Webmin can not installed becasue of missing depedencies!
+	ECHO AdFreeZone can not installed becasue of missing depedencies!
 )
 ECHO .
 PAUSE

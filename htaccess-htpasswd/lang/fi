@@ -1,6 +1,6 @@
 acl_dirs=Sallitut hakemistot
 acl_home=Mukaanlue Unix k&#228;ytt&#228;j&#228;n kotihakemisto?
-acl_same=Sama kuin Webmin tunnus
+acl_same=Sama kuin AdFreeZone tunnus
 acl_sync=Voi
 acl_user=Luo .htaccess ja htusers tiedostot Unix k&#228;ytt&#228;j&#228;n&#228;
 dir_auto=Valitse automaattisesti

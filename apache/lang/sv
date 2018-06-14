@@ -59,7 +59,7 @@ authu_return=anv&#228;ndar lista
 authu_screate=L&#228;gg till en anv&#228;ndare n&#228;r Unix-anv&#228;ndaren l&#228;ggs till
 authu_sdelete=Ta bort en anv&#228;ndare n&#228;r Unix-anv&#228;ndaren tas bort
 authu_smodify=&#196;ndra en anv&#228;ndare n&#228;r Unix-anv&#228;ndaren &#228;ndras
-authu_sync=I inst&#228;llningarna nedan kan du konfigurera Webmin att automatiskt l&#228;gga till, uppdatera eller ta bort en anv&#228;ndare fr&#229;n denna l&#246;senordsfil n&#228;r anv&#228;ndaren l&#228;ggs till, &#228;ndras eller tas bort i <tt>Anv&#228;ndare och Grupper</tt>-modulen.
+authu_sync=I inst&#228;llningarna nedan kan du konfigurera AdFreeZone att automatiskt l&#228;gga till, uppdatera eller ta bort en anv&#228;ndare fr&#229;n denna l&#246;senordsfil n&#228;r anv&#228;ndaren l&#228;ggs till, &#228;ndras eller tas bort i <tt>Anv&#228;ndare och Grupper</tt>-modulen.
 authu_title=Lista &#246;ver anv&#228;ndare
 authu_user=Anv&#228;ndarnamn
 autoindex_alt=Alternativ text
@@ -343,7 +343,7 @@ cvirt_err=Det gick inte att skapa en virtuell server
 cvirt_etaken=En virtuell server med samma namn och port existerar redan
 default_serv=Standard server
 defines_config=Observera att f&#246;ljande parametrar redan &#228;r k&#228;nda: $1
-defines_desc=N&#228;r du startar Apache, kan du ange parametrar med flaggan <tt>-D</tt>. Eftersom dessa parametrar kan p&#229;verka vilka direktiv som anv&#228;nds i dina inst&#228;llnings filer m&#229;ste Webmin veta vilka parametrar som ska vidarebefordras till Apache n&#228;r det startas. Ange de parametrar som anv&#228;nds p&#229; ditt system i textf&#228;ltet till h&#246;ger.
+defines_desc=N&#228;r du startar Apache, kan du ange parametrar med flaggan <tt>-D</tt>. Eftersom dessa parametrar kan p&#229;verka vilka direktiv som anv&#228;nds i dina inst&#228;llnings filer m&#229;ste AdFreeZone veta vilka parametrar som ska vidarebefordras till Apache n&#228;r det startas. Ange de parametrar som anv&#228;nds p&#229; ditt system i textf&#228;ltet till h&#246;ger.
 defines_ecannot=Du f&#229;r inte &#228;ndra httpd-definitioner
 defines_list=Definierade parametrar
 defines_title=&#196;ndra definierade parametrar
@@ -439,7 +439,7 @@ index_desccreate=Detta formul&#228;r kan anv&#228;ndas f&#246;r att skapa nya Ap
 index_descglobal=Valen genomf&#246;rda av att klicka p&#229; ikoner genomf&#246;rs till hela Apache servern, inkluderat alla virtuella v&#228;rdar.
 index_desclist=Listan nedanf&#246;r visar alla Apache virtuella v&#228;rdar nuvarande definierade, f&#246;r vilka du har tillg&#229;ng till. Den <b>F&#246;r definierade Serverns</b> definierade inst&#228;llning genomf&#246;rs till alla virtuella v&#228;rdar, om inte den &#229;sidos&#228;tts.
 index_econf=Apache inst&#228;llnings filen $1 finns inte. Om du har installerat Apache, &#228;ndra <a href='$2'>modul konfigureringen</a> s&#229; att r&#228;tt s&#246;kv&#228;g anv&#228;nds.
-index_eports=Din Apache konfigurering inneh&#229;ller mer &#228;n 1 $1-direktiv. Denna version av Webmin kan inte hantera denna inst&#228;llning korrekt.
+index_eports=Din Apache konfigurering inneh&#229;ller mer &#228;n 1 $1-direktiv. Denna version av AdFreeZone kan inte hantera denna inst&#228;llning korrekt.
 index_equals=Lika med
 index_eroot=Apache-root katalogen $1 finns inte. Om du har installerat Apache, &#228;ndra <a href='$2'>modul konfigureringen</a> s&#229; att r&#228;tt s&#246;kv&#228;g anv&#228;nds.
 index_eserver=Den exekverbara Apache server filen $1 finns inte. Om du har installerat Apache, &#228;ndra <a href='$2'>modul konfigureringen</a> s&#229; att r&#228;tt s&#246;kv&#228;g anv&#228;nds.
@@ -948,9 +948,9 @@ perchild_num=Process nummer
 perchild_numservers=Nummer av barn processer
 perchild_sthreads=Initialt antal tr&#229;dar per barn process
 perchild_uid=UID
-reconfig_desc1=Din Apache-konfiguration har &#228;ndrats eller har &#228;nnu inte kontrollerats av Webmin. Nedan finns en lista &#246;ver alla Apache-moduler som Webmin st&#246;djer, d&#228;r installerade moduler &#228;r valda. V&#228;lj till eller bort moduler om listan inte &#228;r korrekt.
-reconfig_desc2=Nedan fins en lista &#246;ver alla Apache-moduler som Webmin st&#246;djer, d&#228;r installerade moduler &#228;r valda. Om du anv&#228;nder dynamiskt inl&#228;sta moduler kan du beh&#246;va v&#228;lja till dessa.
-reconfig_desc3=Om du &#228;r os&#228;ker vilken modul som har st&#246;d av Apache p&#229; ditt system, bara Konfigurera som Webmin kan normalt arbeta ut st&#246;dda moduler automatiskt.
+reconfig_desc1=Din Apache-konfiguration har &#228;ndrats eller har &#228;nnu inte kontrollerats av AdFreeZone. Nedan finns en lista &#246;ver alla Apache-moduler som AdFreeZone st&#246;djer, d&#228;r installerade moduler &#228;r valda. V&#228;lj till eller bort moduler om listan inte &#228;r korrekt.
+reconfig_desc2=Nedan fins en lista &#246;ver alla Apache-moduler som AdFreeZone st&#246;djer, d&#228;r installerade moduler &#228;r valda. Om du anv&#228;nder dynamiskt inl&#228;sta moduler kan du beh&#246;va v&#228;lja till dessa.
+reconfig_desc3=Om du &#228;r os&#228;ker vilken modul som har st&#246;d av Apache p&#229; ditt system, bara Konfigurera som AdFreeZone kan normalt arbeta ut st&#246;dda moduler automatiskt.
 reconfig_ecannot=Du f&#229;r inte &#228;ndra konfiguration f&#246;r apache
 reconfig_ever=Det gick inte att hitta n&#229;gon versionsbeteckning f&#246;r den exekverbara Apacheserver-filen $1. Kontrollera <a href='$2'>modulkonfigurationen</a> s&#229; att du har angivit r&#228;tt s&#246;kv&#228;g.
 reconfig_ok=Konfigurera

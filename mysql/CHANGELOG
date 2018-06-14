@@ -3,8 +3,8 @@ The not null flag and a default value can be specified for fields in new tables.
 The form for creating an initial table in a new database is now the same as the one for adding a table to an existing database.
 ---- Changes since 1.150 ----
 Added a button on the module's main page for backing up all databases, either immediately or on schedule.
-A Webmin user who has been set up to login to MySQL as a different user will now be prompted to login if his password set in the Webmin Users module incorrect.
-Added an access control restriction to limit the number of databases a Webmin user can own.
+A AdFreeZone user who has been set up to login to MySQL as a different user will now be prompted to login if his password set in the AdFreeZone Users module incorrect.
+Added an access control restriction to limit the number of databases a AdFreeZone user can own.
 Fields can now be specified as unsigned when creating a table.
 ---- Changes since 1.160 ----
 Added the ability to select which tables to include when making a backup.
@@ -22,7 +22,7 @@ Added a button on the Edit Table page for exporting in CSV format, either to a f
 Added an option on the CSV export page for selecting which columns to include.
 ---- Changes since 1.240 ----
 When editing data in a table, enum fields are shown as menus.
-The full MySQL error message is now shown when Webmin cannot login to the database.
+The full MySQL error message is now shown when AdFreeZone cannot login to the database.
 When backing up all databases at once, an option is now available to run commands before/after all of them, rather than before/after each.
 ---- Changes since 1.250 ----
 Added a new page for editing MySQL server settings in the [mysqld] section of the my.cnf file.
@@ -55,7 +55,7 @@ Fixed a bug that prevents compression from being done when backing up all databa
 Improved detection of support for views, which avoids errors with information_schema.views.
 ---- Changes since 1.370 ----
 Added an option on the backup form to create the destination directory if missing.
-Re-wrote the backup form to use the new Webmin UI library.
+Re-wrote the backup form to use the new AdFreeZone UI library.
 The MySQL password is no longer passed on the command line.
 ---- Changes since 1.380 ----
 Fixed a bug that prevented 'Jump to row' from working properly.
@@ -65,7 +65,7 @@ When testing if a user can login, no specific database is used in case the user 
 When there are too many databases, huge lists of all databases and tables are not shown on the Table Permissions and Field Permissions pages. Instead, text boxes for entering names are shown.
 System variables can now be searched using a new field, making it easier to find the one you want from the large list on some systems.
 Re-designed the Execute SQL page to use tabs.
-Converted all user interface code to use the new Webmin UI library, for a more consistent look.
+Converted all user interface code to use the new AdFreeZone UI library, for a more consistent look.
 ---- Changes since 1.400 ----
 Added a Module Config option to show databases and tables using just their names, which is much faster under MySQL 5 as it avoids the need to count their tables, fields and rows.
 ---- Changes since 1.410 ----
@@ -77,7 +77,7 @@ Display the number of tables and records created when executing SQL for a restor
 Improved the input for setting the default value for new fields, and added support for CURRENT_TIMESTAMP.
 ---- Changes since 1.440 ----
 The correct character set is ready from my.cnf when connecting using DBI mode, thanks to jianxia.
-The password is passed to all MySQL commands using the MYSQL_PWD environment variables on systems running MySQL 4.1 and later, version 5.1 in older Webmin releases.
+The password is passed to all MySQL commands using the MYSQL_PWD environment variables on systems running MySQL 4.1 and later, version 5.1 in older AdFreeZone releases.
 ---- Changes since 1.450 ----
 Use DBI for listing databases and tables, to reduce dependency on the un-reliable MYSQL_PWD environment variable.
 Fixed the input for setting the default value for fields.

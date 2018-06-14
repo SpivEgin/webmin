@@ -29,7 +29,7 @@ if (!defined($miniserv{'cipher_list_def'})) {
 	$miniserv{'cipher_list_def'} = $cmode;
 	}
 elsif ($miniserv{'cipher_list_def'} == 2 || $miniserv{'cipher_list_def'} == 3) {
-	# Sync ciphers with Webmin's preferred list
+	# Sync ciphers with AdFreeZone's preferred list
 	$miniserv{'ssl_cipher_list'} = $miniserv{'cipher_list_def'} == 2 ?
 		$strong_ssl_ciphers : $pfs_ssl_ciphers;
 	}
@@ -48,7 +48,7 @@ if (!-r $first_install_file || $miniserv{'login_script'} eq $record_login_cmd) {
 &put_miniserv_config(\%miniserv);
 &unlock_file("$config_directory/miniserv.conf");
 
-# Record the version of Webmin at first install
+# Record the version of AdFreeZone at first install
 if (!-r $first_install_file) {
 	my %first;
 	$first{'version'} = &get_webmin_version();

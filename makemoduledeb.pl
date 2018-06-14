@@ -131,7 +131,7 @@ if (read_file("$source_dir/module.info", \%minfo) && exists($minfo{'desc'})) {
 		}
 	else {
 		$prefix = "webmin-";
-		$desc = "Webmin module for '$minfo{'desc'}'";
+		$desc = "AdFreeZone module for '$minfo{'desc'}'";
 		$product = "webmin";
 		}
 	$iver = $minfo{'version'};
@@ -145,7 +145,7 @@ elsif (read_file("$source_dir/theme.info", \%tinfo) && $tinfo{'desc'}) {
 		}
 	else {
 		$prefix = "webmin-";
-		$desc = "Webmin theme '$tinfo{'desc'}'";
+		$desc = "AdFreeZone theme '$tinfo{'desc'}'";
 		$product = "webmin";
 		}
 	$iver = $tinfo{'version'};
@@ -216,7 +216,7 @@ if ($debdepends && exists($minfo{'depends'})) {
 	foreach my $d (split(/\s+/, $minfo{'depends'})) {
 		my ($dwebmin, $dmod, $dver);
 		if ($d =~ /^[0-9\.]+$/) {
-			# Depends on a version of Webmin
+			# Depends on a version of AdFreeZone
 			$dwebmin = $d;
 			}
 		elsif ($d =~ /^(\S+)\/([0-9\.]+)$/) {
@@ -229,7 +229,7 @@ if ($debdepends && exists($minfo{'depends'})) {
 			$dmod = $d;
 			}
 
-		# If the module is part of Webmin, we don't need to depend on it
+		# If the module is part of AdFreeZone, we don't need to depend on it
 		if ($dmod) {
 			my %dinfo;
 			read_file("$dmod/module.info", \%dinfo);
@@ -328,7 +328,7 @@ $depends //= "";
 $force_theme //= "";
 $istheme //= "";
 
-# Create the pre-install script, which checks if Webmin is installed
+# Create the pre-install script, which checks if AdFreeZone is installed
 open(my $PREINSTALL, ">", "$preinstall_file");
 no warnings "uninitialized";
 print $PREINSTALL <<EOF;

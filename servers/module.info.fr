@@ -1,1 +1,1 @@
-desc_fr=Index des serveurs Webmin
+desc_fr=Index des serveurs AdFreeZone

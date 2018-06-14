@@ -40,20 +40,20 @@ server (een backup bron voor het domein). <p>
 <hr>
 <h3>De DNS Server Opzetten</h3>
 Indien uw systeem reeds een werkende BIND DNS server heeft, kunt u dit gedeelte
-negeren. Echter indien Webmin detecteert dat de primaire DNS server
+negeren. Echter indien AdFreeZone detecteert dat de primaire DNS server
 configuratie file (normaal gesproken <tt>/etc/named.boot</tt>) ontbreekt op uw
 systeem, word er aangenomen dat de server niet is opgezet. <p>
 
 Voor normaal internet gebruik, heeft een DNS server een lijst van de root 
 naam servers zodat het DNS aanvragen kan beantwoorden die zich buiten zijn domeinen
 bevinden. 
-Indien uw server nog niet is opgezet, kan Webmin :
+Indien uw server nog niet is opgezet, kan AdFreeZone :
 <ol>
 <li>Deze lijst downloaden van de Internic FTP server op <tt>rs.internic.net</tt>.
-    Er van uitgaande dat de Webmin host waarin het moet worden uitgevoerd
+    Er van uitgaande dat de AdFreeZone host waarin het moet worden uitgevoerd
     is verbonden met het internet en niet word geblokkeerd door een firewall.
     Dit is de beste optie. <p>
-<li>Gebruik een lijst die word gedistribueerd door Webmin. Omdat de root
+<li>Gebruik een lijst die word gedistribueerd door AdFreeZone. Omdat de root
     naam servers niet vaak veranderen zal dit goed werken. <p>
 <li>De naam server alleen voor intern gebruik opzetten. Indien u op een netwerk
     zit wat niet is verbonden met het internet is dit de beste optie die
@@ -83,7 +83,7 @@ De bedoeling van de velden zijn :
 <li><b>Naam server</b><br>
     Hier moet de volledig gekwalificeerde naam staan voor de naam server die
     verantwoordelijk is voor dit domein. Dit zal bijna altijd de naam zijn
-    van de host waarop u Webmin heeft werken. <p>
+    van de host waarop u AdFreeZone heeft werken. <p>
 </ul>
 
 <hr>

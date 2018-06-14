@@ -122,7 +122,7 @@ asave_ecannot2=Sie haben keine Berechtigung, Aliases zu bearbeiten.
 asave_ematch=Sie haben nur die Berechtigung, Aliases zu erstellen, die mit '$1' &#252;bereinstimmen
 asave_emax=Sie haben keine Berechtigung, mehr als $1 Aliases zu erstellen
 asave_err=Das Speichern des Alias schlug fehl
-asave_esame=Sie sind nicht berechtigt, einen Alias welcher mit Ihrem Webmin Login identisch ist, zu erstellen.
+asave_esame=Sie sind nicht berechtigt, einen Alias welcher mit Ihrem AdFreeZone Login identisch ist, zu erstellen.
 asave_etype=Sie haben nicht die Berechtigung, Aliases dieses Typs zu erstellen
 asave_etype1='$1' ist keine g&#252;ltige E-Mail-Adresse
 asave_etype2=Adressen Datei '$1' existiert nicht oder ist ung&#252;ltig
@@ -308,7 +308,7 @@ gsave_err=Fehler beim Speichern der ausgehenden Adresse
 gsave_eto='$1' ist keine g&#252;ltige neue Adresse
 index_econfig=Die Sendmail-Konfigurationsdatei $1 existiert nicht. Eventuell ist Ihre <a href='$2'>Modulkonfiguration</a> inkorrekt.
 index_epath=Die ausf&#252;hrbare Sendmail-Datei $1 ist nicht auf Ihrem System installiert. Vielleicht ist Ihre <a href='$2'>Modulkonfiguration</a> fehlerhaft oder Sendmail ist nicht installiert.
-index_eversion=Ihre Sendmail-Konfigurationsdatei scheint nicht f&#252;r die letzte Version von Sendmail zu sein. Webmin unterst&#252;tzt lediglich Sendmail-Versionen 8.8 und h&#246;her.
+index_eversion=Ihre Sendmail-Konfigurationsdatei scheint nicht f&#252;r die letzte Version von Sendmail zu sein. AdFreeZone unterst&#252;tzt lediglich Sendmail-Versionen 8.8 und h&#246;her.
 index_return=Sendmail-Konfiguration
 index_sendmail=Sendmail
 index_start=Sendmail starten

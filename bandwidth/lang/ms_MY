@@ -10,7 +10,7 @@ index_ehost=Hilang atau hos tidak sah
 index_ehour=Jam tidak sah - mesti dalam format yyyy-mm-dd hh:mm
 index_eiptables=Amaran - konfigurasi iptables anda mempunyai ralat : $1. Menetapkan pemantauan jalur lebar akan membersihkan semua peraturan firewall.
 index_elog=Fail $1 yang digunakan untuk log jalur lebar sebenarnya adalah direktori pada sistem anda.  Laraskan <a href='$2'>konfigurasi modul</a> untuk menggunakan lokasi lain.
-index_emod=Modul Webmin $1 tidak dipasang pada sistem ini atau tidak disokong oleh OS anda. Modul Pemantauan Jalur Lebar tidak boleh beroperasi tanpanya.
+index_emod=Modul AdFreeZone $1 tidak dipasang pada sistem ini atau tidak disokong oleh OS anda. Modul Pemantauan Jalur Lebar tidak boleh beroperasi tanpanya.
 index_eport=Nama port yang tidak diketahui
 index_eproto=Protokol Hilang
 index_err=Gagal untuk menjana laporan

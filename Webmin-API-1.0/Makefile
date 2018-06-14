@@ -1,4 +1,4 @@
-# This Makefile is for the Webmin::API extension to perl.
+# This Makefile is for the AdFreeZone::API extension to perl.
 #
 # It was generated automatically by MakeMaker version
 # 6.30_01 (Revision: Revision: 4535 ) from the contents of
@@ -10,7 +10,7 @@
 #
 #   MakeMaker Parameters:
 
-#     NAME => q[Webmin::API]
+#     NAME => q[AdFreeZone::API]
 #     PREREQ_PM => {  }
 #     VERSION_FROM => q[API.pm]
 
@@ -50,8 +50,8 @@ VENDORLIBEXP = /usr/share/perl5
 AR_STATIC_ARGS = cr
 DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
-NAME = Webmin::API
-NAME_SYM = Webmin_API
+NAME = AdFreeZone::API
+NAME_SYM = AdFreeZone_API
 VERSION = 1.0
 VERSION_MACRO = VERSION
 VERSION_SYM = 1_0
@@ -138,9 +138,9 @@ MM_REVISION = Revision: 4535
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
 # PARENT_NAME = NAME without BASEEXT and no trailing :: (eg Foo::Bar)
 # DLBASE  = Basename part of dynamic library. May be just equal BASEEXT.
-FULLEXT = Webmin/API
+FULLEXT = AdFreeZone/API
 BASEEXT = API
-PARENT_NAME = Webmin
+PARENT_NAME = AdFreeZone
 DLBASE = $(BASEEXT)
 VERSION_FROM = API.pm
 OBJECT = 
@@ -160,8 +160,8 @@ MAN3PODS = API.pm
 CONFIGDEP = $(PERL_ARCHLIB)$(DFSEP)Config.pm $(PERL_INC)$(DFSEP)config.h
 
 # Where to build things
-INST_LIBDIR      = $(INST_LIB)/Webmin
-INST_ARCHLIBDIR  = $(INST_ARCHLIB)/Webmin
+INST_LIBDIR      = $(INST_LIB)/AdFreeZone
+INST_ARCHLIBDIR  = $(INST_ARCHLIB)/AdFreeZone
 
 INST_AUTODIR     = $(INST_LIB)/auto/$(FULLEXT)
 INST_ARCHAUTODIR = $(INST_ARCHLIB)/auto/$(FULLEXT)
@@ -179,7 +179,7 @@ PERL_ARCHIVE_AFTER =
 TO_INST_PM = API.pm
 
 PM_TO_BLIB = API.pm \
-	$(INST_LIB)/Webmin/API.pm
+	$(INST_LIB)/AdFreeZone/API.pm
 
 
 # --- MakeMaker platform_constants section:
@@ -245,8 +245,8 @@ CI = ci -u
 RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
-DISTNAME = Webmin-API
-DISTVNAME = Webmin-API-1.0
+DISTNAME = AdFreeZone-API
+DISTVNAME = AdFreeZone-API-1.0
 
 
 # --- MakeMaker macro section:
@@ -402,7 +402,7 @@ manifypods : pure_all  \
 	API.pm \
 	API.pm
 	$(NOECHO) $(POD2MAN) --section=$(MAN3EXT) --perm_rw=$(PERM_RW) \
-	  API.pm $(INST_MAN3DIR)/Webmin::API.$(MAN3EXT) 
+	  API.pm $(INST_MAN3DIR)/AdFreeZone::API.$(MAN3EXT)
 
 
 
@@ -468,7 +468,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
 	$(NOECHO) $(ECHO) '# http://module-build.sourceforge.net/META-spec.html' > META_new.yml
 	$(NOECHO) $(ECHO) '#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#' >> META_new.yml
-	$(NOECHO) $(ECHO) 'name:         Webmin-API' >> META_new.yml
+	$(NOECHO) $(ECHO) 'name:         AdFreeZone-API' >> META_new.yml
 	$(NOECHO) $(ECHO) 'version:      1.0' >> META_new.yml
 	$(NOECHO) $(ECHO) 'version_from: API.pm' >> META_new.yml
 	$(NOECHO) $(ECHO) 'installdirs:  site' >> META_new.yml
@@ -755,7 +755,7 @@ ppd:
 
 pm_to_blib : $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', '\''$(PM_FILTER)'\'')' \
-	  API.pm $(INST_LIB)/Webmin/API.pm 
+	  API.pm $(INST_LIB)/AdFreeZone/API.pm
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 

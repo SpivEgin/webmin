@@ -16,7 +16,7 @@ start_cmd=دستور جهت آغازکردن DHCP,3,کارساز اجرايي ا
 restart_cmd=دستور جهت به‌کاربستن پيکربندي,3,کشتن و بازآغازي
 pid_file=مسير پرونده PID کارساز DHCP,0
 lease_file=پرونده انتساب داده شده‌هاي کارساز DHCP,0
-interfaces_type=نوع پرونده واسط,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-Webmin
+interfaces_type=نوع پرونده واسط,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-AdFreeZone
 version=نسخه کارساز DHCP,3,به‌طور خودکار تعيين شود
  
 

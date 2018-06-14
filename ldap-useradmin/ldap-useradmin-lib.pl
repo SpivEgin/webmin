@@ -4,7 +4,7 @@
 # www.sb-brixen.it         - www.as-bressanone.it
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("useradmin");
 &foreign_require("ldap-client");
@@ -973,7 +973,7 @@ local $f;
 foreach $f (@fields) {
 	$f->[0] =~ s/\+$//;
 	if ($already{lc($f->[0])}) {
-		# Skip fields set by Webmin
+		# Skip fields set by AdFreeZone
 		$i++;
 		next;
 		}

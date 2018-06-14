@@ -25,7 +25,7 @@ check_econsole=Das Bacula-Konsolenkommando $1 wurde nicht gefunden.
 check_edir=Das Bacula-Konfigurationsverzeichnis $1 wurde auf Ihrem System nicht gefunden.
 check_edirector=Die Bacula-Serverkonfigurationsdatei $1 wurde nicht gefunden.
 check_engmod=Das OpenCountry Bacula-Gruppenmodul ist nicht installiert.
-check_eservers=Es wurden keine Webmin-Servergruppen definiert.
+check_eservers=Es wurden keine AdFreeZone-Servergruppen definiert.
 chooser_all=Alle
 chooser_days=Termine
 chooser_daysh=An Tagen eines Monats ausf&#252;hren
@@ -266,7 +266,7 @@ index_econsole=Die Bacula-Konsolen-Befehl $1 konnte nicht mit dem Bacula Directo
 index_econsole2=Die Bacula-Konsolen-Befehl $1 ist nicht mit einer g&#252;ltigen Bacula Director Host konfiguriert. Es nutzt derzeit $2, welches nicht existiert.
 index_edb=Fehlgeschlagen zur Bacula-Datenbank zu verbinden : $1 Vielleicht ist es nicht eingerichtet oder die <a href='$2'>Modulkonfiguration</a> ist falsch.
 index_eng=Fehlgeschlagen zur Bacula-Gruppen-Datenbank zu verbinden : $1 Vielleicht ist es nicht eingerichtet oder die <a href='$2'>Modulkonfiguration</a> ist falsch.
-index_eversion=Ihr System benutzt Bacula Version $2, aber dieses Webmin Modul unterst&#252;tzt nur Version $1 und dar&#252;ber.
+index_eversion=Ihr System benutzt Bacula Version $2, aber dieses AdFreeZone Modul unterst&#252;tzt nur Version $1 und dar&#252;ber.
 index_fd=Datei Daemon Konfiguration
 index_fixaddr=Klicken Sie hier, um den Bacula Director Host zu fixen
 index_fixpass=Klicke hier, um das Konsolen Passwort zu fixen

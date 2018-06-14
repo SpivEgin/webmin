@@ -68,7 +68,7 @@ index_econf=Le fichier de configuration ProFTPD $1 est manquant ou invalide. La 
 index_eip=&lt;inconnu&gt;
 index_eproftpd=Le serveur ProFTPD $1n'a pas &#233;t&#233; trouv&#233; sur votre syst&#232;me. Peut-&#234;tre n'est il pas install&#233;, ou la <a href='$2'>configuration du module</a> est peut-&#234;tre incorrecte.
 index_eproftpd2=Le programme $1 ne semble pas &#234;tre le serveur ProFTPD.Peut-&#234;tre n'est il pas install&#233;, ou la <a href='$2'>configuration du module</a> est peut-&#234;tre incorrecte. La sortie de la commande $3 &#233;tait : $4
-index_eversion=La version $1 de ProFTPD n'est pas support&#233;e par Webmin. Seules les versions 0.99 et plus sont support&#233;es.
+index_eversion=La version $1 de ProFTPD n'est pas support&#233;e par AdFreeZone. Seules les versions 0.99 et plus sont support&#233;es.
 index_global=Configuration Globale
 index_name=Nom du serveur
 index_port=Port FTP

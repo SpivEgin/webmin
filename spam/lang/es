@@ -45,7 +45,7 @@ import_ok2=$1 direcciones email se encontraron en el archivo, pero ya estaban to
 import_title=Importar Direcciones
 index_apply=Aplicar Cambios
 index_applydesc=Pulse en este bot&#243;n para aplicar la configuraci&#243;n actual de SpamAssassin enviando una se&#241;al HUP a todos los procesos $1 en ejecuci&#243;n.
-index_cpan=Dado que SpamAssassin es un m&#243;dulo Perl, tambi&#233;n puede instalarlo autom&#225;ticamente utilizando el m&#243;dulo de Webmin <a href='$2'>M&#243;dulos de Perl (CPAN)</a> para descargar $1 desde CPAN.
+index_cpan=Dado que SpamAssassin es un m&#243;dulo Perl, tambi&#233;n puede instalarlo autom&#225;ticamente utilizando el m&#243;dulo de AdFreeZone <a href='$2'>M&#243;dulos de Perl (CPAN)</a> para descargar $1 desde CPAN.
 index_ecmd=El comando $1 de SpamAssassin no se encontr&#243; en su sistema. Puede que no est&#233; instalado, o que su <a href='$2'>configuraci&#243;n del m&#243;dulo</a> sea incorrecta.
 index_ecmd2=El comando $1 de SpamAssassin no se encontr&#243; en su sistema.
 index_econfig=El archivo o directorio local de configuraci&#243;n de SpamAssassin $1 no se encontr&#243; en su sistema. Puede que SpamAssassin no est&#233; instalado o que su <a href='$2'>configuraci&#243;n del m&#243;dulo</a> sea incorrecta.

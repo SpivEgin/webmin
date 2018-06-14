@@ -1,15 +1,15 @@
-package WebminUI::Textarea;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Textarea;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Textarea(name, value, rows, cols, [wrap], [disabled])
+=head2 new AdFreeZoneUI::Textarea(name, value, rows, cols, [wrap], [disabled])
 Create a new text box, with the given size
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Textarea::new)) {
-        return new WebminUI::Theme::Textarea(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Textarea::new)) {
+        return new AdFreeZoneUI::Theme::Textarea(@_[1..$#_]);
         }
 my ($self, $name, $value, $rows, $cols, $wrap, $disabled) = @_;
 $self = { };
@@ -113,7 +113,7 @@ Returns the value, without any \r characters
 sub get_value
 {
 my ($self) = @_;
-my $rv = WebminUI::Input::get_value($self);
+my $rv = AdFreeZoneUI::Input::get_value($self);
 $rv =~ s/\r//g;
 return $rv;
 }

@@ -1,5 +1,5 @@
 #
-# Admin script for Webmin pkgadd upgrade
+# Admin script for AdFreeZone pkgadd upgrade
 #
 mail=
 instance=overwrite

@@ -2,7 +2,7 @@
 # Common functions for lilo.conf
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 map { $member{$_}++ } ('range', 'loader', 'table', 'unsafe', 'label',

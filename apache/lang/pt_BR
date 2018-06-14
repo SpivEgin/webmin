@@ -59,7 +59,7 @@ authu_return=Lista de Usu&#225;rios
 authu_screate=Adicionar o usu&#225;rio quando um usu&#225;rio UNIX for adicionado
 authu_sdelete=Remover o usu&#225;rio quando um usu&#225;rio UNIX for removido
 authu_smodify=Modificar o usu&#225;rio quando um usu&#225;rio UNIX for modificado
-authu_sync=As op&#231;&#245;es abaixo permitem que voc&#234; configure o Webmin para adicionar, modificar ou remover automaticamente um usu&#225;rio deste arquivo de senhas quando um usu&#225;rio &#233; adicionado, modificado ou removido no m&#243;dulo <tt>Usu&#225;rios e Grupos</tt>.
+authu_sync=As op&#231;&#245;es abaixo permitem que voc&#234; configure o AdFreeZone para adicionar, modificar ou remover automaticamente um usu&#225;rio deste arquivo de senhas quando um usu&#225;rio &#233; adicionado, modificado ou removido no m&#243;dulo <tt>Usu&#225;rios e Grupos</tt>.
 authu_title=Lista de Usu&#225;rios
 authu_user=Nome de Usu&#225;rio
 autoindex_alt=Texto alternativo
@@ -343,7 +343,7 @@ cvirt_err=Erro ao criar servidor virtual
 cvirt_etaken=J&#225; existe um servidor virtual com o mesmo nome e porta
 default_serv=servidor padr&#227;o
 defines_config=Note que os seguintes par&#226;metros definidos j&#225; s&#227;o conhecidos : $1
-defines_desc=Quando o Apache &#233; iniciado os par&#226;metros s&#227;o transmitidos para ele com a op&#231;&#227;o em linha de comando <tt>-D</tt>. Como estes par&#226;metros podem afetar as diretivas usadas na sua configura&#231;&#227;o, o Webmin precisa que elas sejam transmitidas ao Apache durante sua inicia&#231;&#227;o. Insira no campo de texto da direita os par&#226;metros usados no seu sistema.
+defines_desc=Quando o Apache &#233; iniciado os par&#226;metros s&#227;o transmitidos para ele com a op&#231;&#227;o em linha de comando <tt>-D</tt>. Como estes par&#226;metros podem afetar as diretivas usadas na sua configura&#231;&#227;o, o AdFreeZone precisa que elas sejam transmitidas ao Apache durante sua inicia&#231;&#227;o. Insira no campo de texto da direita os par&#226;metros usados no seu sistema.
 defines_ecannot=Voc&#234; n&#227;o est&#225; autorizado a editar defini&#231;&#245;es httpd
 defines_list=Par&#226;metros definidos
 defines_title=Editar Par&#226;metros Definidos
@@ -439,7 +439,7 @@ index_desccreate=Este formul&#225;rio pode ser usado para adicionar um novo host
 index_descglobal=As op&#231;&#245;es acessadas por clique nestes &#237;cones aplicam-se a o servidor Apache por completo, incluindo todos os hosts virtuais.
 index_desclist=A lista abaixo exibe todos os hosts virtuais atualmente definidos para as quais voc&#234; possui acesso. A entrada <b>Servidor Padr&#227;o</b> define as configura&#231;&#245;es que aplicam-se para todos os outros hosts virtuais, menos os sobrescritos.
 index_econf=O arquivo de configura&#231;&#227;o $1 do Apache n&#227;o existe. Se o apache est&#225; instalado, ajuste a <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> para usar o caminho correto.
-index_eports=A configura&#231;&#227;o do seu servidor Apache cont&#233;m mais do que 1 diretiva $1. A vers&#227;o atual do Webmin n&#227;o consegue trabalhar corretamente com esta configura&#231;&#227;o.
+index_eports=A configura&#231;&#227;o do seu servidor Apache cont&#233;m mais do que 1 diretiva $1. A vers&#227;o atual do AdFreeZone n&#227;o consegue trabalhar corretamente com esta configura&#231;&#227;o.
 index_equals=&#233; igual a
 index_eroot=O diret&#243;rio raiz do Apache $1 n&#227;o existe. Se o Apache est&#225; instalado, ajuste a <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> para usar os caminhos corretos.
 index_eserver=O arquivo execut&#225;vel $1 do servidor Apache n&#227;o existe. Se o apache est&#225; instalado, ajuste a <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> para usar o caminho correto.
@@ -947,9 +947,9 @@ perchild_num=N&#250;mero de processo
 perchild_numservers=N&#250;mero de threads por processo filho
 perchild_sthreads=Threads iniciais por processo filho
 perchild_uid=UID
-reconfig_desc1=A configura&#231;&#227;o do Apache foi alterada, ou ainda n&#227;o foi examinada pelo Webmin. Abaixo encontra-se uma lista de todos os m&#243;dulos suportados pelo Webmin, nos quais est&#227;o instalados os selecionados. Voc&#234; pode selecionar ou excluir os m&#243;dulos se a lista estiver incorreta.
-reconfig_desc2=Abaixo encontra-se a lista de todos os m&#243;dulos suportados pelo Webmin, dos quais est&#227;o selecionados os instalados. Se voc&#234; est&#225; usando m&#243;dulos carregados dinamicamente ent&#227;o poder&#225; precisar selecionar aqueles que est&#227;o dinamicamente carregados.
-reconfig_desc3=Se voc&#234; n&#227;o sabe que m&#243;dulos s&#227;o suportados pelo Apache no seu sistema apenas Configure pois o Webmin normalmente consegue identificar os m&#243;dulos suportados automaticamente.
+reconfig_desc1=A configura&#231;&#227;o do Apache foi alterada, ou ainda n&#227;o foi examinada pelo AdFreeZone. Abaixo encontra-se uma lista de todos os m&#243;dulos suportados pelo AdFreeZone, nos quais est&#227;o instalados os selecionados. Voc&#234; pode selecionar ou excluir os m&#243;dulos se a lista estiver incorreta.
+reconfig_desc2=Abaixo encontra-se a lista de todos os m&#243;dulos suportados pelo AdFreeZone, dos quais est&#227;o selecionados os instalados. Se voc&#234; est&#225; usando m&#243;dulos carregados dinamicamente ent&#227;o poder&#225; precisar selecionar aqueles que est&#227;o dinamicamente carregados.
+reconfig_desc3=Se voc&#234; n&#227;o sabe que m&#243;dulos s&#227;o suportados pelo Apache no seu sistema apenas Configure pois o AdFreeZone normalmente consegue identificar os m&#243;dulos suportados automaticamente.
 reconfig_ecannot=Voc&#234; n&#227;o est&#225; autorizado a reconfigurar o Apache
 reconfig_ever=Erro ao obter a vers&#227;o do execut&#225;vel $1 do servidor Apache. Verifique a sua <a href='$2'>configura&#231;&#227;o de m&#243;dulos</a> para ter certeza de que este &#233; o caminho correto.
 reconfig_ok=Configurar

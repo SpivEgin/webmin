@@ -1,16 +1,16 @@
-package WebminUI::JavascriptButton;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::JavascriptButton;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::JavascriptButton(label, script, [disabled])
+=head2 new AdFreeZoneUI::JavascriptButton(label, script, [disabled])
 Create a button that runs some Javascript when clicked
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::JavascriptButton::new) &&
-    caller() !~ /WebminUI::Theme::JavascriptButton/) {
-        return new WebminUI::Theme::JavascriptButton(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::JavascriptButton::new) &&
+    caller() !~ /AdFreeZoneUI::Theme::JavascriptButton/) {
+        return new AdFreeZoneUI::Theme::JavascriptButton(@_[1..$#_]);
         }
 my ($self, $value, $script, $disabled) = @_;
 $self = { };

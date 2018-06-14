@@ -1,4 +1,4 @@
 IDENT=webmin
-DESCRIPTIVE="Webmin administration server"
+DESCRIPTIVE="AdFreeZone administration server"
 OPTIONS=""
 ONBOOT="yes"

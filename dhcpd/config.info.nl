@@ -18,5 +18,5 @@ restart_cmd=Opdracht om configuratie toe te voegen,3,Kill en her-start
 stop_cmd=Opdracht om DHCP server te stoppen,3,Kil Proces
 pid_file=Pad naar DHCP server PID file,3,Geen
 lease_file=DHCP server lease file,0
-interfaces_type=Interface file type,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-Webmin
+interfaces_type=Interface file type,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-AdFreeZone
 version=DHCP server versie,3,Automatisch uitzoeken

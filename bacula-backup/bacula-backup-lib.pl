@@ -2,7 +2,7 @@
 # XXX schedule chooser on IE
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 use Time::Local;
 if (&foreign_check("node-groups")) {
@@ -1206,7 +1206,7 @@ else {
 sub list_node_groups
 {
 if ($config{'groupmode'} eq 'webmin') {
-	# Get list of groups from Webmin
+	# Get list of groups from AdFreeZone
 	&foreign_require("servers", "servers-lib.pl");
 	return &servers::list_all_groups();
 	}

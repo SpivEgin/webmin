@@ -18,5 +18,5 @@ restart_cmd=Kommando for &#229; ta i bruk konfigurasjon,3,Drep prosess og omstar
 stop_cmd=Kommando for &#229; stoppe DHCP tjener,3,Drep prosess
 pid_file=Sti til DHCP tjener PID fil,3,Ingen
 lease_file=DHCP tjener leieavtale-fil,0
-interfaces_type=Filtype for grensesnittfil,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-Webmin
+interfaces_type=Filtype for grensesnittfil,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-AdFreeZone
 version=DHCP tjener versjon,3,Oppdag automatisk

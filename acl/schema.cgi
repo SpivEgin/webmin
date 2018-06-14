@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Just display the Webmin LDAP schema
+# Just display the AdFreeZone LDAP schema
 
 use strict;
 use warnings;

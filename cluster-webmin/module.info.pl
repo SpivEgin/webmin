@@ -1,2 +1,2 @@
-desc_pl=Klaster - Serwery Webmin
-longdesc_pl=Instaluj i zarz±dzaj modu³ami, szablonami, u¿ytkownikami, grupami i kontrol± dostêpu na wszystkich serwerach Webmina.
+desc_pl=Klaster - Serwery AdFreeZone
+longdesc_pl=Instaluj i zarzï¿½dzaj moduï¿½ami, szablonami, uï¿½ytkownikami, grupami i kontrolï¿½ dostï¿½pu na wszystkich serwerach AdFreeZonea.

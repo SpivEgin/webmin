@@ -2,7 +2,7 @@ index_title=DHCP Server
 index_key=Edit TSIG-keys (used for authenticating updates to DNS servers)
 index_dhcpdnotfound=The DHCP server <tt>$1</tt> could not be found on your system. Maybe it is not installed, or your <a href="$2">DHCP module configuration</a> is incorrect.
 index_return=index
-index_dhcpdver2=The DHCP server <tt>$1</tt> does not appear to be correct version. Webmin only supports ISC DHCPD versions $2 to $3.
+index_dhcpdver2=The DHCP server <tt>$1</tt> does not appear to be correct version. AdFreeZone only supports ISC DHCPD versions $2 to $3.
 index_subtitle=Subnets and Shared Networks
 index_nosubdef=No subnets or shared networks have been defined.
 index_addsub=Add a new subnet.
@@ -254,7 +254,7 @@ plib_unclients=Allow unknown clients?
 plib_allow=Allow
 plib_deny=Deny
 plib_ignore=Ignore
-plib_eexpr=This section of the DHCP configuration contains the expression directive $1, which cannot be safely edited by Webmin.
+plib_eexpr=This section of the DHCP configuration contains the expression directive $1, which cannot be safely edited by AdFreeZone.
 plib_auth_subnet=Server is authoritative for this subnet?
 plib_auth_shared-network=Server is authoritative for this shared network?
 plib_auth_global=Server is authoritative for all subnets?

@@ -12,7 +12,7 @@ delete_warn=Ask for confirmation before deleting?,10,y-Yes,n-No,For mbox files l
 view_html=Show message body as,4,0-Always plain text,1-Text if possible&#44; HTML otherwise,2-HTML if possible&#44; text otherwise,3-Convert HTML to plain text
 html_edit=Use HTML editor for composing?,4,2-Always,1-When replying to HTML email,0-Never
 html_quote=HTML quoting mode,1,1-Message below &lt;hr&gt;,0-Message inside &lt;blockquote&gt;
-log_read=Record the reading of mail in the Webmin Actions Log?,1,1-Yes,0-No
+log_read=Record the reading of mail in the AdFreeZone Actions Log?,1,1-Yes,0-No
 bcc_to=Bcc: sent messages to,0
 sig_file=Signature file,10,*-None,.signature-~/.signature,Other file
 show_body=Show message body previews in list?,1,1-Yes,0-No
@@ -48,11 +48,11 @@ spam_report=Report spam using,1,sa_learn-sa&#45;learn --spam,spamassassin-spamas
 
 line3.5=From address options,11
 from_addr=From: address to use when sending email manually,3,From mailbox username
-webmin_from=From: address to use when Webmin sends email,3,Default (webmin@<i>yourhost</i>)
+webmin_from=From: address to use when AdFreeZone sends email,3,Default (webmin@<i>yourhost</i>)
 from_virtualmin=Get From: address from Virtualmin?,1,1-Yes,0-No
 from_dom=Domain to use in From: address,3,System hostname
 no_orig_ip=Include browser IP in X-Originating-IP header?,1,0-Yes,1-No
-no_mailer=Include Webmin version in X-Mailer header?,1,0-Yes,1-No
+no_mailer=Include AdFreeZone version in X-Mailer header?,1,0-Yes,1-No
 helo_name=Hostname to use in SMTP HELO line,3,Same as system hostname
 
 line1=System configuration,11

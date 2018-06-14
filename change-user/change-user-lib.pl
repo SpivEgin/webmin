@@ -8,7 +8,7 @@ say here.
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("acl", "acl-lib.pl");
 &foreign_require("webmin", "webmin-lib.pl");

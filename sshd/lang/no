@@ -88,7 +88,7 @@ index_dsa=DSA (for SSH v2)
 index_econfig=SSH tjener konfigfilen $1 ble ikke funnet p&#229; systemet ditt. Kanskje SSHD ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil,.
 index_esshd=SSH tjener programmet $1 ble ikke funnet p&#229; systemet ditt. Kanskje SSHD ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil,.
 index_eversion=Kunne ikke hente versjonsnummer fra SSH tjener programmet $1. Kanskje <a href='$2'>modulkonfigurasjonen</a> er feil. Output fra kommandoen $3 var : $4
-index_eversion2=SSH tjenerprogrammet $1 er versjon $2, men Webmin st&#248;tter bare SSH versjonene 1 og 2.
+index_eversion2=SSH tjenerprogrammet $1 er versjon $2, men AdFreeZone st&#248;tter bare SSH versjonene 1 og 2.
 index_return=modulindeks
 index_rsa=RSA (for SSH v2)
 index_rsa1=RSA (for SSH v1)

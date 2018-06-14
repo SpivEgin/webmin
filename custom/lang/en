@@ -26,7 +26,7 @@ edit_id=Command ID
 edit_cmd=Command
 edit_dir=Run in directory
 edit_user=Run as user
-edit_user_def=Webmin user
+edit_user_def=AdFreeZone user
 edit_raw=Command outputs HTML?
 edit_su=Use user's environment?
 edit_order=Ordering on main page
@@ -59,11 +59,11 @@ edit_timeoutdef=Forever
 edit_secs=seconds
 edit_clear=Clear environment variables?
 edit_format=Output style
-edit_format0=Show in Webmin UI
+edit_format0=Show in AdFreeZone UI
 edit_format1=Output with MIME type
 edit_format2=Redirect to index
 edit_format3=Redirect to form
-edit_servers=Run on Webmin servers
+edit_servers=Run on AdFreeZone servers
 edit_this=this server
 edit_clone=Clone
 
@@ -152,7 +152,7 @@ form_edit=Edit
 sql_title1=Create SQL Command
 sql_title2=Edit SQL Command
 sql_header=SQL command details
-sql_edrivers=No Perl DBI modules are installed. You can have Webmin download and install the drivers for <a href='$1'>MySQL</a> or <a href='$2'>PostgreSQL</a> automatically.
+sql_edrivers=No Perl DBI modules are installed. You can have AdFreeZone download and install the drivers for <a href='$1'>MySQL</a> or <a href='$2'>PostgreSQL</a> automatically.
 sql_type=Type of database
 sql_db=Database name
 sql_cmd=SQL command to execute

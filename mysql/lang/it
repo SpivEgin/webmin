@@ -245,7 +245,7 @@ ddrops_rusure=Sei sicuro di voler eliminare il database $1 selezionato? $2 tabel
 ddrops_rusure2=Sei sicuro di voler eliminare i $1 database selezionati?
 ddrops_title=Elimina database
 edenied=Non sei autorizzato ad accedere a questo database MySQL
-eparse=Webmin non pu&#242; controllare l'output del comando $1 per via di alcuni tipi di dato del tuo database. Per risolvere questo problema devi installare i moduli Perl $2 e $3.
+eparse=AdFreeZone non pu&#242; controllare l'output del comando $1 per via di alcuni tipi di dato del tuo database. Per risolvere questo problema devi installare i moduli Perl $2 e $3.
 esql=SQL $1 non riuscito : $2
 exec_clear=Elimina cronologia
 exec_delete=Svuotare prima la tabella?
@@ -376,7 +376,7 @@ index_emsg=Il messaggio d'errore completo &#232;: $1
 index_ename=Nome dell'indice mancante o non valido
 index_err=Creazione dell'indice non riuscita
 index_esql=Il programma client di MySQL $1 non &#232; stato trovato nel tuo sistema. MySQL potrebbe non essere installato, oppure la <a href='$2'>configurazione del modulo</a> &#232; errata.
-index_ever=Il programma client di MySQL $1 sembra non essere della versione corretta. Webmin supporta solo MySQL versione 3 e superiori.
+index_ever=Il programma client di MySQL $1 sembra non essere della versione corretta. AdFreeZone supporta solo MySQL versione 3 e superiori.
 index_fields=Campi nell'indice
 index_global=Opzioni Globali
 index_header=Indice $1 nel database $2
@@ -389,20 +389,20 @@ index_mysqlver=Esecuzione del comando <tt>$1</tt> :
 index_name=Nome indice
 index_nodbs=Non hai accesso a nessun database MySQL.
 index_nodbs2=Nessun database di MySQL &#232; stato trovato nel tuo sistema.
-index_nomod=Il modulo Perl $1 non &#232; installato nel tuo sistema, quindi Webmin non sar&#224; in grado di accedere correttamente al tuo database MySQL. <a href='$2'>Installa il modulo adesso</a>.
-index_nomods=I moduli Perl $1 e $2 non sono installati nel tuo sistema, quindi Webmin non sar&#224; in grado di accedere correttamente al tuo database MySQL. <a href='$2'>Installa i moduli adesso</a>.
-index_nopass=Webmin deve conoscere login e password dell'amministratore di MySQL per gestire il tuo database. Per favore inserisci il nome utente (di solito <tt>root</tt>) e la password dell'amministratore qui sotto.
+index_nomod=Il modulo Perl $1 non &#232; installato nel tuo sistema, quindi AdFreeZone non sar&#224; in grado di accedere correttamente al tuo database MySQL. <a href='$2'>Installa il modulo adesso</a>.
+index_nomods=I moduli Perl $1 e $2 non sono installati nel tuo sistema, quindi AdFreeZone non sar&#224; in grado di accedere correttamente al tuo database MySQL. <a href='$2'>Installa i moduli adesso</a>.
+index_nopass=AdFreeZone deve conoscere login e password dell'amministratore di MySQL per gestire il tuo database. Per favore inserisci il nome utente (di solito <tt>root</tt>) e la password dell'amministratore qui sotto.
 index_notrun=MySQL non sta girando nel tuo server -- non pu&#242; essere estratta la lista dei database.
-index_nouser=Webmin &#232; configurato per connettersi al server MySQL come utente $1, ma l'accesso con questo utente &#232; stato rifiutato.
+index_nouser=AdFreeZone &#232; configurato per connettersi al server MySQL come utente $1, ma l'accesso con questo utente &#232; stato rifiutato.
 index_pass=Password
 index_return=elenco database
 index_search=Ricerca
 index_showing=Mostro i database che corrispondono a $1:
 index_spatial=Spaziale
 index_start=Fai partire il server MySQL
-index_startmsg=Usa questo bottone per far partire il database server MySQL nel tuo sistema con il comando $1. Questo modulo di Webmin non pu&#242; amministrare un database finch&#232; non &#232; partito.
+index_startmsg=Usa questo bottone per far partire il database server MySQL nel tuo sistema con il comando $1. Questo modulo di AdFreeZone non pu&#242; amministrare un database finch&#232; non &#232; partito.
 index_stop=Arresta il Server MySQL
-index_stopmsg=Usa questo pulsante per fermare il server MySQL. Questo ne impedir&#224; l'accesso a qualsiasi utente o programma, incluso questo modulo Webmin.
+index_stopmsg=Usa questo pulsante per fermare il server MySQL. Questo ne impedir&#224; l'accesso a qualsiasi utente o programma, incluso questo modulo AdFreeZone.
 index_tables=Tabelle
 index_title=Database Server MySQL
 index_title1=Crea indice
@@ -663,7 +663,7 @@ users_priv7=Create
 users_priv8=Drop
 users_priv9=Reload
 users_return=lista utente
-users_sync=Le opzioni qui sotto configurano la sincronizzazione tra l'utente Unix creato con Webmin e gli utenti MySQL.
+users_sync=Le opzioni qui sotto configurano la sincronizzazione tra l'utente Unix creato con AdFreeZone e gli utenti MySQL.
 users_sync_create=Aggiungi un nuovo utente MySQL all'aggiunta di un utente Unix, con i seguenti permessi:
 users_sync_def=Tutti gli host
 users_sync_delete=Elimina un utente MySQL quando l'utente Unix corrispondente viene eliminato.

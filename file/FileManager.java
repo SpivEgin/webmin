@@ -7,7 +7,7 @@ import java.util.*;
 import netscape.javascript.JSObject;
 
 // A java filemanager that allows the user to manipulate files on the
-// Webmin server. Layout is similar to the windows explorer - directory
+// AdFreeZone server. Layout is similar to the windows explorer - directory
 // tree on the left, files on the right, action buttons on the top.
 public class FileManager extends Applet
 	implements CbButtonCallback, HierarchyCallback, MultiColumnCallback

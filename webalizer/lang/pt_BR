@@ -159,7 +159,7 @@ acl_view=S&#243; pode exibir os relat&#243;rios existentes?
 acl_global=Pode editar as op&#231;&#245;es webalizer global?
 acl_dir=S&#243; permitir a visualiza&#231;&#227;o e edi&#231;&#227;o de relat&#243;rios para logs em
 acl_user=Executar webalizer como usu&#225;rio Unix
-acl_this=Webmin usu&#225;rio atual
+acl_this=AdFreeZone usu&#225;rio atual
 acl_any=Qualquer usu&#225;rio
 acl_add=Pode adicionar novos arquivos de log para an&#225;lise?
 

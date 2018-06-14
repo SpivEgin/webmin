@@ -1,9 +1,9 @@
 #!/usr/local/bin/perl
-# Search Webmin modules and help pages and text and config.info
+# Search AdFreeZone modules and help pages and text and config.info
 
 $trust_unknown_referers = 1;
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 do "$root_directory/webmin-search-lib.pl";

@@ -1,2 +1,2 @@
-desc_pl=U¿ytkownicy Webmina
-longdesc_pl=Twórz u¿ytkowników Webmina i kontroluj, które modu³y i funkcje s± dla nich dostêpne.
+desc_pl=Uï¿½ytkownicy AdFreeZonea
+longdesc_pl=Twï¿½rz uï¿½ytkownikï¿½w AdFreeZonea i kontroluj, ktï¿½re moduï¿½y i funkcje sï¿½ dla nich dostï¿½pne.

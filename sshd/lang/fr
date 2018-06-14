@@ -81,7 +81,7 @@ index_dsa=DSA (pour SSH v2)
 index_econfig=Le fichier de configuration $1 du serveur SSH n'a pas &#233;t&#233; trouv&#233; sur votre syst&#232;me. Peut-&#234;tre SSHD n'est-il pas install&#233; ou votre <a href='$2'>configuration du module</a> est-elle incorrecte.
 index_esshd=Le programme serveur SSH $1 n'a pas &#233;t&#233; trouv&#233; sur votre syst&#232;me. Peut-&#234;tre SSHD n'est-il pas install&#233; ou votre <a href='$2'>configuration du module</a> est-elle incorrecte.
 index_eversion=Impossible d'obtenir un num&#233;ro de version du programme serveur SSH $1. Peut-&#234;tre votre <a href='$2'>configuration du module</a> est-elle incorrecte. La sortie de la commande $3 &#233;tait : $4
-index_eversion2=Le programme serveur SSH $1 est la version $2, mais Webmin ne prend en charge que les versions 1 et 2 de SSH.
+index_eversion2=Le programme serveur SSH $1 est la version $2, mais AdFreeZone ne prend en charge que les versions 1 et 2 de SSH.
 index_return=&#224; l'index du module
 index_rsa=RSA (pour SSH v2)
 index_rsa1=RSA (pour SSH v1)

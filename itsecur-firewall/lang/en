@@ -300,7 +300,7 @@ user_change=Set to
 user_enabled=Login allowed?
 user_err=Failed to save user
 user_ename=Missing username
-user_mods=Available Webmin modules
+user_mods=Available AdFreeZone modules
 
 bootup_ecannot=You are not allowed to enable or disable the firewall at boot time
 

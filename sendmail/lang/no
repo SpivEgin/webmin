@@ -325,7 +325,7 @@ gsave_err=Failed to save outgoing address
 gsave_eto='$1' is not a valid new address
 index_econfig=Sendmail konfig filen $1 finnes ikke. Kanskje <a href='$2'>modulkonfigurasjonen</a> er feil.
 index_epath=Sendmail programmet $1 er ikke installert p&aring; systemet ditt. Kanskje <a href='$2'>modulkonfigurasjonen</a> er feil, eller s&aring; er sendmail ikke installert.
-index_eversion=Your sendmail config file does not appear to be for the latest sendmail version. Webmin only supports versions 8.8 and above.
+index_eversion=Your sendmail config file does not appear to be for the latest sendmail version. AdFreeZone only supports versions 8.8 and above.
 index_return=sendmail konfigurasjon
 index_sendmail=Sendmail
 index_start=Start Sendmail

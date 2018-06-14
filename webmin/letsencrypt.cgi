@@ -82,11 +82,11 @@ else {
 		print &text('letsencrypt_failed', $cert),"<p>\n";
 		}
 	else {
-		# Worked, now copy to Webmin
+		# Worked, now copy to AdFreeZone
 		print $text{'letsencrypt_done'},"<p>\n";
 
 		if ($in{'use'}) {
-			# Copy cert, key and chain to Webmin
+			# Copy cert, key and chain to AdFreeZone
 			print $text{'letsencrypt_webmin'},"<p>\n";
 			&lock_file($ENV{'MINISERV_CONFIG'});
 			&get_miniserv_config(\%miniserv);

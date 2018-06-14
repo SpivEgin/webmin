@@ -90,7 +90,7 @@ foreach $element (@startupdir) {
 				close PLIST;
 				@param = grep /Description[ \t]*=/, @param;
 				#  we are looking at a line in the plist that looks like:
-				#\t\tDescription\t\t= "Webmin System Administration Daemon";
+				#\t\tDescription\t\t= "AdFreeZone System Administration Daemon";
 				#  and we want to extract the contents of the quotes
 				if ( $param[0] =~ /\"(.*)\"/ ) {
 					$description = $1;

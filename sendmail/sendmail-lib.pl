@@ -3,7 +3,7 @@
 # Only sendmail versions 8.8 and above are supported
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 $features_access = $access{'opts'} && $access{'ports'} && $access{'cws'} && $access{'masq'} && $access{'trusts'} && $access{'vmode'} && $access{'amode'} && $access{'omode'} && $access{'cgs'} && $access{'relay'} && $access{'mailers'} && $access{'access'} && $access{'domains'};
@@ -653,7 +653,7 @@ sub is_table_comment
 {
 local ($line, $force) = @_;
 if ($config{'prefix_cmts'} || $force) {
-	return $line =~ /^\s*#+\s*Webmin:\s*(.*)/ ? $1 : undef;
+	return $line =~ /^\s*#+\s*AdFreeZone:\s*(.*)/ ? $1 : undef;
 	}
 else {
 	return $line =~ /^\s*#+\s*(.*)/ ? $1 : undef;
@@ -669,7 +669,7 @@ if (!$cmt) {
 	return ( );
 	}
 elsif ($config{'prefix_cmts'} || $force) {
-	return ( "# Webmin: $cmt" );
+	return ( "# AdFreeZone: $cmt" );
 	}
 else {
 	return ( "# $cmt" );

@@ -6,7 +6,7 @@ portsentry_title=Configuraci&#243;n de Centinela de Puerto
 portsentry_below=(Detecci&#243;n de exploraci&#243;n de puerto)
 portsentry_ecommand=El daemon de Centinela de Puerto $1 no fue hallado en tu sistema. Quiz&#225;s no est&#225; instalado o tu <a href='$2'>configuraci&#243;n del m&#243;dulo</a> es incorrecta.
 portsentry_eversion=El programa $1 no parece ser un daemon de Centinela de Puerto. Quiz&#225;s no est&#225; instalado o tu <a href='$2'>configuraci&#243;n del m&#243;dulo</a> es incorrecta.
-portsentry_eversion2=La versi&#243;n de Centinea de Puerto (Portsentry) instalada en tu sistema es la $2, pero Webmin s&#243;lo soporta la versi&#243;n 1 en esta entrega.
+portsentry_eversion2=La versi&#243;n de Centinea de Puerto (Portsentry) instalada en tu sistema es la $2, pero AdFreeZone s&#243;lo soporta la versi&#243;n 1 en esta entrega.
 portsentry_version=Versi&#243;n $1 de Portsentry
 portsentry_header=Opciones de detecci&#243;n de exploraci&#243;n de puerto
 portsentry_tmode=puertos TCP a monitorizar

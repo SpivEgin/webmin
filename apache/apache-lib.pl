@@ -2,7 +2,7 @@
 # Common functions for apache configuration
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 $directive_type_count = 20;
 
 if ($module_name ne 'htaccess') {
@@ -18,7 +18,7 @@ map { $access_types{$_}++ } @access_types;
 $site_file = ($config{'webmin_apache'} || $module_config_directory)."/site";
 
 # Check if a list of supported modules needs to be built. This is done
-# if the Apache binary changes, when Webmin is upgraded, or once every five
+# if the Apache binary changes, when AdFreeZone is upgraded, or once every five
 # minutes if automatic rebuilding is enabled.
 if ($module_name ne 'htaccess') {
 	local %oldsite;
@@ -871,7 +871,7 @@ foreach $e (@{$_[0]}) {
 		$names = " (";
 		foreach $ed (split(/\s+/, $e->{'name'})) {
 			# nodo50 v0.1 - Change 000004 - Open new window for Help in Apache module and mod_apachessl Help from http://www.apache-ssl.org and
-			# nodo50 v0.1 - Change 000004 - Abre nueva ventana para Ayuda del módulo Apache y para mod_apachessl busca la Ayuda en http://www.apache-ssl.org and
+			# nodo50 v0.1 - Change 000004 - Abre nueva ventana para Ayuda del mï¿½dulo Apache y para mod_apachessl busca la Ayuda en http://www.apache-ssl.org and
 			$names .= "<tt>".&ui_link( ($e->{'module'} eq 'mod_apachessl' ? 'http://www.apache-ssl.org/docs.html#'.$ed : $apache_docbase."/".$e->{'module'}.".html#".lc($ed)), $ed )."</tt>&nbsp;";
 			#$names .= "<tt><a href='".$apache_docbase."/".$e->{'module'}.".html#".lc($ed)."'>".$ed."</a></tt> ";
 			# nodo50 v0.1 - Change 000004 - End
@@ -1726,7 +1726,7 @@ return 0;
 
 # configurable_modules()
 # Returns a list of Apaches that are compiled in or dynamically loaded, and
-# supported by Webmin.
+# supported by AdFreeZone.
 sub configurable_modules
 {
 local ($ver, $mods) = &httpd_info(&find_httpd());

@@ -38,7 +38,7 @@ logcheck_disabled=Tidsplanlagt loggsjekking deaktivert
 logcheck_ecommand=Logsjekk kommandoen $1 ble ikke funnet p&#229; systemet ditt. Kanskje den ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
 logcheck_enabled=Sjekk logger p&#229; valgte tidspunkt..
 logcheck_eto=Manglende eller ugyldig e-post adresse
-logcheck_eversion=Logsjekk kommandoen $1 er ikke p&#229; versjonen som Webmin forventer.
+logcheck_eversion=Logsjekk kommandoen $1 er ikke p&#229; versjonen som AdFreeZone forventer.
 logcheck_files=Loggfiler som blir overv&#229;ket
 logcheck_hacking=Hacker loggmeldinger
 logcheck_header=Innstillinger for sjekking av loggfil
@@ -79,7 +79,7 @@ portsentry_euadv=Manglende eller ugyldig maks. UDP port for avansert modus
 portsentry_euexc='$1' er ikke en gyldig ekskludert UDP port
 portsentry_euports='$1' er ikke en gyldig grunnleggende-modus UDP port
 portsentry_eversion=Programmet $1 ser ikke ut til &#229; v&#230;re Portsentry daemonen. Kanskje den ikke er installert eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
-portsentry_eversion2=Versjonen av Portsentry som er installert p&#229; systemet ditt er $2. Webmin st&#248;tter bare versjon 1 i denne utgaven.
+portsentry_eversion2=Versjonen av Portsentry som er installert p&#229; systemet ditt er $2. AdFreeZone st&#248;tter bare versjon 1 i denne utgaven.
 portsentry_header=Innstillinger for oppdaging av port-scanning
 portsentry_ignore=Verter som det skal ignoreres trafikk fra
 portsentry_kill=Kj&#248;r kill kommando

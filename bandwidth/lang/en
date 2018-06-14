@@ -3,7 +3,7 @@ index_efiresys=None of the supported firewalls (IPtables, IPFW, IPFilter or Shor
 index_efiresys2=The configured $1 firewall system was not found on your system. Adjust the <a href='$2'>module configuration</a> to use the correct firewall.
 index_elog=The file $1 used for bandwidth logging is actually a directory on your system. Adjust the <a href='$2'>module configuration</a> to use a different path.
 index_edir=The directory for storing bandwidth data $1 does not exist, or is not a directory. Adjust the <a href='$2'>module configuration</a> to use a different path.
-index_emod=The Webmin module $1 is not installed on this system or is not supported by your OS. The Bandwidth Monitoring module cannot operate without it.
+index_emod=The AdFreeZone module $1 is not installed on this system or is not supported by your OS. The Bandwidth Monitoring module cannot operate without it.
 index_esyslog=Neither of the System Logs modules are installed on this system and supported by your OS. The Bandwidth Monitoring module cannot operate without one of them.
 index_firesys=Using $1 firewall and $2
 index_setupcannot=However, you do not have permissions to set it up!

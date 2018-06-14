@@ -30,7 +30,7 @@ foreach my $s (@$servers) {
 	if (!($pid = fork())) {
 		my $out = `ping -c 1 -w 1 $s->{'host'} 2>&1`;
 		if ($config{'login'} && !$?) {
-			# Attempt a Webmin login too
+			# Attempt a AdFreeZone login too
 			if (!$s->{'user'}) {
 				exit(101);
 				}

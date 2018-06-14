@@ -1,18 +1,18 @@
-package WebminUI::Group;
-use WebminUI::Textbox;
-use WebminCore;
-@ISA = ( "WebminUI::Textbox" );
+package AdFreeZoneUI::Group;
+use AdFreeZoneUI::Textbox;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Textbox" );
 
-=head2 new WebminUI::Group(name, value, [multiple], [disabled])
+=head2 new AdFreeZoneUI::Group(name, value, [multiple], [disabled])
 A text box for entering or selecting one or many Unix groupnames
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Group::new)) {
-        return new WebminUI::Theme::Group(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Group::new)) {
+        return new AdFreeZoneUI::Theme::Group(@_[1..$#_]);
         }
 my ($self, $name, $value, $multiple, $disabled) = @_;
-$self = new WebminUI::Textbox($name, $value, $multiple ? 40 : 15, $disabled);
+$self = new AdFreeZoneUI::Textbox($name, $value, $multiple ? 40 : 15, $disabled);
 bless($self);
 $self->set_multiple($multiple);
 return $self;
@@ -24,7 +24,7 @@ Returns the HTML for this group input
 sub html
 {
 my ($self) = @_;
-my $rv = WebminUI::Textbox::html($self);
+my $rv = AdFreeZoneUI::Textbox::html($self);
 my $name = $self->get_name();
 my $multiple = $self->get_multiple();
 local $w = $multiple ? 500 : 300;

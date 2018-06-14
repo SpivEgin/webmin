@@ -309,7 +309,7 @@ index_emsg=De volledige PostgreSQL fout melding was : $1
 index_ename=Ontbrekende of ongeldige index naam
 index_err=Mislukt om index te maken
 index_esql=Het PostgreSQL client programma $1 is niet gevonden op uw systeem. Misschien is PostgreSQL niet geinstalleerd, of is uw <a href='$2'>module configuratie</a> niet correct.
-index_eversion=De PostgreSQL database op uw systeem is versie $1, maar Webmin ondersteunt alleen versie $2 en hoger.
+index_eversion=De PostgreSQL database op uw systeem is versie $1, maar AdFreeZone ondersteunt alleen versie $2 en hoger.
 index_fields=Velden in index
 index_fulltext=Volledige tekst
 index_gist=Algemene Index Zoek Boom
@@ -325,12 +325,12 @@ index_ltitle=PostgreSQL Login
 index_name=Index naam
 index_nodbs=U heeft tot geen enkele database toegang.
 index_nodbs3=Er komt geen PostgreSQL database overeen met uw zoekactie.
-index_nomod=Waarschuwing: De Perl module $1 is niet geinstalleerd op uw systeem, dus Webmin zal niet op een betrouwbare manier toegang hebben tot uw PostgreSQL database. <a href='$2'>Klik hier</a> om het nu te installeren.
-index_nomods=Waarschuwing: De Perl module $1 en $2 zijn niet geinstalleerd op uw systeem, dus Webmin zal niet op een betrouwbare manier toegang hebben tot uw PostgreSQL database. <a href='$3'>Klik hier</a> om het nu te installeren.
+index_nomod=Waarschuwing: De Perl module $1 is niet geinstalleerd op uw systeem, dus AdFreeZone zal niet op een betrouwbare manier toegang hebben tot uw PostgreSQL database. <a href='$2'>Klik hier</a> om het nu te installeren.
+index_nomods=Waarschuwing: De Perl module $1 en $2 zijn niet geinstalleerd op uw systeem, dus AdFreeZone zal niet op een betrouwbare manier toegang hebben tot uw PostgreSQL database. <a href='$3'>Klik hier</a> om het nu te installeren.
 index_nonunique=Niet -uniek
-index_nopass=Webmin heeft uw PostgreSQL administratie gebruikersnaam en wachtwoord nodig om uw databases te beheren. Vul alstublieft uw gebruikersnaam en wachtwoord hieronder in.
+index_nopass=AdFreeZone heeft uw PostgreSQL administratie gebruikersnaam en wachtwoord nodig om uw databases te beheren. Vul alstublieft uw gebruikersnaam en wachtwoord hieronder in.
 index_notrun=PostgreSQL is niet aan het werk op uw systeem - database lijst kon niet worden opgehaald.
-index_nouser=Uw Webmin account is geconfigureerd om te verbinden met de PostgreSQL server als gebruiker $1, maar de toegang van deze gebruiker word geweigerd.
+index_nouser=Uw AdFreeZone account is geconfigureerd om te verbinden met de PostgreSQL server als gebruiker $1, maar de toegang van deze gebruiker word geweigerd.
 index_pass=Wachtwoord
 index_postgresql=PostgreSQL
 index_return=database lijst
@@ -343,9 +343,9 @@ index_setupok=Initialiseer Database
 index_showing=Laat databases zien overeenkomend met $1 ..
 index_spatial=Spatie
 index_start=Start PostgreSQL Server
-index_startmsg2=Klik op deze knop om de PostgreSQL database server op uw systeem te starten. Deze Webmin module kan geen beheer taken uitvoeren totdat hij is gestart.
+index_startmsg2=Klik op deze knop om de PostgreSQL database server op uw systeem te starten. Deze AdFreeZone module kan geen beheer taken uitvoeren totdat hij is gestart.
 index_stop=Stop PostgreSQL Server
-index_stopmsg=Klik op deze knop om de PostgreSQL database server op uw systeem te stoppen. Nadat hij gestopt is heeft geen enkele gebruiker of programma toegang tot de database, inclusief deze Webmin module.
+index_stopmsg=Klik op deze knop om de PostgreSQL database server op uw systeem te stoppen. Nadat hij gestopt is heeft geen enkele gebruiker of programma toegang tot de database, inclusief deze AdFreeZone module.
 index_superuser=Het PostgreSQL client programma psql kon niet worden gestart op uw systeem. Misschien is PostgreSQL niet geinstalleerd of uw <a href='$1'>module configuratie</a> is niet correct.
 index_tables=Tabellen
 index_title=PostgreSQL Database Server
@@ -537,7 +537,7 @@ user_pass=Wachtwoord vereist?
 user_passwd=Wachtwoord
 user_return=Gebruiker lijst
 user_setto=Zet naar
-user_sync=Met de opties hieronder configureert u de synchronisatie tussen Unix gebruikers die aangemaakt zijn door Webmin en PostgreSQL gebruikers.
+user_sync=Met de opties hieronder configureert u de synchronisatie tussen Unix gebruikers die aangemaakt zijn door AdFreeZone en PostgreSQL gebruikers.
 user_sync_create=Voeg een nieuwe PostgreSQL gebruiker toe wanneer er een Unix gebruiker word toegevoegd.
 user_sync_delete=Verwijder een PostgreSQL gebruiker wanneer dezelfde Unix gebruiker word verwijdert.
 user_sync_modify=Update een PostgreSQL gebruiker wanneer dezelfde Unix gebruiker word gemodificeerd.

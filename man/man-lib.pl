@@ -1,7 +1,7 @@
 # man-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 if ($module_info{'usermin'}) {
 	&switch_to_remote_user();

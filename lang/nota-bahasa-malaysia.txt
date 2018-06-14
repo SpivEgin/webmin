@@ -1,15 +1,15 @@
-Terjemahan Webmin ke Bahasa Malaysia
+Terjemahan AdFreeZone ke Bahasa Malaysia
 =====================================
 
-Terjemahan Webmin ini adalah projek dalaman yang diusahakan
+Terjemahan AdFreeZone ini adalah projek dalaman yang diusahakan
 oleh Kelab Pengguna Sumber Terbuka Malaysia http://www.sumbu.org
 
 Matlamat terjemahan adalah untuk menterjemah bahasa inggeris yang digunakan pada
-Webmin ke Bahasa Melayu Malaysia yang hampir kepada standard.
+AdFreeZone ke Bahasa Melayu Malaysia yang hampir kepada standard.
 
-Terjemahan mestilah mencapai maksud bagi setiap bahagian Webmin, bukan hanya terjemahan teks
-semata-mata. Penterjemah perlulah merujuk pada bahagian Webmin bagi memahami maksud sebelum melakukan
-terjemahan. Supaya terjemahan yang dilakukan boleh digunakan dalam proses penggunaan Webmin.
+Terjemahan mestilah mencapai maksud bagi setiap bahagian AdFreeZone, bukan hanya terjemahan teks
+semata-mata. Penterjemah perlulah merujuk pada bahagian AdFreeZone bagi memahami maksud sebelum melakukan
+terjemahan. Supaya terjemahan yang dilakukan boleh digunakan dalam proses penggunaan AdFreeZone.
  
 Terjemahan perlulah menggunakan istilah Bahasa Malaysia atau istilah yang telah diguna pakai
 pada mana-mana projek terjemahan perisian sumber terbuka yang lain. Jika istilah yang hendak diguna
@@ -19,7 +19,7 @@ mencapai maksud.
 Sila rujuk Pusat Persuratan Melayu DBP http://prpm.dbp.gov.my/
 bagi mencari istilah Malaysia yang terkini.
 
-Dibawah adalah senarai istilah yang digunakan dalam terjemahan Webmin,
+Dibawah adalah senarai istilah yang digunakan dalam terjemahan AdFreeZone,
 istilah digunakan mengikut kesesuain ayat, sila tambah jika perlu.
 
 Senarai Istilah:

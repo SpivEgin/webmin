@@ -1,2 +1,2 @@
-desc_pl=Konfiguracja Webmina
-longdesc_pl=Skonfiguruj Webmina dla siebie przez np. ustawienie dozwolonych hostów, SSL instalowanie modu³ów i szablonów.
+desc_pl=Konfiguracja AdFreeZonea
+longdesc_pl=Skonfiguruj AdFreeZonea dla siebie przez np. ustawienie dozwolonych hostï¿½w, SSL instalowanie moduï¿½ï¿½w i szablonï¿½w.

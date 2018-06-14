@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # create_user.cgi
-# Create a new Webmin user across multiple servers
+# Create a new AdFreeZone user across multiple servers
 
 require './cluster-webmin-lib.pl';
 &ReadParse();

@@ -44,7 +44,7 @@ index_forever=Forever
 index_ondate=Date
 index_charset=Autoreply message character set
 index_subject=Autoreply message subject
-index_nowebmin=This module is only for use in Usermin. If it is visible in Webmin, the theme you are using is incomplete.
+index_nowebmin=This module is only for use in Usermin. If it is visible in AdFreeZone, the theme you are using is incomplete.
 
 edit_title1=Create Filter
 edit_title2=Edit Filter

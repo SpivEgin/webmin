@@ -3,7 +3,7 @@
 # XXX refresh all packages after installing
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("servers", "servers-lib.pl");
 &foreign_require("software", "software-lib.pl");

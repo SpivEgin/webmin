@@ -2,7 +2,7 @@
 # Common functions for the linux exports file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 &foreign_require("mount", "mount-lib.pl");

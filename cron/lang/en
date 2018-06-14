@@ -186,7 +186,7 @@ delete_enone=None selected
 manual_title=Manually Edit Cron Jobs
 manual_edit=Cron file to edit:
 manual_ok=Edit
-manual_editing=Use the text box below to edit Cron jobs in $1. Be careful, as no validation will be done by Webmin!
+manual_editing=Use the text box below to edit Cron jobs in $1. Be careful, as no validation will be done by AdFreeZone!
 manual_efile=Selected file is not valid!
 manual_ecannot=You are not allowed to manually edit cron jobs
 

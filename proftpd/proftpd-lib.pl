@@ -2,7 +2,7 @@
 # Common functions for the proftpd server config file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 # Load the site-specific information on the server executable

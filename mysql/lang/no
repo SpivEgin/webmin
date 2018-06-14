@@ -275,7 +275,7 @@ ddrops_rusure=Are you sure you want to drop the $1 selected databases? $2 tables
 ddrops_rusure2=Are you sure you want to drop the $1 selected databases?
 ddrops_title=Drop databaser
 edenied=Du har ikke tilgang til denne MySQL databasen
-eparse=Webmin kan ikke analysere resultatet fra $1 kommandoen p&#229; grunn av datastrukturen i databasen din. Du blir n&#248;dt til &#229; installere Perl modulene $2 og $3 for &#229; l&#248;se dette problemet.
+eparse=AdFreeZone kan ikke analysere resultatet fra $1 kommandoen p&#229; grunn av datastrukturen i databasen din. Du blir n&#248;dt til &#229; installere Perl modulene $2 og $3 for &#229; l&#248;se dette problemet.
 esql=SQL $1 feilet : $2
 exec_clear=Clear History
 exec_created=$1 tabeller ble opprettet.
@@ -389,7 +389,7 @@ index_eadmin=The MySQL admin program $1 was not found on your system. Maybe MySQ
 index_ecannot=Du har ikke tilgang til &#229; vedlikeholde indekser
 index_eclash=Det finnes allerede en indeks med samme navn
 index_ecols=Ingen felt valgt
-index_eenvpass=MySQL klientprogrammet $1 aksepterer ikke passord som endes via milj&#248;variabelen <tt>MYSQL_PWD</tt>. For &#229; forsikre deg om at Webmin kan kommunisere med MySQL fullt ut, b&#248;r denne innstillingen sl&#229;s av p&#229; <a href='$2'>modulkonfigurasjons</a> siden.
+index_eenvpass=MySQL klientprogrammet $1 aksepterer ikke passord som endes via milj&#248;variabelen <tt>MYSQL_PWD</tt>. For &#229; forsikre deg om at AdFreeZone kan kommunisere med MySQL fullt ut, b&#248;r denne innstillingen sl&#229;s av p&#229; <a href='$2'>modulkonfigurasjons</a> siden.
 index_elibrary=The MySQL client program $1 could not be run because it could not find the MySQL shared libraries. Check the <a href='$2'>module configuration</a> and make sure the <i>Path to MySQL shared libraries</i> is set.
 index_emsg=Fullstendig MySQL feilmelding var : $1
 index_ename=Manglende eller ugyldig indeks navn
@@ -397,7 +397,7 @@ index_err=Kunne ikke opprette indeks
 index_eshow=MySQL statusprogrammet $1 ble ikke funnet p&#229; systemet ditt. Kanskje MySQL ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
 index_esql=The MySQL client program $1 was not found on your system. Maybe MySQL is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_estart=MySQL oppstartsscriptet $1 ble ikke funnet p&#229; systemet ditt. Kanskje MySQL ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
-index_ever=The MySQL client program $1 does not appear to be the correct version. Webmin only supports MySQL versions 3 and above.
+index_ever=The MySQL client program $1 does not appear to be the correct version. AdFreeZone only supports MySQL versions 3 and above.
 index_fields=Felt i indeksen
 index_fulltext=Full tekst
 index_global=Globale innstillinger
@@ -416,20 +416,20 @@ index_name=Indeks navn
 index_nodbs=Du har ikke tilgang til noen MySQL databaser.
 index_nodbs2=Fant ingen MySQL databaser p&#229; systemet ditt.
 index_nodbs3=Ingen MySQL databaser stemte med s&#248;ket ditt.
-index_nomod=Advarsel: Perl modulen $1 er ikke installert p&#229; ditt system, s&#229; Webmin vil ikke v&#230;re i stand til &#229; f&#229; tilgang til din MySQL database. <a href='$2'>Klikk her</a> for &#229; installere den n&#229;.
-index_nomods=Advarsel: Perl modulene $1 og $2 er ikke installert p&#229; ditt system, s&#229; Webmin vil ikke v&#230;re i stand til &#229; f&#229; tilgang til din MySQL database. <a href='$3'>Klikk her</a> for &#229; installere dem n&#229;.
-index_nopass=Webmin needs to know your MySQL administration login and password in order to manage your database. Please enter your administration username (usually <tt>root</tt>) and password below.
+index_nomod=Advarsel: Perl modulen $1 er ikke installert p&#229; ditt system, s&#229; AdFreeZone vil ikke v&#230;re i stand til &#229; f&#229; tilgang til din MySQL database. <a href='$2'>Klikk her</a> for &#229; installere den n&#229;.
+index_nomods=Advarsel: Perl modulene $1 og $2 er ikke installert p&#229; ditt system, s&#229; AdFreeZone vil ikke v&#230;re i stand til &#229; f&#229; tilgang til din MySQL database. <a href='$3'>Klikk her</a> for &#229; installere dem n&#229;.
+index_nopass=AdFreeZone needs to know your MySQL administration login and password in order to manage your database. Please enter your administration username (usually <tt>root</tt>) and password below.
 index_notrun=MySQL kj&#248;rer ikke p&#229; ditt system - kunne ikke hente databaseliste
-index_nouser=Your Webmin account is configured to connect to the MySQL server as user $1, but this user has been denied access.
+index_nouser=Your AdFreeZone account is configured to connect to the MySQL server as user $1, but this user has been denied access.
 index_pass=Passord
 index_return=databaseliste
 index_search=S&#248;k
 index_showing=Viser databaser som stemmer med $1 ..
 index_spatial=Spatial
 index_start=Start MySQL tjenesten
-index_startmsg=Klikk p&#229; denne knappen for &#229; starte MySQL databasetjenesten p&#229; ditt system med kommandoen $1. Denne Webmin modulen kan ikke administrere databasen f&#248;r den er startet.
+index_startmsg=Klikk p&#229; denne knappen for &#229; starte MySQL databasetjenesten p&#229; ditt system med kommandoen $1. Denne AdFreeZone modulen kan ikke administrere databasen f&#248;r den er startet.
 index_stop=Stopp MySQL tjenesten
-index_stopmsg=Klikk p&#229; denne knappen for &#229; stoppe MySQL databasetjenesten p&#229; ditt system. Dette vil gj&#248;re at ingen brukere eller program f&#229;r tilgang til databasen, inkludert denne Webmin modulen.
+index_stopmsg=Klikk p&#229; denne knappen for &#229; stoppe MySQL databasetjenesten p&#229; ditt system. Dette vil gj&#248;re at ingen brukere eller program f&#229;r tilgang til databasen, inkludert denne AdFreeZone modulen.
 index_tables=Tabeller
 index_title=MySQL Database tjeneste
 index_title1=Opprett indeks
@@ -715,7 +715,7 @@ users_pass=Kryptert passord
 users_perms=Tillatelser
 users_return=brukerliste
 users_ssl=Sertifikat
-users_sync=Innstillingene nedenfor konfigurerer synkronisering mellom Unix brukere opprettet med Webmin og MySQL brukere.
+users_sync=Innstillingene nedenfor konfigurerer synkronisering mellom Unix brukere opprettet med AdFreeZone og MySQL brukere.
 users_sync_create=Legg til en ny MySQL bruker n&#229;r en Unix bruker opprettes, med tillatelser ...
 users_sync_def=Alle verter
 users_sync_delete=Slett en MySQL bruker n&#229;r den matchende Unix brukeren slettes.

@@ -68,7 +68,7 @@ index_econf=De ProFTPD config file $1 bestaat niet of is niet geldig. Misschien 
 index_eip=&lt;Onbekend&gt;
 index_eproftpd=De ProFTPD server $1 werd niet gevonden op uw systeem. Misschien is het niet geinstalleerd, of is uw <a href='$2'>module configuratie</a> niet in orde.
 index_eproftpd2=Het programma $1 lijkt niet de ProFTPD server te zijn. Misschien is het niet geinstalleerd, of is uw <a href='$2'>module configuratie</a> niet in orde. Het resultaat van opdracht $3 was : $4
-index_eversion=Versie  $1 van ProFTPD server word niet ondersteund door Webmin.
+index_eversion=Versie  $1 van ProFTPD server word niet ondersteund door AdFreeZone.
 index_global=Globale Configuratie
 index_name=Server naam
 index_port=FTP poort

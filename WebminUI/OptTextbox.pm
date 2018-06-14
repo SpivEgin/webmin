@@ -1,18 +1,18 @@
-package WebminUI::OptTextbox;
-use WebminUI::Textbox;
-use WebminCore;
-@ISA = ( "WebminUI::Textbox" );
+package AdFreeZoneUI::OptTextbox;
+use AdFreeZoneUI::Textbox;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Textbox" );
 
-=head2 new WebminUI::OptTextbox(name, value, size, [default-msg], [other-msg])
+=head2 new AdFreeZoneUI::OptTextbox(name, value, size, [default-msg], [other-msg])
 Create a text field whose value is optional.
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::OptTextbox::new)) {
-        return new WebminUI::Theme::OptTextbox(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::OptTextbox::new)) {
+        return new AdFreeZoneUI::Theme::OptTextbox(@_[1..$#_]);
         }
 my ($self, $name, $value, $size, $default, $other) = @_;
-$self = new WebminUI::Textbox($name, $value, $size);
+$self = new AdFreeZoneUI::Textbox($name, $value, $size);
 bless($self);
 $self->set_default($default || $text{'default'});
 $self->set_other($other) if ($other);
@@ -39,7 +39,7 @@ if (defined($self->get_value())) {
 	if ($self->get_value() eq "") {
 		return ( $text{'ui_nothing'} );
 		}
-	return WebminUI::Textbox::validate($self);
+	return AdFreeZoneUI::Textbox::validate($self);
 	}
 return ( );
 }

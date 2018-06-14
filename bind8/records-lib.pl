@@ -3,7 +3,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 
-# Globals from Webmin or bind8-lib.pl
+# Globals from AdFreeZone or bind8-lib.pl
 our (%config, %text, %in);
 our $module_config_directory;
 our $bind_version;

@@ -4,7 +4,7 @@ index_email=Sende E-Mail bei Systemfehler an
 index_header=Automatische System Pr&#252;dung
 index_host=Hostname
 index_nl=Login fehlgeschlagen
-index_none=Keine Server sind in dem <a href='$1'>Webmin-Server</a>-Modul definiert.
+index_none=Keine Server sind in dem <a href='$1'>AdFreeZone-Server</a>-Modul definiert.
 index_nu=Nicht Benutzer gesetzt
 index_os=Betriebssystem
 index_reboot=Server neu starten

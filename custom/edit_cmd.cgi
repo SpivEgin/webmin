@@ -94,7 +94,7 @@ print &ui_table_row(&hlink($text{'edit_format'}, "format"),
 			 &ui_textbox("format",
 			    $fmode == 1 ? $cmd->{'format'} : "", 20) ] ]));
 
-# Show Webmin servers to run on
+# Show AdFreeZone servers to run on
 @servers = &list_servers();
 if (@servers > 1) {
 	@hosts = @{$cmd->{'hosts'}};

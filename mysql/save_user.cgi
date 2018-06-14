@@ -99,7 +99,7 @@ else {
 &execute_sql_logged($master_db, 'flush privileges');
 if (!$in{'delete'} && !$in{'new'} &&
     $in{'olduser'} eq $config{'login'} && !$access{'user'}) {
-	# Renamed or changed the password for the Webmin login .. update
+	# Renamed or changed the password for the AdFreeZone login .. update
 	# it too!
 	$config{'login'} = $in{'mysqluser'};
 	if ($in{'mysqlpass_mode'} == 0) {

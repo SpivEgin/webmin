@@ -1,5 +1,5 @@
 index_title=Logical Volume Management
-index_ecommands=The LVM command $1 was not found on your system. Webmin needs the LVM administration commands in order to setup and manage logical volumes.
+index_ecommands=The LVM command $1 was not found on your system. AdFreeZone needs the LVM administration commands in order to setup and manage logical volumes.
 index_emodule=The LVM status directory $1 does not exist. This indicates that your kernel does not support LVM, or that the $2 kernel module is not loaded.
 index_vgs=Volume Groups
 index_pvs=Physical Volumes
@@ -17,7 +17,7 @@ index_addlv=Create a new logical volume.
 index_addsnap=Create a new snapshot.
 index_return=volume groups
 index_init=This may be because LVM has not been activated yet. <a href='$1'>Activate it now</a> to view all volume groups.
-index_eversion=Webmin only supports LVM versions 1.0 and above. The output from $1 on your system was : $2
+index_eversion=AdFreeZone only supports LVM versions 1.0 and above. The output from $1 on your system was : $2
 index_version=LVM version $1
 index_vgname=Volume group name
 index_vgsize=Total size
@@ -138,7 +138,7 @@ mkfs_ok=.. command complete.
 
 resize_title=Resize Logical Volume
 resize_mesg=The $1 filesystem on this logical volume cannot be resized. If you resize the logical volume, you must re-create the filesystem, which will erase all data in it.
-resize_mesg2=Webmin does not know what kind of filesystem is on this logical volume, if any. If you resize the logical volume, you must re-create the filesystem, which will erase all data in it.
+resize_mesg2=AdFreeZone does not know what kind of filesystem is on this logical volume, if any. If you resize the logical volume, you must re-create the filesystem, which will erase all data in it.
 resize_fs=There was an error resizing the $1 filesystem on this logical volume : $2  If you resize just the logical volume, you must re-create the filesystem, which will erase all data in it.
 resize_ok=Resize Logical Volume
 resize_emounted=The filesystem on this logical volume cannot be resized while it is mounted

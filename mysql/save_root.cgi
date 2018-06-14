@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Update the password for root, both in MySQL and Webmin
+# Update the password for root, both in MySQL and AdFreeZone
 
 require './mysql-lib.pl';
 &ReadParse();

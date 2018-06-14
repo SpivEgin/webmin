@@ -1,8 +1,8 @@
 
-                         Webmin Printer Test Page
+                         AdFreeZone Printer Test Page
                          ------------------------
 
-This is the printer test page for the Webmin Printer Administration module.
+This is the printer test page for the AdFreeZone Printer Administration module.
 If you can read this, your printer is probably working properly.
 
 Below should be a table of all the printable ASCII characters.

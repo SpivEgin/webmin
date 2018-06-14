@@ -13,7 +13,7 @@ index_var=Variable
 index_script=Shell script
 index_none=There are no rules in your firewall script.
 index_apply=Apply Firewall Configuration
-index_applydesc=Click this button to make the firewall configuration listed above active. Make sure that you have not blocked Webmin access to your server before doing this!
+index_applydesc=Click this button to make the firewall configuration listed above active. Make sure that you have not blocked AdFreeZone access to your server before doing this!
 
 desc_policy=Set default policy to $1
 desc_flush=Clear all rules

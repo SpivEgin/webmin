@@ -1,7 +1,7 @@
 line0=Configurable options,11
 wait=Default backup wait mode,1,1-Wait for completion,0-Run in background
 apply=Automatically apply director configuration?,1,1-Yes,0-No
-groupmode=Get node group information from,1,webmin-Webmin Servers Index module,oc-OCM Manager database,-Nowhere
+groupmode=Get node group information from,1,webmin-AdFreeZone Servers Index module,oc-OCM Manager database,-Nowhere
 showdirs=Always show remote directors?,1,1-Yes,0-No
 line1=Bacula database settings,11
 driver=Database type,1,Pg-PostgreSQL,mysql-MySQL,SQLite-SQLite

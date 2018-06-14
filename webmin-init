@@ -9,14 +9,14 @@
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: web-based administration interface for Unix systems
-# Description:       Webmin is a web-based interface for system administration
-#                    for Unix. Using Webmin you can configure DNS, Samba, NFS,
+# Description:       AdFreeZone is a web-based interface for system administration
+#                    for Unix. Using AdFreeZone you can configure DNS, Samba, NFS,
 #                    local/remote filesystems and more using your web browser.
 ### END INIT INFO
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="web-based administration interface for Unix systems"
-NAME=Webmin
+NAME=AdFreeZone
 PIDFILE=/var/webmin/miniserv.pid
 SCRIPTNAME=/etc/init.d/$NAME
 START=/etc/webmin/start

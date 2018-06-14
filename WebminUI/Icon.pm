@@ -1,7 +1,7 @@
-package WebminUI::Icon;
-use WebminCore;
+package AdFreeZoneUI::Icon;
+use AdFreeZoneCore;
 
-=head2 WebminUI::Icon(type, [message])
+=head2 AdFreeZoneUI::Icon(type, [message])
 This object generates an icon indicating some status. Possible types are :
 ok - OK
 critial - A serious problem
@@ -11,8 +11,8 @@ Can be used inside tables and property lists
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Icon::new) && caller() !~ /WebminUI::Theme::Icon/) {
-        return new WebminUI::Theme::Icon(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Icon::new) && caller() !~ /AdFreeZoneUI::Theme::Icon/) {
+        return new AdFreeZoneUI::Theme::Icon(@_[1..$#_]);
         }
 my ($self, $type, $message) = @_;
 $self = { };

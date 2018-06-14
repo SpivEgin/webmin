@@ -301,7 +301,7 @@ ddrops_rusure=Weet u zeker dat u de database $1 wilt droppen ? $2 tabellen met $
 ddrops_rusure2=Weet u zeker dat u de database $1 wilt droppen ?
 ddrops_title=Drop Databases
 edenied=U heeft geen toegang tot deze MySQL database
-eparse=Webmin kan het resultaat van de opdracht $1 niet ontleden wegens de aard van de data in uw database. U moet de $2 en $3 Perl modules installeren om dit probleem op te lossen.
+eparse=AdFreeZone kan het resultaat van de opdracht $1 niet ontleden wegens de aard van de data in uw database. U moet de $2 en $3 Perl modules installeren om dit probleem op te lossen.
 esql=SQL $1 mislukt : $2
 exec_clear=Opschonen Geschiedenis
 exec_created=Er zijn $1 tabellen gemaakt.
@@ -448,13 +448,13 @@ index_eadmin=Het MySQL admin programma $1 is niet gevonden op uw systeem. Missch
 index_ecannot=U bent niet bevoegd om indexen te beheren
 index_eclash=Een index met dezelfde naam bestaat al
 index_ecols=Geen velden geselecteerd
-index_eenvpass=Het MySQL client programma $1 accepteert geen wachtwoorden die gebruik maken van de <tt>MYSQL_PWD</tt> omgevings variabelen. Om er zeker van te zijn dat Webmin volledig kan communiceren met MySQL moet u deze optie uitzetten op de <a href='$2'>module configuratie</a> pagina.
+index_eenvpass=Het MySQL client programma $1 accepteert geen wachtwoorden die gebruik maken van de <tt>MYSQL_PWD</tt> omgevings variabelen. Om er zeker van te zijn dat AdFreeZone volledig kan communiceren met MySQL moet u deze optie uitzetten op de <a href='$2'>module configuratie</a> pagina.
 index_elibrary=Het MySQL client programma $1 kan niet werken omdat het de MySQL gedeelde bibliotheken niet kon vinden. Controleer de <a href='$2'>module configuratie</a> en let op dat het <i>Pad naar MySQL gedeelde bibliotheken</i> er goed in staat.
 index_emsg=De volledige MySQL foutmelding was : $1
 index_ename=Ontbrekende of ongeldige index naam
 index_err=Mislukt om een index te maken
 index_esql=Het MySQL client programma $1 is niet gevonden op uw systeem. Misschien is MySL niet geinstalleerd of uw <a href='$2'>module configuratie</a> is niet correct.
-index_ever=Het MySQL client programma $1 lijkt niet de juiste versie te zijn. Webmin ondersteunt alleen MySQL versie 3 en hoger.
+index_ever=Het MySQL client programma $1 lijkt niet de juiste versie te zijn. AdFreeZone ondersteunt alleen MySQL versie 3 en hoger.
 index_fields=Velden in index
 index_fulltext=Volledige tekst
 index_global=Globale Opties
@@ -472,20 +472,20 @@ index_name=Index naam
 index_nodbs=U heeft geen toegang tot eender welke MySQL database.
 index_nodbs2=Er zijn geen MySQL databases gevonden op uw systeem.
 index_nodbs3=Er komen geen MySQL databases overeen met uw zoekopdracht.
-index_nomod=Waarschuwing: De Perl module $1 is niet geinstalleerd op uw systeem, dus Webmin kan niet op een betrouwbare manier toegang krijgen tot de MySQL database. <a href='$2'>Klik hier</a> om het nu te installeren.
-index_nomods=Waarschuwing: De Perl module $1 en $2 zijn niet geinstalleerd op uw systeem, dus Webmin kan niet op een betrouwbare manier toegang krijgen tot de MySQL database. <a href='$3'>Klik hier</a> om het nu te installeren.
-index_nopass=Webmin moet weten wat uw "MySQL administratie" gebruikersnaam en wachtwoord is om uw databases te beheren. Vul hieronder uw gebruikersnaam (meestal <tt>root</tt>)en wachtwoord in.
+index_nomod=Waarschuwing: De Perl module $1 is niet geinstalleerd op uw systeem, dus AdFreeZone kan niet op een betrouwbare manier toegang krijgen tot de MySQL database. <a href='$2'>Klik hier</a> om het nu te installeren.
+index_nomods=Waarschuwing: De Perl module $1 en $2 zijn niet geinstalleerd op uw systeem, dus AdFreeZone kan niet op een betrouwbare manier toegang krijgen tot de MySQL database. <a href='$3'>Klik hier</a> om het nu te installeren.
+index_nopass=AdFreeZone moet weten wat uw "MySQL administratie" gebruikersnaam en wachtwoord is om uw databases te beheren. Vul hieronder uw gebruikersnaam (meestal <tt>root</tt>)en wachtwoord in.
 index_notrun=MySQL is niet aan het werk op uw systeem - database lijst kon niet worden opgehaald.
-index_nouser=Uw Webmin account is geconfigureerd om te verbinden met de MySQL server als gebruiker $1, Maar de toegang voor deze gebruiker is geweigerd.
+index_nouser=Uw AdFreeZone account is geconfigureerd om te verbinden met de MySQL server als gebruiker $1, Maar de toegang voor deze gebruiker is geweigerd.
 index_pass=Wachtwoord
 index_return=database lijst
 index_search=Zoek
 index_showing=Laat databases zien overeenkomend met $1 ..
 index_spatial=Spatie
 index_start=Start MySQL Server
-index_startmsg=Klik op deze knop om uw MySQL database server op uw systeem te starten met de opdracht $1. Deze Webmin module kan de database niet beheren als het niet is gestart.
+index_startmsg=Klik op deze knop om uw MySQL database server op uw systeem te starten met de opdracht $1. Deze AdFreeZone module kan de database niet beheren als het niet is gestart.
 index_stop=Stop MySQL Server
-index_stopmsg=Klik op deze knop om uw MySQL database server op uw systeem te stoppen. Hierdoor heeft geen enkel programma meer toegang tot de database, inclusief deze Webmin module.
+index_stopmsg=Klik op deze knop om uw MySQL database server op uw systeem te stoppen. Hierdoor heeft geen enkel programma meer toegang tot de database, inclusief deze AdFreeZone module.
 index_tables=Tabellen
 index_title=MySQL Database Server
 index_title1=Maak Index
@@ -793,7 +793,7 @@ users_priv8=Drop
 users_priv9=Herladen
 users_return=gebruiker lijst
 users_ssl=Certificaat
-users_sync=Met de opties hieronder kunt u de synchronisatie configureren tussen aangemaakte Unix gebruikers met Webmin en MySQL gebruikers.
+users_sync=Met de opties hieronder kunt u de synchronisatie configureren tussen aangemaakte Unix gebruikers met AdFreeZone en MySQL gebruikers.
 users_sync_create=Nieuwe MySQL gebruiker toevoegen wanneer een Unix gebruiker word aangemaakt
 users_sync_def=Alle hosts
 users_sync_delete=Verwijder MySQL gebruiker wanneer de overeenkomende Unix gebruiker word verwijdert.

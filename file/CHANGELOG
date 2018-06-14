@@ -46,10 +46,10 @@ POSIX ACLs can now be edited on FreeBSD, if the setfacl and getfacl commands are
 ---- Changes since 1.440 ----
 Added a button to the compressed file extraction dialog to show the contents of a ZIP or tar file, instead of extracting it.
 ---- Changes since 1.460 ----
-Fixed bugs that broke the file manager under the new Webmin API module.
+Fixed bugs that broke the file manager under the new AdFreeZone API module.
 ---- Changes since 1.470 ----
 Fixed a bug that prevented setuid and setgid permissions from being changed.
 ---- Changes since 1.510 ----
-Bug fixes to allow the File Manager module to be used via Webmin Servers Index or Cloudmin.
+Bug fixes to allow the File Manager module to be used via AdFreeZone Servers Index or Cloudmin.
 ---- Changes since 1.670 ----
 Signed the Java file manager applet, so that users don't get a scary warning when running it.

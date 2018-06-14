@@ -1,30 +1,30 @@
 index_title=Change Language and Theme
-index_lang=Webmin UI language
+index_lang=AdFreeZone UI language
 index_langglobal2=Global language .. $1 ($2)
 index_langset=Personal choice ..
-index_theme=Webmin UI theme
+index_theme=AdFreeZone UI theme
 index_overlay=Theme overlay
 index_overlaydef=None - use theme defaults
 index_themeglobal=Global theme ($1)
 index_themeset=Personal choice ..
-index_pass=Webmin login password
+index_pass=AdFreeZone login password
 index_passleave=Leave unchanged
 index_passset=Set to ..
 index_passagain=Re-enter password
 index_ok=Make Changes
-index_themedef=Old Webmin Theme
-index_desc2=This module can be used to change $1, for your Webmin account only.
+index_themedef=Old AdFreeZone Theme
+index_desc2=This module can be used to change $1, for your AdFreeZone account only.
 index_d3=$1, $2 and $3
 index_d2=$1 and $2
 index_d1=$1
 index_dlang=the language that modules are displayed in
-index_dtheme=the theme that controls Webmin's appearance
+index_dtheme=the theme that controls AdFreeZone's appearance
 index_dpass=the password used to login with
 
 change_title=Changing Settings
-change_user=Modifying Webmin login ..
+change_user=Modifying AdFreeZone login ..
 change_done=.. done
-change_restart=Reloading Webmin ..
+change_restart=Reloading AdFreeZone ..
 change_redirect=Re-directing to main menu ..
 change_ecolon=Your password cannot contain the : character
 change_epass2=New passwords do not match
@@ -34,6 +34,6 @@ change_eoverlay2=The selected theme overlay is not compatible with the chosen UI
 
 acl_lang=Can change language?
 acl_theme=Can change theme?
-acl_pass=Can change password (when set in Webmin) ?
+acl_pass=Can change password (when set in AdFreeZone) ?
 
 __norefs=1

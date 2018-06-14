@@ -1,7 +1,7 @@
-package WebminUI::DynamicWait;
-use WebminCore;
+package AdFreeZoneUI::DynamicWait;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::DynamicWait(&start-function, [&args])
+=head2 new AdFreeZoneUI::DynamicWait(&start-function, [&args])
 A page element indicating that something is happening.
 =cut
 sub new
@@ -99,7 +99,7 @@ my ($self) = @_;
 return $self->{'wait'};
 }
 
-=head2 set_page(WebminUI::Page)
+=head2 set_page(AdFreeZoneUI::Page)
 Called when this dynamic text box is added to a page
 =cut
 sub set_page

@@ -79,7 +79,7 @@ portsentry_euadv=Ontbrekende of ongeldige maximum UDP poort voor geavanceerde mo
 portsentry_euexc='$1' is geen geldige uitgesloten UDP poort
 portsentry_euports='$1' is geen geldige standaard mode UDP poort
 portsentry_eversion=Het programma $1 lijkt niet de Portsentry daemon te zijn. Misschien is het niet geinstalleerd, of uw <a href='$2'>module configuratie</a> is niet correct.
-portsentry_eversion2=De geinstalleerde versie Portsentry op uw systeem is $2, maar Webmin ondersteunt alleen versie $1 in deze release
+portsentry_eversion2=De geinstalleerde versie Portsentry op uw systeem is $2, maar AdFreeZone ondersteunt alleen versie $1 in deze release
 portsentry_header=Poort scan detectie opties
 portsentry_ignore=Hosts waar verkeer vanaf komt negeren
 portsentry_kill=Kill opdracht uitvoeren

@@ -161,7 +161,7 @@ print "$text{'ssl_newkey'}<p>\n";
 my $curkey = read_file_contents($miniserv{'keyfile'});
 my $origkey = read_file_contents("$root_directory/miniserv.pem");
 if ($curkey eq $origkey) {
-	# System is using the original (insecure) Webmin key!
+	# System is using the original (insecure) AdFreeZone key!
 	print "<b>$text{'ssl_hole'}</b><p>\n";
 	}
 
@@ -171,7 +171,7 @@ print ui_table_start($text{'ssl_header1'}, undef, 2);
 my $host = $ENV{'HTTP_HOST'};
 $host =~ s/:.*//;
 print show_ssl_key_form($host, undef, 
-			 "Webmin Webserver on ".get_system_hostname());
+			 "AdFreeZone Webserver on ".get_system_hostname());
 
 print ui_table_row($text{'ssl_newfile'},
 	    ui_textbox("newfile", "$config_directory/miniserv.pem", 40));
@@ -193,7 +193,7 @@ print ui_form_start("newcsr.cgi");
 print ui_table_start($text{'ssl_header2'}, undef, 2);
 
 print show_ssl_key_form($host, undef, 
-			 "Webmin Webserver on ".get_system_hostname());
+			 "AdFreeZone Webserver on ".get_system_hostname());
 
 print ui_table_row($text{'ssl_newfile'},
 	    ui_textbox("newfile", "$config_directory/miniserv.newkey", 40));
@@ -302,7 +302,7 @@ else {
 	print &ui_table_row($text{'ssl_webroot'},
 		&ui_radio_table("webroot_mode", $mode, \@opts));
 
-	# Install in Webmin now?
+	# Install in AdFreeZone now?
 	print &ui_table_row($text{'ssl_usewebmin'},
 		&ui_yesno_radio("use", 1));
 

@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Delete a bunch of Webmin users, or add them to a group
+# Delete a bunch of AdFreeZone users, or add them to a group
 
 use strict;
 use warnings;

@@ -10,7 +10,7 @@ get_paths();
 my @errors;
 $line = "";
 
-# Use Webmin's callback function to track progress
+# Use AdFreeZone's callback function to track progress
 $cbfunc = \&read_parse_mime_callback;
 
 # Get multipart form boundary

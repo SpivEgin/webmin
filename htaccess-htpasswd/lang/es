@@ -1,6 +1,6 @@
 acl_dirs=Directorios permitidos
 acl_home=&#191;Incluir el directorio de inicio del usuario Unix?
-acl_same=Igual que el usuario de ingreso Webmin
+acl_same=Igual que el usuario de ingreso AdFreeZone
 acl_sync=&#191;Puede configurar la sincronizaci&#243;n de usuario Unix?
 acl_user=Crear archivos .htaccess y htusers como usuario Unix
 dir_auto=Seleccionar autom&#225;ticamente

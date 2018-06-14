@@ -138,7 +138,7 @@ else {
 		push(@require, @groups);
 		}
 
-	# Parse Webmin sync
+	# Parse AdFreeZone sync
 	$sync = join(",", grep { $in{'sync_'.$_} }
 			       ('create', 'update', 'delete'));
 	$sync ||= "-";

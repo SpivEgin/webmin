@@ -38,7 +38,7 @@ foreach $a (sort { $a->{'name'} cmp $b->{'name'} } @$auths) {
 	print "</tr>\n";
 	}
 
-# Add Webmin authorizations
+# Add AdFreeZone authorizations
 print "<tr> <td colspan=2><hr></td> </tr>\n";
 foreach $m (sort { $a->{'dir'} cmp $b->{'dir'} } &get_all_module_infos()) {
 	next if (!&check_os_support($m));

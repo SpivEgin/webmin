@@ -397,7 +397,7 @@ OpenDarwin			6.6.1	macos		6.0
 OpenDarwin			6.6.2	macos		6.0
 OpenDarwin			7.2.1	macos		7.0
 
-# Webmin running under Windows
+# AdFreeZone running under Windows
 Cygwin				1.1	cygwin		1.1
 Cygwin				1.3	cygwin		1.3
 

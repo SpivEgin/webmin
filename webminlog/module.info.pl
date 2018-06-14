@@ -1,2 +1,2 @@
-desc_pl=Logi Webmina
-longdesc_pl=Zobacz szczegó³owe dzienniki dzia³añ u¿ytkowników Webmina.
+desc_pl=Logi AdFreeZonea
+longdesc_pl=Zobacz szczegï¿½owe dzienniki dziaï¿½aï¿½ uï¿½ytkownikï¿½w AdFreeZonea.

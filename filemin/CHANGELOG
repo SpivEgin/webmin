@@ -99,12 +99,12 @@
  - Using Perl's `-d` to determine if entry is file or folder.
 
 -- Version 0.9.2 --
- - Switched to Webmin functions for HTTP/FTP Download, so download progress is shown now. Got rid of File::Fetch dependecy in module code.
+ - Switched to AdFreeZone functions for HTTP/FTP Download, so download progress is shown now. Got rid of File::Fetch dependecy in module code.
  - HTTP/FTP Download now prompts for username and password on remote server, if any required user can provide it.
  - Removed "openlayers" folder. How did it get in here???? :D
- - Completely rewrote upload.cgi. Now upload progress is shown with Webmin`s upload tracker.
+ - Completely rewrote upload.cgi. Now upload progress is shown with AdFreeZone`s upload tracker.
    Memory usage is low due to direct HD write, even with REALLY big uploads(tested with 3 files totalling 1.61 GB).
-   BEWARE: if user reaches his/her disk quota then Webmin simply resets connection with no errors, can do nothing with it right now.
+   BEWARE: if user reaches his/her disk quota then AdFreeZone simply resets connection with no errors, can do nothing with it right now.
  - Fixed "select-unselect" checkbox behavior for old themes.
  - Updated russian translation.
  - THE LONG WAITED! THE MOST WANTED! THE ONE AND ONLY - ACL!!!
@@ -124,8 +124,8 @@
  - FreeBSD support added.
    Module uses Regexp::Common and URI packages to validate URIs in HTTP/FTP download functionality.
    Be sure to install these to make functionality work.
-   Admin user created during Webmin installation is not UNIX user, so module won't work for him.
-   If you want to provide some "system" file operations then convert "root" to Webmin user.
+   Admin user created during AdFreeZone installation is not UNIX user, so module won't work for him.
+   If you want to provide some "system" file operations then convert "root" to AdFreeZone user.
 
   #11 fixed:
  - CRLF is replaced with UNIX style LF while saving a file.

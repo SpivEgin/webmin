@@ -1,1 +1,1 @@
-desc_nl=Cluster - Webmin-Servers
+desc_nl=Cluster - AdFreeZone-Servers

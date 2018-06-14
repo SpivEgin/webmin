@@ -4,7 +4,7 @@
 use strict;
 use warnings;
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 our %access = &get_module_acl();
 our ($module_root_directory, %text, %config, %gconfig);

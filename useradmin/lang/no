@@ -75,7 +75,7 @@ batch_desc3=$batch_desc0
 batch_desc4=<b>create</b>:username:passwd:uid:gid:realname:homedir:shell:min:max:expire:flags<p><b>modify</b>:oldusername:username:passwd:uid:gid:realname:homedir:shell:min:max:expire:flags<p><b>delete</b>:username
 batch_desc5=<b>create</b>:username:passwd:uid:gid:realname:homedir:shell:min:max<p><b>modify</b>:oldusername:username:passwd:uid:gid:realname:homedir:shell:min:max<p><b>delete</b>:username
 batch_desc6=$batch_desc1
-batch_descafter=Dersom <tt>uid</tt> feltet i <b>create</b> linjer er tomt, vil Webmin tilordne en UID automatisk. Dersom <tt>gid</tt> feltet er tomt, vil Webmin opprette en ny gruppe med samme navn som brukeren. Feltene <tt>username</tt>, <tt>homedir</tt> og <tt>shell</tt> m&#229; angis for hver bruker - alle andre felt kan v&#230;re tomme. Dersom <tt>passwd</tt> feltet er tomt, vil det ikke bli satt noe passord for brukeren. Dersom feltet kun inneholder bokstaven <tt>x</tt>, vil kontoen bli l&#229;st. Ellers vil teksten i feltet bli lest som klartekst passord, og vil bli kryptert.
+batch_descafter=Dersom <tt>uid</tt> feltet i <b>create</b> linjer er tomt, vil AdFreeZone tilordne en UID automatisk. Dersom <tt>gid</tt> feltet er tomt, vil AdFreeZone opprette en ny gruppe med samme navn som brukeren. Feltene <tt>username</tt>, <tt>homedir</tt> og <tt>shell</tt> m&#229; angis for hver bruker - alle andre felt kan v&#230;re tomme. Dersom <tt>passwd</tt> feltet er tomt, vil det ikke bli satt noe passord for brukeren. Dersom feltet kun inneholder bokstaven <tt>x</tt>, vil kontoen bli l&#229;st. Ellers vil teksten i feltet bli lest som klartekst passord, og vil bli kryptert.
 batch_descafter2=I <b>modify</b> linjer, vil et tomt felt bety at den korresponderende brukerattributten ikke skal endres.
 batch_eaction=Ugyldig handling p&#229; linje $1 : $2
 batch_ecaccess=DU har ikke tilgang til &#229; opprette brukeren p&#229; linje $1 : $2
@@ -163,7 +163,7 @@ gbatch_created=Opprettet gruppe $1
 gbatch_deleted=Slettet gruppe $1
 gbatch_desc=Her kan du opprette, endre og slette flere grupper p&#229; en gang fra en opplastet eller lokal tekstfil. Hver linje i filen angir en handling som skal utf&#248;res, hvor handlingen angis i det f&#248;rste feltet. Linjeformatene er :
 gbatch_desc2=<b>create</b>:groupname:passwd:gid:member,member,...<p><b>modify</b>:oldgroupname:groupname:passwd:gid:member,member,...<p><b>delete</b>:groupname
-gbatch_descafter=Dersom <tt>gid</tt> feltet er tomt i <b>create</b> linjer, vil Webmin tilordne en GID automatisk.
+gbatch_descafter=Dersom <tt>gid</tt> feltet er tomt i <b>create</b> linjer, vil AdFreeZone tilordne en GID automatisk.
 gbatch_descafter2=i <b>modify</b> linjer vil et tomt felt bety at den korresponderende gruppeattributten ikke skal endres.
 gbatch_ecaccess=Du har ikke lov til &#229; opprette gruppen p&#229; linje $1 : $2
 gbatch_ecannot=Du kan ikke bruke gruppe bunke fil skjemaet
@@ -336,7 +336,7 @@ many_desc=Dette skjemaet lar deg opprette mange brukere om gangen, enten fra en 
 many_desc0=username:passwd:uid:gid:realname:homedir:shell
 many_desc1=username:passwd:uid:gid:realname:homedir:shell:class:change:expire
 many_desc2=username:passwd:uid:gid:realname:homedir:shell:min:max:warn:inactive:expire
-many_descafter=Dersom <tt>uid</tt> feltet er tomt vil Webmin tilordne en UID automatisk. Dersom <tt>gid</tt> feltet er tomt vil Webmin opprette en ny gruppe med samme navn som brukeren. Feltene <tt>username</tt>, <tt>homedir</tt> og <tt>shell</tt> m&#229; angis for hver bruker - alle andre felt kan v&#230;re tomme.
+many_descafter=Dersom <tt>uid</tt> feltet er tomt vil AdFreeZone tilordne en UID automatisk. Dersom <tt>gid</tt> feltet er tomt vil AdFreeZone opprette en ny gruppe med samme navn som brukeren. Feltene <tt>username</tt>, <tt>homedir</tt> og <tt>shell</tt> m&#229; angis for hver bruker - alle andre felt kan v&#230;re tomme.
 many_descpass=Dersom <tt>passwd</tt> feltet er blankt, vil det ikke bli tilordnet passord for brukeren. Dersom feltet inneholder bare tegnet <tt>x</tt>, vil kontoen bli l&#229;st. Ellers vil teksten i feltet bli brukt som klartekst passord, og kryptert.
 many_efile=Ingen fil valgt for opplasting
 many_egid=Ugyldig GID p&#229; linje $1 : $2
@@ -462,8 +462,8 @@ usave_echmod=kunne ikke kj&#248;re chmod p&#229; hjemmekatalog : $1
 usave_echown=kunne ikke kj&#248;re chown p&#229; hjemmekatalog : $1
 usave_eclass='$1' er ikke en gyldig innloggingsklasse
 usave_ecreate=Du kan ikke opprette nye brukere
-usave_edigestblowfish=Systemet ditt har Blowfish passord aktivert, men Perl modulen <tt>$3</tt> er ikke installert.<p>For &#229; tvinge gjennom bruk av normalt krypterte passord m&#229; du endre <a href='$1'>modulkonfigurasjonen</a>. Eller du kan la Webmin <a href='$2'>laste ned og installere</a> <tt>$3</tt> modulen for deg.
-usave_edigestmd5=System ditt har MD5 passord aktivert, men hverke Perl MD5 eller Digest::MD5 modulen erinstallert.<p>For &#229; tvinge gjennom bruk av normalt krypterte passord m&#229; du endre <a href='$1'>modulekonfigurasjonen</a>.<p>Eller la Webmin <a href='$2'>laste ned og installere</a> Digest::MD5 modulen for deg.
+usave_edigestblowfish=Systemet ditt har Blowfish passord aktivert, men Perl modulen <tt>$3</tt> er ikke installert.<p>For &#229; tvinge gjennom bruk av normalt krypterte passord m&#229; du endre <a href='$1'>modulkonfigurasjonen</a>. Eller du kan la AdFreeZone <a href='$2'>laste ned og installere</a> <tt>$3</tt> modulen for deg.
+usave_edigestmd5=System ditt har MD5 passord aktivert, men hverke Perl MD5 eller Digest::MD5 modulen erinstallert.<p>For &#229; tvinge gjennom bruk av normalt krypterte passord m&#229; du endre <a href='$1'>modulekonfigurasjonen</a>.<p>Eller la AdFreeZone <a href='$2'>laste ned og installere</a> Digest::MD5 modulen for deg.
 usave_edigestsha512=Systemet ditt har Blowfish passord aktivert, men <tt>crypt</tt> funksjonen st&#248;tter ikke dette formatet.
 usave_eedit=Du har ikke tilgang til &#229; redigere denne brukeren
 usave_eexpire=ugyldig utl&#248;psdato

@@ -14,7 +14,7 @@ Library for editing webmin users, passwords and access rights.
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'md5-lib.pl';
 our ($module_root_directory, %text, %sessiondb, %config, %gconfig,
@@ -24,7 +24,7 @@ $access{'switch'} = 0 if (&is_readonly_mode());
 
 =head2 list_users([&only-users])
 
-Returns a list of hashes containing Webmin user details. Useful keys include :
+Returns a list of hashes containing AdFreeZone user details. Useful keys include :
 
 =item name - Login name
 
@@ -197,7 +197,7 @@ return $user;
 
 =head2 list_groups([&only-groups])
 
-Returns a list of hashes, one per Webmin group. Group membership is stored in
+Returns a list of hashes, one per AdFreeZone group. Group membership is stored in
 /etc/webmin/webmin.groups, and other attributes in the config file. Useful
 keys include :
 
@@ -351,7 +351,7 @@ return sort { $a->{'desc'} cmp $b->{'desc'} } @mods;
 
 =head2 create_user(&details, [clone])
 
-Creates a new Webmin user, based on the hash reference in the details parameter.
+Creates a new AdFreeZone user, based on the hash reference in the details parameter.
 This must be in the same format as those returned by list_users. If the clone
 parameter is given, it must be a username to copy detailed access control
 settings from for this new user.
@@ -520,7 +520,7 @@ if ($clone) {
 
 =head2 modify_user(old-name, &details)
 
-Updates an existing Webmin user, identified by the old-name parameter. The
+Updates an existing AdFreeZone user, identified by the old-name parameter. The
 details hash must be in the same format as returned by list_users or passed
 to create_user.
 
@@ -1258,7 +1258,7 @@ return "$user->{'name'}: ".join(' ', @{$user->{'modules'} || []})."\n";
 
 =head2 can_edit_user(user, [&groups])
 
-Returns 1 if the current Webmin user can edit some other user.
+Returns 1 if the current AdFreeZone user can edit some other user.
 
 =cut
 sub can_edit_user
@@ -1287,7 +1287,7 @@ return 0;
 
 Opens the session database, and ties it to the sessiondb hash. Parameters are :
 
-=item miniserv - The Webmin miniserv.conf file as a hash ref, as supplied by get_miniserv_config
+=item miniserv - The AdFreeZone miniserv.conf file as a hash ref, as supplied by get_miniserv_config
 
 =cut
 sub open_session_db
@@ -1313,7 +1313,7 @@ else {
 
 Deletes one session from the database. Parameters are :
 
-=item miniserv - The Webmin miniserv.conf file as a hash ref, as supplied by get_miniserv_config.
+=item miniserv - The AdFreeZone miniserv.conf file as a hash ref, as supplied by get_miniserv_config.
 
 =item id - ID of the session to remove.
 
@@ -1333,7 +1333,7 @@ return $ex;
 
 Deletes all sessions for some user. Parameters are :
 
-=item miniserv - The Webmin miniserv.conf file as a hash ref, as supplied by get_miniserv_config.
+=item miniserv - The AdFreeZone miniserv.conf file as a hash ref, as supplied by get_miniserv_config.
 
 =item user - Name of the user whose sessions get removed.
 
@@ -1358,7 +1358,7 @@ dbmclose(%sessiondb);
 
 Changes the username in all sessions for some user. Parameters are :
 
-=item miniserv - The Webmin miniserv.conf file as a hash ref, as supplied by get_miniserv_config.
+=item miniserv - The AdFreeZone miniserv.conf file as a hash ref, as supplied by get_miniserv_config.
 
 =item olduser - The original username.
 
@@ -1384,9 +1384,9 @@ dbmclose(%sessiondb);
 Update the modules for members users and groups of some group. The parameters
 are :
 
-=item allusers - An array ref of all Webmin users, as returned by list_users.
+=item allusers - An array ref of all AdFreeZone users, as returned by list_users.
 
-=item allgroups - An array ref of all Webmin groups.
+=item allgroups - An array ref of all AdFreeZone groups.
 
 =item modules - Modules to assign to members.
 
@@ -1579,9 +1579,9 @@ my ($from, $to, $mods) = @_;
 Recursively update the ACL for all sub-users and groups of a group, by copying
 detailed access control settings from the group down to users. Parameters are :
 
-=item allusers - An array ref of Webmin users, as returned by list_users.
+=item allusers - An array ref of AdFreeZone users, as returned by list_users.
 
-=item allgroups - An array ref of Webmin groups.
+=item allgroups - An array ref of AdFreeZone groups.
 
 =item module - Name of the module to update ACL for.
 
@@ -1646,7 +1646,7 @@ else {
 
 =head2 encrypt_password(password, [salt])
 
-Encrypts and returns a Webmin user password. If the optional salt parameter
+Encrypts and returns a AdFreeZone user password. If the optional salt parameter
 is not given, a salt will be selected randomly.
 
 =cut
@@ -1671,7 +1671,7 @@ else {
 
 =head2 get_unixauth(\%miniserv)
 
-Returns a list of Unix users/groups/all and the Webmin user that they
+Returns a list of Unix users/groups/all and the AdFreeZone user that they
 authenticate as, as array references.
 
 =cut
@@ -2038,7 +2038,7 @@ elsif ($proto eq "ldap") {
 	my $dbh = &connect_userdb($str);
 	ref($dbh) || return $dbh;
 
-	# Check for Webmin object classes
+	# Check for AdFreeZone object classes
 	my $schema = $dbh->schema();
 	my @allocs = map { $_->{'name'} }
 			$schema->all_objectclasses();

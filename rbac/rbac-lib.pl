@@ -1,7 +1,7 @@
 #, $in{'mode'} == 1 Functions for parsing the various RBAC configuration files
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 
@@ -864,7 +864,7 @@ if ($access{'roleassign'} eq '*') {
 else {
 	local @canroles;
 	if ($access{'roleassign'} eq 'x') {
-		# Work out Webmin user's roles
+		# Work out AdFreeZone user's roles
 		@canroles = &all_recursive_roles($remote_user);
 		}
 	else {
@@ -886,7 +886,7 @@ if ($access{'profassign'} eq '*') {
 else {
 	local @canprofs;
 	if ($access{'profassign'} eq 'x') {
-		# Work out Webmin user's profs
+		# Work out AdFreeZone user's profs
 		@canprofs = &all_recursive_profs($remote_user);
 		}
 	else {

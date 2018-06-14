@@ -1,6 +1,6 @@
 category=webmin
 risk=low medium high
-desc=Webmin Actions Log
-name=WebminLog
-longdesc=View detailed logs of actions by Webmin users.
+desc=AdFreeZone Actions Log
+name=AdFreeZoneLog
+longdesc=View detailed logs of actions by AdFreeZone users.
 readonly=1

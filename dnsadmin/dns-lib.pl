@@ -1,7 +1,7 @@
 # dnsadmin common functions
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("bind8", "bind8-lib.pl");
 do "$bind8::module_root_directory/records-lib.pl";

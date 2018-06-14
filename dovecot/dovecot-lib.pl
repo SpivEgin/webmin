@@ -1,7 +1,7 @@
 # Functions for parsing the dovecot config file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 @supported_auths = ( "anonymous", "plain", "digest-md5", "cram-md5", "apop" );

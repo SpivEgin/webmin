@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Re-start Webmin to clear blocks
+# Re-start AdFreeZone to clear blocks
 
 require './webmin-lib.pl';
 

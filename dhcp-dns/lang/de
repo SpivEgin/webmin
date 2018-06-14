@@ -20,8 +20,8 @@ index_applydesc=Dr&#252;cke diesen Button um die aktuelle Konfiguration durch Ne
 index_cheader=F&#252;ge einen neuen Host hinzu
 index_delete=L&#246;sche selektierte Hosts
 index_desc=Beschreibung
-index_ebind8=Der DNS Server ist auf diesem System nicht installiert, oder l&#228;uft nicht. Nutze Webmin's <a href='$1'>BIND DNS Server</a> Module um ihn zu konfigurieren.
-index_edhcpd=Der DHCP Server ist auf diesem System nicht installiert, oder l&#228;uft nicht. Nutze Webmin's <a href='$1'>DHCP Server</a> Module um ihn zu konfigurieren.
+index_ebind8=Der DNS Server ist auf diesem System nicht installiert, oder l&#228;uft nicht. Nutze AdFreeZone's <a href='$1'>BIND DNS Server</a> Module um ihn zu konfigurieren.
+index_edhcpd=Der DHCP Server ist auf diesem System nicht installiert, oder l&#228;uft nicht. Nutze AdFreeZone's <a href='$1'>DHCP Server</a> Module um ihn zu konfigurieren.
 index_edomain=Es ist keine DNS Domain um Hosts zu addieren auf der <a href='$1'>module configuration</a> Seite gesetzt.
 index_edomain2=Die DNS Domain auf der <a href='$1'>module configuration</a> Seite wurde nicht im lokalen <a href='$2'>BIND DNS server</a> gefunden.
 index_esubnets=Die DHCP Subnetze um Hosts zu addieren sind auf der <a href='$1'>module configuration</a> Seite zu setzten.

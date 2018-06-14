@@ -2,7 +2,7 @@
 
 =head2 search_webmin(phrase, [callback-function], [&modules])
 
-Searches all Webmin help pages, UI text, module names and config.info files
+Searches all AdFreeZone help pages, UI text, module names and config.info files
 for entries matching the given phrase or word. Returns them sorted by relevance
 order, each as a hash ref with the following keys :
 
@@ -21,7 +21,7 @@ sub search_webmin
 {
 my ($re, $cbfunc, $onlymods) = @_;
 
-# Work out this Webmin's URL base
+# Work out this AdFreeZone's URL base
 my $urlhost = $ENV{'HTTP_HOST'};
 if ($urlhost !~ /:/) {
 	$urlhost .= ":".$ENV{'SERVER_PORT'};

@@ -4,7 +4,7 @@
 use lib '.';
 
 $no_acl_check++;
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 @themes = &list_themes();
 

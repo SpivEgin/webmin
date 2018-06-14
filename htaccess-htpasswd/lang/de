@@ -1,7 +1,7 @@
 __norefs=1
 acl_dirs=Erlaubte Verzeichnisse
 acl_home=Unix Benutzer's Homeverzeichnis einschlie&#223;en?
-acl_same=Wie Webmin Login
+acl_same=Wie AdFreeZone Login
 acl_sync=Darf Unixbenutzer-Synchronisation einrichten?
 acl_uonly=Kann hinzuf&#252;gen und &#228;ndern von gesch&#252;tzten Verzeichnissen?
 acl_user=Erstelle .htaccess und htusers Dateien als Unix Benutzer

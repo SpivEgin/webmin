@@ -21,7 +21,7 @@ index_down=Abajo
 index_return=indice del m&oacute;dulo
 index_version=Bacula $1
 index_notrun=Respaldos y otras operaciones no pueden ser ejecutadas porque el programa Director de Bacula no esta corriendo.
-index_eversion=Su sistema esta usando Bacula versi&oacute;n $2, pero este modulo de Webmin solo soporta versiones desde $1 y superiores.
+index_eversion=Su sistema esta usando Bacula versi&oacute;n $2, pero este modulo de AdFreeZone solo soporta versiones desde $1 y superiores.
 index_dir=Configuraci&oacute;n del Director (DIR)
 index_sd=Configuraci&oacute;n del Programa de Almacenamiento (SD)
 index_fd=Configuraci&oacute;n del Programa de Cliente (FD)
@@ -42,7 +42,7 @@ check_econsole=No se encuentra el comando de consola de Bacula $1
 check_edirector=No se encuentra la configuracion del director de Bacula $1 
 check_eclient=Este sistema parece ser mas un <a href='$2'>cliente de Bacula</a> m&aacute;s que un director.
 check_econfigs=No se encuentran los archivos de configuraci&oacute;n de Bacula en $1
-check_eservers=No se ha definido grupos de servidores de Webmin
+check_eservers=No se ha definido grupos de servidores de AdFreeZone
 check_engmod=El m&oacute;dulo de grupos de OpenCountry Bacula no est&aacute; instalado
 
 proc_bacula-sd=Programa de Almacenamiento (SD)

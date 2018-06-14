@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Convert Webmin function comments to POD format
+# Convert AdFreeZone function comments to POD format
 
 # Parse command line
 @ARGV || die "usage: webmin-to-pod.pl [--svn 'comment'] [--overwrite] <file> ...";

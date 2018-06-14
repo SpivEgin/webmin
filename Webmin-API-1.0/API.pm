@@ -1,4 +1,4 @@
-package Webmin::API;
+package AdFreeZone::API;
 
 require 5.005_62;
 
@@ -46,15 +46,15 @@ our @EXPORT = (
 
 our $VERSION = '1.0';
 
-# Find old symbols by Webmin import
-my %oldsyms = %Webmin::API::;
+# Find old symbols by AdFreeZone import
+my %oldsyms = %AdFreeZone::API::;
 
 # Preloaded methods go here.
 $main::no_acl_check++;
 $ENV{'WEBMIN_CONFIG'} ||= "/etc/webmin";
 $ENV{'WEBMIN_VAR'} ||= "/var/webmin";
 open(MINISERV, $ENV{'WEBMIN_CONFIG'}."/miniserv.conf") ||
-	die "Could not open Webmin config file ".
+	die "Could not open AdFreeZone config file ".
 	    $ENV{'WEBMIN_CONFIG'}."/miniserv.conf : $!";
 my $webmin_root;
 while(<MINISERV>) {
@@ -64,7 +64,7 @@ while(<MINISERV>) {
 		}
 	}
 close(MINISERV);
-$webmin_root || die "Could not find Webmin root directory";
+$webmin_root || die "Could not find AdFreeZone root directory";
 chdir($webmin_root);
 if ($0 =~ /\/([^\/]+)$/) {
 	$0 = $webmin_root."/".$1;
@@ -93,27 +93,27 @@ __END__
 
 =head1 NAME
 
-Webmin::API - Perl module to make calling of Webmin functions from regular
+AdFreeZone::API - Perl module to make calling of AdFreeZone functions from regular
               command-line Perl scripts easier.
 
 =head1 SYNOPSIS
 
-  use Webmin::API;
+  use AdFreeZone::API;
   @pids = &find_byname("httpd");
   foreign_require("cron", "cron-lib.pl");
   @jobs = &cron::list_cron_jobs();
 
 =head1 DESCRIPTION
 
-This module just provides a convenient way to call Webmin API functions
-from a script that is not run as a Webmin CGI, without having to include a 
+This module just provides a convenient way to call AdFreeZone API functions
+from a script that is not run as a AdFreeZone CGI, without having to include a
 bunch of boilerplate initialization code at the top. It's main job is to export
-all API functions into the namespace of the caller, and to setup the Webmin
+all API functions into the namespace of the caller, and to setup the AdFreeZone
 environment.
 
 =head2 EXPORT
 
-All core Webmin API functions, like find_byname, foreign_config and so on.
+All core AdFreeZone API functions, like find_byname, foreign_config and so on.
 
 =head1 AUTHOR
 

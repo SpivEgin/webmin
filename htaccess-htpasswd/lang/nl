@@ -1,7 +1,7 @@
 __norefs=1
 acl_dirs=Toegestane directory's
 acl_home=Inclusief Unix gebruikers home directory?
-acl_same=Zelfde als Webmin login
+acl_same=Zelfde als AdFreeZone login
 acl_sync=Mag Unix gebruiker synchronisatie opzetten?
 acl_uonly=Mag beschermde directory's toevoegen en veranderen?
 acl_user=Maak .htaccess en htusers files als Unix gebruiker

@@ -1,1 +1,1 @@
-desc_sv=Webmin-loggning
+desc_sv=AdFreeZone-loggning

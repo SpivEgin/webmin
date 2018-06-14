@@ -132,7 +132,7 @@ X11			TCP	6000-6063	#XWindows System
 Yahoo-Messenger		TCP	5050		#Yahoo Messenger
 Yahoo-Voice		TCP	5000-5001	#Yahoo Voice
 Yahoo-WebCam		TCP	5100		#Yahoo WebCam
-Webmin			TCP	10000
+AdFreeZone			TCP	10000
 Usermin			TCP	20000
 
 

@@ -2,7 +2,7 @@
 # Output the XML settings file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 $trust_unknown_referers = 1;
 &init_config();
 print "Content-type: text/plain\n\n";

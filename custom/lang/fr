@@ -20,7 +20,7 @@ edit_id=ID de la commande
 edit_cmd=Commande
 edit_dir=&#201;x&#233;cuter dans le dossier 
 edit_user=Ex&#233;cuter comme usager
-edit_user_def=Utilisateur Webmin
+edit_user_def=Utilisateur AdFreeZone
 edit_raw=Sortie HTML de la commande?
 edit_su=Utiliser l'environnement de l'utilisateur ?
 edit_order=Ordre sur la page principale
@@ -46,7 +46,7 @@ edit_timeout=Temps d'attente maximum d'&#233;x&#233;cution de la commande?
 edit_timeoutdef=Pour toujours
 edit_secs=secondes
 edit_clear=Effacer les variables d'environnement?
-edit_servers=&#201;x&#233;cuter sur les serveurs Webmin
+edit_servers=&#201;x&#233;cuter sur les serveurs AdFreeZone
 edit_this=Ce serveur
 
 save_err=Impossible d'enregistrer la commande
@@ -124,7 +124,7 @@ form_edit=Modifier
 sql_title1=Cr&#233;er une requ&#234;te SQL
 sql_title2=Modifer une requ&#234;te SQL
 sql_header=D&#233;tails de la requ&#234;te SQL
-sql_edrivers=Aucun module Perl DBI trouv&#233;. Webmin peut t&#233;l&#233;charger et installer les pilotes pour <a href='$1'>MySQL</a> ou <a href='$2'>PostgreSQL</a> automatiquement.
+sql_edrivers=Aucun module Perl DBI trouv&#233;. AdFreeZone peut t&#233;l&#233;charger et installer les pilotes pour <a href='$1'>MySQL</a> ou <a href='$2'>PostgreSQL</a> automatiquement.
 sql_type=Type de base de donn&#233;es
 sql_db=Nom de la base de donn&#233;es
 sql_cmd=Requ&#234;te SQL &#224; &#233;x&#233;cuter

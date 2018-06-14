@@ -1,15 +1,15 @@
-package WebminUI::Checkboxes;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Checkboxes;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Checkboxes(name, value|&values, &options, [disabled])
+=head2 new AdFreeZoneUI::Checkboxes(name, value|&values, &options, [disabled])
 Create a list of checkboxes, of which zero or more may be selected
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Checkboxes::new)) {
-        return new WebminUI::Theme::Checkboxes(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Checkboxes::new)) {
+        return new AdFreeZoneUI::Theme::Checkboxes(@_[1..$#_]);
         }
 my ($self, $name, $value, $options, $disabled) = @_;
 $self = { };

@@ -279,7 +279,7 @@ else {
 		}
 	}
 
-# Notify Webmin that this module might now be usable
+# Notify AdFreeZone that this module might now be usable
 &foreign_require("webmin", "webmin-lib.pl");
 ($inst, $changed) = &webmin::build_installed_modules(0, 'usermin');
 if (@$changed && defined(&theme_post_change_modules)) {

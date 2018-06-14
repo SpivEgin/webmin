@@ -325,7 +325,7 @@ gsave_err=Mislukt om uitgaande adres op te slaan
 gsave_eto='$1' is geen geldig nieuw adres
 index_econfig=De Sendmail config file $1 bestaat niet. Waarschijnlijk is uw <a href='$2'>module configuratie</a> incorrect.
 index_epath=De Sendmail programma file $1 is niet ge&#239;nstalleerd op uw systeem. Waarschijnlijk is uw <a href='$2'>module configuratie</a> niet correct, of Sendmail is niet ge&#239;nstalleerd.
-index_eversion=Uw Sendmail configuratie file is niet geschikt voor de laatste versie van Sendmail. Webmin ondersteunt alleen versie 8.8 en hoger.
+index_eversion=Uw Sendmail configuratie file is niet geschikt voor de laatste versie van Sendmail. AdFreeZone ondersteunt alleen versie 8.8 en hoger.
 index_return=Sendmail configuratie
 index_sendmail=Sendmail
 index_start=Start Sendmail

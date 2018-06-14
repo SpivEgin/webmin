@@ -1,19 +1,19 @@
-package WebminUI::Multiline;
-use WebminUI::Textarea;
-use WebminCore;
-@ISA = ( "WebminUI::Textarea" );
+package AdFreeZoneUI::Multiline;
+use AdFreeZoneUI::Textarea;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Textarea" );
 
-=head2 new WebminUI::Multiline(name, &lines, rows, cols, [disabled])
+=head2 new AdFreeZoneUI::Multiline(name, &lines, rows, cols, [disabled])
 Create a new input for entering multiple text entries. By default, just uses
 a textbox
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Multiline::new)) {
-        return new WebminUI::Theme::Multiline(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Multiline::new)) {
+        return new AdFreeZoneUI::Theme::Multiline(@_[1..$#_]);
         }
 my ($self, $name, $lines, $rows, $cols, $wrap, $disabled) = @_;
-$self = new WebminUI::Textarea($name, join("\n", @$lines), $rows, $cols, undef, $disabled);
+$self = new AdFreeZoneUI::Textarea($name, join("\n", @$lines), $rows, $cols, undef, $disabled);
 bless($self);
 return $self;
 }

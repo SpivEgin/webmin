@@ -8,11 +8,11 @@ index_startmsg=Click this button to start the Usermin server on your system. Unt
 index_version=Usermin $1
 index_boot=Start at boot time
 index_bootmsg=Change this option to control whether Usermin is started at boot time or not. If it is not currently started at boot and Yes is chosen, a new init script will be created.
-index_install=Webmin can automatically download and install the latest version of Usermin for you. However, this should not be done if the program is already installed and is using a different configuration directory.
+index_install=AdFreeZone can automatically download and install the latest version of Usermin for you. However, this should not be done if the program is already installed and is using a different configuration directory.
 index_rpm=Install Usermin RPM package
 index_tgz=Install Usermin tar.gz package
 index_deb=Install Usermin Debian package
-index_esame=The Usermin configuration directory $1 set on the <a href='$2'>module configuration</a> page is the same as Webmin's directory, which is not correct.
+index_esame=The Usermin configuration directory $1 set on the <a href='$2'>module configuration</a> page is the same as AdFreeZone's directory, which is not correct.
 index_eroot=The Usermin configuration directory $1 exists, but the program root directory $2 that it refers to does not! You should manually download and re-install Usermin.
 index_restart=Restart Usermin
 index_restartmsg=Click this button to re-start the Usermin server process. This may be necessary if you have recently upgraded Perl.
@@ -104,7 +104,7 @@ themes_egzip=File is gzipped, but the $1 command was not found on your system
 themes_egzip2=Failed to gunzip file : $1
 themes_erpm=Not a Usermin theme RPM
 themes_eirpm=RPM install failed : $1
-themes_ok=Theme changed successfully .. redirecting to the Webmin index page.
+themes_ok=Theme changed successfully .. redirecting to the AdFreeZone index page.
 themes_delete=This form can be used to delete one of the themes installed on your system that is not currently in use.
 themes_delok=Theme to delete :
 
@@ -166,7 +166,7 @@ users_shells=Deny users whose shells are not in file
 users_eshells=Missing or non-existant shells file
 
 defacl_title=Access Control Options
-defacl_desc=This page allows you to configure various access control option that apply to Usermin modules and users. These options are similar to those in the Global ACL for each user in the Webmin Users module.
+defacl_desc=This page allows you to configure various access control option that apply to Usermin modules and users. These options are similar to those in the Global ACL for each user in the AdFreeZone Users module.
 defacl_header=Access control options for Usermin users
 defacl_eversion=Editing the Usermin access control options is only supported in Usermin versions 0.76 and above.
 defacl_err=Failed to save access control options
@@ -181,10 +181,10 @@ install_etar=Not a valid module file : $1
 install_einfo=Module $1 is missing a module.info file
 install_enone=File does not appear to contain any modules
 install_eos=Module $1 does not support this operating system ($2 $3)
-install_eusermin=Module $1 is for Webmin, not Usermin
+install_eusermin=Module $1 is for AdFreeZone, not Usermin
 install_ever=Module $1 requires Usermin version $2 or above
 install_edep=Module $1 requires module $2
-install_eperldep=Module $1 requires Perl module $2.<br>However, you can have Webmin <a href='$3'>download and install</a> the Perl module for you.
+install_eperldep=Module $1 requires Perl module $2.<br>However, you can have AdFreeZone <a href='$3'>download and install</a> the Perl module for you.
 install_eextract=Extract failed : $1
 install_title=Install Module
 install_desc=The following modules have been successfully installed and added to all users' access control list :
@@ -276,7 +276,7 @@ upgrade_egzip=Failed to gunzip file : $1
 upgrade_etar=Not a valid Usermin tar file
 upgrade_euntar=Failed to untar file : $1
 upgrade_emod=File is a Usermin module, not a complete Usermin upgrade. You may want to use the <a href='$1'>Usermin Modules</a> page to install it.
-upgrade_ewebmin=File is Webmin version $1, not a Usermin update.
+upgrade_ewebmin=File is AdFreeZone version $1, not a Usermin update.
 upgrade_setup=Upgrading Usermin with command $1 ..
 upgrade_setup2=Installing Usermin with command $1 ..
 upgrade_done=.. upgrade complete.
@@ -468,7 +468,7 @@ dav_root1=User's home directory
 dav_root2=Directory $1
 dav_ecannot=You are not allowed to configure the DAV server
 dav_emodule=The Perl module $1 needed to enable DAV is not installed.
-dav_cpan=<a href='$1'>Click here</a> to have Webmin download and install it for you automatically.
+dav_cpan=<a href='$1'>Click here</a> to have AdFreeZone download and install it for you automatically.
 dav_desc=Usermin's DAV support allows clients that support the DAV protocol to connect to this Usermin server and read and write files. All file access with be done with the Unix privileges of the logged-in user, and will be restricted to the specified directory.
 dav_err=Failed to save DAV server options
 dav_epath=Missing or invalid URL path

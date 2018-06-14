@@ -1,1 +1,1 @@
-desc_ms=Mengelog Webmin
+desc_ms=Mengelog AdFreeZone

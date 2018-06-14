@@ -25,7 +25,7 @@ index_eldap=$1. Klicken Sie hier, um Ihre <a href='$2'>Modulkonfiguration</a> an
 index_emd5=Dieses Modul ist <a href='$1'>konfiguriert</a> um MD5-Passwortverschl&uuml;sselung zu benutzen, aber das Perl-Modul $2 ist nicht installiert.
 index_eperl=Das Perl Module $1 das ben&ouml;tigt wird ist nicht installiert oder funktioniert nicht korrekt.
 index_eperl2=Die Fehlermeldung von Perl beim Laden des Modules war :
-index_eschema=Webmin ist mit dem LDAP Server verbunden, konnte jedoch nicht das Schema holen. Stellen Sie sicher, dass der Zugriff nicht im <a href='$1'>LDAP Server</a> Module verweigert wird.
+index_eschema=AdFreeZone ist mit dem LDAP Server verbunden, konnte jedoch nicht das Schema holen. Stellen Sie sicher, dass der Zugriff nicht im <a href='$1'>LDAP Server</a> Module verweigert wird.
 index_eslappasswd=Dieses Modul ist <a href='$1'>konfiguriert</a> um MD5-Passwortverschl&uuml;sselung zu benutzen, aber das Programm <tt>$2</tt> das f&uuml;r die Verschl&uuml;sselung benutzt wird ist nicht installiert.
 index_eusearch=Suche nach Benutzern unter $1 fehlgeschlagen: $2
 index_gadd=Eine neue LDAP-Gruppe hinzuf&uuml;gen.

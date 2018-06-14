@@ -16,5 +16,5 @@ restart_cmd=Kommando for anvendelse af konfiguration,3,Kill and re-start
 stop_cmd=Kommando til at stoppe DHCP server,3,Kill process
 pid_file=Sti til DHCP server PID fil,0
 lease_file=DHCP server lease fil,0
-interfaces_type=Interface filtype,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-Webmin
+interfaces_type=Interface filtype,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-AdFreeZone
 version=DHCP server version,3,Find automatisk

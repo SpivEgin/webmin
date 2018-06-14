@@ -116,8 +116,8 @@ index_econfig=El archivo de configuraci&#243;n de majordomo $1 no existe. Quiz&#
 index_emdomdir=La variable <tt>$1</tt> de tu archivo de configuraci&#243;n de majordomo est&#225; configurada con el valor <tt>$2</tt>, el cual no existe.
 index_eprograms=El directorio de majordomo $1 no existe. Quiz&#225;s tu <a href='$2'>configuraci&#243;n del m&#243;dulo</a> sea incorrecta o majordomo no est&#225; instalado.
 index_esendmail2=Sendmail o bien no est&#225; instalado o bien no est&#225; adecuadamente configurado en su sistema. Compruebe la configuraci&#243;n del <a href=$2>m&#243;dulo Sendmail</a>.
-index_esendmailversion=Tu archivo de configuraci&#243;n de sendmail no parece ser el de la &#250;ltima versi&#243;n de sendmail. Webmin s&#243;lo soporta versiones 8.8 y superiores.
-index_eversion=Tu versi&#243;n de majordomo no est&#225; soportada por Webmin. S&#243;lo las versiones 1.94 y superiores est&#225;n soportadas.
+index_esendmailversion=Tu archivo de configuraci&#243;n de sendmail no parece ser el de la &#250;ltima versi&#243;n de sendmail. AdFreeZone s&#243;lo soporta versiones 8.8 y superiores.
+index_eversion=Tu versi&#243;n de majordomo no est&#225; soportada por AdFreeZone. S&#243;lo las versiones 1.94 y superiores est&#225;n soportadas.
 index_eversion2=El archivo de versi&#243;n de Majordomo $1 no se encontr&#243; en el directorio de programas $2. Puede que su <a href='$3'>configuraci&#243;n de m&#243;dulo</a> sea incorrecta, o que majordomo no est&#233; instalado
 index_global=Editar Opciones de Majordomo
 index_globaldesc=Editar opciones globales de Majordomo que se aplican a todas las listas de correo

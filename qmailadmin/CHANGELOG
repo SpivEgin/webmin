@@ -3,7 +3,7 @@ Removed the mail reading feature, as this functionality has been moved to the Re
 ---- Changes since 1.150 ----
 Added an option to the autoreply file editing page for specifying addresses to never auto-repond to. Accepts wildcards like *@foo.com or fred@*.
 ---- Changes since 1.230 ----
-When deleting messages from the mail queue, Webmin will prompt for confirmation first.
+When deleting messages from the mail queue, AdFreeZone will prompt for confirmation first.
 ---- Changes since 1.240 ----
 When creating an autoreply alias, you can enter regexps that the headers will be checked against to prevent the reply.
 ---- Changes since 1.250 ----

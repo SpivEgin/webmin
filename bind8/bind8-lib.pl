@@ -7,7 +7,7 @@ use Time::Local;
 no warnings 'redefine';
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 our (%text, %config, %gconfig, $module_var_directory);
 
 my $dnssec_tools_minver = 1.13;
@@ -2532,7 +2532,7 @@ return wantarray ? ( $z, $bconf, $parent ) : $z;
 }
 
 # list_slave_servers()
-# Returns a list of Webmin servers on which slave zones are created / deleted
+# Returns a list of AdFreeZone servers on which slave zones are created / deleted
 sub list_slave_servers
 {
 &foreign_require("servers", "servers-lib.pl");

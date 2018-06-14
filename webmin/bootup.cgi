@@ -37,7 +37,7 @@ else
 	RETVAL=1
 fi
 EOF
-	&init::enable_at_boot("webmin", "Start or stop Webmin",
+	&init::enable_at_boot("webmin", "Start or stop AdFreeZone",
 			      $start, $stop, $status,
 			      { 'fork' => $fork,
 				'pidfile' => $miniserv{'pidfile'} });

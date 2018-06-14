@@ -1,6 +1,6 @@
 #
 # Samba LM/NT Hash Generating Library.
-# Slightly modified to fit in with Webmin
+# Slightly modified to fit in with AdFreeZone
 #
 # Copyright(C) 2001 Benjamin Kuit <bj@it.uts.edu.au>
 #

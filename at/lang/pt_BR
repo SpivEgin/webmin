@@ -32,7 +32,7 @@ delete_egone=O comando j&#225; foi executado ou apagado
 
 acl_users=Pode editar comandos agendados para
 acl_all=Todos usu&#225;rios
-acl_this=Usu&#225;rio Webmin atual
+acl_this=Usu&#225;rio AdFreeZone atual
 acl_only=Somente usu&#225;rios
 acl_except=Todos exceto usu&#225;rios
 

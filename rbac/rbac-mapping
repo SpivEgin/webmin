@@ -1,4 +1,4 @@
-# RBAC authorization		# Webmin ACL
+# RBAC authorization		# AdFreeZone ACL
 # XXX how to combine roles?
 *				+noconfig=1,users=0,roles=0,auths=0,profs=0,execs=0,policy=0,roleassign=,profassign=,authassign=0,projects=0,prctl=1
 solaris.role.write		+users=1,roles=1

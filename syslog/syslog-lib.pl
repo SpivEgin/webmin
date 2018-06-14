@@ -2,7 +2,7 @@
 # Functions for the syslog module
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 
@@ -363,7 +363,7 @@ else {
 }
 
 # extra_log_files()
-# Returns a list of extra log files available to the current Webmin user. No filtering
+# Returns a list of extra log files available to the current AdFreeZone user. No filtering
 # based on allowed directory is done though!
 sub extra_log_files
 {

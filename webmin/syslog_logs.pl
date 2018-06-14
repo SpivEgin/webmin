@@ -3,7 +3,7 @@
 do 'webmin-lib.pl';
 
 # syslog_getlogs()
-# Returns the Webmin error log
+# Returns the AdFreeZone error log
 sub syslog_getlogs
 {
 my %miniserv;

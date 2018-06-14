@@ -119,7 +119,7 @@ foreach $w (@what) {
 			}
 		}
 	elsif ($w eq "users") {
-		# Copy Webmin user files
+		# Copy AdFreeZone user files
 		&lock_file("$config_directory/miniserv.users");
 		&lock_file("$config_directory/webmin.acl");
 		system("cp $tempdir/miniserv.users $config_directory/miniserv.users");

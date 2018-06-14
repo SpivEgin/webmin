@@ -1,5 +1,5 @@
 index_ecmd=The zones administration command $1 was not found on your system. It must be installed before this module can be used.
-index_eglobal=Webmin is running in the $1 zone, rather than the <tt>global</tt> zone. This module will only work when run in the <tt>global</tt> zone.
+index_eglobal=AdFreeZone is running in the $1 zone, rather than the <tt>global</tt> zone. This module will only work when run in the <tt>global</tt> zone.
 index_none=No zones have been defined yet.
 index_add=Add a new zone.
 index_return=zone list
@@ -14,8 +14,8 @@ edit_autoboot=Start at system boot?
 edit_pool=Resource pool
 edit_reboot=Reboot
 edit_halt=Shutdown
-edit_winstall=Install Webmin
-edit_wupgrade=Upgrade Webmin
+edit_winstall=Install AdFreeZone
+edit_wupgrade=Upgrade AdFreeZone
 edit_boot=Bootup
 edit_install=Install System
 edit_uninstall=Un-Install System
@@ -56,14 +56,14 @@ edit_attrtype=Data type
 edit_attrvalue=Attribute value
 edit_attrnone=No generic attributes have been defined yet.
 edit_attradd=Add a new generic attribute.
-edit_webmin=Open Webmin
+edit_webmin=Open AdFreeZone
 edit_brand=Brand
 
 ui_cancel=Cancel
 
 save_err=Failed to save zone
 save_epool=Missing or invalid pool
-save_ewebmin=Webmin is not running in this zone
+save_ewebmin=AdFreeZone is not running in this zone
 
 reboot_title=Reboot Zone
 reboot_rusure=Are you sure you want to reboot the zone $1? All processes running within it will be restarted.
@@ -206,7 +206,7 @@ create_auto=Automatic (under <tt>$1</tt>)
 create_address=Initial IP address
 create_noaddress=None
 create_install=Install after creating?
-create_webmin=Setup Webmin after installing?
+create_webmin=Setup AdFreeZone after installing?
 create_yes=Yes (Prevents addition of package directories)
 create_ok=Create Now
 create_err=Failed to create zone
@@ -224,7 +224,7 @@ create_installing=Installing system software ..
 create_pkgs=Additional package directories
 create_epkg='$1' is not a valid package directory
 create_addingpkgs=Adding package directories ..
-create_webmining=Setting up Webmin ..
+create_webmining=Setting up AdFreeZone ..
 created_wfailed=.. failed : $1
 create_cfg=Configure new zone?
 create_hostname=Initial hostname
@@ -284,7 +284,7 @@ log_modify_attr=Modified generic attribute $1 in zone $2
 log_delete_attr=Deleted generic attribute $1 in zone $2
 
 webmin_eperl=Perl is not installed at $1
-webmin_eroot=The directory $1 does not exist or does not contain Webmin.
-webmin_title=Install Webmin
+webmin_eroot=The directory $1 does not exist or does not contain AdFreeZone.
+webmin_title=Install AdFreeZone
 
 __norefs=1

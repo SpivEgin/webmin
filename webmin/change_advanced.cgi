@@ -71,7 +71,7 @@ if (defined($in{'sclass'})) {
 if (defined($in{'preload'})) {
 	# Save preload option, forcing new mode
 	if ($in{'preload'}) {
-		$miniserv{'premodules'} = 'WebminCore';
+		$miniserv{'premodules'} = 'AdFreeZoneCore';
 		}
 	else {
 		delete($miniserv{'premodules'});

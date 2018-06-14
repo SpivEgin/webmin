@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # create_group.cgi
-# Create a new Webmin group across multiple servers
+# Create a new AdFreeZone group across multiple servers
 
 require './cluster-webmin-lib.pl';
 &ReadParse();

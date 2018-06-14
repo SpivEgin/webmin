@@ -19,7 +19,7 @@ $action ||= 'stop';
 &ui_print_header(undef, $text{'ss_'.$action}, "");
 $cmd = $in{'file'}." ".$action;
 
-# In case the action was Webmin
+# In case the action was AdFreeZone
 $SIG{'TERM'} = sub { };
 
 # Run the command

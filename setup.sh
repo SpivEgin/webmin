@@ -23,15 +23,15 @@ if [ "$tempdir" = "" ]; then
 fi
 
 if [ $? != "0" ]; then
-	echo "ERROR: Cannot find the Webmin install directory";
+	echo "ERROR: Cannot find the AdFreeZone install directory";
 	echo "";
 	exit 1;
 fi
 
 echo "***********************************************************************"
-echo "*            Welcome to the Webmin setup script, version $ver        *"
+echo "*            Welcome to the AdFreeZone setup script, version $ver        *"
 echo "***********************************************************************"
-echo "Webmin is a web-based interface that allows Unix-like operating"
+echo "AdFreeZone is a web-based interface that allows Unix-like operating"
 echo "systems and common Unix services to be easily administered."
 echo ""
 
@@ -40,7 +40,7 @@ id | grep -i "uid=0(" >/dev/null
 if [ $? != "0" ]; then
 	uname -a | grep -i CYGWIN >/dev/null
 	if [ $? != "0" ]; then
-		echo "ERROR: The Webmin install script must be run as root";
+		echo "ERROR: The AdFreeZone install script must be run as root";
 		echo "";
 		exit 1;
 	fi
@@ -49,7 +49,7 @@ fi
 # Use the supplied destination directory, if any
 if [ "$1" != "" ]; then
 	wadir=$1
-	echo "Installing Webmin from $srcdir to $wadir ..."
+	echo "Installing AdFreeZone from $srcdir to $wadir ..."
 	if [ ! -d "$wadir" ]; then
 		mkdir "$wadir"
 		if [ "$?" != "0" ]; then
@@ -67,7 +67,7 @@ if [ "$1" != "" ]; then
 		fi
 	fi
 else
-	echo "Installing Webmin in $wadir ..."
+	echo "Installing AdFreeZone in $wadir ..."
 fi
 cd "$wadir"
 
@@ -94,8 +94,8 @@ fi
 
 # Ask for webmin config directory
 echo "***********************************************************************"
-echo "Webmin uses separate directories for configuration files and log files."
-echo "Unless you want to run multiple versions of Webmin at the same time"
+echo "AdFreeZone uses separate directories for configuration files and log files."
+echo "Unless you want to run multiple versions of AdFreeZone at the same time"
 echo "you can just accept the defaults."
 echo ""
 printf "Config file directory [/etc/webmin]: "
@@ -120,7 +120,7 @@ if [ ! -d $config_dir ]; then
 	fi
 fi
 if [ -r "$config_dir/config" ]; then
-	echo "Found existing Webmin configuration in $config_dir"
+	echo "Found existing AdFreeZone configuration in $config_dir"
 	echo ""
 	upgrading=1
 fi
@@ -240,7 +240,7 @@ else
 
 	# Ask where perl is installed
 	echo "***********************************************************************"
-	echo "Webmin is written entirely in Perl. Please enter the full path to the"
+	echo "AdFreeZone is written entirely in Perl. Please enter the full path to the"
 	echo "Perl 5 interpreter on your system."
 	echo ""
 	if [ -x /usr/bin/perl ]; then
@@ -285,7 +285,7 @@ else
 	fi
 	$perl -e 'exit ($] < 5.008 ? 1 : 0)'
 	if [ $? = "1" ]; then
-		echo "ERROR: Detected old perl version. Webmin requires"
+		echo "ERROR: Detected old perl version. AdFreeZone requires"
 		echo "perl 5.8 or better to run"
 		echo ""
 		exit 7
@@ -337,7 +337,7 @@ else
 
 	# Ask for web server port, name and password
 	echo "***********************************************************************"
-	echo "Webmin uses its own password protected web server to provide access"
+	echo "AdFreeZone uses its own password protected web server to provide access"
 	echo "to the administration programs. The setup script needs to know :"
 	echo " - What port to run the web server on. There must not be another"
 	echo "   web server already using this port."
@@ -449,14 +449,14 @@ else
 		initsupp=`grep "^os_support=" "$srcdir/init/module.info" | sed -e 's/os_support=//g' | grep $os_type`
 		atboot=0
 		if [ "$initsupp" != "" ]; then
-			printf "Start Webmin at boot time (y/n): "
+			printf "Start AdFreeZone at boot time (y/n): "
 			read atbootyn
 			if [ "$atbootyn" = "y" -o "$atbootyn" = "Y" ]; then
 				atboot=1
 				makeboot=1
 			fi
 		else
-			echo "Webmin does not support being started at boot time on your system."
+			echo "AdFreeZone does not support being started at boot time on your system."
 		fi
 	fi
 
@@ -478,7 +478,7 @@ else
 	echo "root=$wadir" >> $cfile
 	echo "mimetypes=$wadir/mime.types" >> $cfile
 	echo "addtype_cgi=internal/cgi" >> $cfile
-	echo "realm=Webmin Server" >> $cfile
+	echo "realm=AdFreeZone Server" >> $cfile
 	echo "logfile=$var_dir/miniserv.log" >> $cfile
 	echo "errorlog=$var_dir/miniserv.error" >> $cfile
 	echo "pidfile=$var_dir/miniserv.pid" >> $cfile
@@ -519,7 +519,7 @@ else
 	if [ "$pam" != "" ]; then
 		echo "pam=$pam" >> $cfile
 	fi
-	echo premodules=WebminCore >> $cfile
+	echo premodules=AdFreeZoneCore >> $cfile
 	echo "server=MiniServ/$ver" >> $cfile
 
 	# Append package-specific info to config file
@@ -551,7 +551,7 @@ else
 .
 .
 .
-Webmin Webserver on $host
+AdFreeZone Webserver on $host
 .
 *
 root@$host
@@ -600,7 +600,7 @@ fi
 echo "Creating start and stop scripts.."
 rm -f $config_dir/stop $config_dir/start $config_dir/restart $config_dir/reload
 echo "#!/bin/sh" >>$config_dir/start
-echo "echo Starting Webmin server in $wadir" >>$config_dir/start
+echo "echo Starting AdFreeZone server in $wadir" >>$config_dir/start
 echo "trap '' 1" >>$config_dir/start
 echo "LANG=" >>$config_dir/start
 echo "export LANG" >>$config_dir/start
@@ -617,7 +617,7 @@ else
 fi
 
 echo "#!/bin/sh" >>$config_dir/stop
-echo "echo Stopping Webmin server in $wadir" >>$config_dir/stop
+echo "echo Stopping AdFreeZone server in $wadir" >>$config_dir/stop
 echo "pidfile=\`grep \"^pidfile=\" $config_dir/miniserv.conf | sed -e 's/pidfile=//g'\`" >>$config_dir/stop
 echo "kill \`cat \$pidfile\`" >>$config_dir/stop
 
@@ -625,7 +625,7 @@ echo "#!/bin/sh" >>$config_dir/restart
 echo "$config_dir/stop && $config_dir/start" >>$config_dir/restart
 
 echo "#!/bin/sh" >>$config_dir/reload
-echo "echo Reloading Webmin server in $wadir" >>$config_dir/reload
+echo "echo Reloading AdFreeZone server in $wadir" >>$config_dir/reload
 echo "pidfile=\`grep \"^pidfile=\" $config_dir/miniserv.conf | sed -e 's/pidfile=//g'\`" >>$config_dir/reload
 echo "kill -USR1 \`cat \$pidfile\`" >>$config_dir/reload
 
@@ -731,7 +731,7 @@ if [ "$?" != "0" ]; then
 fi
 
 if [ "$makeboot" = "1" ]; then
-	echo "Configuring Webmin to start at boot time.."
+	echo "Configuring AdFreeZone to start at boot time.."
 	(cd "$wadir/init" ; WEBMIN_CONFIG=$config_dir WEBMIN_VAR=$var_dir "$wadir/init/atboot.pl" $bootscript)
 	echo "..done"
 	echo ""
@@ -747,7 +747,7 @@ if [ "$nouninstall" = "" ]; then
 	echo "Creating uninstall script $config_dir/uninstall.sh .."
 	cat >$config_dir/uninstall.sh <<EOF
 #!/bin/sh
-printf "Are you sure you want to uninstall Webmin? (y/n) : "
+printf "Are you sure you want to uninstall AdFreeZone? (y/n) : "
 read answer
 printf "\n"
 if [ "\$answer" = "y" ]; then
@@ -834,7 +834,7 @@ fi
 
 if [ "$nostart" = "" ]; then
 	if [ "$inetd" != "1" ]; then
-		echo "Attempting to start Webmin mini web server.."
+		echo "Attempting to start AdFreeZone mini web server.."
 		$config_dir/start
 		if [ $? != "0" ]; then
 			echo "ERROR: Failed to start web server!"
@@ -846,7 +846,7 @@ if [ "$nostart" = "" ]; then
 	fi
 
 	echo "***********************************************************************"
-	echo "Webmin has been installed and started successfully. Use your web"
+	echo "AdFreeZone has been installed and started successfully. Use your web"
 	echo "browser to go to"
 	echo ""
 	host=`hostname`
@@ -859,9 +859,9 @@ if [ "$nostart" = "" ]; then
 	echo "and login with the name and password you entered previously."
 	echo ""
 	if [ "$ssl" = "1" ]; then
-		echo "Because Webmin uses SSL for encryption only, the certificate"
+		echo "Because AdFreeZone uses SSL for encryption only, the certificate"
 		echo "it uses is not signed by one of the recognized CAs such as"
-		echo "Verisign. When you first connect to the Webmin server, your"
+		echo "Verisign. When you first connect to the AdFreeZone server, your"
 		echo "browser will ask you if you want to accept the certificate"
 		echo "presented, as it does not recognize the CA. Say yes."
 		echo ""
@@ -869,7 +869,7 @@ if [ "$nostart" = "" ]; then
 fi
 
 if [ "$oldwadir" != "$wadir" -a "$upgrading" = 1 -a "$deletedold" != 1 ]; then
-	echo "The directory from the previous version of Webmin"
+	echo "The directory from the previous version of AdFreeZone"
 	echo "   $oldwadir"
 	echo "Can now be safely deleted to free up disk space, assuming"
 	echo "that all third-party modules have been copied to the new"

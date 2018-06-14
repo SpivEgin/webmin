@@ -1,15 +1,15 @@
-package WebminUI::Checkbox;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Checkbox;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Checkbox(name, return, label, checked, [disabled])
+=head2 new AdFreeZoneUI::Checkbox(name, return, label, checked, [disabled])
 Create a single checkbox field
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Checkbox::new)) {
-        return new WebminUI::Theme::Checkbox(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Checkbox::new)) {
+        return new AdFreeZoneUI::Theme::Checkbox(@_[1..$#_]);
         }
 my ($self, $name, $return, $label, $checked, $disabled) = @_;
 $self = { };

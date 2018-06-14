@@ -2,7 +2,7 @@
 # Common functions for parsing qmail config files
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'boxes-lib.pl';
 

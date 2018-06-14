@@ -209,7 +209,7 @@ index_delete=Verwijder Geselecteerde
 index_desc=Omschrijving
 index_dhcpd=ISC DHCPD
 index_dhcpdnotfound=Er is geen DHCP server <i>$1</i> op uw systeem gevonden. Misschien is er geen ge&#239;nstalleerd of is uw <a href="$2">DHCP module configuratie</a> niet juist.
-index_dhcpdver2=De DHCP server <tt>$1</tt> lijkt niet de juiste versie te zijn. Webmin heeft alleen ondersteuning voor ISC DHCPD versies $2 tot $3.
+index_dhcpdver2=De DHCP server <tt>$1</tt> lijkt niet de juiste versie te zijn. AdFreeZone heeft alleen ondersteuning voor ISC DHCPD versies $2 tot $3.
 index_ego=Wijzig opties van de cli&#235;nt die van toepassing zijn op alle sub-netten, gedeelde netwerken, hosts en groepen.
 index_gdom=Groep voor $1
 index_group=Groep:
@@ -349,7 +349,7 @@ plib_defrouters=Standaard routers
 plib_deny=Niet accepteren
 plib_dnsserv=DNS servers
 plib_domname=Domein naam
-plib_eexpr=Deze sectie van de DHCP configuratie bevat de uitdrukking richtlijnen $1, die niet veilig bewerkt kunnen worden door Webmin.
+plib_eexpr=Deze sectie van de DHCP configuratie bevat de uitdrukking richtlijnen $1, die niet veilig bewerkt kunnen worden door AdFreeZone.
 plib_fontserv=Font servers
 plib_forever=Voor altijd
 plib_ignore=Negeren

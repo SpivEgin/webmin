@@ -23,13 +23,13 @@ Added a button on the Edit Job page for cloning an existing job.
 Added a Module Config option to limit Cron jobs to hourly at most, thanks to Filip Hajny.
 ---- Changes since 1.390 ----
 If there are more than 100 jobs (by default), a search form is shown on the main page instead of a list of all jobs.
-Re-wrote all user interface code to use the new Webmin UI library.
+Re-wrote all user interface code to use the new AdFreeZone UI library.
 Handle the daily / monthly / weekly Cron specification used on Ubuntu 7.
 ---- Changes since 1.400 ----
 Fixed a bug that prevented new cron jobs from being created unless the 'Date range to execute' setting was changed.
 Added a check for a valid module configuration, especially the cron jobs directory, to prevent accidental deletion of jobs.
 ---- Changes since 1.410 ----
-Added an access control option to prevent individual Webmin users from creating cron jobs that run more often than hourly.
+Added an access control option to prevent individual AdFreeZone users from creating cron jobs that run more often than hourly.
 ---- Changes since 1.420 ----
 Disable time and day lists when 'All' is selected, to indicate that they are un-usable.
 ---- Changes since 1.440 ----

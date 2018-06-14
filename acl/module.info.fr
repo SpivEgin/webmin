@@ -1,1 +1,1 @@
-desc_fr=Utilisateurs Webmin
+desc_fr=Utilisateurs AdFreeZone

@@ -60,7 +60,7 @@ authu_return=Benutzerliste
 authu_screate=F&#252;ge Benutzer hinzu, wenn ein Unix-Benutzer angelegt wird
 authu_sdelete=Entferne den Benutzer, wenn ein Unix-Benutzer gel&#246;scht wird
 authu_smodify=&#196;ndere den Benutzer, wenn ein Unix-Benutzer bearbeitet wird
-authu_sync=Die Einstellungen unten gestatten es Ihnen, Webmin so zu konfigurieren, dass Webmin Benutzer automatisch hinzuf&#252;gt, &#228;ndert oder l&#246;scht, wenn Benutzer im Modul <tt>Benutzer und Gruppen</tt> bearbeitet, angelegt oder entfernt werden.
+authu_sync=Die Einstellungen unten gestatten es Ihnen, AdFreeZone so zu konfigurieren, dass AdFreeZone Benutzer automatisch hinzuf&#252;gt, &#228;ndert oder l&#246;scht, wenn Benutzer im Modul <tt>Benutzer und Gruppen</tt> bearbeitet, angelegt oder entfernt werden.
 authu_title=Benutzerliste
 authu_user=Benutzername
 autoindex_alt=Alternativer Text
@@ -349,7 +349,7 @@ cvirt_err=Fehler beim Anlegen des virtuellen Server
 cvirt_etaken=Ein virtuellen Server mit dem selben Namen und demselben Port existiert bereits
 default_serv=Standard Server
 defines_config=Beachten Sie, dass die folgende erfasste Parameter bereits bekannt sind : $1
-defines_desc=Wenn Apache gestartet wird, k&#246;nnen Parameter mit der Befehlzeilenoption  <tt>-D</tt> &#252;bergeben werden. Weil diese Parameter die Direktiven beeinflussen k&#246;nnen, die in Ihren Konfigurationsdateien vorkommen, muss Webmin wissen, welche Parameter Apache beim Start &#252;bergeben werden. Geben Sie die in Ihrem System benutzten Parameter in die Textfelder auf der rechten Seite ein.
+defines_desc=Wenn Apache gestartet wird, k&#246;nnen Parameter mit der Befehlzeilenoption  <tt>-D</tt> &#252;bergeben werden. Weil diese Parameter die Direktiven beeinflussen k&#246;nnen, die in Ihren Konfigurationsdateien vorkommen, muss AdFreeZone wissen, welche Parameter Apache beim Start &#252;bergeben werden. Geben Sie die in Ihrem System benutzten Parameter in die Textfelder auf der rechten Seite ein.
 defines_ecannot=Sie haben keine Berechtigung, httpd-Definitionen zu &#228;ndern
 defines_list=Definierte Parameter
 defines_title=Definierte Parameter bearbeiten
@@ -448,7 +448,7 @@ index_desccreate=Mit diesem Formular k&#246;nnen Sie einen neuen virtuellen Apac
 index_descglobal=Die Optionen, welche hier konfiguriert werden, werden auf den gesamten Apache-Server angewandt, inklusive aller virtuellen Hosts.
 index_desclist=Die unten stehende Liste zeigt alle momentan definierten virtuellen Apachehosts auf welche Sie Zugriff haben. Der <b>Standardserver</b> -Eintrag definiert Einstellungen, welche auf alle anderen virtuellen Hosts angewandt werden, au&#223;er denjenigen f&#252;r die Ausnahmen definiert sind.
 index_econf=Die Apache-Konfigurationsdatei $1 existiert nicht. Wenn Apache installiert ist, passen Sie die <a href='$2'>Modulkonfiguration</a> an, um den korrekten Pfad zu benutzen.
-index_eports=Ihre Apache Konfiguration enth&#228;lt mehr als eine $1 Direktive. Die aktuelle Version von Webmin kann diese Einstellung nicht korrekt behandeln.
+index_eports=Ihre Apache Konfiguration enth&#228;lt mehr als eine $1 Direktive. Die aktuelle Version von AdFreeZone kann diese Einstellung nicht korrekt behandeln.
 index_equals=gleich
 index_eroot=Das Apache-Root-Verzeichnis $1 existiert nicht. Wenn Apache installiert ist, passen Sie die <a href='$2'>Modulkonfiguration</a> an, um den korrekten Pfad zu benutzen.
 index_eserver=Die ausf&#252;hrbare Datei $1 des Apache-Server exististiert nicht. Wenn Apache installiert ist, passen Sie die <a href='$2'>Modulkonfiguration</a> an, um den korrekten Pfad zu benutzen.
@@ -961,9 +961,9 @@ perchild_num=Prozessnummer
 perchild_numservers=Anzahl von Kindprozessen
 perchild_sthreads=Anzahl Threads pro Kindprozess zu Beginn
 perchild_uid=UID
-reconfig_desc1=Ihre Apache-Konfiguration hat sich ge&#228;ndert oder wurde noch nicht von Webmin untersucht. Unten sehen Sie eine Liste mit allen von Webmin unterst&#252;tzten Modulen f&#252;r Apache, bei der die z. Z. installierten markiert sind. Sie k&#246;nnen Module w&#228;hlen oder Auswahlen aufheben, wenn diese Liste nicht korrekt ist.
-reconfig_desc2=Unten sehen Sie eine Liste mit allen von Webmin unterst&#252;tzten Apache-Modulen, bei der die z. Z. installierten markiert sind. Falls Sie dynamisch geladene Module benutzen, dann k&#246;nnen Sie diese jetzt ausw&#228;hlen.
-reconfig_desc3=Wenn Sie sich nicht sicher sind, welche Module von Apache auf ihrem System unterst&#252;tzt werden, klicken Sie einfach auf <b>Konfigurieren</b>. Webmin wird versuchen, die unterst&#252;tzten Module selbstst&#228;ndig zu ermitteln.
+reconfig_desc1=Ihre Apache-Konfiguration hat sich ge&#228;ndert oder wurde noch nicht von AdFreeZone untersucht. Unten sehen Sie eine Liste mit allen von AdFreeZone unterst&#252;tzten Modulen f&#252;r Apache, bei der die z. Z. installierten markiert sind. Sie k&#246;nnen Module w&#228;hlen oder Auswahlen aufheben, wenn diese Liste nicht korrekt ist.
+reconfig_desc2=Unten sehen Sie eine Liste mit allen von AdFreeZone unterst&#252;tzten Apache-Modulen, bei der die z. Z. installierten markiert sind. Falls Sie dynamisch geladene Module benutzen, dann k&#246;nnen Sie diese jetzt ausw&#228;hlen.
+reconfig_desc3=Wenn Sie sich nicht sicher sind, welche Module von Apache auf ihrem System unterst&#252;tzt werden, klicken Sie einfach auf <b>Konfigurieren</b>. AdFreeZone wird versuchen, die unterst&#252;tzten Module selbstst&#228;ndig zu ermitteln.
 reconfig_ecannot=Sie haben keine Berechtigung, Apache neu zu konfigurieren
 reconfig_ever=Es war nicht m&#246;glich, die Version des Apaches von $1 zu bestimmen. &#220;berpr&#252;fen Sie Ihre <a href='$2'>Modulkonfiguration</a>, um sicher zu gehen, dass der Pfad korrekt ist.
 reconfig_ok=Konfigurieren

@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # edit_group.cgi
-# Display an existing Webmin group for editing
+# Display an existing AdFreeZone group for editing
 
 require './cluster-webmin-lib.pl';
 &ReadParse();

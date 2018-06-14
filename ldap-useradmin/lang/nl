@@ -21,7 +21,7 @@ uedit_lastname=Laatste naam
 usave_eadd=Mislukt om gebruiker toe te voegen aan LDAP database : $1
 usave_esamba=Deze module kan niet gebruikt worden om het wachtwoord te zetten voor een Samba gebruiker, omdat de Samba Windows File Delen module niet is geinstalleerd.
 gsave_edelete=Mislukt om groep te verwijderen van LDAP database : $1
-index_eschema=Webmin is verbonden met de LDAP server, maar opvragen van het schema is mislukt. Controleer of de toegang niet word geweigerd in de <a href='$1'>LDAP Server</a> module.
+index_eschema=AdFreeZone is verbonden met de LDAP server, maar opvragen van het schema is mislukt. Controleer of de toegang niet word geweigerd in de <a href='$1'>LDAP Server</a> module.
 usave_ereal=Ontbrekende echte naam
 gsave_egone=Groep bestaat niet langer!
 index_ebase=Er is geen LDAP client configuratie file gevonden op uw systeem, controleer of de "gebruik en groep basis" aanstaat op de <a href='$1'>module configuratie</a> pagina.

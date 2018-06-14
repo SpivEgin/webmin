@@ -1,1 +1,1 @@
-desc_nl=Webmin Actie Log
+desc_nl=AdFreeZone Actie Log

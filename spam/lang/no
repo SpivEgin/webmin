@@ -128,7 +128,7 @@ import_ok2=$2 e-post adresser ble funnet i filen, men de fantes allerede i liste
 import_title=Importer adresser
 index_apply=Bruk endringer
 index_applydesc=Klikk p&#229; denne knappen for &#229; ta i bruk gjeldende SpamAssassin konfigurasjon ved &#229; sende et HUP signal til alle kj&#248;rende $1 prosesser.
-index_cpan=Siden SpamAssassin er en Perl modul, kan du ogs&#229; installere den automatisk vha. Webmins <a href='$2'>Perl Moduler</a> for &#229; laste ned $1 fra CPAN.
+index_cpan=Siden SpamAssassin er en Perl modul, kan du ogs&#229; installere den automatisk vha. AdFreeZones <a href='$2'>Perl Moduler</a> for &#229; laste ned $1 fra CPAN.
 index_ecannot=Du har ikke tilgang til &#229; administrere SpamAssassins konfigurasjonsfil $1
 index_ecmd=SpamAssassin kommandoen $1 ble ikke funnet p&#229; systemet ditt. Kanskje den ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
 index_ecmd2=SpamAssassin kommandoen $1 ble ikke funnet p&#229; systemet ditt.

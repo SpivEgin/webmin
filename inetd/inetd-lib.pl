@@ -2,7 +2,7 @@
 # Common functions for managing inetd.conf and services files
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 $lib = &get_mod_lib();

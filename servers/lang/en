@@ -1,12 +1,12 @@
-index_title=Webmin Servers
+index_title=AdFreeZone Servers
 index_edit=edit
 index_noservers=No servers have been registered.
 index_nosearch=No servers match your search.
 index_add=Register a new server.
 index_broad=Broadcast for servers
-index_findmsg=Click this button to automatically find any Webmin servers on your local network.
+index_findmsg=Click this button to automatically find any AdFreeZone servers on your local network.
 index_scan=Scan for servers
-index_scanmsg=Click this button to check every address on the network $1 for Webmin servers.
+index_scanmsg=Click this button to check every address on the network $1 for AdFreeZone servers.
 index_return=servers
 index_host=Hostname and port
 index_desc=Description
@@ -16,10 +16,10 @@ index_none=&lt;None&gt;
 index_logout=logout
 index_defuser=Default login for servers
 index_defpass=Default password
-index_defport=Webmin port
+index_defport=AdFreeZone port
 index_delete=Delete Selected Servers
 index_auto=Automatically Find Servers
-index_automsg=Click this button to setup the automatic periodic discovery of new Webmin servers on your network.
+index_automsg=Click this button to setup the automatic periodic discovery of new AdFreeZone servers on your network.
 index_search=Show servers matching:
 index_ok=Search
 
@@ -35,7 +35,7 @@ edit_ssl=SSL server?
 edit_checkssl=Check remote SSL certificate?
 edit_link=Link type
 edit_mode0=Normal link to server
-edit_mode1=Login via Webmin with
+edit_mode1=Login via AdFreeZone with
 edit_mode2=Login when icon is clicked on
 edit_mode3=Login with username and password from this server
 edit_user=username
@@ -56,8 +56,8 @@ edit_timeout=Timeout connecting
 edit_failed=Failed to connect
 edit_baduser=Login rejected
 edit_invalid=User cannot do RPC
-edit_version=Running Webmin $1
-edit_same=Only available not in session authentication mode, and when the password is made available to Webmin programs.
+edit_version=Running AdFreeZone $1
+edit_same=Only available not in session authentication mode, and when the password is made available to AdFreeZone programs.
 
 save_err=Failed to save server
 save_ehost=Missing or invalid hostname
@@ -111,12 +111,12 @@ acl_forcelink=Force login type to default?
 acl_links=Can connect through to servers?
 
 login_title=Login to Server
-login_desc=You must supply a username and password to login to the Webmin server $1.
-login_header=Webmin authentication
+login_desc=You must supply a username and password to login to the AdFreeZone server $1.
+login_header=AdFreeZone authentication
 login_user=Username
 login_pass=Password
 login_login=Login
-login_esame=The option to use the same login as this server can only be used when not in session authentication mode, and when the password is made available to Webmin programs.
+login_esame=The option to use the same login as this server can only be used when not in session authentication mode, and when the password is made available to AdFreeZone programs.
 
 this_server=this server
 

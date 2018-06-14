@@ -107,7 +107,7 @@ $SIG{'TERM'} = 'ignore';
 $temp = &transname();
 $rv = &system_logged("$config_directory/start >$temp 2>&1 </dev/null");
 $out = &read_file_contents($temp);
-$out =~ s/^Starting Webmin server in.*\n//;
+$out =~ s/^Starting AdFreeZone server in.*\n//;
 $out =~ s/at.*line.*//;
 unlink($temp);
 if ($rv) {

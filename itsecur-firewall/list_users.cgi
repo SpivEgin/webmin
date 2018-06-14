@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # list_users.cgi
-# Show all Webmin users with access to this module only
+# Show all AdFreeZone users with access to this module only
 
 require './itsecur-lib.pl';
 &foreign_require("acl", "acl-lib.pl");

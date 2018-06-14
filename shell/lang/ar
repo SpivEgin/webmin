@@ -1,6 +1,6 @@
 __norefs=1
 acl_user=تنفيذ الأوامر كمستخدم
-acl_user_def=مستخدم Webmin الحالي
+acl_user_def=مستخدم AdFreeZone الحالي
 index_clear=تنظف السجل
 index_clearcmds=تنظيف الأوامر
 index_desc=أدخل أمر shell لتنفيذه في حقل النص أدناه. يمكن استخدام الأمر <tt>cd</tt> لتغيير الدليل للأوامر التالية.

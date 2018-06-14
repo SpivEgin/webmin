@@ -41,7 +41,7 @@ if (@_ > 0) {
     if ($gconfig{'sysinfo'} == 0 && $remote_user) {
         print "<SCRIPT LANGUAGE=\"JavaScript\">\n";
         printf
-        "defaultStatus=\"%s%s logged into Webmin %s on %s (%s %s)\";\n",
+        "defaultStatus=\"%s%s logged into AdFreeZone %s on %s (%s %s)\";\n",
             $remote_user,
             $ENV{'SSL_USER'} ? " (SSL certified)" :
             $ENV{'LOCAL_USER'} ? " (Local user)" : "",
@@ -62,7 +62,7 @@ if ($remote_user && @_ > 1) {
 					  : "/switch_user.cgi";
 	print qq~<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/top_bar.jpg">
 	  <tr>
-	    <td width="100%" nowrap><a href="http://www.webmin.com"><img src="/images/webmin_top.jpg" border="0" alt="Webmin home page"></a></td>
+	    <td width="100%" nowrap><a href="http://www.webmin.com"><img src="/images/webmin_top.jpg" border="0" alt="AdFreeZone home page"></a></td>
 	    <td nowrap><a href='$logout'><img src="/images/logout.jpg" border="0" alt="$text{'main_logout'}"></a></td>
 	  </tr>
 	</table>~;
@@ -226,9 +226,9 @@ print "</td></tr></table>";
     if (!$_[5]) {
 	    # Show page title in tab
 	    local $title = $_[0];
-	    $title =~ s/&auml;/ä/g;
-	    $title =~ s/&ouml;/ö/g;
-	    $title =~ s/&uuml;/ü/g;
+	    $title =~ s/&auml;/ï¿½/g;
+	    $title =~ s/&ouml;/ï¿½/g;
+	    $title =~ s/&uuml;/ï¿½/g;
 	    $title =~ s/&nbsp;/ /g;
 
 #	    print "<p><table border=0 cellpadding=0 cellspacing=0 width=95% align=center><tr><td><table border=0 cellpadding=0 cellspacing=0 height=20><tr>\n";

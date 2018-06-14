@@ -1,12 +1,12 @@
-index_title=Utilizador do Webmin
+index_title=Utilizador do AdFreeZone
 index_user=Utilizador
 index_modules=M&#243;dulos
-index_create=Criar novo utilizador do Webmin
+index_create=Criar novo utilizador do AdFreeZone
 index_return=lista de utilizadores
 
-edit_title=Editar Utilizador do Webmin
-edit_title2=Criar Utilizador do Webmin
-edit_rights=Direitos de acesso do utilizador do Webmin
+edit_title=Editar Utilizador do AdFreeZone
+edit_title2=Criar Utilizador do AdFreeZone
+edit_rights=Direitos de acesso do utilizador do AdFreeZone
 edit_user=Nome do Utilizador
 edit_pass=Palvra de Passe
 edit_same=Como no Unix
@@ -18,7 +18,7 @@ edit_clone=Clone
 save_err=Erro ao guardar utilizador
 save_ename='$1' n&#227;o &#233; um nome de utilizador v&#225;lido
 save_edup=O nome de utilizador '$1' j&#225; est&#225; a ser usado
-save_edeny=voc&#234; n&#227;o pode negar acesso a si mesmo relativamente ao m&#243;dulo de utilizadores do Webmin
+save_edeny=voc&#234; n&#227;o pode negar acesso a si mesmo relativamente ao m&#243;dulo de utilizadores do AdFreeZone
 save_eunix=O utilizador de Unix '$1' n&#227;o existe
 
 acl_title=Controlo de Acesso do M&#243;dulo

@@ -63,7 +63,7 @@ cs_link=Testo collegamento
 cs_page=Sfondo pagina
 cs_table=Sfondo tabella
 cs_text=Testo normale
-dav_cpan=<a href='$1'>Clicca qui</a> per permettere a Webmin si scaricarlo ed installarlo automaticamente.
+dav_cpan=<a href='$1'>Clicca qui</a> per permettere a AdFreeZone si scaricarlo ed installarlo automaticamente.
 dav_desc=Il supporto DAV di Usermin permette ai client che supportano il protocollo DAV di connettersi a questo server Usermin e leggere e scrivere file. Tutti gli accessi ai file sar&#224; eseguito in base ai diritti dell'utente collegato e riguarderanno solo le directory specificate.
 dav_disabled=Disabilitato
 dav_ecannot=Non hai i permessi per configurare il server DAV
@@ -83,7 +83,7 @@ dav_title=Server DAV
 dav_users=Utenti che possono usare DAV
 dav_users0=Gli utenti e i gruppi elencati sotto:
 dav_users1=Tutti gli utenti
-defacl_desc=Questa pagina ti permette di configurare le varie opzioni di controllo di accesso che possono essere applicate agli utenti e ai moduli Usermin. Queste opzioni sono simili a quelle delle ACL globali per ogni utente nel modulo Utenti Webmin.
+defacl_desc=Questa pagina ti permette di configurare le varie opzioni di controllo di accesso che possono essere applicate agli utenti e ai moduli Usermin. Queste opzioni sono simili a quelle delle ACL globali per ogni utente nel modulo Utenti AdFreeZone.
 defacl_err=Errore salvando le opzioni di controllo di accesso
 defacl_header=Opzioni di controllo di accesso per gli utenti Usermin
 defacl_title=Opzioni controllo di accesso
@@ -102,8 +102,8 @@ index_boot=Avvia alla partenza del sistema
 index_bootmsg=Cambia questa opzione per decidere se avviare o no Usermin all'avvio del sistema.
 index_deb=Installa Usermin da un pacchetto Debian
 index_econfig=La directory $1 con i file di configurazione di Usermin non &#232; stata trovata. Forse Usermin non &#232; installato, oppure la tua <a href='$2'>configurazione del modulo</a> non &#232; corretta.
-index_esame=La directory di configurazione di Usermin $1 impostata nella <a href='$2'>configurazione del modulo</a> &#232; la stessa della directory di configurazione di Webmin, che non &#232; corretta.
-index_install=Webmin pu&#242; scaricare ed installare automaticamente l'ultima versione di Usermin. Ad ogni modo questa operazione non pu&#242; essere eseguita se il programma &#232; gi&#224; installato ed usa una directory per i file di configurazione differente rispetto a quella predefinita.
+index_esame=La directory di configurazione di Usermin $1 impostata nella <a href='$2'>configurazione del modulo</a> &#232; la stessa della directory di configurazione di AdFreeZone, che non &#232; corretta.
+index_install=AdFreeZone pu&#242; scaricare ed installare automaticamente l'ultima versione di Usermin. Ad ogni modo questa operazione non pu&#242; essere eseguita se il programma &#232; gi&#224; installato ed usa una directory per i file di configurazione differente rispetto a quella predefinita.
 index_restart=Riavvia Usermin
 index_restartmsg=Clicca su questo pulsante per riavviare il processo del server Usermin. Ci&#242; potrebbe essere necessario se hai aggiornato Perl.
 index_return=Configurazione Usermin
@@ -137,7 +137,7 @@ install_err2=Errore installando il modulo caricato
 install_err3=Errore installando il modulo da $1
 install_etar=File modulo non valido : $1
 install_eurl=URL invalido
-install_eusermin=Il modulo $1 &#232; per Webmin, non per Usermin
+install_eusermin=Il modulo $1 &#232; per AdFreeZone, non per Usermin
 install_ever=Il modulo $1 richiede almeno Usermin versione $2
 install_line2=$1 in $2 ($3 kB) sotto la categoria $4
 install_title=Installo il modulo
@@ -289,7 +289,7 @@ sessions_none=Nessun utente attualmente collegato a Usermin
 sessions_ok=Passa a...
 sessions_switch=Passa all'utente Usermin:
 sessions_title=Sessioni attualmente attive
-sessions_user=<pre>Utente Webmin  </pre>
+sessions_user=<pre>Utente AdFreeZone  </pre>
 ssl_desc1=Il server dove sta girando Usermin ha il modulo perl SSLeay installato. Usando questo, Usermin supporta la cifratura SSL tra il tuo browser e il server.
 ssl_desc2=Attenzione - Attiva il supporto SSL solo se hai un browser che supporta SSL (come Netscape o IE) e non c'&#232; un firewall che blocchi le richieste https tra il browser e il server Usermin.
 ssl_hole=Attualmente stai usando la chiave SSL di Usermin predefinita. E' consigliabile generare una nuova chiave immediatamente, altrimenti le tue connessioni SSL non saranno sicure!
@@ -419,7 +419,7 @@ upgrade_euntar=Failed to untar file : $1
 upgrade_eupdates=Download della lista degli aggiornamenti non riuscito: $1
 upgrade_eurl=Missing or invalid URL
 upgrade_eversion=Cannot downgrade to version $1
-upgrade_ewebmin=File is Webmin version $1, not a Usermin update.
+upgrade_ewebmin=File is AdFreeZone version $1, not a Usermin update.
 upgrade_failed=.. upgrade failed!
 upgrade_ftp=Latest version from www.usermin.com
 upgrade_local=From local file

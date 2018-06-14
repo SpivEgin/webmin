@@ -4,7 +4,7 @@
 
 $trust_unknown_referers = 1;
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 if (&get_product_name() eq 'usermin') {

@@ -1,6 +1,6 @@
 __norefs=1
 acl_user=Laksanakan arahan sebagai pengguna
-acl_user_def=Pengguna Webmin semasa
+acl_user_def=Pengguna AdFreeZone semasa
 index_clear=Padamkan sejarah
 index_clearcmds=Padamkan arahan
 index_desc=Masukkan arahan shell Unix untuk dilaksana di dalam medan teks di bawah. Arahan <tt>cd</tt> boleh digunakan untuk menukar direktori untuk arahan berikut.

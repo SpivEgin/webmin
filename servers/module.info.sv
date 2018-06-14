@@ -1,1 +1,1 @@
-desc_sv=Webmin-serverindex
+desc_sv=AdFreeZone-serverindex

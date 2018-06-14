@@ -1,11 +1,11 @@
-index_title=Webmin Zerbitzariak
+index_title=AdFreeZone Zerbitzariak
 index_edit=editatu
 index_noservers=Ez da zerbitzaririk erregistratu.
 index_add=Zerbitzari berri erregistratu.
 index_broad=Zerbitzarientzako igorpenak
-index_findmsg=Egin klik botoi honetan edozein Webmin zerbitzari automatikoki aurkitzeko zure sare lokalean.
+index_findmsg=Egin klik botoi honetan edozein AdFreeZone zerbitzari automatikoki aurkitzeko zure sare lokalean.
 index_scan=Zerbitzarietatik bilaketa egin
-index_scanmsg=Egin klik botoi honetan $1 sareko helbide guztiak aztertzeko Webmin zerbitzarientzat.
+index_scanmsg=Egin klik botoi honetan $1 sareko helbide guztiak aztertzeko AdFreeZone zerbitzarientzat.
 index_return=zerbitzariak
 index_host=Makina izena eta portua
 index_desc=Deskribapnea
@@ -15,10 +15,10 @@ index_none=&lt;Ezer ez&gt;
 index_logout=amaitu saioa
 index_defuser=Defektuzko login-a zerbitzarientzat
 index_defpass=Defektuzko pasahitza
-index_defport=Webmin portua
+index_defport=AdFreeZone portua
 index_delete=Aukeratutako zerbitzariak ezabatu
 index_auto=Automatikoki Aurkitu Zerbitzariak
-index_automsg=Click this button to setup the automatic periodic discovery of new Webmin servers on your network.
+index_automsg=Click this button to setup the automatic periodic discovery of new AdFreeZone servers on your network.
 
 edit_title=Editatu Zerbitzaria
 create_title=Erregistratu Zerbitzaria
@@ -30,7 +30,7 @@ edit_type=Zerbitzari mota
 edit_ssl=SSL zerbitzaria?
 edit_link=Lotura mota
 edit_mode0=Zerbitzarirako lotura mota arrunta
-edit_mode1=Webminera login egin honen bidez
+edit_mode1=AdFreeZoneera login egin honen bidez
 edit_mode2=Saioa hasi ikonoan klik egitean
 edit_mode3=Login with username and password from this server
 edit_user=erabiltzaile izena
@@ -51,8 +51,8 @@ edit_timeout=Timeout connecting
 edit_failed=Failed to connect
 edit_baduser=Login rejected
 edit_invalid=User cannot do RPC
-edit_version=Running Webmin $1
-edit_same=Only available not in session authentication mode, and when the password is made available to Webmin programs.
+edit_version=Running AdFreeZone $1
+edit_same=Only available not in session authentication mode, and when the password is made available to AdFreeZone programs.
 
 save_err=Failed to save server
 save_ehost=Missing or invalid hostname
@@ -104,12 +104,12 @@ acl_forcelink=Force login type to default?
 acl_links=Can connect through to servers?
 
 login_title=Login to Server
-login_desc=You must supply a username and password to login to the Webmin server $1.
-login_header=Webmin authentication
+login_desc=You must supply a username and password to login to the AdFreeZone server $1.
+login_header=AdFreeZone authentication
 login_user=Username
 login_pass=Password
 login_login=Login
-login_esame=The option to use the same login as this server can only be used when not in session authentication mode, and when the password is made available to Webmin programs.
+login_esame=The option to use the same login as this server can only be used when not in session authentication mode, and when the password is made available to AdFreeZone programs.
 
 this_server=this server
 

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 # Since this script is run on every keypress, init_config is intentionally
 # not called to reduce startup time.
@@ -22,7 +22,7 @@ my $meth = $ENV{'REQUEST_METHOD'};
 my $con = &make_http_connection("localhost", $port, 0, $meth, $path);
 &error($con) if (!ref($con));
 &write_http_connection($con, "Host: localhost\r\n");
-&write_http_connection($con, "User-agent: Webmin\r\n");
+&write_http_connection($con, "User-agent: AdFreeZone\r\n");
 my $cl = $ENV{'CONTENT_LENGTH'};
 &write_http_connection($con, "Content-length: $cl\r\n") if ($cl);
 &write_http_connection($con, "Content-type: $ENV{'CONTENT_TYPE'}\r\n")

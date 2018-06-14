@@ -1,4 +1,4 @@
-desc=Scheduled Webmin Functions
-longdesc=Define Webmin module functions that are called on a regular schedule by the Webmin webserver
+desc=Scheduled AdFreeZone Functions
+longdesc=Define AdFreeZone module functions that are called on a regular schedule by the AdFreeZone webserver
 category=webmin
 hidden=1

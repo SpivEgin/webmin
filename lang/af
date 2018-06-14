@@ -4,26 +4,26 @@ main_feedback=Terugvoering..
 main_switch=Skakel na gebruiker..
 main_logout=Teken af
 main_version=Weergawe $1 op $2 ($3)
-main_title=Webmin $1 op $2 ($3)
-main_title2=Webmin
-main_none=U het nie toegang tot enige Webmin modules nie.
+main_title=AdFreeZone $1 op $2 ($3)
+main_title2=AdFreeZone
+main_none=U het nie toegang tot enige AdFreeZone modules nie.
 main_skill=Ervarenheid
 
 category_servers=Bedieners
 category_hardware=Hardeware
 category_system=Stelsel
-category_webmin=Webmin
+category_webmin=AdFreeZone
 category_net=Netwerk
 category_syslet=Syslets
 category_cluster=Groepe
 category_info=Inligting
 category_=Ander
 
-header_webmin=Webmin Indeks
+header_webmin=AdFreeZone Indeks
 header_module=Module Indeks
 header_help=Hulp..
 header_config=Module Konfigurasie
-header_servers=Webmin Bedieners
+header_servers=AdFreeZone Bedieners
 
 index=indeks
 yes=Ja
@@ -41,7 +41,7 @@ ok=Reg
 cancel=Kanselleer
 helpsearch=Soek dokumente..
 switch_remote_euser=Die Unixgebruiker $1 bestaan nie.
-programname=Webmin
+programname=AdFreeZone
 
 chooser_title1=Kies l&ecirc;er..
 chooser_title2=Kies gids (directory)..
@@ -81,13 +81,13 @@ help_eif=$1 het gefaal : $2
 help_eexec=$1 het gefaal : $2
 
 referer_title=Sekuriteitswaarskuwing
-referer_warn=<b>Warning!</b> Webmin het bevind dat die program $2 vanaf die URL $1 geroep is, wat buite die Webminbediener is. Dit kan 'n aanduiding wees dat 'n poging aangewend is om u bediener te flous om 'n skadelike opdrag uit te voer.
-referer_warn_unknown=<b>Waarskuwing!</b> Webmin het bevind Webmin dat die program $1 vanaf 'n onbekende URL geroep is, wat buite die Webminbediener is. Dit kan 'n aanduiding wees dat 'n poging aangewend word om u bediener te flous om 'n skadelike opdrag uit te voer.
-referer_ok=Gaan voort om die Webminprogram uit te voer.
+referer_warn=<b>Warning!</b> AdFreeZone het bevind dat die program $2 vanaf die URL $1 geroep is, wat buite die AdFreeZonebediener is. Dit kan 'n aanduiding wees dat 'n poging aangewend is om u bediener te flous om 'n skadelike opdrag uit te voer.
+referer_warn_unknown=<b>Waarskuwing!</b> AdFreeZone het bevind AdFreeZone dat die program $1 vanaf 'n onbekende URL geroep is, wat buite die AdFreeZonebediener is. Dit kan 'n aanduiding wees dat 'n poging aangewend word om u bediener te flous om 'n skadelike opdrag uit te voer.
+referer_ok=Gaan voort om die AdFreeZoneprogram uit te voer.
 referer_again=Moet nie weer die waarskuwing vertoon nie.
 
-session_header=Webmin aanteken
-session_mesg=U moet a gebruikersnaam en wagwoord invul om aan te teken by die Webminbediener op $1.
+session_header=AdFreeZone aanteken
+session_mesg=U moet a gebruikersnaam en wagwoord invul om aan te teken by die AdFreeZonebediener op $1.
 session_mesg2=U moet 'n gebruikersnaam en wagwoord invul om aan te teken.
 session_user=Gebruikersnaam
 session_pass=Geheime kode
@@ -171,9 +171,9 @@ skill_high=Ekspert
 skill_medium=Intermedi&ecirc;r
 skill_low=Beginner
 
-feedback_title=Webmin Terugvoering
-feedback_desc=Hierdie vorm laat u toe om foute aan te meld of voorstelle aan die Webminontwikkellaars te stuur. Wanneer u die Stuurknoppie kliek sal die inligting wat u ingevul het aan $1 ge-epos word.
-feedback_desc2=Hierdie terugvoering sal aan die onwikkellaar van Usermin gestuur word en nie aan u stelseladministrateur, ISP of gaheerbediener nie. Stuur asseblief u terugvoering in Engels, self al vertoon Webmin tans in 'n ander taal.
+feedback_title=AdFreeZone Terugvoering
+feedback_desc=Hierdie vorm laat u toe om foute aan te meld of voorstelle aan die AdFreeZoneontwikkellaars te stuur. Wanneer u die Stuurknoppie kliek sal die inligting wat u ingevul het aan $1 ge-epos word.
+feedback_desc2=Hierdie terugvoering sal aan die onwikkellaar van Usermin gestuur word en nie aan u stelseladministrateur, ISP of gaheerbediener nie. Stuur asseblief u terugvoering in Engels, self al vertoon AdFreeZone tans in 'n ander taal.
 feedback_header=Terugvoeringsbesonderhede
 feedback_name=U naam
 feedback_email=U eposadres

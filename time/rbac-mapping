@@ -1,2 +1,2 @@
-# RBAC authorization		# Webmin ACL
+# RBAC authorization		# AdFreeZone ACL
 solaris.system.date		noconfig=1,ntp=0

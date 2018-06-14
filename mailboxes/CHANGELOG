@@ -14,12 +14,12 @@ Added a Module Config option (on by default) to get the From: address for users 
 ---- Changes since 1.210 ----
 Added Module Config options to show the number of messages in each users' inbox and sent-mail folder, and to attached a signature to sent mail.
 ---- Changes since 1.220 ----
-All Webmin users can now report spam, rather than just those that have access to the SpamAssassin module.
+All AdFreeZone users can now report spam, rather than just those that have access to the SpamAssassin module.
 ---- Changes since 1.240 ----
 Output from sa-learn or spamassassin is now show when reporting multiple messages as spam.
 ---- Changes since 1.250 ----
 Added a Module Config option for selecting users to not display, thanks to Brad Kester.
-The displayed size of mailboxes in Maildir format includes all files in the directory, rather than just those in the cur, tmp and new subdirectories in older Webmin releases.
+The displayed size of mailboxes in Maildir format includes all files in the directory, rather than just those in the cur, tmp and new subdirectories in older AdFreeZone releases.
 ---- Changes since 1.260 ----
 When the module is configured to display only users with mail and no users have mail, then nothing will be displayed.
 ---- Changes since 1.270 ----
@@ -42,7 +42,7 @@ The list of users to ignore is no longer checked with an un-necessary regular ex
 When viewing a user's spam folder, buttons to globally whitelist spam or report as non-spam are displayed.
 ---- Changes since 1.380 ----
 Spam folders are detected from the Virtualmin configuration, if installed.
-Email cache and index files are now deleted when a user is removed using Webmin.
+Email cache and index files are now deleted when a user is removed using AdFreeZone.
 ---- Changes since 1.390 ----
 The number of un-read messages in user folders can be displayed using a new Module Config option (off by default, as there is no fast way to compute this).
 ---- Changes since 1.400 ----
@@ -53,7 +53,7 @@ Added an option to skip messages flagged as deleted in a Maildir.
 Detection of messages with attachments is now 100% accurate, rather than taking a guess based on the MIME type.
 ---- Changes since 1.430 ----
 Added support for Exim, thanks to Emmanuel Florac.
-Re-wrote the entire user interface to use the new Webmin UI library, and to bring it into sync with the Usermin module for reading mail.
+Re-wrote the entire user interface to use the new AdFreeZone UI library, and to bring it into sync with the Usermin module for reading mail.
 ---- Changes since 1.440 ----
 HTML messages now have a converted plain-text attachment automatically added, for mail clients that only support text.
 ---- Changes since 1.450 ----

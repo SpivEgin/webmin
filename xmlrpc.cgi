@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # Handles xml-rpc requests from arbitrary clients. Each is a call to a
-# function in a Webmin module. 
+# function in a AdFreeZone module.
 
 if (!$ENV{'GATEWAY_INTERFACE'}) {
 	# Command-line mode
@@ -16,7 +16,7 @@ if (!$ENV{'GATEWAY_INTERFACE'}) {
 	$> == 0 || die "xmlrpc.cgi must be run as root";
 	}
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 use POSIX;
 use Socket;
 $force_lang = $default_lang;
@@ -96,7 +96,7 @@ foreach my $mc (&find_xmls("methodCall", $xml)) {
 		if (!$done_require_module{$mod}) {
 			if (!&foreign_check($mod)) {
 				&error_exit(5,
-					"Webmin module $mod does not exist");
+					"AdFreeZone module $mod does not exist");
 				}
 			eval { &foreign_require($mod, $lib); };
 			if ($@) {

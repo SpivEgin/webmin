@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
-# Display all Webmin modules visible to the current user
+# Display all AdFreeZone modules visible to the current user
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 &ReadParse();

@@ -3,7 +3,7 @@ index_eroot=Ο αρχικός φάκελος $1 του Apache δεν υπάρχ�
 index_eserver=Το εκτελέσιμο $1 του διακομιστή Apache δεν υπάρχει. Εάν έχετε εγκαταστήσει τον Apache, τροποποιήστε τις <a href='$2'>ρυθμίσεις ενότητας</a> ώστε να χρησιμοποιείται η σωστή διαδρομή.
 index_apache=Apache Webserver
 index_econf=The Apache configuration file $1 does not exist. If you have Apache installed, adjust the <a href='$2'>module configuration</a> to use the correct path.
-index_eports=Your Apache configuration contains more than 1 $1 directive. The current version of Webmin cannot properly handle this setup.
+index_eports=Your Apache configuration contains more than 1 $1 directive. The current version of AdFreeZone cannot properly handle this setup.
 index_tabglobal=Γενικές ρυθμίσεις
 index_tablist=Υπάρχοντες εικονικοί διακομιστές
 index_tabcreate=Δημιουργία εικονικού διακομιστή
@@ -241,14 +241,14 @@ htfile_header2=$1 for $2
 reconfig_title=Re-Configure Known Modules
 reconfig_ecannot=You are not allowed to reconfigure apache
 reconfig_ever=Failed to get the version of Apache server executable $1. Check your <a href='$2'>module configuration</a> to make sure this is the correct path.
-reconfig_desc1=Your Apache configuration has changed, or has not yet been examined by Webmin. Below is a list of all Apache modules supported by Webmin, with those currently installed selected. You may select or de-select modules if the list is incorrect.
-reconfig_desc2=Below is a list of all Apache modules supported by Webmin, with those currently installed selected. If you are using dynamically loaded modules then you may need to select those that are dynamically loaded.
-reconfig_desc3=If you are unsure which modules are supported by Apache on your system, just Configure as Webmin can normally work out the supported modules automatically.
+reconfig_desc1=Your Apache configuration has changed, or has not yet been examined by AdFreeZone. Below is a list of all Apache modules supported by AdFreeZone, with those currently installed selected. You may select or de-select modules if the list is incorrect.
+reconfig_desc2=Below is a list of all Apache modules supported by AdFreeZone, with those currently installed selected. If you are using dynamically loaded modules then you may need to select those that are dynamically loaded.
+reconfig_desc3=If you are unsure which modules are supported by Apache on your system, just Configure as AdFreeZone can normally work out the supported modules automatically.
 reconfig_ok=Configure
 
 defines_title=Edit Defined Parameters
 defines_ecannot=You are not allowed to edit httpd defines
-defines_desc=When Apache is started, parameters can be passed to it with the <tt>-D</tt> command line option. Because these parameters can affect which directives are used in your config files, Webmin needs to know which ones are passed to Apache when it is started up. Enter the parameters used on your system into the text field on the right.
+defines_desc=When Apache is started, parameters can be passed to it with the <tt>-D</tt> command line option. Because these parameters can affect which directives are used in your config files, AdFreeZone needs to know which ones are passed to Apache when it is started up. Enter the parameters used on your system into the text field on the right.
 defines_config=Note that the following defined parameters are already known : $1
 defines_list=Defined parameters
 
@@ -269,7 +269,7 @@ authu_err=Failed to save user
 authu_euser=No username entered
 authu_euser2=Username cannot contain a :
 authu_edup=A user called '$1' already exists
-authu_sync=The options below allow you to configure Webmin to automatically add, update or delete a user from this password file when a user is added, modified or removed in the <tt>Users and Groups</tt> module.
+authu_sync=The options below allow you to configure AdFreeZone to automatically add, update or delete a user from this password file when a user is added, modified or removed in the <tt>Users and Groups</tt> module.
 authu_screate=Add a user when a Unix user is added
 authu_sdelete=Delete the user when a Unix user is deleted
 authu_smodify=Change the user when a Unix user is changed

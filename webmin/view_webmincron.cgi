@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Show details of one Webmin cron function, and allow changing
+# Show details of one AdFreeZone cron function, and allow changing
 
 require './webmin-lib.pl';
 &ReadParse();

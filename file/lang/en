@@ -1,7 +1,7 @@
 index_title=Java File Manager
 index_nojava=This module requires Java to function, but your browser does not support Java
-index_eremote=There is no Unix user matching the Webmin login $1.
-index_index=Return to <a href='$1'>Webmin index</a>.
+index_eremote=There is no Unix user matching the AdFreeZone login $1.
+index_index=Return to <a href='$1'>AdFreeZone index</a>.
 switch_euser=Unix user does not exist!
 
 top_ret=Index
@@ -231,14 +231,14 @@ move_eto=You are not allowed to move to '$1'
 move_afrom=You are not allowed to move '$1'
 
 acl_user=Access files on server as user
-acl_user_def=Same as Webmin login
+acl_user_def=Same as AdFreeZone login
 acl_umask=Umask for new files
 acl_follow=Always follow symlinks?
 acl_fyes=If owners match
 acl_ro=Read-only mode?
 acl_dirs=Only allow access to directories
 acl_nodirs=Deny access to directories
-acl_home=Include home directory of Webmin user
+acl_home=Include home directory of AdFreeZone user
 acl_log=Log all file modifications?
 acl_goto=Open first allowed directory?
 acl_max=Maximum upload size

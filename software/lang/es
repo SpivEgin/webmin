@@ -203,7 +203,7 @@ log_upgrade_yum=Se aumentaron de versi&#243;n $2 paquete(s) desde YUM
 log_upgrade_yum_l=Se aumentaron de versi&#243;n los paquete(s) $1 desde YUM
 log_urpmi_update=Se aumentaron de versi&#243;n todos los paquetes URPMI disponibles
 log_urpmi_upgrade=Se aumentaron de versi&#243;n los paquetes URPMI
-missing_link=El paquete $1 puede ser instalado autom&#225;ticamente mediante Webmin. <a href='$2'>Pulse aqu&#237;</a> para que sea descargado e instalado utilizando $3
+missing_link=El paquete $1 puede ser instalado autom&#225;ticamente mediante AdFreeZone. <a href='$2'>Pulse aqu&#237;</a> para que sea descargado e instalado utilizando $3
 pkgadd_eroot=El directorio raiz '$1' no existe
 pkgadd_manager=Gestor de Paquetes System V
 pkgadd_root=Directorio Raiz

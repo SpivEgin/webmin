@@ -1,12 +1,12 @@
 __norefs=1
 acl_edit=Mag processen killen en herstarten?
 acl_manage=Processen beheren als gebruiker
-acl_manage_def=Huidige Webmin gebruiker
+acl_manage_def=Huidige AdFreeZone gebruiker
 acl_only=Mag alleen eigen processen zien?
 acl_run=Mag opdrachten uitvoeren?
 acl_who=Mag processen van gebruikers beheren
 acl_who0=Alle gebruikers
-acl_who1=Huidige Webmin gebruiker
+acl_who1=Huidige AdFreeZone gebruiker
 acl_who2=Gebruikers in lijst ..
 command=Opdracht
 cpu=CPU

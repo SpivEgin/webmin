@@ -1,7 +1,7 @@
 index_title=Network Configuration
 index_return=network configuration
 index_apply=Apply Configuration
-index_applydesc=Click this button to activate the current boot-time interface and routing settings, as they normally would be after a reboot. <b>Warning</b> - this may make your system inaccessible via the network, and cut off access to Webmin.
+index_applydesc=Click this button to activate the current boot-time interface and routing settings, as they normally would be after a reboot. <b>Warning</b> - this may make your system inaccessible via the network, and cut off access to AdFreeZone.
 index_delete1=De-Activate Selected Interfaces
 index_delete2=Delete Selected Interfaces
 index_delete3=Delete and Apply Selected Interfaces
@@ -199,7 +199,7 @@ routes_ecnetmask2=A netmask cannot be specified for the default route
 routes_ggw=Use router $1 via interface $2
 routes_tabboot=Boot time configuration
 routes_tabactive=Active configuration
-routes_descactive=This section lists routes that the system currently has configured, and allows you to add or remove active routes on some systems. Be careful doing this, as incorrect changes may cut the system running Webmin off from the rest of the network.
+routes_descactive=This section lists routes that the system currently has configured, and allows you to add or remove active routes on some systems. Be careful doing this, as incorrect changes may cut the system running AdFreeZone off from the rest of the network.
 routes_descboot=This section allows you to configure the routes that are activated when the system boots up, or when network settings are fully re-applied.
 
 dns_title=Hostname and DNS Client

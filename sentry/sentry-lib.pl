@@ -2,7 +2,7 @@
 # Functions for configuring portsentry, hostsentry and logcheck
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 # get_portsentry_config()

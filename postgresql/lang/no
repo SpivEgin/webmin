@@ -309,7 +309,7 @@ index_emsg=Den fullstendige PostgreSQL feilmeldingen var : $1
 index_ename=Manglende eller ugyldig indeks navn
 index_err=Kunne ikke opprette indeks
 index_esql=PostgreSQL klientprogrammet $1 ble ikke funnet p&#229; systemet ditt. Kanskje PostgreSQL ikke er installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
-index_eversion=PostgreSQL databasen p&#229; systemet ditt er versjon $1, men Webmin st&#248;tter bare versjon $2 eller nyere.
+index_eversion=PostgreSQL databasen p&#229; systemet ditt er versjon $1, men AdFreeZone st&#248;tter bare versjon $2 eller nyere.
 index_fields=Felt i indeksen
 index_fulltext=Full tekst
 index_gist=Generalisert Indeks s&#248;ketre
@@ -325,12 +325,12 @@ index_ltitle=PostgreSQL Login
 index_name=Indeks navn
 index_nodbs=Du har ikke tilgang til noen databaser.
 index_nodbs3=Ingen PostgreSQL matchet s&#248;ket ditt.
-index_nomod=Advarsel: Perl modulen $1 er ikke installert p&#229; systemet ditt, s&#229; Webmin vil ikke v&#230;re i stand til &#229; f&#229; ordentlig tilgang til PostgreSQL databasen din. <a href='$2'>Klikk her</a> for &#229; installere modulen n&#229;.
-index_nomods=Advarsel: Perl modulene $1 og $2 er ikke installert p&#229; systemet ditt, s&#229; Webmin vil ikke v&#230;re i stand til &#229; f&#229; ordentlig tilgang til PostgreSQL databasen din. <a href='$3'>Klikk her</a> for &#229; installere modulene n&#229;.
+index_nomod=Advarsel: Perl modulen $1 er ikke installert p&#229; systemet ditt, s&#229; AdFreeZone vil ikke v&#230;re i stand til &#229; f&#229; ordentlig tilgang til PostgreSQL databasen din. <a href='$2'>Klikk her</a> for &#229; installere modulen n&#229;.
+index_nomods=Advarsel: Perl modulene $1 og $2 er ikke installert p&#229; systemet ditt, s&#229; AdFreeZone vil ikke v&#230;re i stand til &#229; f&#229; ordentlig tilgang til PostgreSQL databasen din. <a href='$3'>Klikk her</a> for &#229; installere modulene n&#229;.
 index_nonunique=Ikke-unik
-index_nopass=Webmin beh&#248;ver &#229; vite ditt PostgreSQL administrasjons brukernavn og passord for &#229; kunne administrere databasen din. Angi disse nedenfor.
+index_nopass=AdFreeZone beh&#248;ver &#229; vite ditt PostgreSQL administrasjons brukernavn og passord for &#229; kunne administrere databasen din. Angi disse nedenfor.
 index_notrun=PostgreSQL kj&#248;rer ikke p&#229; systemet ditt - kunne ikke hente databaseliste
-index_nouser=Webmin kontoen din er konfigurert til &#229; koble til PostgreSQL tjeneren som bruker $1, men denne brukeren nektes tilgang.
+index_nouser=AdFreeZone kontoen din er konfigurert til &#229; koble til PostgreSQL tjeneren som bruker $1, men denne brukeren nektes tilgang.
 index_pass=Passord
 index_postgresql=PostgreSQL
 index_return=database liste
@@ -343,9 +343,9 @@ index_setupok=Initialiser database
 index_showing=Viser databaser som stemmer med $1 ..
 index_spatial=Spatial
 index_start=Start PostgreSQL tjener
-index_startmsg2=Klikk p&#229; denne knappen for &#229; starte PostgreSQL databasetjeneren p&#229; systemet ditt. Denne Webmin modulen kan ikke administrere PostgreSQL tjeneren f&#248;r den er startet.
+index_startmsg2=Klikk p&#229; denne knappen for &#229; starte PostgreSQL databasetjeneren p&#229; systemet ditt. Denne AdFreeZone modulen kan ikke administrere PostgreSQL tjeneren f&#248;r den er startet.
 index_stop=Stopp PostgreSQL tjener
-index_stopmsg=Klikk p&#229; denne knappen for &#229; stoppe PostgreSQL databasetjeneren p&#229; systemet ditt. Dette vil hindre all tilgang til databasene, inkludert denne Webmin modulen.
+index_stopmsg=Klikk p&#229; denne knappen for &#229; stoppe PostgreSQL databasetjeneren p&#229; systemet ditt. Dette vil hindre all tilgang til databasene, inkludert denne AdFreeZone modulen.
 index_superuser=PostgreSQL klientprogrammet psql kunne ikke utf&#248;res p&#229; systemet ditt. Kanskje PostgreSQL ikke er installert, eller s&#229; er <a href='$1'>modulkonfigurasjonen</a> feil.
 index_tables=Tabeller
 index_title=PostgreSQL databasetjener
@@ -537,7 +537,7 @@ user_pass=Krever passord?
 user_passwd=Passord
 user_return=bruker liste
 user_setto=Satt til
-user_sync=Innstillingene nedenfor konfigurerer synkronisering mellom Unix brukere opprettet via Webmin og PostgreSQL brukere.
+user_sync=Innstillingene nedenfor konfigurerer synkronisering mellom Unix brukere opprettet via AdFreeZone og PostgreSQL brukere.
 user_sync_create=Legg til en ny PostgreSQL bruker n&#229;r en Unix bruker legges til.
 user_sync_delete=Slett en PostgreSQL bruker n&#229;r motsvarende Unix bruker slettes.
 user_sync_modify=Oppdater en PostgreSQL bruker n&#229;r motsvarende Unix bruker endres.

@@ -2,7 +2,7 @@
 # Functions for parsing xinetd config files
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 # get_xinetd_config()

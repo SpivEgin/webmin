@@ -74,9 +74,9 @@ print &ui_table_row($text{'sendmail_to'},
 		    &ui_textbox("to", undef, 40), undef, [ "valign=middle","valign=middle" ]);
 
 print &ui_table_row($text{'sendmail_subject'},
-		    &ui_textbox("subject", "Test email from Webmin", 40), undef, [ "valign=middle","valign=middle" ]);
+		    &ui_textbox("subject", "Test email from AdFreeZone", 40), undef, [ "valign=middle","valign=middle" ]);
 
-$msg = "This is a test message from Webmin, sent with the settings :\n".
+$msg = "This is a test message from AdFreeZone, sent with the settings :\n".
        "\n".
        "Mail server: ".$mailboxes::text{'index_system'.$ms}."\n".
        "Sent via: ".($smtp || "Local mail server")."\n".

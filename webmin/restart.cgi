@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Re-start Webmin
+# Re-start AdFreeZone
 
 require './webmin-lib.pl';
 

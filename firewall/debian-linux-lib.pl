@@ -71,7 +71,7 @@ elsif ($has_new_debian_iptables) {
 		}
 	}
 else {
-	# Check Webmin init script
+	# Check AdFreeZone init script
 	return &init::action_status("webmin-ip${ipvx}tables") == 2;
 	}
 }

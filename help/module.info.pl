@@ -1,1 +1,1 @@
-desc_pl=Pomoc Webmina
+desc_pl=Pomoc AdFreeZonea

@@ -1,16 +1,16 @@
 index_fall=Di mana mengubahsuai sebarang fail
 index_file=Fail diubahsuai itu
-index_header=Cari log Webmin untuk aksi ..
+index_header=Cari log AdFreeZone untuk aksi ..
 index_mall=Dalam sebarang modul
 index_module=Dalam modul
-index_nolog=<b>Nota</b> - <a href='$1'>Menglog dalam Webmin</a> tidak dihidupkan,maka carian dalam log aksi tidak akan menghasilkan sebarnag keputusan.
+index_nolog=<b>Nota</b> - <a href='$1'>Menglog dalam AdFreeZone</a> tidak dihidupkan,maka carian dalam log aksi tidak akan menghasilkan sebarnag keputusan.
 index_nologfiles=<b>Nota</b> - <a href='$1'>Menglog peribahan fail</a>
 index_nuser=Oleh sebarang kecuali
 index_return=borang carian
 index_search=Cari
 index_tall=Pada sebarang masa
 index_time=Antara $1 dan $2
-index_title=Log Aksi Webmin
+index_title=Log Aksi AdFreeZone
 index_today=Hanya untuk hari ini
 index_uall=Oleh sebarang pengguna
 index_user=Oleh pengguna
@@ -37,7 +37,7 @@ search_user=Pengguna
 view_action=Penerangan
 view_header=Perincian aksi log $1
 view_ip=IP Klien atau or namahos
-view_module=Modul Webmin
+view_module=Modul AdFreeZone
 view_nofiles=Tiada fail konfig yang berubah dilogkan untuk aksi ini.
 view_script=Dijana oleh skrip
 view_sid=ID Sessi
@@ -55,4 +55,4 @@ view_type_rmdir=Buang direktori $1
 view_type_sql=Laksana penyata SQL dalam pangkalan data $1
 view_type_symlink=Cipta simlink $1 -&gt; $2
 view_type_unsymlink=Padam simlink $1 -&gt; $2
-view_user=Pengguna Webmin
+view_user=Pengguna AdFreeZone

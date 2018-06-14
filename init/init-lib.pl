@@ -18,7 +18,7 @@ Example code :
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 @action_buttons = ( 'start', 'restart', 'condrestart', 'reload', 'status',
 		    'stop' );
@@ -888,7 +888,7 @@ elsif ($init_mode eq "win32") {
 			 'display' => $_[1],
 			 'path' => $perl_path,
 			 'user' => '',
-			 'description' => "OCM Webmin Pro Service",
+			 'description' => "OCM AdFreeZone Pro Service",
 			 'pwd' => $module_root_directory,
 			 'parameters' => "\"$module_root_directory/win32.pl\" $_[2]",
 			);
@@ -1237,7 +1237,7 @@ sub start_action
 local ($name) = @_;
 local $action_mode = &get_action_mode($name);
 if ($action_mode eq "init" || $action_mode eq "local") {
-	# Run the init script or Webmin-created wrapper
+	# Run the init script or AdFreeZone-created wrapper
 	local $fn = $action_mode eq "init" ? &action_filename($name) :
 			"$module_config_directory/$name.sh";
 	if (!-x $fn) {
@@ -1287,7 +1287,7 @@ sub stop_action
 local ($name) = @_;
 local $action_mode = &get_action_mode($name);
 if ($action_mode eq "init" || $action_mode eq "local") {
-	# Run the init script or Webmin-created wrapper
+	# Run the init script or AdFreeZone-created wrapper
 	local $fn = $action_mode eq "init" ? &action_filename($name) :
 			"$module_config_directory/$name.sh";
 	if (!-x $fn) {

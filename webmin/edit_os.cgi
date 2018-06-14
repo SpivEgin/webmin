@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # edit_os.cgi
-# Show the current OS according to Webmin, and some environment settings
+# Show the current OS according to AdFreeZone, and some environment settings
 
 require './webmin-lib.pl';
 &ui_print_header(undef, $text{'os_title'}, "");
@@ -12,7 +12,7 @@ print $text{'os_desc2'},"<p>\n";
 print &ui_form_start("change_os.cgi", "post");
 print &ui_table_start($text{'os_header'}, undef, 2, [ "width=40%" ]);
 
-# OS according to Webmin
+# OS according to AdFreeZone
 print &ui_table_row($text{'os_webmin'},
    &ui_select("type", $gconfig{'real_os_type'},
 	[ map { [ $_ ] } sort { $a cmp $b } &unique(map { $_->{'realtype'} }

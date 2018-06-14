@@ -1,11 +1,11 @@
-index_title=Webmin Help
+index_title=AdFreeZone Help
 index_terms=Search help for
 index_mods=Modules to search
 index_all=All
 index_sel=Selected modules ..
 index_search=Search
 index_reset=Reset
-index_header=Global Webmin help search
+index_header=Global AdFreeZone help search
 index_return=search form
 
 search_err=Search failed
@@ -17,5 +17,5 @@ search_none=No help files matched your search
 search_mod=Module
 search_page=Help page
 search_line=Match on
-search_results=Webmin help pages matching $1
+search_results=AdFreeZone help pages matching $1
 __norefs=1

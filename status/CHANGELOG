@@ -4,7 +4,7 @@ Status emails are now send using the Read User Mail module, removing any depende
 Added a new monitor type for checking on RAID devices.
 ---- Changes since 1.170 ----
 Added support for sending SNMP traps when scheduled monitoring detects that a service has gone down. This requires the Net::SNMP Perl module be installed.
-Other Webmin modules can now defined custom monitor types, by including a status_monitor.pl script. This must contain the functions documented in status_monitor_api.pl in this module's directory.
+Other AdFreeZone modules can now defined custom monitor types, by including a status_monitor.pl script. This must contain the functions documented in status_monitor_api.pl in this module's directory.
 Added a field for specifying the number of times a service must be detected as down before an email message is sent or other action taken.
 ---- Changes since 1.180 ----
 Status email messages now include the failed service in the subject line.
@@ -36,7 +36,7 @@ The Check File monitor can now perform size checks on the total contents of a di
 ---- Changes since 1.300 ----
 Added a monitor type for the rate of disk space consumption.
 ---- Changes since 1.310 ----
-Added the ability to create monitors that apply to Webmin server groups, rather than selecting individual machines one at a time.
+Added the ability to create monitors that apply to AdFreeZone server groups, rather than selecting individual machines one at a time.
 Added a new Alive System monitor type, which is useful when used remotely to just determine if a machine is up.
 ---- Changes since 1.320 ----
 Fixed the Refresh Status button to work regardless of the selected execution hours or days.
@@ -50,11 +50,11 @@ Failure to run a command on a remote system is now properly detected.
 ---- Changes since 1.390 ----
 Added T-COM, Skytel, Vodaphone and several more as a carriers for SMS.
 ---- Changes since 1.400 ----
-Email, SMS and SNMP messages sent by Webmin can be customized, with multiple message templates defined and a different one selected for each monitor.
+Email, SMS and SNMP messages sent by AdFreeZone can be customized, with multiple message templates defined and a different one selected for each monitor.
 ---- Changes since 1.410 ----
 The process check monitor can now be limited to a particular user.
 ---- Changes since 1.420 ----
-Allow saving of remote Webmin monitors when the remote host is down.
+Allow saving of remote AdFreeZone monitors when the remote host is down.
 Added a new monitor type for checking the expiry and validity of SSL certificates in a local file or on any SSL website.
 ---- Changes since 1.440 ----
 Added an option to the FTP status monitor to make a TLS encrypted connection. Requires the Net::FTPSSL Perl module though.
@@ -85,6 +85,6 @@ Added new monitor types to check if an LDAP server is up, and if an LDAP connect
 ---- Changes since 1.690 ----
 Extended the Execute Command monitor to be able to check the output of a command, and invert the exit status test.
 ---- Changes since 1.770 ----
-Added a Module Config option to show the last collected status on the Webmin system information page.
+Added a Module Config option to show the last collected status on the AdFreeZone system information page.
 ---- Changes since 1.870 ----
 Added a config option to set a minimum interval between notifications for each monitor.

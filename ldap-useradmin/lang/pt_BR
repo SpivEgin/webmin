@@ -21,7 +21,7 @@ uedit_lastname=Sobrenome
 usave_eadd=Falhou ao adicionar usu&#225;rio &#224; base LDAP : $1
 usave_esamba=Esse m&#243;dulo n&#227;o pode ser usado para modificar a senha de um usu&#225;rio do Samba, pois o m&#243;dulo do mesmo para compartilhar arquivos n&#227;o est&#225; instalado.
 gsave_edelete=Falhou ao apagar o grupo do banco de dados LDAP : $1
-index_eschema=Webmin conectou ao servidor LDAP, mas falhou ao tentar obter o schema. Confira que o acesso n&#227;o tenha sido bloqueado no m&#243;dulo do <a href='$1'>Servidor LDAP</a>.
+index_eschema=AdFreeZone conectou ao servidor LDAP, mas falhou ao tentar obter o schema. Confira que o acesso n&#227;o tenha sido bloqueado no m&#243;dulo do <a href='$1'>Servidor LDAP</a>.
 usave_ereal=Faltando nome real
 gsave_egone=O grupo n&#227;o existe!
 index_ebase=Nenhum arquivo de configura&#231;&#227;o de cliente LDAP foi encontrado no seu sistema. Por esse motivo, as bases de usu&#225;rios e grupos devem ser definidas na p&#225;gina de <a href='$1'>Configura&#231;&#227;o do m&#243;dulo</a>.

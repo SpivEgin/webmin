@@ -1,6 +1,6 @@
 index_title=Cluster Software Packages
 index_hosts=Managed Servers
-index_nohosts=No Webmin servers have been registered for software management.
+index_nohosts=No AdFreeZone servers have been registered for software management.
 index_add=Add server
 index_gadd=Add servers in group
 index_installed=Installed Packages
@@ -71,7 +71,7 @@ host_open=Open all.
 host_close=Close all.
 host_all=All Packages
 host_count=Packages installed
-host_os=OS from Webmin
+host_os=OS from AdFreeZone
 host_return=server details
 host_system=Package system
 

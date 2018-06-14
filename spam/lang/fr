@@ -61,7 +61,7 @@ log_header=Tests d'en-t&#234;tes et de corps modifi&#233;s
 razor_ecmd=La commande de configuration Razor $1 n'a pas &#233;t&#233; trouv&#233;e sur votre syst&#232;me, ce qui indique que Razor n'est pas install&#233;.
 user_pheader=Ajputer un en-t&#234;te Pyzor aux messages ?
 header_op=V&#233;rifier si
-index_cpan=Du fait que SpamAssassin est un module Perl, vous pouvez &#233;galement l'installer automatiquement &#224; l'aide du module <a href='$2'>Modules Perl</a> de Webmin &#224; t&#233;l&#233;charger $1 depuis CPAN.
+index_cpan=Du fait que SpamAssassin est un module Perl, vous pouvez &#233;galement l'installer automatiquement &#224; l'aide du module <a href='$2'>Modules Perl</a> de AdFreeZone &#224; t&#233;l&#233;charger $1 depuis CPAN.
 priv_phrase=Phrase de deux mots
 white_gfrom=Adresses &#224; l'&#233;chelle du syst&#232;me &#224; ne jamais classifier comme du spam
 header_op2=Existe

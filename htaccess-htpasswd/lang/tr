@@ -86,7 +86,7 @@ gsave_eclash=A group with the same name already exists
 
 acl_dirs=Allowed directories
 acl_user=Create .htaccess and htusers files as Unix user
-acl_same=Same as Webmin login
+acl_same=Same as AdFreeZone login
 acl_home=Include Unix user's home directory?
 acl_sync=Can setup Unix user synchronization?
 

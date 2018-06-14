@@ -2,7 +2,7 @@
 # Refresh the list of visible modules
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 &ReadParse();

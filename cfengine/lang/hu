@@ -1,7 +1,7 @@
 index_title=Configuration Engine
 index_ecommand=The Configuration Engine command $1 was not found on your system. Maybe it is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_eversion=Failed to get the version from Configuration Engine command $1. The actual output from the command was : $2
-index_eversion2=The Configuration Engine command $1 on your system is version $2, but this Webmin module only supports versions $3 .
+index_eversion2=The Configuration Engine command $1 on your system is version $2, but this AdFreeZone module only supports versions $3 .
 index_econfig=The Configuration Engine config file $1 as not found on your system. Maybe it is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_version=CFengine version $1
 index_section=Action type
@@ -363,9 +363,9 @@ log_stop=Stopped daemon
 log_push=Changed remote configuration hosts
 log_prun=Ran host configurations
 
-hosts_title=Webmin CFengine Cluster
+hosts_title=AdFreeZone CFengine Cluster
 hosts_hosts=Servers in Cluster
-hosts_nohosts=No Webmin servers running CFengine have been defined yet.
+hosts_nohosts=No AdFreeZone servers running CFengine have been defined yet.
 hosts_add=Add server
 hosts_gadd=Add servers in group
 hosts_run=Run Configuration Engine
@@ -383,14 +383,14 @@ add_gerr=Failed to add group
 add_echeck=Server $1 does not have the configuration engine module
 add_ecfengine=CFengine is not installed on server $1
 add_ok=Added server $1 ($2 $3)
-add_eversion=CFengine on server $1 is version $2, but this Webmin module only supports versions $3 .
+add_eversion=CFengine on server $1 is version $2, but this AdFreeZone module only supports versions $3 .
 
 host_title=Managed Server
 host_header=Managed CFengine server details
 host_name=Host name
 host_type=Server type
 host_delete=Remove from managed list
-host_os=OS from Webmin
+host_os=OS from AdFreeZone
 host_cfg=Current CFengine configuration from $1
 host_ver=CFengine version
 

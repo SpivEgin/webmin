@@ -4,7 +4,7 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("raid");
 &foreign_require("fdisk");

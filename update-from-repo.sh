@@ -43,13 +43,13 @@ PROD="webmin" # default
 
 if [[ -r "${DIR}/uconfig.cgi" ]] ; then
   if [[ -d "${DIR}/webmin" ]] ; then
-    echo -e "${RED}Error: found Usermin but also Webmin files. aborting ...${NC}"
+    echo -e "${RED}Error: found Usermin but also AdFreeZone files. aborting ...${NC}"
     exit 1
   fi
   PROD="usermin"
 else
   if [[ -d "${DIR}/language" ]] ; then
-    echo -e "${RED}Error: found Webmin but also Usermin files. aborting ...${NC}"
+    echo -e "${RED}Error: found AdFreeZone but also Usermin files. aborting ...${NC}"
     exit 1
   fi
   PROD="webmin"
@@ -303,7 +303,7 @@ fi
   # on usermin!! pull also webmin to resolve symlinks later!
   WEBMREPO=`echo ${REPO} | sed "s/\/usermin$/\/webmin/"`
   if [[ "${REPO}" != "${WEBMREPO}" ]]; then
-        echo -e "${CYAN}Pulling also latest changes for${NC} ${ORANGE}Webmin${NC} ($HOST/$WEBMREPO) ..."
+        echo -e "${CYAN}Pulling also latest changes for${NC} ${ORANGE}AdFreeZone${NC} ($HOST/$WEBMREPO) ..."
         ${GIT} clone --depth 1 --quiet  $HOST/$WEBMREPO.git "${WTEMP}"
   fi
 

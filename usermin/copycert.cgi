@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Copy Webmin's SSL settings
+# Copy AdFreeZone's SSL settings
 
 require './usermin-lib.pl';
 &ReadParse();

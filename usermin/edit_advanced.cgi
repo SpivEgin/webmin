@@ -41,11 +41,11 @@ print &ui_table_row($text{'advanced_pass'},
 
 @preloads = &webmin::get_preloads(\%miniserv);
 if (!@preloads && (!$miniserv{'premodules'} ||
-		   $miniserv{'premodules'} eq 'WebminCore')) {
+		   $miniserv{'premodules'} eq 'AdFreeZoneCore')) {
 	# New-style preload possible or enabled
 	print &ui_table_row($text{'advanced_preload'},
 		    &ui_yesno_radio("preload",
-				    $miniserv{'premodules'} eq 'WebminCore'));
+				    $miniserv{'premodules'} eq 'AdFreeZoneCore'));
 	}
 elsif ($preloads[0]->[0] eq "main" && $preloads[0]->[1] eq "web-lib-funcs.pl") {
 	# Old-style preloads enabled

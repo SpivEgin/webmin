@@ -93,7 +93,7 @@ if (&foreign_check("init")) {
 			  [ 0, $text{'no'} ] ]));
 	}
 
-# Restart Webmin
+# Restart AdFreeZone
 if (!$miniserv{'inetd'} && $ENV{'MINISERV_CONFIG'}) {
 	print &ui_buttons_row("restart.cgi",
 		      $text{'index_restart'}, $text{'index_restartmsg'});

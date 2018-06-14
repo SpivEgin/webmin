@@ -1,6 +1,6 @@
 index_title=Configuration R&#233;seau
 index_return=configuration r&#233;seau
-index_applydesc=Cliquez sur ce bouton pour activer les configurations actuelles comme si vous aviez redemarre la machine.<br><b>ATTENTION:</b> Cela peut rendre votre systeme inaccessible par le reseau et couper l'acces a Webmin.
+index_applydesc=Cliquez sur ce bouton pour activer les configurations actuelles comme si vous aviez redemarre la machine.<br><b>ATTENTION:</b> Cela peut rendre votre systeme inaccessible par le reseau et couper l'acces a AdFreeZone.
 index_apply=Appliquer la Configuration
 
 ifcs_title=Interfaces R&#233;seau

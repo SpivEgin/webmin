@@ -1,11 +1,11 @@
-=head1 WebminCore.pm
+=head1 AdFreeZoneCore.pm
 
-Perl module that exports Webmin API functions. Example code :
+Perl module that exports AdFreeZone API functions. Example code :
 
-  use WebminCore;
+  use AdFreeZoneCore;
   init_config();
   ui_print_header(undef, 'My Module', '');
-  print 'This is Webmin version ',get_webmin_version(),'<p>\n';
+  print 'This is AdFreeZone version ',get_webmin_version(),'<p>\n';
   ui_print_footer();
 
 Full function documentation is in web-lib-funcs.pl.
@@ -13,7 +13,7 @@ Full function documentation is in web-lib-funcs.pl.
 =cut
 
 $main::export_to_caller = 1;
-package WebminCore;
+package AdFreeZoneCore;
 require Exporter;
 @ISA = qw(Exporter);
 

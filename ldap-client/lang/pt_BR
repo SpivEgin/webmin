@@ -116,10 +116,10 @@ eswitch_title=Editar servi&#231;o
 eswitch_tryagain=Temporariamente indispon&#237;vel
 eswitch_unavail=Se n&#227;o dispon&#237;vel
 index_check=Validar configura&#231;&#227;o
-index_checkdesc=Clique neste bot&#227;o para que o Webmin valide a configura&#231;&#227;o do seu servidor LDAP, ao garantir que o servidor pode ser contactado e que cont&#233;m usu&#225;rios e grupos.
+index_checkdesc=Clique neste bot&#227;o para que o AdFreeZone valide a configura&#231;&#227;o do seu servidor LDAP, ao garantir que o servidor pode ser contactado e que cont&#233;m usu&#225;rios e grupos.
 index_econf=O arquivo de configura&#231;&#227;o NSS-LDAP $1 n&#227;o foi encontrado no seu sistema. Talvez o suporte a cliente LDAP n&#227;o esteja instalado, ou a <a href='$2'>Configura&#231;&#227;o do M&#243;dulo</a>est&#225; incorreta.
 index_fix=Corrigir criando links de arquivos
-index_fixpam=<b>Aviso</b> - Webmin detectou dois arquivos de configura&#231;&#227;o separados do LDAP no seu sistema. NSS-LDAP &#233; configurado usando $1, enquanto PAM-LDAP usa $2. Isso pode causar inconsist&#234;ncia entre os dois servi&#231;os.
+index_fixpam=<b>Aviso</b> - AdFreeZone detectou dois arquivos de configura&#231;&#227;o separados do LDAP no seu sistema. NSS-LDAP &#233; configurado usando $1, enquanto PAM-LDAP usa $2. Isso pode causar inconsist&#234;ncia entre os dois servi&#231;os.
 index_ignore=N&#227;o mostrar esta mensagem
 index_return=&#237;ndice do m&#243;dulo
 ldap_anon=an&#244;nimo
@@ -127,7 +127,7 @@ ldap_econf=O arquivo de configura&#231;&#227;o do cliente LDAP $1 n&#227;o foi e
 ldap_econn=Erro ao conectar ao servidor LDAP $1 na porta $2
 ldap_econn2=Erro ao conectar ao servidor LDAP $1 na porta $2: $3
 ldap_elogin=Erro ao autenticar no servidor LDAP $1 como $2: $3
-ldap_emodule=O m&#243;dulo Perl $1 necess&#225;rio para a comunica&#231;&#227;o com o servidor LDAP n&#227;o est&#225; instalado. <a href='$2'>Clique aqui</a> para que o Webmin fa&#231;a o download do m&#243;dulo e instale-o agora.
+ldap_emodule=O m&#243;dulo Perl $1 necess&#225;rio para a comunica&#231;&#227;o com o servidor LDAP n&#227;o est&#225; instalado. <a href='$2'>Clique aqui</a> para que o AdFreeZone fa&#231;a o download do m&#243;dulo e instale-o agora.
 ldap_emodule2=O m&#243;dulo Perl $1 necess&#225;rio para a comunica&#231;&#227;o com o servidor LDAP n&#227;o est&#225; instalado.
 ldap_eparse=N&#227;o foi poss&#237;vel analisar a URI $1 do servidor LDAP
 ldap_etls=Erro ao alternar para o modo TLS: $1

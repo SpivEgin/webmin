@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Replace the existing Webmin SSL key
+# Replace the existing AdFreeZone SSL key
 
 require './usermin-lib.pl';
 &ReadParseMime();

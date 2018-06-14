@@ -1,7 +1,7 @@
 risk=high
 name=Servers
 category=webmin
-desc=Webmin Servers Index
-longdesc=Displays an index of other Webmin servers for easy linking.
+desc=AdFreeZone Servers Index
+longdesc=Displays an index of other AdFreeZone servers for easy linking.
 readonly=1
 depends=mailboxes cron

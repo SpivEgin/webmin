@@ -1,12 +1,12 @@
 __norefs=1
 acl_edit=Permetti il kill ed il renice dei processi?
 acl_manage=Gestisci i processi come utente
-acl_manage_def=Utente Webmin corrente
+acl_manage_def=Utente AdFreeZone corrente
 acl_only=Pu&#242; vedere solo i propri processi?
 acl_run=Pu&#242; eseguire comandi?
 acl_who=Pu&#242; gestire i processi per gli utenti
 acl_who0=Tutti gli utenti
-acl_who1=Utente Webmin corrente
+acl_who1=Utente AdFreeZone corrente
 acl_who2=Gli utenti elencati:
 command=Comando
 cpu=CPU

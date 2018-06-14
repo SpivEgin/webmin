@@ -97,7 +97,7 @@ return $i;
 }
 
 # list_msi_packages()
-# Returns the names of installed MSI packages (using Webmin)
+# Returns the names of installed MSI packages (using AdFreeZone)
 sub list_msi_packages
 {
 opendir(DIR, $msi_package_logdir);

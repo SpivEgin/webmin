@@ -1,6 +1,6 @@
 
 $use_global_login = 1;          # Always login as master user, not the mysql
-                                # login of the current Webmin user
+                                # login of the current AdFreeZone user
 do 'postgresql-lib.pl';
 
 # useradmin_create_user(&details)

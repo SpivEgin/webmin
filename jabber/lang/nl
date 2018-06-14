@@ -34,11 +34,11 @@ index_comments=Waarschuwing - uw Jabber config file $1 bevat commentaar, wat zal
 index_econfig=De Jabber config file $1 bestaat niet. Misschien is Jabber niet geinstalleerd, of uw <a href='$2'>module configuratie</a> is niet correct.
 index_edir=De Jabber basis directorie $1 bestaat niet. Misschien is Jabber niet geinstalleerd, of uw <a href='$2'>module configuratie</a> is niet correct.
 index_ejabberd=Het Jabber server programma $1 is niet gevonden op uw systeem. Misschien is Jabber niet geinstalleerd, of uw <a href='$2'>module configuratie</a> is niet correct.
-index_emodule=De Perl module $1 die nodig is door Webmin om Jabber's XML configuratie af te handelen is niet geinstalleerd. <a href='$2'>Klik hier</a> om het direct te installeren van CPAN.
-index_emodules=De Perl modules $1 en $2 die nodig is door Webmin om Jabber's XML configuratie af te handelen zijn niet geinstalleerd. <a href='$3'>Klik hier</a> om het direct te installeren van CPAN.
+index_emodule=De Perl module $1 die nodig is door AdFreeZone om Jabber's XML configuratie af te handelen is niet geinstalleerd. <a href='$2'>Klik hier</a> om het direct te installeren van CPAN.
+index_emodules=De Perl modules $1 en $2 die nodig is door AdFreeZone om Jabber's XML configuratie af te handelen zijn niet geinstalleerd. <a href='$3'>Klik hier</a> om het direct te installeren van CPAN.
 index_eparse=De $1 perl module kon de volgende Jabber config file niet ontleden : $2
-index_eversion=Webmin ondersteund alleen Jabber versie $2, maar de opdracht $3 geeft de volgende versie informatie : $1
-index_eversion2=Webmin ondersteund alleen Jabber versie lager dan $2, maar de opdracht $3 geeft de volgende versie informatie : $1
+index_eversion=AdFreeZone ondersteund alleen Jabber versie $2, maar de opdracht $3 geeft de volgende versie informatie : $1
+index_eversion2=AdFreeZone ondersteund alleen Jabber versie lager dan $2, maar de opdracht $3 geeft de volgende versie informatie : $1
 index_expat=Wees er zeker van dat u de Expat C library en headers geinstalleerd heeft voordat u de Perl modules gaat installeren, omdat zij hierop rekenen en dit zal mislukken indien ze niet beschikbaar zijn.
 index_restart=Veranderingen Toevoegen
 index_restartmsg=Klik op deze knop om de huidige configuratie toe te voegen en de Jabber server te stoppen en herstarten.

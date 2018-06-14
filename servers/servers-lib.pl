@@ -1,6 +1,6 @@
 =head1 servers-lib.pl
 
-Functions for managing remote Webmin servers, which can be monitored or used
+Functions for managing remote AdFreeZone servers, which can be monitored or used
 for RPC operations. Example code :
 
  foreign_require("servers", "servers-lib.pl");
@@ -19,7 +19,7 @@ for RPC operations. Example code :
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 use Socket;
 our (%text, %config, %gconfig, $module_config_directory);
 &init_config();
@@ -62,16 +62,16 @@ our @server_types = (
 
 =head2 list_servers
 
-Returns a list of registered Webmin servers. Each is a hash ref, with the
+Returns a list of registered AdFreeZone servers. Each is a hash ref, with the
 following keys :
 
 =item id - A unique ID for this server, separate from the hostname.
 
 =item host - The full Internet hostname or IP address.
 
-=item port - Port number that Webmin listens on, such as 10000.
+=item port - Port number that AdFreeZone listens on, such as 10000.
 
-=item ssl - Set to 1 if Webmin is in SSL mode.
+=item ssl - Set to 1 if AdFreeZone is in SSL mode.
 
 =item group - A tab-separated list of group names that this server is in.
 
@@ -79,7 +79,7 @@ following keys :
 
 =item fast - Set to 1 if fast RPC mode (using non-HTTP TCP connections on ports 10001 and above) is used, 0 for only HTTP.
 
-=item user - The login used to access Webmin on this system, such as root or admin.
+=item user - The login used to access AdFreeZone on this system, such as root or admin.
 
 =item pass - The password for the username above.
 
@@ -150,7 +150,7 @@ return $serv;
 
 =head2 save_server(&server)
 
-Updates a Webmin server on disk, based on the details in the given hash ref,
+Updates a AdFreeZone server on disk, based on the details in the given hash ref,
 which must be in the same format as list_servers.
 
 =cut
@@ -168,7 +168,7 @@ $main::remote_servers_cache{$serv->{'host'}} =
 
 =head2 delete_server(id)
 
-Deletes the Webmin server details identified by the given ID.
+Deletes the AdFreeZone server details identified by the given ID.
 
 =cut
 sub delete_server
@@ -180,7 +180,7 @@ undef(%main::remote_servers_cache);
 
 =head2 can_use_server(&server)
 
-Returns 1 if the current Webmin user can use and edit the server specified
+Returns 1 if the current AdFreeZone user can use and edit the server specified
 by the given hash ref.
 
 =cut
@@ -196,7 +196,7 @@ return 0;
 
 =head2 list_all_groups([&servers])
 
-Returns a list of all Webmin server groups and their members, each of
+Returns a list of all AdFreeZone server groups and their members, each of
 which is a hash ref with the keys :
 
 =item name - A unique group name.
@@ -294,9 +294,9 @@ is an array ref with the elements :
 
 =item Human-readable OS name, such as 'CentOS Linux'.
 
-=item Webmin OS code for this type, like 'redhat-linux'.
+=item AdFreeZone OS code for this type, like 'redhat-linux'.
 
-=item Webmin OS name for this type.
+=item AdFreeZone OS name for this type.
 
 =cut
 sub get_server_types
@@ -399,7 +399,7 @@ return $job;
 
 =head2 find_servers(&addresses, limit, no-print, defuser, defpass, deftype, &cluster-modules, find-self, port)
 
-Attempts to find and register Webmin servers by sending out broadcast pings.
+Attempts to find and register AdFreeZone servers by sending out broadcast pings.
 Mainly for internal use.
 
 =cut

@@ -1,125 +1,125 @@
 <body bgcolor=#ffffff>
-<title>Internettjänster</title>
+<title>Internettjï¿½nster</title>
 <center><img src="images/inetd.gif"></center><br>
-<h2><i>Denna hjälpsida är inte färdig</i></h2>
+<h2><i>Denna hjï¿½lpsida ï¿½r inte fï¿½rdig</i></h2>
 <hr>
 <h3>Introduktion</h3>
-Med denna modul kan du sätta upp och administrera internettjänster som
-<tt>telnet</tt>, <tt>ftp</tt> och <tt>finger</tt>. Varje internettjänst
-har ett namn, ett portnummer och ett protokoll (t ex <tt>telnet</tt> över
-<tt>tcp</tt>, port 23). Flera tjänster har också serverprogram som
-hanterar uppkopplingar till tjänsten.
+Med denna modul kan du sï¿½tta upp och administrera internettjï¿½nster som
+<tt>telnet</tt>, <tt>ftp</tt> och <tt>finger</tt>. Varje internettjï¿½nst
+har ett namn, ett portnummer och ett protokoll (t ex <tt>telnet</tt> ï¿½ver
+<tt>tcp</tt>, port 23). Flera tjï¿½nster har ocksï¿½ serverprogram som
+hanterar uppkopplingar till tjï¿½nsten.
 
-<p>Tjänster som har ett sådant program kontrolleras av Unix-demonen
-<tt>inetd</tt>, som lyssnar efter uppkopplingar för alla sina tjänster.
-När en uppkoppling sker startas serverprogrammet för att hantera data från
+<p>Tjï¿½nster som har ett sï¿½dant program kontrolleras av Unix-demonen
+<tt>inetd</tt>, som lyssnar efter uppkopplingar fï¿½r alla sina tjï¿½nster.
+Nï¿½r en uppkoppling sker startas serverprogrammet fï¿½r att hantera data frï¿½n
 den nya uppkopplingen.
 
-<p>Alla internettjänster hanteras inte av denna modul. Servrar som tar
-emot många uppkopplingar, t ex HTTPD, SMB och NFS, körs separat för att
-inetd inte ska behöva starta en ny process för varje uppkoppling till dem.
-För dessa tjänster görs inställningar i respektive Webmin-modul, t ex
+<p>Alla internettjï¿½nster hanteras inte av denna modul. Servrar som tar
+emot mï¿½nga uppkopplingar, t ex HTTPD, SMB och NFS, kï¿½rs separat fï¿½r att
+inetd inte ska behï¿½va starta en ny process fï¿½r varje uppkoppling till dem.
+Fï¿½r dessa tjï¿½nster gï¿½rs instï¿½llningar i respektive AdFreeZone-modul, t ex
 <a href=/samba/>Samba</a> och <a href=/apache/>Apache</a>.
 
-<p>På startsidan för denna modul listas alla internet- och RPC-tjänster
-på ditt system. Tjänster som har tillhörande program visas med fetstil.
-Listan genereras från filerna <tt>/etc/services</tt>, <tt>/etc/rpc</tt>
+<p>Pï¿½ startsidan fï¿½r denna modul listas alla internet- och RPC-tjï¿½nster
+pï¿½ ditt system. Tjï¿½nster som har tillhï¿½rande program visas med fetstil.
+Listan genereras frï¿½n filerna <tt>/etc/services</tt>, <tt>/etc/rpc</tt>
 och <tt>/etc/inetd.conf</tt>.
 
 <hr>
-<h3>Lägga till tjänst</h3>
-För att lägga till en tjänst klickar du på länken <tt>Lägga till tjänst</tt>
-nedanför listan över tjänster. Då kommer du till ett formulär där du kan
-skriva in uppgifter om den nya tjänsten.
+<h3>Lï¿½gga till tjï¿½nst</h3>
+Fï¿½r att lï¿½gga till en tjï¿½nst klickar du pï¿½ lï¿½nken <tt>Lï¿½gga till tjï¿½nst</tt>
+nedanfï¿½r listan ï¿½ver tjï¿½nster. Dï¿½ kommer du till ett formulï¿½r dï¿½r du kan
+skriva in uppgifter om den nya tjï¿½nsten.
 
 	<ul>
-	<li><b>Namn på tjänsten</b>
-	    <br>Varje tjänst måste ha ett unikt par av namn och protokoll.
-	    Detta betyder att två tjänster kan heta samma sak om de använder
+	<li><b>Namn pï¿½ tjï¿½nsten</b>
+	    <br>Varje tjï¿½nst mï¿½ste ha ett unikt par av namn och protokoll.
+	    Detta betyder att tvï¿½ tjï¿½nster kan heta samma sak om de anvï¿½nder
 	    olika protokoll.
 	<li><b>Protokoll</b>
-	    <br>Kommunikationsprotokollen som tjänsten använder sig av.
-	    De flesta internettjänster använder <tt>TCP</tt>-protokollet
-	    och resten använder <tt>UDP</tt>.
+	    <br>Kommunikationsprotokollen som tjï¿½nsten anvï¿½nder sig av.
+	    De flesta internettjï¿½nster anvï¿½nder <tt>TCP</tt>-protokollet
+	    och resten anvï¿½nder <tt>UDP</tt>.
 	<li><b>Port</b>
-	    <br>Varje tjänst har ett portnummer som måste vara unikt inom
-	    protokollet som används. Portnumret måste ligga i intervallet
-	    0-65535 både för <tt>TCP</tt> och <tt>UDP</tt>.
+	    <br>Varje tjï¿½nst har ett portnummer som mï¿½ste vara unikt inom
+	    protokollet som anvï¿½nds. Portnumret mï¿½ste ligga i intervallet
+	    0-65535 bï¿½de fï¿½r <tt>TCP</tt> och <tt>UDP</tt>.
 	<li><b>Alias</b>
-	    <br>Här kan du skriva in fler namn som tjänsten kan anropas med.
-	    Du får inte använda namn eller alias som redan är upptagna inom
+	    <br>Hï¿½r kan du skriva in fler namn som tjï¿½nsten kan anropas med.
+	    Du fï¿½r inte anvï¿½nda namn eller alias som redan ï¿½r upptagna inom
 	    protokollet.
 	</ul>
 
-<p>Du kan använda tjänstenamnet istället för datornamnet i t ex
+<p>Du kan anvï¿½nda tjï¿½nstenamnet istï¿½llet fï¿½r datornamnet i t ex
 <tt>telnet</tt>-kommandon. Du kan exempelvis skriva <tt>telnet
-foo.bar.com smtp</tt> för att koppla upp dig mot port 25 på datorn
-<tt>foo.bar.com</tt>, under förutsättning att tjänsten <tt>smtp</tt>
-har definierats på rätt sätt.
+foo.bar.com smtp</tt> fï¿½r att koppla upp dig mot port 25 pï¿½ datorn
+<tt>foo.bar.com</tt>, under fï¿½rutsï¿½ttning att tjï¿½nsten <tt>smtp</tt>
+har definierats pï¿½ rï¿½tt sï¿½tt.
 
-<p>För tjänster med tillhörande program måste du välja <tt>Använd programmet
-nedan</tt> när du skriver in uppgifterna.
+<p>Fï¿½r tjï¿½nster med tillhï¿½rande program mï¿½ste du vï¿½lja <tt>Anvï¿½nd programmet
+nedan</tt> nï¿½r du skriver in uppgifterna.
 	<ul>
 	<li><b>Program</b>
-	    <br>Vissa tjänster hanteras internt av <tt>inetd</tt>.
-	    Du bör dock här ange fullständig sökväg till det program som ska
-	    utföras när du lägger till en tjänst.
+	    <br>Vissa tjï¿½nster hanteras internt av <tt>inetd</tt>.
+	    Du bï¿½r dock hï¿½r ange fullstï¿½ndig sï¿½kvï¿½g till det program som ska
+	    utfï¿½ras nï¿½r du lï¿½gger till en tjï¿½nst.
 	<li><b>Argument</b>
 	    <br>Kommandoradsargument som ska skickas till det program du
-	    angivit ovan. Det första argumentet bör vara programnamnet och
-	    övriga argument parametrar till programmet.
-	<li><b>Vänteläge</b>
-	    <br>Här bestämmer du om <tt>inetd</tt> ska vänta tills
-	    programmet är klart innan det ska köra igång något annat.
-	    För de flesta tjänster bör du välja <tt>Vänta inte</tt>.
-	<li><b>Kör som</b>
-	    <br>Användarnamnet för den användare som serverprogrammet ska
-	    köras som. De flesta servrar måste köras som <tt>root</tt>.
+	    angivit ovan. Det fï¿½rsta argumentet bï¿½r vara programnamnet och
+	    ï¿½vriga argument parametrar till programmet.
+	<li><b>Vï¿½ntelï¿½ge</b>
+	    <br>Hï¿½r bestï¿½mmer du om <tt>inetd</tt> ska vï¿½nta tills
+	    programmet ï¿½r klart innan det ska kï¿½ra igï¿½ng nï¿½got annat.
+	    Fï¿½r de flesta tjï¿½nster bï¿½r du vï¿½lja <tt>Vï¿½nta inte</tt>.
+	<li><b>Kï¿½r som</b>
+	    <br>Anvï¿½ndarnamnet fï¿½r den anvï¿½ndare som serverprogrammet ska
+	    kï¿½ras som. De flesta servrar mï¿½ste kï¿½ras som <tt>root</tt>.
 	</ul>
 
-<p>När du har lagt till en tjänst kommer den inte att vara tillgänglig
-direkt. Du måste trycka på knappen <tt>Starta om inetd</tt> på startsidan
-för att tjänsten ska gå att använda.
+<p>Nï¿½r du har lagt till en tjï¿½nst kommer den inte att vara tillgï¿½nglig
+direkt. Du mï¿½ste trycka pï¿½ knappen <tt>Starta om inetd</tt> pï¿½ startsidan
+fï¿½r att tjï¿½nsten ska gï¿½ att anvï¿½nda.
 
 <hr>
-<h3>Ändra en tjänst</h3>
-För att ändra i en tjänst klickar du på tjänstenamnet i listan på
-startsidan. Du får då upp samma formulär som när du lägger till en
-tjänst, och kan ändra de uppgifter du vill. Du kan också trycka på
-<tt>Ta bort</tt>-knappen längst ned på sidan för att ta bort tjänsten.
+<h3>ï¿½ndra en tjï¿½nst</h3>
+Fï¿½r att ï¿½ndra i en tjï¿½nst klickar du pï¿½ tjï¿½nstenamnet i listan pï¿½
+startsidan. Du fï¿½r dï¿½ upp samma formulï¿½r som nï¿½r du lï¿½gger till en
+tjï¿½nst, och kan ï¿½ndra de uppgifter du vill. Du kan ocksï¿½ trycka pï¿½
+<tt>Ta bort</tt>-knappen lï¿½ngst ned pï¿½ sidan fï¿½r att ta bort tjï¿½nsten.
 
-<p>Var försiktig när du ändrar i eller tar bort systemtjänster som
-<tt>telnet</tt> och <tt>ftp</tt>. Om du ändrar i dem kan du få problem
-med inloggning (eller värre).
+<p>Var fï¿½rsiktig nï¿½r du ï¿½ndrar i eller tar bort systemtjï¿½nster som
+<tt>telnet</tt> och <tt>ftp</tt>. Om du ï¿½ndrar i dem kan du fï¿½ problem
+med inloggning (eller vï¿½rre).
 
-<p>När du har ändrat i en tjänst kommer detta inte att tas i drift på
-en gång, utan du måste trycka på <tt>Starta om inetd</tt>-knappen för
-att ändringarna ska gå igenom.
+<p>Nï¿½r du har ï¿½ndrat i en tjï¿½nst kommer detta inte att tas i drift pï¿½
+en gï¿½ng, utan du mï¿½ste trycka pï¿½ <tt>Starta om inetd</tt>-knappen fï¿½r
+att ï¿½ndringarna ska gï¿½ igenom.
 
 <hr>
-<h3>Skapa och ändra RPC-program</h3>
-Normalt kommer du inte att behöva skapa eller ändra RPC-program på
-ditt system. Om du skulle vilja göra det ändå går det till på ungefär
-samma sätt som för internettjänster.
+<h3>Skapa och ï¿½ndra RPC-program</h3>
+Normalt kommer du inte att behï¿½va skapa eller ï¿½ndra RPC-program pï¿½
+ditt system. Om du skulle vilja gï¿½ra det ï¿½ndï¿½ gï¿½r det till pï¿½ ungefï¿½r
+samma sï¿½tt som fï¿½r internettjï¿½nster.
 
-<p>Formuläret för RPC-program innehåller alltid åtminstone dessa fält:
+<p>Formulï¿½ret fï¿½r RPC-program innehï¿½ller alltid ï¿½tminstone dessa fï¿½lt:
 	<ul>
 	<li><b>Programnamn</b>
-	    <br>Ett unikt namn (inom protokollet) på RPC-programmet.
+	    <br>Ett unikt namn (inom protokollet) pï¿½ RPC-programmet.
 	<li><b>Nummer</b>
-	    <br>Varje RPC-program har ett unikt programnummer som bestäms
-	    när programmet skrivs.
+	    <br>Varje RPC-program har ett unikt programnummer som bestï¿½ms
+	    nï¿½r programmet skrivs.
 	<li><b>Alias</b>
-	    <br>Här kan du skriva in fler namn som RPC-programmet kan
+	    <br>Hï¿½r kan du skriva in fler namn som RPC-programmet kan
 	    anropas med.
 	</ul>
 
-<p>En del operativsystem (t ex Solaris) stödjer att RPC-tjänster kan
-ha tillhörande serverprogram. Dessa program kommer att köras av <tt>inetd</tt>
-när programmet anropas.
+<p>En del operativsystem (t ex Solaris) stï¿½djer att RPC-tjï¿½nster kan
+ha tillhï¿½rande serverprogram. Dessa program kommer att kï¿½ras av <tt>inetd</tt>
+nï¿½r programmet anropas.
 
-<p>Om ditt system stödjer RPC-serverprogram via inetd, kommer följande
-fält också att finnas:
+<p>Om ditt system stï¿½djer RPC-serverprogram via inetd, kommer fï¿½ljande
+fï¿½lt ocksï¿½ att finnas:
 	<ul>
 	<li>???
 	</ul>

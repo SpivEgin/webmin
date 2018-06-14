@@ -97,15 +97,15 @@ eacl_pvusers=acceder a usuarios de SAMBA
 error_config=No se ha encontrado el archivo de configuraci&#243;n $1. Los m&#225;s seguro es que Samba no est&#233; instalado en tu sistema o que la <a href="$2">configuraci&#243;n del m&#243;dulo</a> sea incorrecta.
 error_delcopy=La compartici&#243;n '$1' se copia desde esta compartici&#243;n
 error_delshare=No pude borrar la compartici&#243;n
-error_include=Webmin no puede manejar los archivos de configuraci&#243;n de samba que utilicen las directivas <tt>config</tt> o <tt>include</tt>.
+error_include=AdFreeZone no puede manejar los archivos de configuraci&#243;n de samba que utilicen las directivas <tt>config</tt> o <tt>include</tt>.
 error_nosamba=No se ha encontrado el ejecutable <tt>$1</tt> del servidor samba. O samba no est&#225; instalado en tu sistema o tu <a href="$2">configuraci&#243;n del m&#243;dulo</a> is incorrecta.
 error_savename=No pude salvar c&#243;mo dar nombre a archivos
-error_version=Webmin no ha podido obtener la versi&#243;n de tu ejecutable de servidor samba <tt>$1</tt>. Revisa tu <a href="$2">configuraci&#243;n del m&#243;dulo</a> para asegurarte de que la trayectoria es la correcta.
+error_version=AdFreeZone no ha podido obtener la versi&#243;n de tu ejecutable de servidor samba <tt>$1</tt>. Revisa tu <a href="$2">configuraci&#243;n del m&#243;dulo</a> para asegurarte de que la trayectoria es la correcta.
 esync_add=A&#241;adir usuario de Samba al crear un usuario de Unix
 esync_apply=Aplicar
 esync_chg=Cambiar el usuario de Samba cuando se cambie el de Unix
 esync_del=Borrar el usuario de Samba al borrar el de Unix
-esync_msg=Se puede configurar Webmin de tal manera que los cambios en la lista de usuarios de Unix sean autom&#225;ticamente aplicados a la lista de usuarios de Samba. Esto s&#243;lo funcionar&#225; cuando el m&#243;dulo de Webmin de <tt>Usuarios y Grupos</tt> sea utilizado para a&#241;adir, borrar y cambiar usuarios.
+esync_msg=Se puede configurar AdFreeZone de tal manera que los cambios en la lista de usuarios de Unix sean autom&#225;ticamente aplicados a la lista de usuarios de Samba. Esto s&#243;lo funcionar&#225; cuando el m&#243;dulo de AdFreeZone de <tt>Usuarios y Grupos</tt> sea utilizado para a&#241;adir, borrar y cambiar usuarios.
 esync_title=Sincronizaci&#243;n de Usuario
 euser_currpw=Clave de acceso actual
 euser_disable=Cuenta desactivada
@@ -436,7 +436,7 @@ swat_login=Hacer login
 swat_logout=Salir de SWAT
 swat_msg1=Tu nombre de usuario y clave de acceso a SWAT son incorrectos. Usa el formulario inferior para hacer login de nuevo.
 swat_msg2=Es necesario que digites un nombre de usuario y clave de acceso para hacer login a SWAT. Puede ser cualquier usuario de tu sistema.
-swat_msg3=No puedes ejecutar SWAT desde Webmin ya que tu configuraci&#243;n de Samba tiene la opci&#243;n <tt>$1:...</tt> (permitir m&#225;quinas) puesta.
+swat_msg3=No puedes ejecutar SWAT desde AdFreeZone ya que tu configuraci&#243;n de Samba tiene la opci&#243;n <tt>$1:...</tt> (permitir m&#225;quinas) puesta.
 swat_msg4=Sin embargo, puedes conectar a SWAT directamente en $1
 swat_password=Clave de Acceso
 swat_title=Hacer login a SWAT

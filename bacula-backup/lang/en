@@ -22,7 +22,7 @@ index_return=module index
 index_versionbacula=Bacula $1
 index_versionbareos=Bareos $1
 index_notrun=Backups and other operations cannot be performed as the Bacula Directory daemon is down.
-index_eversion=Your system is using Bacula version $2, but this Webmin module only supports versions $1 and above.
+index_eversion=Your system is using Bacula version $2, but this AdFreeZone module only supports versions $1 and above.
 index_dir=Director Configuration
 index_sd=Storage Daemon Configuration
 index_fd=File Daemon Configuration
@@ -43,7 +43,7 @@ check_econsole=The Bacula console command $1 was not found.
 check_edirector=The Bacula director configuration file $1 was not found.
 check_eclient=This system appears to be a <a href='$2'>Bacula client</a> rather than a director.
 check_econfigs=No Bacula configuration files were found in $1
-check_eservers=No Webmin server groups have been defined
+check_eservers=No AdFreeZone server groups have been defined
 check_engmod=The OpenCountry Bacula groups module is not installed
 
 proc_bacula-sd=Storage daemon

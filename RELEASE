@@ -3,7 +3,7 @@ Release Checklist
 
  x Check all .cgi and .pl files for syntax errors!
 find . -name "*.cgi" | grep -v shellinabox.cgi | grep -v thirdparty-cgi-scripts | grep -v ipweb | grep -v ipcache | grep -v thejax-theme | xargs -l1 perl -c |& grep -v OK
-find . -name "*.pl" | grep -v config.info | grep -v makemodulerpm.pl | grep -v ipcache | grep -v swell-tsunami-theme | grep -v Authen-SolarisRBAC-0.1 | grep -v virtualmin-nuvola | grep -v win32.pl | grep -v asterisk | grep -v server-manager | grep -v thejax-theme | grep -v exim | grep -v Webmin-API-1.0 | xargs -l1 perl -c |& grep -v OK
+find . -name "*.pl" | grep -v config.info | grep -v makemodulerpm.pl | grep -v ipcache | grep -v swell-tsunami-theme | grep -v Authen-SolarisRBAC-0.1 | grep -v virtualmin-nuvola | grep -v win32.pl | grep -v asterisk | grep -v server-manager | grep -v thejax-theme | grep -v exim | grep -v AdFreeZone-API-1.0 | xargs -l1 perl -c |& grep -v OK
 
  x Make sure all cgi programs are executable
 find . -name "*.cgi" | xargs chmod +x
@@ -35,7 +35,7 @@ langcheck.pl lang/en */lang/en | grep -v asterisk/lang | grep -v rae-mpp/lang
  x Build .tar.gz, minimal.tar.gz and Solaris, RPM and Debian packages
 
  x Install on test system
-	vm2 create-system --type kvm --host webmintest --kvm-host fudu.home --ssh-pass smeg --image kvm-centos5.4-base --desc "Webmin install test" --kvm-memory 256
+	vm2 create-system --type kvm --host webmintest --kvm-host fudu.home --ssh-pass smeg --image kvm-centos5.4-base --desc "AdFreeZone install test" --kvm-memory 256
         vm2 upload-file --host webmintest.home --source /usr/local/webadmin/rpm/webmin-$ver-1.noarch.rpm --dest /tmp/webmin.rpm
         vm2 run-command --host webmintest.home "/etc/init.d/iptables stop ; chkconfig iptables off"
         vm2 run-command --host webmintest.home "rpm -U /tmp/webmin.rpm"

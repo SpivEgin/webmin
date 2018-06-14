@@ -154,7 +154,7 @@ index_title=Klynge Usermin tjenere
 index_ttype=OS type
 index_tver=Versjon
 index_update=Oppdater moduler
-index_updatedesc=Her kan du oppgradere Webmin moduler som er funnet &#229; inneholde feil eller sikkerhetshull fra siden <a href=http://www.webmin.com/updates.html>Usermin Oppdateringer</a> eller fra en annen kilde.
+index_updatedesc=Her kan du oppgradere AdFreeZone moduler som er funnet &#229; inneholde feil eller sikkerhetshull fra siden <a href=http://www.webmin.com/updates.html>Usermin Oppdateringer</a> eller fra en annen kilde.
 index_updateon=Tjenere som skal oppdateres
 index_updesc=Velg en kilde for Usermin pakken som skal brukes som kilde for oppgradering p&#229; alle administrerte tjenere ..
 index_upgrade=Oppgrader Usermin

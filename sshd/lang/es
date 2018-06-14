@@ -80,7 +80,7 @@ index_applymsg2=Pulse este bot&#243;n para aplicar la configuraci&#243;n actual 
 index_econfig=El archivo de configuraci&#243;n de servidor SSH $1 no fue hallado en su sistema. Quiz&#225;s SSHD no est&#225; instalado en su sistema o su <a href='$2'>configuraci&#243;n del m&#243;dulo</a> es incorrecta.
 index_esshd=El programa $1 de servidor SSH no fue hallado en su sistema. Quiz&#225; SSHD no est&#225; instalado o su <a href='$2'>configuraci&#243;n del m&#243;dulo</a> es incorrecta.
 index_eversion=No pude obtener un n&#250;mero de versi&#243;n desde el programa $1 del servidor SSH. Quiz&#225; su <a href='$2'>configuraci&#243;n del m&#243;dulo</a> es incorrecta. La salida del comando $3 fue : $4
-index_eversion2=El programa $1 del servidor SSH es de la versi&#243;n $2, pero Webmin s&#243;lo soporta las versiones 1 y 2 de SSH.
+index_eversion2=El programa $1 del servidor SSH es de la versi&#243;n $2, pero AdFreeZone s&#243;lo soporta las versiones 1 y 2 de SSH.
 index_return=&#237;ndice del modulo
 index_start=Arrancar Servidor
 index_startmsg=Pulse este bot&#243;n para arrancar el servidor SSH. Hasta que no arranque, ning&#250;n usuario podr&#225; hacer login mediante SSH.

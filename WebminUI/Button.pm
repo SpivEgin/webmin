@@ -1,16 +1,16 @@
-package WebminUI::Button;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Button;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Button(cgi, label, [name])
+=head2 new AdFreeZoneUI::Button(cgi, label, [name])
 Creates a button that when clicked will link to some other page
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Button::new) &&
-    caller() !~ /WebminUI::Theme::Button/) {
-        return new WebminUI::Theme::Button(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Button::new) &&
+    caller() !~ /AdFreeZoneUI::Theme::Button/) {
+        return new AdFreeZoneUI::Theme::Button(@_[1..$#_]);
         }
 my ($self, $cgi, $value, $name) = @_;
 $self = { };

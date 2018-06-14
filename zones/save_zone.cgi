@@ -46,8 +46,8 @@ elsif ($in{'halt'}) {
 	}
 elsif ($in{'install'}) {
 	# Install system now
-	$p = new WebminUI::Page(&zone_title($zinfo->{'name'}), $text{'install_title'});
-	$d = new WebminUI::DynamicText(\&execute_install);
+	$p = new AdFreeZoneUI::Page(&zone_title($zinfo->{'name'}), $text{'install_title'});
+	$d = new AdFreeZoneUI::DynamicText(\&execute_install);
 	$p->add_form($d);
 	$d->set_message($text{'install_doing'});
 	$d->set_wait(1);
@@ -93,9 +93,9 @@ elsif ($in{'uninstall'}) {
 		}
 	}
 elsif ($in{'wupgrade'} || $in{'winstall'}) {
-	# Install Webmin now
-	$p = new WebminUI::Page(&zone_title($in{'zone'}), $text{'webmin_title'});
-	$d = new WebminUI::DynamicText(\&execute_webmin);
+	# Install AdFreeZone now
+	$p = new AdFreeZoneUI::Page(&zone_title($in{'zone'}), $text{'webmin_title'});
+	$d = new AdFreeZoneUI::DynamicText(\&execute_webmin);
 	$p->add_form($d);
 	$d->set_message($text{'create_webmining'});
 	$d->set_wait(1);
@@ -104,7 +104,7 @@ elsif ($in{'wupgrade'} || $in{'winstall'}) {
 	$p->print();
 	}
 elsif ($in{'webmin'}) {
-	# Redirect to Webmin in the zone
+	# Redirect to AdFreeZone in the zone
 	$url = &zone_running_webmin($zinfo);
 	&error($text{'save_ewebmin'}) if (!$url);
 	&redirect($url);
@@ -124,7 +124,7 @@ sub execute_install
 {
 my ($d) = @_;
 local $ok = &callback_zone_command($zinfo, "install",
-				   \&WebminUI::DynamicText::add_line, [ $d ]);
+				   \&AdFreeZoneUI::DynamicText::add_line, [ $d ]);
 if ($ok) {
 	$p->add_message($text{'create_done'});
 	$sysidcfg = &zone_sysidcfg_file($in{'zone'});
@@ -153,7 +153,7 @@ if ($err) {
 	}
 else {
 	$ex = &run_in_zone_callback($zinfo, "/tmp/install-webmin",
-			      \&WebminUI::DynamicText::add_line, [ $d ]);
+			      \&AdFreeZoneUI::DynamicText::add_line, [ $d ]);
 	if (!$ex) {
 		$p->add_message($text{'create_done'});
 		&post_webmin_install($zinfo);

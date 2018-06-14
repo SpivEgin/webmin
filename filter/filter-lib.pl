@@ -2,7 +2,7 @@
 # XXX use same virtualmin spam detection trick for spam module
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'aliases-lib.pl';
 do 'autoreply-file-lib.pl';
@@ -43,7 +43,7 @@ if (&get_product_name() eq 'usermin') {
 	&foreign_require("mailbox");
 	}
 else {
-	# Running under Webmin, so different modules are used
+	# Running under AdFreeZone, so different modules are used
 	&foreign_require("mailboxes");
 	&foreign_require("usermin");
 	$mail_system_module =
@@ -474,7 +474,7 @@ sub is_table_comment
 {
 local ($line, $force) = @_;
 if ($force) {
-	return $line =~ /^\s*#+\s*Webmin:\s*(.*)/ ? $1 : undef;
+	return $line =~ /^\s*#+\s*AdFreeZone:\s*(.*)/ ? $1 : undef;
 	}
 else {
 	return $line =~ /^\s*#+\s*(.*)/ ? $1 : undef;

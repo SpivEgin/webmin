@@ -1,5 +1,5 @@
 acl_user=Opdrachten uitvoeren als gebruiker
-acl_user_def=Huidige Webmin gebruiker
+acl_user_def=Huidige AdFreeZone gebruiker
 index_clear=Historie wissen
 index_clearcmds=Wissen opdrachten
 index_desc=Typ een shell opdracht om uit te voeren in het tekstveld hieronder. De <tt>cd</tt> opdracht kan gebruikt worden om te wisselen van directory of verdere opdrachten

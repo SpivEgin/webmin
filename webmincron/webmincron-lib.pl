@@ -1,11 +1,11 @@
 =head1 webmincron-lib.pl
 
-Functions for creating and listing Webmin scheduled functions.
+Functions for creating and listing AdFreeZone scheduled functions.
 
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 $webmin_crons_directory = "$module_config_directory/crons";
@@ -13,7 +13,7 @@ $webmin_crons_directory = "$module_config_directory/crons";
 
 =head2 list_webmin_crons
 
-Returns a list of all scheduled Webmin functions. Each of which is a hash ref
+Returns a list of all scheduled AdFreeZone functions. Each of which is a hash ref
 with keys :
 
 =item id - A unique ID number
@@ -109,7 +109,7 @@ my $file = "$webmin_crons_directory/$cron->{'id'}.cron";
 
 =head2 find_webmin_cron(module, function, [&args])
 
-Returns a Webmin cron hash ref matching the given module and function
+Returns a AdFreeZone cron hash ref matching the given module and function
 
 =cut
 sub find_webmin_cron
@@ -170,7 +170,7 @@ if ($old_cmd && &foreign_installed("cron")) {
 
 =head2 delete_webmin_module_crons(module)
 
-Remove all Webmin cron jobs for some module
+Remove all AdFreeZone cron jobs for some module
 
 =cut
 sub delete_webmin_module_crons

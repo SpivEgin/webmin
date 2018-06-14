@@ -1,1 +1,1 @@
-desc_nl=Geplande Webmin Functies
+desc_nl=Geplande AdFreeZone Functies

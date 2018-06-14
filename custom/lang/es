@@ -18,7 +18,7 @@ edit_params=Par&#225;metros de comando
 edit_quote=&#191;Pongo par&#225;metros entre comillas?
 edit_raw=&#191;El comando tiene salida HTML?
 edit_secs=segundos
-edit_servers=Ejecutar en servidores Webmin
+edit_servers=Ejecutar en servidores AdFreeZone
 edit_su=&#191;Utilizo entorno de usuario?
 edit_this=este servidor
 edit_timeout=&#191;Tiempo m&#225;ximo de espera a un comando?
@@ -38,7 +38,7 @@ edit_type7=Opci&#243;n...
 edit_type8=Contrase&#241;a
 edit_type9=Men&#250;..
 edit_user=Ejecutar como usuario
-edit_user_def=Usuario Webmin
+edit_user_def=Usuario AdFreeZone
 edit_usermin=&#191;Disponible en Usermin?
 fcreate_title=Editor para Crear Archivo
 fedit_title=Editor para Editar Archivo
@@ -110,7 +110,7 @@ save_eusermin=Los comandos que se ejecutan en otros servidores no pueden ejecuta
 sql_cmd=Comando SQL a ejecutar
 sql_db=Nombre de BBDD
 sql_edb=Nombre de base de datos falta o no v&#225;lido
-sql_edrivers=No hay m&#243;dulos DBI de Perl instalados. Puede hacer que Webmin descargue e instale los drivers para <a href='$1'>MySQL</a> o <a href='$2'>PostgreSQL</a> autom&#225;ticamente.
+sql_edrivers=No hay m&#243;dulos DBI de Perl instalados. Puede hacer que AdFreeZone descargue e instale los drivers para <a href='$1'>MySQL</a> o <a href='$2'>PostgreSQL</a> autom&#225;ticamente.
 sql_ehost=Host servidor de BBDD falta o no v&#225;lido
 sql_err=Fallo al salvar comando SQL
 sql_esql=No se introdujo SQL

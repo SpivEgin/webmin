@@ -18,8 +18,8 @@ if ($redir) {
 	return;
 	}
 
-my $prehead = defined(&WebminCore::theme_prehead) ?
-		&capture_function_output(\&WebminCore::theme_prehead) : "";
+my $prehead = defined(&AdFreeZoneCore::theme_prehead) ?
+		&capture_function_output(\&AdFreeZoneCore::theme_prehead) : "";
 &popup_header(undef, $prehead);
 print "<center>\n";
 
@@ -39,7 +39,7 @@ if (@links) {
 	print "</div>\n";
 	}
 
-# Webmin logo
+# AdFreeZone logo
 if (&get_product_name() eq 'webmin') {
 	print "<a href=http://www.webmin.com/ target=_new><img src=images/webmin-blue.png border=0></a><p>\n";
 	}

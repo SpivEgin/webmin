@@ -113,7 +113,7 @@ print &ui_table_row($text{'dir_require'},
 
 print &ui_hidden_table_end();
 
-# Webmin synchronization mode
+# AdFreeZone synchronization mode
 if ($can_sync) {
 	print &ui_hidden_table_start($text{'dir_header2'}, "width=100%", 2, "sync", 0, [ "width=30%" ]);
 

@@ -1,5 +1,5 @@
 
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 # acl_security_form(&options)

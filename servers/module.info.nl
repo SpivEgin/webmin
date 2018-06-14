@@ -1,1 +1,1 @@
-desc_nl=Webmin Servers Index
+desc_nl=AdFreeZone Servers Index

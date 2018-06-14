@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Delete or run some Webmin cron jobs
+# Delete or run some AdFreeZone cron jobs
 
 require './webmin-lib.pl';
 &foreign_require("webmincron");

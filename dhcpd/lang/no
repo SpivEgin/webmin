@@ -210,7 +210,7 @@ index_delete=Slett valgte
 index_desc=Beskrivelse
 index_dhcpd=ISC DHCPd
 index_dhcpdnotfound=Kunne ikke finne DHCP tjeneren <tt>$1</tt> p&#229; systemet ditt. Kanskje den ikke er installert, eller s&#229; er <a href="$2">DHCP modulkonfigurasjonen</a> feil.
-index_dhcpdver2=DHCP tjeneren <tt>$1</tt> ser ikke ut til &#229; ha riktig versjon. Webmin st&#248;tter bare ISC DHCPd fra versjon $2 til $3.
+index_dhcpdver2=DHCP tjeneren <tt>$1</tt> ser ikke ut til &#229; ha riktig versjon. AdFreeZone st&#248;tter bare ISC DHCPd fra versjon $2 til $3.
 index_ego=Rediger DHCP klient-innstillinger som gjelder for alle subnett, delte nettverk, verter og grupper
 index_gdom=Gruppe for $1
 index_group=Gruppe:
@@ -350,7 +350,7 @@ plib_defrouters=Standard rutere
 plib_deny=Nekt
 plib_dnsserv=DNS tjenere
 plib_domname=Domenenavn
-plib_eexpr=Denne seksjonen av DHCP konfigurasjonen inneholder uttrykksdirektivet $1, som ikke kan redigeres p&#229; en sikker m&#229;te av Webmin.
+plib_eexpr=Denne seksjonen av DHCP konfigurasjonen inneholder uttrykksdirektivet $1, som ikke kan redigeres p&#229; en sikker m&#229;te av AdFreeZone.
 plib_fontserv=Font tjenere
 plib_forever=For alltid
 plib_ignore=Ignorer

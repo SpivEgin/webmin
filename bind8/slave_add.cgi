@@ -86,7 +86,7 @@ foreach my $s (@add) {
 		next;
 		}
 
-	# Check for needed Webmin versions
+	# Check for needed AdFreeZone versions
 	my $rver = &remote_foreign_call($s, "bind8", "get_webmin_version");
 	if ($rver < 1.202) {
 		print &text('add_eversion', $s->{'host'}, 1.202),"<p>\n";

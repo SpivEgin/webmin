@@ -19,7 +19,7 @@ $file = $ARGV[0];
 $config = $ARGV[1] ? $ARGV[1] : "/etc/webmin";
 -r $file || die "$file does not exist";
 open(CONF, "$config/miniserv.conf") ||
-	die "Failed to read $config/miniserv.conf - maybe $config is not a Webmin config directory";
+	die "Failed to read $config/miniserv.conf - maybe $config is not a AdFreeZone config directory";
 while(<CONF>) {
 	s/\r|\n//g;
 	if (/^root=(.*)/) {
@@ -27,7 +27,7 @@ while(<CONF>) {
 		}
 	}
 close(CONF);
--d $root || die "Webmin directory $root does not exist";
+-d $root || die "AdFreeZone directory $root does not exist";
 chop($var = `cat $config/var-path`);
 
 if ($file !~ /^\//) {
@@ -42,7 +42,7 @@ $ENV{'WEBMIN_VAR'} = $var;
 $no_acl_check++;
 chdir($root);
 $0 = "$root/install-module.pl";
-eval "use WebminCore;";
+eval "use AdFreeZoneCore;";
 &init_config();
 
 # Install it, using the standard function

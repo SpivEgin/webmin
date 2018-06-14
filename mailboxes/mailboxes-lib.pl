@@ -2,7 +2,7 @@
 # Common functions for reading user mailboxes
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do "$module_root_directory/boxes-lib.pl";
 do "$module_root_directory/folders-lib.pl";
@@ -305,7 +305,7 @@ if ($access{'mmode'} == 2) {
 	return 0;
 	}
 elsif ($access{'mmode'} == 4) {
-	# Is user the current Webmin user?
+	# Is user the current AdFreeZone user?
 	return 1 if ($_[0] eq $remote_user);
 	}
 elsif ($access{'mmode'} == 5) {

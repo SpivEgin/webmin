@@ -2,7 +2,7 @@
 # A generalized system for package management on solaris, linux, etc..
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 $heiropen_file = "$module_config_directory/heiropen";
 

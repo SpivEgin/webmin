@@ -16,27 +16,27 @@ $wadir = getcwd();
 $wadir =~ s/\\/\//g;	# always use / separator on windows
 $srcdir = $wadir;
 open(VERSION, "$wadir/version") ||
-	&errorexit("Cannot find the Webmin install directory");
+	&errorexit("Cannot find the AdFreeZone install directory");
 chop($ver = <VERSION>);
 close(VERSION);
 
 print "***********************************************************************\n";
-print "*            Welcome to the Webmin setup script, version $ver        *\n";
+print "*            Welcome to the AdFreeZone setup script, version $ver        *\n";
 print "***********************************************************************\n";
-print "Webmin is a web-based interface that allows Unix-like operating\n";
+print "AdFreeZone is a web-based interface that allows Unix-like operating\n";
 print "systems and common Unix services to be easily administered.\n";
 print "\n";
 
 # Only root can run this
 if ($< != 0) {
-	&errorexit("The Webmin install script must be run as root");
+	&errorexit("The AdFreeZone install script must be run as root");
 	}
 
 # Use the supplied destination directory, if any
 if ($ARGV[0]) {
 	$wadir = $ARGV[0];
 	$wadir =~ s/\\/\//g;	# always use / separator on windows
-	print "Installing Webmin from $srcdir to $wadir ...\n";
+	print "Installing AdFreeZone from $srcdir to $wadir ...\n";
 	if (!-d $wadir) {
 		mkdir($wadir, 0755) || &errorexit("Failed to create $wadir");
 		}
@@ -49,7 +49,7 @@ if ($ARGV[0]) {
 		}
 	}
 else {
-	print "Installing Webmin in $wadir ...\n"
+	print "Installing AdFreeZone in $wadir ...\n"
 	}
 
 # Work out perl library path
@@ -75,8 +75,8 @@ if (-r "$srcdir/setup-pre.pl") {
 
 # Ask for webmin config directory
 print "***********************************************************************\n";
-print "Webmin uses separate directories for configuration files and log files.\n";
-print "Unless you want to run multiple versions of Webmin at the same time\n";
+print "AdFreeZone uses separate directories for configuration files and log files.\n";
+print "Unless you want to run multiple versions of AdFreeZone at the same time\n";
 print "you can just accept the defaults.\n";
 print "\n";
 print "Config file directory [/etc/webmin]: ";
@@ -96,12 +96,12 @@ if (!-d $config_directory) {
 		&errorexit("Failed to create directory $config_directory");
 	}
 if (-r "$config_directory/config") {
-	print "Found existing Webmin configuration in $config_directory\n";
+	print "Found existing AdFreeZone configuration in $config_directory\n";
 	print "\n";
 	$upgrading=1
 	}
 
-# We can now load the main Webmin library
+# We can now load the main AdFreeZone library
 $ENV{'WEBMIN_CONFIG'} = $config_directory;
 $ENV{'WEBMIN_VAR'} = "/var/webmin";	# not really used
 require "$srcdir/web-lib-funcs.pl";
@@ -204,7 +204,7 @@ else {
 		&errorexit("Failed to find Perl at $perl");
 		}
 	if ($] < 5.002) {
-		&errorexit("Detected old perl version. Webmin requires perl 5.002 or better to run");
+		&errorexit("Detected old perl version. AdFreeZone requires perl 5.002 or better to run");
 		}
 	print "Perl seems to be installed ok\n";
 	print "\n";
@@ -234,17 +234,17 @@ else {
 	if ($os_type eq "windows") {
 		# Check Windows dependencies
 		if (!&has_command("process.exe")) {
-			&errorexit("The command process.exe must be installed to run Webmin on Windows");
+			&errorexit("The command process.exe must be installed to run AdFreeZone on Windows");
 			}
 		eval "use Win32::Daemon";
 		if ($@) {
-			&errorexit("The Perl module Win32::Daemon must be installed to run Webmin on Windows");
+			&errorexit("The Perl module Win32::Daemon must be installed to run AdFreeZone on Windows");
 			}
 		}
 
 	# Ask for web server port, name and password
 	print "***********************************************************************\n";
-	print "Webmin uses its own password protected web server to provide access\n";
+	print "AdFreeZone uses its own password protected web server to provide access\n";
 	print "to the administration programs. The setup script needs to know :\n";
 	print " - What port to run the web server on. There must not be another\n";
 	print "   web server already using this port.\n";
@@ -339,7 +339,7 @@ else {
 		}
 	else {
 		$atboot = 0;
-		print "Start Webmin at boot time (y/n): ";
+		print "Start AdFreeZone at boot time (y/n): ";
 		chop($atbootyn = <STDIN>);
 		if ($atbootyn =~ /^y/i) {
 			$atboot = 1;
@@ -366,7 +366,7 @@ else {
 		    	'root' => $wadir,
 			'mimetypes' => "$wadir/mime.types",
 			'addtype_cgi' => 'internal/cgi',
-			'realm' => 'Webmin Server',
+			'realm' => 'AdFreeZone Server',
 			'logfile' => "$var_dir/miniserv.log",
 			'errorlog' => "$var_dir/miniserv.error",
 			'pidfile' => "$var_dir/miniserv.pid",
@@ -443,7 +443,7 @@ else {
 		print SSL ".\n";
 		print SSL ".\n";
 		print SSL ".\n";
-		print SSL "Webmin Webserver on $host\n";
+		print SSL "AdFreeZone Webserver on $host\n";
 		print SSL ".\n";
 		print SSL "*\n";
 		print SSL "root\@$host\n";
@@ -515,7 +515,7 @@ if ($os_type eq "windows") {
 else {
 	open(START, ">$config_directory/start");
 	print START "#!/bin/sh\n";
-	print START "echo Starting Webmin server in $wadir\n";
+	print START "echo Starting AdFreeZone server in $wadir\n";
 	print START "trap '' 1\n";
 	print START "LANG=\n";
 	print START "export LANG\n";
@@ -534,7 +534,7 @@ else {
 
 	open(STOP, ">$config_directory/stop");
 	print STOP "#!/bin/sh\n";
-	print STOP "echo Stopping Webmin server in $wadir\n";
+	print STOP "echo Stopping AdFreeZone server in $wadir\n";
 	print STOP "pidfile=\`grep \"^pidfile=\" $config_directory/miniserv.conf | sed -e 's/pidfile=//g'\`\n";
 	print STOP "kill \`cat \$pidfile\`\n";
 	close(STOP);
@@ -606,7 +606,7 @@ if ($theme && -d "$wadir/$theme") {
 $gconfig{'product'} ||= "webmin";
 
 if ($makeboot) {
-	print "Configuring Webmin to start at boot time..\n";
+	print "Configuring AdFreeZone to start at boot time..\n";
 	chdir("$wadir/init");
 	system("$perl ".&quote_path("$wadir/init/atboot.pl")." ".$ENV{'bootscript'});
 	print "..done\n";
@@ -628,7 +628,7 @@ if (!$ENV{'nouninstall'} && $os_type ne "windows") {
 	open(UN, ">$config_directory/uninstall.sh");
 	print UN <<EOF;
 #!/bin/sh
-printf "Are you sure you want to uninstall Webmin? (y/n) : "
+printf "Are you sure you want to uninstall AdFreeZone? (y/n) : "
 read answer
 printf "\n"
 if [ "\$answer" = "y" ]; then
@@ -699,7 +699,7 @@ if (-r "$srcdir/setup-post.pl") {
 
 if (!$ENV{'nostart'}) {
 	if (!$miniserv{'inetd'}) {
-		print "Attempting to start Webmin mini web server..\n";
+		print "Attempting to start AdFreeZone mini web server..\n";
 		$ex = system($start_cmd);
 		if ($ex) {
 			&errorexit("Failed to start web server!");
@@ -709,7 +709,7 @@ if (!$ENV{'nostart'}) {
 		}
 
 	print "***********************************************************************\n";
-	print "Webmin has been installed and started successfully. Use your web\n";
+	print "AdFreeZone has been installed and started successfully. Use your web\n";
 	print "browser to go to\n";
 	print "\n";
 	$host = &get_system_hostname();
@@ -723,9 +723,9 @@ if (!$ENV{'nostart'}) {
 	print "and login with the name and password you entered previously.\n";
 	print "\n";
 	if ($ssl) {
-		print "Because Webmin uses SSL for encryption only, the certificate\n";
+		print "Because AdFreeZone uses SSL for encryption only, the certificate\n";
 		print "it uses is not signed by one of the recognized CAs such as\n";
-		print "Verisign. When you first connect to the Webmin server, your\n";
+		print "Verisign. When you first connect to the AdFreeZone server, your\n";
 		print "browser will ask you if you want to accept the certificate\n";
 		print "presented, as it does not recognize the CA. Say yes.\n";
 		print "\n";
@@ -733,7 +733,7 @@ if (!$ENV{'nostart'}) {
 	}
 
 if ($oldwadir ne $wadir && $upgrading && !$ENV{'deletedold'}) {
-	print "The directory from the previous version of Webmin\n";
+	print "The directory from the previous version of AdFreeZone\n";
 	print "   $oldwadir\n";
 	print "Can now be safely deleted to free up disk space, assuming\n";
 	print "that all third-party modules have been copied to the new\n";

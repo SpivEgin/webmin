@@ -9,8 +9,8 @@ index_unapply=Configuratie Omkeren
 index_unapplydesc=Klik op deze knop om de configuratie in de lijst hierboven te resetten naar de configuratie die op dit moment actief is.
 index_boot=Activeren tijdens booten
 index_bootdesc=Wijzig deze optie om te bepalen of uw firewall word geactivateerd tijdens booten of niet.
-index_setup=Er is nog geen IPFW firewall opgezet op uw systeem. Webmin kan dit voor u opzetten, waarna het word opgeslagen in de file $1, met de eerste instellingen gebaseerd op het soort firewall zoals u hieronder heeft geselecteerd..
-index_rsetup=De IPFW firewall configuratie op uw systeem staat op het punt om gereset te worden, Webmin zal nieuwe standaard regels aanmaken die worden opgeslagen in de file $1, met de eerste instellingen gebaseerd op het soort firewall zoals u hieronder heeft geselecteerd..
+index_setup=Er is nog geen IPFW firewall opgezet op uw systeem. AdFreeZone kan dit voor u opzetten, waarna het word opgeslagen in de file $1, met de eerste instellingen gebaseerd op het soort firewall zoals u hieronder heeft geselecteerd..
+index_rsetup=De IPFW firewall configuratie op uw systeem staat op het punt om gereset te worden, AdFreeZone zal nieuwe standaard regels aanmaken die worden opgeslagen in de file $1, met de eerste instellingen gebaseerd op het soort firewall zoals u hieronder heeft geselecteerd..
 index_auto0=Al het verkeer toestaan
 index_auto1=Netwerk adres vertalen uitvoeren op externe interface:
 index_auto2=Blokkeer alle inkomende verbindingen op de externe interface:
@@ -23,7 +23,7 @@ index_count2=Data
 index_reset=Reset Firewall
 index_resetdesc=Klik op deze knop om alle bestaande firewall regels te wissen en nieuwe regels aan te maken voor de eerste basis configuratie.
 index_cluster=Cluster Servers
-index_clusterdesc=Klik op deze knop om extra Webmin servers op te zetten waar de firewall configuratie automatisch naar toe word gekopieerd.
+index_clusterdesc=Klik op deze knop om extra AdFreeZone servers op te zetten waar de firewall configuratie automatisch naar toe word gekopieerd.
 index_return=firewall regels
 
 index_num=Num
@@ -35,7 +35,7 @@ index_radd=Toevoegen
 index_add=Nieuwe firewall regel toevoegen.
 index_add2=Firewall Regel Toevoegen
 index_delete=Verwijder Geselecteerde
-index_existing=Webmin heeft $1 IPFW firewall regels gedetecteerd die op dit moment in gebruik zijn, en die niet zijn opgenomen in de file $2. Deze regels zijn waarschijnlijk opgezet met een script die door deze module niet kan worden gelezen of worden bewerkt.<p>Indien u deze module wilt gebruiken om uw IPFW firewall te beheren klikt u op de knop hieronder om de bestaande regels te converteren naar een file en daarna uw bestaande firewall script uit te schakelen.
+index_existing=AdFreeZone heeft $1 IPFW firewall regels gedetecteerd die op dit moment in gebruik zijn, en die niet zijn opgenomen in de file $2. Deze regels zijn waarschijnlijk opgezet met een script die door deze module niet kan worden gelezen of worden bewerkt.<p>Indien u deze module wilt gebruiken om uw IPFW firewall te beheren klikt u op de knop hieronder om de bestaande regels te converteren naar een file en daarna uw bestaande firewall script uit te schakelen.
 index_saveex=Firewall Regels Opslaan
 index_headerex=Bestaande firewall configuratie
 
@@ -221,7 +221,7 @@ cluster_desc=Omschrijving
 cluster_os=Besturing systeem
 cluster_add=Server toevoegen
 cluster_gadd=Voeg servers toe in groep
-cluster_need=U moet servers toevoegen met een login en wachtwoord in de Webmin Servers Index module voordat zij hier kunnen worden beheerd.
+cluster_need=U moet servers toevoegen met een login en wachtwoord in de AdFreeZone Servers Index module voordat zij hier kunnen worden beheerd.
 cluster_return=cluster servers
 cluster_delete=Verwijder Geselecteerde
 

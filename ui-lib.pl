@@ -3,10 +3,10 @@ use vars qw($theme_no_table $ui_radio_selector_donejs $module_name
 
 =head1 ui-lib.pl
 
-Common functions for generating HTML for Webmin user interface elements.
+Common functions for generating HTML for AdFreeZone user interface elements.
 Some example code :
 
- use WebminCore;
+ use AdFreeZoneCore;
  init_config();
  ui_print_header(undef, 'My Module', '');
 
@@ -19,7 +19,7 @@ Some example code :
  print ui_table_end();
  print ui_form_end([ [ undef, 'Save' ] ]);
 
- ui_print_footer('/', 'Webmin index');
+ ui_print_footer('/', 'AdFreeZone index');
 
 =cut
 
@@ -1565,7 +1565,7 @@ of the subtext parameter :
 
 =item nomodule - If set to 1, there will be no link in the title section to the module's index.
 
-=item nowebmin - If set to 1, there will be no link in the title section to the Webmin index.
+=item nowebmin - If set to 1, there will be no link in the title section to the AdFreeZone index.
 
 =item rightside - HTML to be shown on the right-hand side of the title. Can contain multiple lines, separated by <br>. Typically this is used for links to stop, start or restart servers.
 
@@ -2592,7 +2592,7 @@ return "<script type='text/javascript'>${window}.location = '".&quote_escape($ur
 
 =head2 ui_webmin_link(module, page)
 
-Returns the URL for a link to this Webmin instance that can be used in an email
+Returns the URL for a link to this AdFreeZone instance that can be used in an email
 
 =cut
 sub ui_webmin_link

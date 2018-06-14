@@ -1,16 +1,16 @@
-package WebminUI::Submit;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Submit;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Submit(label, [name], [disabled])
+=head2 new AdFreeZoneUI::Submit(label, [name], [disabled])
 Create a form submit button
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Submit::new) &&
-    caller() !~ /WebminUI::Theme::Submit/) {
-        return new WebminUI::Theme::Submit(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Submit::new) &&
+    caller() !~ /AdFreeZoneUI::Theme::Submit/) {
+        return new AdFreeZoneUI::Theme::Submit(@_[1..$#_]);
         }
 my ($self, $value, $name, $disabled) = @_;
 $self = { };

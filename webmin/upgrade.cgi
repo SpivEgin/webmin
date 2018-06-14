@@ -286,7 +286,7 @@ elsif ($in{'mode'} eq 'solaris-pkg' || $in{'mode'} eq 'sun-pkg') {
 	#
 	# The package name will always include "webmin" in lower case,
 	# but may be preceded by the source package source ("WS" for the
-	# Webmin.com package, "SUNW" for the Sun distributed package).
+	# AdFreeZone.com package, "SUNW" for the Sun distributed package).
 	# and it could have trailing characters to define a set of items
 	# that are installed separately ("r" for the Sun "root" package,
 	# "u" for the Sun "usr" package.

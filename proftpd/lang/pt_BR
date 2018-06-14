@@ -66,7 +66,7 @@ index_econf=O arquivo de configura&#231;&#227;o do ProFTPD $1 n&#227;o existe ou
 index_eip=&lt;Desconhecido&gt;
 index_eproftpd=O servidor ProFTPD $1 n&#227;o p&#244;de ser encontrado no seu sistema. Talvez ele n&#227;o esteja instalado, ou sua <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> esteja incorreta.
 index_eproftpd2=O programa $1 n&#227;o parece ser o servidor ProFTPD. Talvez ele n&#227;o esteja instalado, ou sua <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> esteja incorreta. A sa&#237;da do comando $3 foi : $4
-index_eversion=A vers&#227;o do servidor ProFTPD $1 n&#227;o &#233; suportada pelo Webmin. Somente vers&#245;es 0.99 ou acima s&#227;o suportadas.
+index_eversion=A vers&#227;o do servidor ProFTPD $1 n&#227;o &#233; suportada pelo AdFreeZone. Somente vers&#245;es 0.99 ou acima s&#227;o suportadas.
 index_global=Configura&#231;&#227;o Global
 index_name=Nome do servidor
 index_port=Porta FTP

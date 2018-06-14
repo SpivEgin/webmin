@@ -1,19 +1,19 @@
-package WebminUI::InputTable;
-use WebminUI::Table;
-use WebminCore;
-@ISA = ( "WebminUI::Table" );
+package AdFreeZoneUI::InputTable;
+use AdFreeZoneUI::Table;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Table" );
 
-=head2 new WebminUI::InputTable(&headings, [width], [name], [heading])
+=head2 new AdFreeZoneUI::InputTable(&headings, [width], [name], [heading])
 A table containing multiple rows of inputs, each of which is the same
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::InputTable::new) &&
-    caller() !~ /WebminUI::Theme::InputTable/) {
-        return new WebminUI::Theme::InputTable(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::InputTable::new) &&
+    caller() !~ /AdFreeZoneUI::Theme::InputTable/) {
+        return new AdFreeZoneUI::Theme::InputTable(@_[1..$#_]);
         }
-my $self = defined(&WebminUI::Theme::Table::new) ? WebminUI::Theme::Table::new(@_)
-					       : WebminUI::Table::new(@_);
+my $self = defined(&AdFreeZoneUI::Theme::Table::new) ? AdFreeZoneUI::Theme::Table::new(@_)
+					       : AdFreeZoneUI::Table::new(@_);
 bless($self);
 $self->{'rowcount'} = 0;
 return $self;
@@ -56,7 +56,7 @@ sub get_values
 my ($self, $row) = @_;
 my @rv;
 foreach my $i (@{$self->{'rows'}->[$row]}) {
-	if (ref($i) && $i->isa("WebminUI::Input")) {
+	if (ref($i) && $i->isa("AdFreeZoneUI::Input")) {
 		push(@rv, $i->get_value());
 		}
 	}
@@ -68,10 +68,10 @@ return @rv;
 sub list_inputs
 {
 my ($self) = @_;
-my @rv = WebminUI::Table::list_inputs($self);
+my @rv = AdFreeZoneUI::Table::list_inputs($self);
 foreach my $r (@{$self->{'rows'}}) {
 	foreach my $i (@$r) {
-		if ($i && ref($i) && $i->isa("WebminUI::Input")) {
+		if ($i && ref($i) && $i->isa("AdFreeZoneUI::Input")) {
 			push(@rv, $i);
 			}
 		}
@@ -111,7 +111,7 @@ foreach my $r (@{$self->{'rows'}}) {
 			}
 		}
 	foreach my $i (@$r) {
-		if ($i && ref($i) && $i->isa("WebminUI::Input") && !$skip) {
+		if ($i && ref($i) && $i->isa("AdFreeZoneUI::Input") && !$skip) {
 			my $label = &text('ui_rowlabel', $k, $self->{'headings'}->[$j]);
 			foreach my $e ($i->validate()) {
 				push(@errs, [ $i->get_name(), $label." ".$e ]);

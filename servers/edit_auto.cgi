@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Show a form for finding Webmin servers
+# Show a form for finding AdFreeZone servers
 # Thanks to OpenCountry for sponsoring this feature
 
 use strict;

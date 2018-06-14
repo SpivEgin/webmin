@@ -1,5 +1,5 @@
-package WebminUI::Input;
-use WebminCore;
+package AdFreeZoneUI::Input;
+use AdFreeZoneCore;
 
 sub set_form
 {

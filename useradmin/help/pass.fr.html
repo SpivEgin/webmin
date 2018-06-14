@@ -1,32 +1,32 @@
 <header>Mot de passe</header>
 
 Quand un utilisateur ouvre une session par telnet ou sur la console, il
-doit normalement fournir un mot de passe. Il y a quatre options différentes
+doit normalement fournir un mot de passe. Il y a quatre options diffï¿½rentes
 pour le mot de passe :
 
 <ul>
 <if $config{'empty_mode'} == 1>
-<li><b>Demander le mot de passe à la première ouverture de session</b><br>
-    Quand l'utilisateur ouvre une session pour la première fois par telnet
-    ou sur la console, le système va lui demander sont mot de passe. <p>
+<li><b>Demander le mot de passe ï¿½ la premiï¿½re ouverture de session</b><br>
+    Quand l'utilisateur ouvre une session pour la premiï¿½re fois par telnet
+    ou sur la console, le systï¿½me va lui demander sont mot de passe. <p>
 </if>
 <if $config{'empty_mode'} == 0>
 <li><b>Aucun mot de passe requis</b><br>
     Cet utilisateur peut ouvrir une session sans fournir de mot de passe.
-    Cette option doit être utilisée avec précautions. <p>
+    Cette option doit ï¿½tre utilisï¿½e avec prï¿½cautions. <p>
 </if>
 <li><b>Aucune ouverture de session permise</b><br>
     Si cette option est choisie, l'utilisateur ne pourra pas du tout ouvrir
-    de session sur le système, même pour consulter ses mails sur un serveur
+    de session sur le systï¿½me, mï¿½me pour consulter ses mails sur un serveur
     POP3. <p>
-<li><b>Mot de passe crypté</b><br>
-    Les mots de passe Unix sont enregistrés sous une forme cryptée. Cette
+<li><b>Mot de passe cryptï¿½</b><br>
+    Les mots de passe Unix sont enregistrï¿½s sous une forme cryptï¿½e. Cette
     option permet d'entrer le mot de passe pour un utilisateur sous sa forme
-    déjà crypté (en le prenant du fichier de mots de passe d'un autre
-    système par exemple). <p>
+    dï¿½jï¿½ cryptï¿½ (en le prenant du fichier de mots de passe d'un autre
+    systï¿½me par exemple). <p>
 <li><b>Mot de passe en texte clair</b><br>
-    Pour définir le mot de passe d'un utilisateur, seléctionnez cette option
-    et entrez-le dans le champ de texte. Webmin l'encryptera et
+    Pour dï¿½finir le mot de passe d'un utilisateur, selï¿½ctionnez cette option
+    et entrez-le dans le champ de texte. AdFreeZone l'encryptera et
     l'enregistrera dans le fichier des mots de passe. <p>
 </ul>
 <hr>

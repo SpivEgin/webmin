@@ -3,7 +3,7 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 use Time::Local;
 use POSIX;
 &init_config();
@@ -771,7 +771,7 @@ my ($host, $port, $page, $ssl) = &parse_http_url(&get_server_jar_url());
 # Make HTTP connection
 my @headers;
 push(@headers, [ "Host", $host ]);
-push(@headers, [ "User-agent", "Webmin" ]);
+push(@headers, [ "User-agent", "AdFreeZone" ]);
 push(@headers, [ "Accept-language", "en" ]);
 alarm(5);
 my $h = &make_http_connection($host, $port, $ssl, "HEAD", $page, \@headers);

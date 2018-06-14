@@ -4,7 +4,7 @@
 # XXX some thing are not supported by ipfw1
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 if (&foreign_check("net")) {
 	&foreign_require("net", "net-lib.pl");

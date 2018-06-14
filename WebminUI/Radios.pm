@@ -1,15 +1,15 @@
-package WebminUI::Radios;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Radios;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Radios(name, value, &options, [disabled])
+=head2 new AdFreeZoneUI::Radios(name, value, &options, [disabled])
 Create a list of radio buttons, of which one may be selected
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Radios::new)) {
-        return new WebminUI::Theme::Radios(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Radios::new)) {
+        return new AdFreeZoneUI::Theme::Radios(@_[1..$#_]);
         }
 my ($self, $name, $value, $options, $disabled) = @_;
 $self = { };

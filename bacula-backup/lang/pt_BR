@@ -24,7 +24,7 @@ check_econsole=O console de comandos do Bacula $1 n&#227;o foi encontrado.
 check_edir=A configura&#231;&#227;o de diret&#243;rio do Bacula $1 n&#227;o foi encontrada no seu sistema.
 check_edirector=O arquivo de configura&#231;&#227;o do Bacula director $1 n&#227;o foi encontrado.
 check_engmod=O m&#243;dulo OpenCountry Bacula n&#227;o est&#225; instalado
-check_eservers=Nenhum servidor de grupos do Webmin foi definido
+check_eservers=Nenhum servidor de grupos do AdFreeZone foi definido
 chooser_all=Todos
 chooser_days=Datas
 chooser_daysh=Dias do m&#234;s para executar
@@ -260,7 +260,7 @@ index_econsole=O console de comandos do B&#225;cula $1 n&#227;o p&#244;de comuni
 index_econsole2=O console de comandos do B&#225;cula $1 n&#227;o est&#225; configurado com um host v&#225;lido do Bacula director. Ele atualmente est&#225; usando $2, que n&#227;o existe.
 index_edb=Falhou ao conectar a base de dados do B&#225;cula : Talvez $1 n&#227;o n&#227;o esteja configurado, ou o <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> est&#225; incorreta.
 index_eng=Falhou ao conectar a base de dados de grupo do B&#225;cula : Talvez $1 n&#227;o n&#227;o esteja configurado, ou o <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> est&#225; incorreta.
-index_eversion=Seus sistema est&#225; usando a vers&#227;o $2, mas o m&#243;dulo do Webmin  somente suporta vers&#245;es $1 e acima.
+index_eversion=Seus sistema est&#225; usando a vers&#227;o $2, mas o m&#243;dulo do AdFreeZone  somente suporta vers&#245;es $1 e acima.
 index_fd=Arquivo de configura&#231;&#227;o do Daemon
 index_fixaddr=Clique aqui para corrigir o host do Bacula Director
 index_fixpass=Clique aqui para corrigir o Console de Senha

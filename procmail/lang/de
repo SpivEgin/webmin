@@ -97,7 +97,7 @@ edit_flag_c=Weitermachen, auch wenn Bedingung erf&#252;llt ist
 edit_flag_w=Warte auf das Ende der Aktion und pr&#252;fe das Ergebnis
 log_act2=Schreibe in das MAILDIR $1
 check_epostfix=Procmail ist nicht in Ihrem Postfix-Konfiguration aktiviert. Die Konfigurationsdatei <tt>$2</tt> m&#252;ssen die <tt>$1</tt> Option auf <tt>$3</tt> gesetzt haben.
-check_esendmail=Sendmail ist nicht eingerichtet, um Procmail f&#252;r die lokale Zustellung zu verwenden. Dies kann in Webmin im <a href='$1'>Sendmail Mail Server</a> Modul konfiguriert werden.
+check_esendmail=Sendmail ist nicht eingerichtet, um Procmail f&#252;r die lokale Zustellung zu verwenden. Dies kann in AdFreeZone im <a href='$1'>Sendmail Mail Server</a> Modul konfiguriert werden.
 log_modify_inc=Eingebundene Datei $1 bearbeitet
 edit_amode_0=Schreibe in Datei
 edit_amode_4=Gebe an Programm

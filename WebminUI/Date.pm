@@ -1,16 +1,16 @@
-package WebminUI::Date;
-use WebminUI::Input;
+package AdFreeZoneUI::Date;
+use AdFreeZoneUI::Input;
 use Time::Local;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Date(name, time, [disabled])
+=head2 new AdFreeZoneUI::Date(name, time, [disabled])
 Create a new field for selecting a date
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Date::new)) {
-        return new WebminUI::Theme::Date(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Date::new)) {
+        return new AdFreeZoneUI::Theme::Date(@_[1..$#_]);
         }
 my ($self, $name, $value, $disabled) = @_;
 bless($self = { });

@@ -45,7 +45,7 @@ if (&show_section('host')) {
 				  $gconfig{'real_os_version'})
 		     });
 
-	# Webmin version
+	# AdFreeZone version
 	push(@table, { 'desc' => $text{'right_webmin'},
 		       'value' => &get_webmin_version() });
 

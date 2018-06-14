@@ -1,11 +1,11 @@
-index_title=Webmin Help
+index_title=AdFreeZone Help
 index_terms=Cerca nell'help
 index_mods=Moduli da cercare
 index_all=Tutti
 index_sel=Moduli selezionati
 index_search=Trova
 index_reset=Azzera
-index_header=Ricerca globale nel Webmin Help
+index_header=Ricerca globale nel AdFreeZone Help
 index_return=pagina di ricerca
 
 search_err=Ricerca fallita
@@ -17,4 +17,4 @@ search_none=Il valore da te cercato non e' stato trovato
 search_mod=Modulo
 search_page=Pagina di help
 search_line=Trovato in
-search_results=Pagine di Webmin help contenenti $1
+search_results=Pagine di AdFreeZone help contenenti $1

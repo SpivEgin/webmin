@@ -115,10 +115,10 @@ webmin_nonemsg=Imprimante Postscript ou texte
 webmin_remotemsg=Imprimante distante
 webmin_model=Mod&#232;le
 webmin_prog=Programme
-webmin_driver=Pilote Webmin
+webmin_driver=Pilote AdFreeZone
 webmin_uniprint=Pilote Uniprint
-webmin_edrivers=Impossible de prendre les pilotes de $1.  Les pilotes Webmin utilisant Ghostscript ne seront pas disponible
-webmin_egs=La commande $1 n'a pas &#233;t&#233; trouv&#233;.  Les pilotes Webmin utilisant Ghostscript ne seront pas disponible
+webmin_edrivers=Impossible de prendre les pilotes de $1.  Les pilotes AdFreeZone utilisant Ghostscript ne seront pas disponible
+webmin_egs=La commande $1 n'a pas &#233;t&#233; trouv&#233;.  Les pilotes AdFreeZone utilisant Ghostscript ne seront pas disponible
 webmin_edriver=$1 n'existe pas
 
 caldera_none=Aucune

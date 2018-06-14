@@ -56,7 +56,7 @@ foreach $s (@add) {
 		}
 	if ($lconfig->{'driver_style'} ne $config{'driver_style'}) {
 		print &text('add_ediff', $s->{'host'},
-			    $lconfig->{'driver_style'} || "Webmin"),"<p>\n";
+			    $lconfig->{'driver_style'} || "AdFreeZone"),"<p>\n";
 		next;
 		}
 

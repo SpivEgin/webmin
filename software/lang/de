@@ -242,7 +242,7 @@ log_upgrade_yum=$2 Paket(e) von YUM aktualisiert
 log_upgrade_yum_l=Paket(e) $1 von YUM upgegraded
 log_urpmi_update=Verf&#252;gbare URPMI Pakete aktualisiert
 log_urpmi_upgrade=Installierte URPMI Pakete upgegraded
-missing_link=Das $1 Paket kann automatisch von Webmin installiert werden. <a href='$2'>Klicken Sie hier</a>, um es mit $3 herunterzuladen und zu installieren.
+missing_link=Das $1 Paket kann automatisch von AdFreeZone installiert werden. <a href='$2'>Klicken Sie hier</a>, um es mit $3 herunterzuladen und zu installieren.
 msi_missing=Existiert nicht
 msi_size=Falsche Gr&#246;&#223;e
 msi_users=Mache neue Anwendung verf&#252;gbar f&#252;r

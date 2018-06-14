@@ -1,1 +1,1 @@
-desc_no=Webmin konfigurasjon
+desc_no=AdFreeZone konfigurasjon

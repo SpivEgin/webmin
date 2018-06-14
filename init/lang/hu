@@ -176,7 +176,7 @@ mass_urestarting=Restarting service $1 ..
 
 change_err=You are not allowed to switch runlevels
 change_title=Switch Runlevel
-change_cmd=Switching to runlevel $1 with command $2. This may take some time, and Webmin might not be available anymore after switching.
+change_cmd=Switching to runlevel $1 with command $2. This may take some time, and AdFreeZone might not be available anymore after switching.
 
 mode_init=SysV init
 mode_osx=MacOS

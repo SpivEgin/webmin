@@ -7,7 +7,7 @@ do 'forms-lib.pl';
 $zinfo = &get_zone($in{'zone'});
 $zinfo || &error($text{'edit_egone'});
 
-$p = new WebminUI::Page(&zone_title($in{'zone'}), $text{'edit_title'}, "edit");
+$p = new AdFreeZoneUI::Page(&zone_title($in{'zone'}), $text{'edit_title'}, "edit");
 
 # Show general information
 $gform = &get_zone_form(\%in, $zinfo);
@@ -15,10 +15,10 @@ $p->add_form($gform);
 
 # Show network interfaces
 $p->add_separator();
-$nform = new WebminUI::Form();
+$nform = new AdFreeZoneUI::Form();
 $p->add_form($nform);
 $nform->set_input(\%in);
-$ntable = new WebminUI::Table([ $text{'edit_netaddress'},
+$ntable = new AdFreeZoneUI::Table([ $text{'edit_netaddress'},
                               $text{'edit_netname'},
                               $text{'edit_netmask'},
                               $text{'edit_netbroad'} ], "100%", "ntable");
@@ -38,10 +38,10 @@ $ntable->add_link("edit_net.cgi?zone=$in{'zone'}&new=1", $text{'edit_netadd'});
 
 # Show package directories
 $p->add_separator();
-$pform = new WebminUI::Form();
+$pform = new AdFreeZoneUI::Form();
 $p->add_form($pform);
 $pform->set_input(\%in);
-$ptable = new WebminUI::Table([ $text{'edit_pkgdir'} ], "100%", "ptable");
+$ptable = new AdFreeZoneUI::Table([ $text{'edit_pkgdir'} ], "100%", "ptable");
 $pform->add_section($ptable);
 $ptable->set_heading($text{'edit_pkg'});
 foreach $pkg (@{$zinfo->{'inherit-pkg-dir'}}) {
@@ -63,10 +63,10 @@ else {
 
 # Show other filesystems
 $p->add_separator();
-$fform = new WebminUI::Form("edit_fs.cgi");
+$fform = new AdFreeZoneUI::Form("edit_fs.cgi");
 $p->add_form($fform);
 $fform->set_input(\%in);
-$ftable = new WebminUI::Table([ $text{'edit_fsdir'},
+$ftable = new AdFreeZoneUI::Table([ $text{'edit_fsdir'},
                               $text{'edit_fsspecial'},
                               $text{'edit_fstype'},
                               $text{'edit_fsmounted'} ], "100%", "ftable");
@@ -82,18 +82,18 @@ foreach $fs (@{$zinfo->{'fs'}}) {
 		]);
 	}
 $ftable->set_emptymsg($text{'edit_fsnone'});
-$ftable->add_input(new WebminUI::Submit($text{'edit_fsadd'}));
-$ftable->add_input(new WebminUI::Select("type", "ufs",
+$ftable->add_input(new AdFreeZoneUI::Submit($text{'edit_fsadd'}));
+$ftable->add_input(new AdFreeZoneUI::Select("type", "ufs",
 	[ map { [ $_, &mount::fstype_name($_) ] } &list_filesystems() ]));
 $fform->add_hidden("new", 1);
 $fform->add_hidden("zone", $in{'zone'});
 
 # Show resource controls
 $p->add_separator();
-$rform = new WebminUI::Form();
+$rform = new AdFreeZoneUI::Form();
 $p->add_form($rform);
 $rform->set_input(\%in);
-$rtable = new WebminUI::Table([ $text{'edit_rctlname'},
+$rtable = new AdFreeZoneUI::Table([ $text{'edit_rctlname'},
                               $text{'edit_rctlpriv'},
                               $text{'edit_rctllimit'},
                               $text{'edit_rctlaction'}, ], "100%", "rtable");
@@ -121,10 +121,10 @@ $rtable->add_link("edit_rctl.cgi?zone=$in{'zone'}&new=1",
 
 # Show generic attributes
 $p->add_separator();
-$gform = new WebminUI::Form();
+$gform = new AdFreeZoneUI::Form();
 $p->add_form($gform);
 $gform->set_input(\%in);
-$gtable = new WebminUI::Table([ $text{'edit_attrname'},
+$gtable = new AdFreeZoneUI::Table([ $text{'edit_attrname'},
 			      $text{'edit_attrtype'},
 			      $text{'edit_attrvalue'}, ], "100%", "gtable");
 $gform->add_section($gtable);

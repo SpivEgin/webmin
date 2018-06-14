@@ -2,7 +2,7 @@
 # Functions for reading and editing the SGI NFS exports file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 # get_exports()

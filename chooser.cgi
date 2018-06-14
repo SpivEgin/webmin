@@ -3,7 +3,7 @@
 # Outputs HTML for a frame-based file chooser
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 @icon_map = (	"c", "text.gif",
 		"txt", "text.gif",

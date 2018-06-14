@@ -1,7 +1,7 @@
 __norefs=1
 acl_dirs=Tillatte kataloger
 acl_home=Ta med Unix brukers hjemmekatalog?
-acl_same=Samme som Webmin bruker
+acl_same=Samme som AdFreeZone bruker
 acl_sync=Kan sette opp Unix bruker-synkronisering?
 acl_uonly=Kan legge til og endre beskyttede kataloger?
 acl_user=Opprett .htaccess og .htusers filer som Unix bruker

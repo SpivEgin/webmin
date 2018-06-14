@@ -2,7 +2,7 @@
 # Common MySQL functions
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 require 'view-lib.pl';
 if ($config{'mysql_libs'}) {
@@ -35,7 +35,7 @@ if ($module_info{'usermin'}) {
 	%displayconfig = %userconfig;
 	}
 else {
-	# Webmin connects to the database as the user specified in the per-user
+	# AdFreeZone connects to the database as the user specified in the per-user
 	# or global config
 	%access = &get_module_acl();
 	if ($access{'user'} && !$use_global_login) {
@@ -266,7 +266,7 @@ sub execute_sql_safe
 local $sql = $_[1];
 @params = @_[2..$#_];
 if ($gconfig{'debug_what_sql'}) {
-	# Write to Webmin debug log
+	# Write to AdFreeZone debug log
 	local $params;
 	for(my $i=0; $i<@params; $i++) {
 		$params .= " ".$i."=".$params[$i];
@@ -517,7 +517,7 @@ if ($module_info{'usermin'}) {
 	return @rv;
 	}
 else {
-	# From Webmin access control list
+	# From AdFreeZone access control list
 	return ( ) if ($access{'dbs'} eq '*');
 	return split(/\s+/, $access{'dbs'});
 	}
@@ -1362,7 +1362,7 @@ if (!$mysqld) {
 		$mysqld =~ s/mysql$/mysqld/g;
 		$mysqld =~ s/bin/libexec/g;
 		if (!-x $mysqld) {
-			# Look in Webmin path
+			# Look in AdFreeZone path
 			&error($mysqld);
 			$mysqld = &has_command("mysqld");
 			}

@@ -44,7 +44,7 @@ delete_egone=Command already run or deleted
 
 acl_users=Can edit scheduled commands for
 acl_all=All users
-acl_this=Current Webmin user
+acl_this=Current AdFreeZone user
 acl_only=Only users
 acl_except=All except users
 acl_allow=Can edit allowed At users?

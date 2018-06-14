@@ -1,16 +1,16 @@
 index_title=PostgreSQL Database Server
 index_notrun=PostgreSQL is not running on your system - database list could not be retrieved.
 index_start=Start PostgreSQL Server
-index_startmsg2=Click this button to start the PostgreSQL database server on your system. This Webmin module cannot administer the database until it is started.
-index_nopass=Webmin needs to know your PostgreSQL administration login and password in order to manage your database. Please enter your administration username  and password below.
-index_nouser=Your Webmin account is configured to connect to the PostgreSQL server as user $1, but this user has been denied access. 
+index_startmsg2=Click this button to start the PostgreSQL database server on your system. This AdFreeZone module cannot administer the database until it is started.
+index_nopass=AdFreeZone needs to know your PostgreSQL administration login and password in order to manage your database. Please enter your administration username  and password below.
+index_nouser=Your AdFreeZone account is configured to connect to the PostgreSQL server as user $1, but this user has been denied access.
 index_ltitle=PostgreSQL Login
 index_sameunix=Connect as same Unix user?
 index_login=Login
 index_pass=Password
 index_clear=Clear
 index_stop=Stop PostgreSQL Server
-index_stopmsg=Click this button to stop the PostgreSQL database server on your system. This will prevent any users or programs from accessing the database, including this Webmin module.
+index_stopmsg=Click this button to stop the PostgreSQL database server on your system. This will prevent any users or programs from accessing the database, including this AdFreeZone module.
 index_dbs=PostgreSQL Databases
 index_add=Create a new database.
 index_users=User, Groups and Permissions
@@ -18,14 +18,14 @@ index_return=database list
 index_esql=The PostgreSQL client program $1 was not found on your system. Maybe PostgreSQL is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_ehba=The PostgreSQL host configuration file $1 was not found on your system. Maybe PostgreSQL has not been initialised, or your <a href='$2'>module configuration</a> is incorrect.
 index_superuser=The PostgreSQL client program psql could not execute on your system. Maybe PostgreSQL is not installed, or your <a href='$1'>module configuration</a> is incorrect.
-index_eversion=The PostgreSQL database on your system is version $1, but Webmin only supports versions $2 and above.
+index_eversion=The PostgreSQL database on your system is version $1, but AdFreeZone only supports versions $2 and above.
 index_elibrary=The PostgreSQL client program $1 could not be run because it could not find the Postgres shared libraries. Check the <a href='$2'>module configuration</a> and make sure the <i>Path to PostgreSQL shared libraries</i> is set.
 index_ldpath=Your shared library path is set to $1, and the output from $2 was :
 index_version=PostgreSQL version $1
 index_setup=The PostgreSQL host configuration file $1 was not found on your system, indicating that the database has not been initialized yet. Click the button below to setup PostgreSQL.
 index_setupok=Initialize Database
-index_nomod=Warning: The Perl module $1 is not installed on your system, so Webmin will not be able to reliably access your PostgreSQL database. <a href='$2'>Click here</a> to install it now.
-index_nomods=Warning: The Perl modules $1 and $2 are not installed on your system, so Webmin will not be able to reliably access your PostgreSQL database. <a href='$3'>Click here</a> to install them now.
+index_nomod=Warning: The Perl module $1 is not installed on your system, so AdFreeZone will not be able to reliably access your PostgreSQL database. <a href='$2'>Click here</a> to install it now.
+index_nomods=Warning: The Perl modules $1 and $2 are not installed on your system, so AdFreeZone will not be able to reliably access your PostgreSQL database. <a href='$3'>Click here</a> to install them now.
 index_nodbs=You do not have access to any databases.
 index_nodbs3=No PostgreSQL databases matched your search.
 index_backup=Backup Databases
@@ -245,7 +245,7 @@ user_nochange=Don't change
 user_err=Failed to save user
 user_epass=Missing or invalid password
 user_ename=Missing or invalid username
-user_sync=The options below configure synchronization between Unix users created through Webmin and PostgreSQL users.
+user_sync=The options below configure synchronization between Unix users created through AdFreeZone and PostgreSQL users.
 user_syncwhen=When to synchronize
 user_sync_create=Add a new PostgreSQL user when a Unix user is added.
 user_sync_modify=Update a PostgreSQL user when the matching Unix user is modified.

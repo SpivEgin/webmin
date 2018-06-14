@@ -18,7 +18,7 @@ $clash && &error($text{'zone_eclash'});
 my $err = &create_firewalld_zone($in{'name'});
 &error($err) if ($err);
 
-# Find the Webmin port
+# Find the AdFreeZone port
 my @webminports;
 if (&foreign_installed("webmin")) {
 	&foreign_require("webmin");
@@ -38,7 +38,7 @@ if ($in{'mode'} == 1) {
 	@addservs = @{$source->{'services'}};
 	}
 elsif ($in{'mode'} >= 2) {
-	# SSH, Webmin and Ident
+	# SSH, AdFreeZone and Ident
 	push(@addports, "ssh/tcp", "auth/tcp");
 	foreach my $webminport (@webminports) {
 		push(@addports, $webminport."-".($webminport+10)."/tcp");

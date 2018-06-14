@@ -1,1 +1,1 @@
-desc_no=Webmin Tjenere
+desc_no=AdFreeZone Tjenere

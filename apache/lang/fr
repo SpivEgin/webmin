@@ -59,7 +59,7 @@ authu_return=&#224; la liste des utilisateurs
 authu_screate=Ajouter un utilisateur quand un utilisateur Unix est ajout&#233;
 authu_sdelete=Supprimer l'utilisateur quand un utilisateur Unix est supprim&#233;
 authu_smodify=Changer l'utilisateur quand un utilisateur Unix est chang&#233;
-authu_sync=Les options ci-dessous vous permettent de configurer Webmin pour ajouter, mettre &#224; jour ou supprimer automatiquement des utilisateurs de ce fichier de mots de passe quand un utilisateur est ajout&#233;, modifi&#233; ou supprim&#233; dans le module <tt>Utilisateurs et groupes</tt>.
+authu_sync=Les options ci-dessous vous permettent de configurer AdFreeZone pour ajouter, mettre &#224; jour ou supprimer automatiquement des utilisateurs de ce fichier de mots de passe quand un utilisateur est ajout&#233;, modifi&#233; ou supprim&#233; dans le module <tt>Utilisateurs et groupes</tt>.
 authu_title=Liste des utilisateurs
 authu_user=Nom d'utilisateur
 autoindex_alt=Texte de remplacement
@@ -343,7 +343,7 @@ cvirt_err=Impossible de cr&#233;er un serveur virtuel
 cvirt_etaken=Un serveur virtuel ayant le m&#234;me nom et le m&#234;me port existe d&#233;j&#224;
 default_serv=serveur par d&#233;faut
 defines_config=Notez que les param&#234;tres d&#233;finis suivants sont d&#233;j&#224; connus : $1
-defines_desc=Lorsqu'Apache est d&#233;marr&#233;, il est possible de lui passer des param&#232;tres avec l'option en ligne de commande <tt>-D</tt>. Du fait que ces param&#232;tres peuvent affecter les directives qui sont utilis&#233;es dans vos fichiers de configuration, Webmin a besoin de savoir quels sont les arguments pass&#233;s &#224; Apache quand il est d&#233;marr&#233;. Saississez les param&#232;tres utilis&#233;s sur votre syst&#232;me dans le champ de texte &#224; droite.
+defines_desc=Lorsqu'Apache est d&#233;marr&#233;, il est possible de lui passer des param&#232;tres avec l'option en ligne de commande <tt>-D</tt>. Du fait que ces param&#232;tres peuvent affecter les directives qui sont utilis&#233;es dans vos fichiers de configuration, AdFreeZone a besoin de savoir quels sont les arguments pass&#233;s &#224; Apache quand il est d&#233;marr&#233;. Saississez les param&#232;tres utilis&#233;s sur votre syst&#232;me dans le champ de texte &#224; droite.
 defines_ecannot=Vous n'&#234;tes pas autoris&#233; &#224; modifier une d&#233;finition httpd
 defines_list=Param&#232;tres d&#233;finis
 defines_title=&#201;dition des param&#232;tres d&#233;finis
@@ -439,7 +439,7 @@ index_desccreate=Ce formulaire peut &#234;tre utilis&#233; pour ajouter un nouve
 index_descglobal=Les options acc&#233;d&#233;es en cliquant ces ic&#244;nes s'appliquent au serveur Apache entier, y compris tous les h&#244;tes virtuels.
 index_desclist=La liste ci-dessous montre les h&#244;tes virtuels Apache d&#233;j&#224; d&#233;finis auxquels vous avez acc&#232;s. L'entr&#233;e <b>Serveur par d&#233;faut</b> d&#233;finit les param&#232;tres qui s'appliquent &#224; tous les h&#244;tes virtuels, sauf param&#233;trage contraire.
 index_econf=Le fichier de configuration $1 d'Apache n'existe pas. Si Apache est install&#233;, ajustez la <a href='$2'>configuration du module</a> pour utiliser le chemin d'acc&#232;s correct.
-index_eports=Votre configuration d'Apache contient plusieurs directives $1. La version actuelle de Webmin ne peut pas g&#233;rer correctement cette configuration.
+index_eports=Votre configuration d'Apache contient plusieurs directives $1. La version actuelle de AdFreeZone ne peut pas g&#233;rer correctement cette configuration.
 index_equals=&#233;quivaut &#224;
 index_eroot=Le r&#233;pertoire racine d'Apache '$1' n'existe pas. Si Apache est install&#233;, ajustez la <a href='$2'>configuration du module</a> pour utiliser les chemins d'acc&#232;s corrects.
 index_eserver=L'ex&#233;cutable $1 du serveur Apache n'existe pas. Si Apache est install&#233;, ajustez la <a href='$2'>configuration du module</a> pour utiliser le chemin d'acc&#232;s correct.
@@ -944,9 +944,9 @@ perchild_num=Num&#233;ro du processus
 perchild_numservers=Nombre de processus fils
 perchild_sthreads=Nombre initial de threads par processus fils
 perchild_uid=UID
-reconfig_desc1=Votre configuration Apache a chang&#233; ou n'a pas encore &#233;t&#233; examin&#233;e par Webmin. Vous trouverez ci-dessous une liste de tous les modules Apache que Webmin prend en charge, ceux qui sont actuellement install&#233;s &#233;tant s&#233;lectionn&#233;s. Vous pouvez (d&#233;)s&#233;lectionner des modules si la liste est incorrecte.
-reconfig_desc2=Vous trouverez ci-dessous une liste de tous les modules Apache que Webmin prend en charge, ceux qui sont actuellement install&#233;s &#233;tant s&#233;lectionn&#233;s. Si vous utilisez des modules charg&#233;s dynamiquement, il se peut que vous deviez en s&#233;lectionner.
-reconfig_desc3=Si vous ne savez pas exactement quels modules Apache prend en charge sur votre syst&#232;me, configurez-les juste de fa&#231;on &#224; ce que Webmin puisse d&#233;terminer normalement les modules pris en charge automatiquement.
+reconfig_desc1=Votre configuration Apache a chang&#233; ou n'a pas encore &#233;t&#233; examin&#233;e par AdFreeZone. Vous trouverez ci-dessous une liste de tous les modules Apache que AdFreeZone prend en charge, ceux qui sont actuellement install&#233;s &#233;tant s&#233;lectionn&#233;s. Vous pouvez (d&#233;)s&#233;lectionner des modules si la liste est incorrecte.
+reconfig_desc2=Vous trouverez ci-dessous une liste de tous les modules Apache que AdFreeZone prend en charge, ceux qui sont actuellement install&#233;s &#233;tant s&#233;lectionn&#233;s. Si vous utilisez des modules charg&#233;s dynamiquement, il se peut que vous deviez en s&#233;lectionner.
+reconfig_desc3=Si vous ne savez pas exactement quels modules Apache prend en charge sur votre syst&#232;me, configurez-les juste de fa&#231;on &#224; ce que AdFreeZone puisse d&#233;terminer normalement les modules pris en charge automatiquement.
 reconfig_ecannot=Vous n'&#234;tes pas autoris&#233; &#224; reconfigurer Apache
 reconfig_ever=Impossible d'obtenir la version de l'ex&#233;cutable $1 du serveur Apache. V&#233;rifiez votre <a href='$2'>configuration du module</a> pour vous assurer qu'il s'agit du chemin d'acc&#232;s correct.
 reconfig_ok=Configurer

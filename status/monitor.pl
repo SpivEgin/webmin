@@ -152,7 +152,7 @@ foreach $serv (@services) {
 				$suffix = "un";
 				}
 			elsif ($up == -2) {
-				# Cannot contact remote Webmin
+				# Cannot contact remote AdFreeZone
 				$suffix = "webmin";
 				}
 			elsif ($up == -3) {

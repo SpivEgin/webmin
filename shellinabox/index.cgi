@@ -3,7 +3,7 @@
 # Display the shell-in-a-box pages
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 chop($hw = `uname -m`);

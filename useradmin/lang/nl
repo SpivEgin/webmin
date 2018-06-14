@@ -75,7 +75,7 @@ batch_desc3=<b>maken van</b>:username:passwd:uid:gid:realname:homedir:shell:<p>
 batch_desc4=<b>maken van</b>:username:passwd:uid:gid:realname:homedir:shell:min:max:expire:flags<p><b>modificeer</b>:oldusername:username:passwd:uid:gid:realname:homedir:shell:min:max:expire:flags<p><b>verwijder</b>:username
 batch_desc5=<b>maken van</b>:username:passwd:uid:gid:realname:homedir:shell:min:max<p><b>modificeer</b>:oldusername:username:passwd:uid:gid:realname:homedir:shell:min:max<p><b>verwijder</b>:username
 batch_desc6=<b>maken van</b>:username:passwd:uid:gid:realname:homedir:shell:class:change:expire<p>
-batch_descafter=In het <b>maken</b> van regels, wanneer het <tt>uid</tt> veld leeg is, maakt Webmin automatisch een UID aan. Als het <tt>gid</tt> veld leeg is,  maakt Webmin een nieuwe groep met dezelfde naam als de gebruiker. De <tt>gebruikersnaam</tt>, <tt>thuismap</tt> en <tt>shell</tt> rubriek moet voor elke gebruiker worden opgegeven - alle overige rubrieken mogen leeg zijn. Als het <tt>wachtwoord</tt> veld niet wordt ingevuld, wordt er geen wachtwoord aan de gebruiker toegekend. Als het alleen de letter <tt>x</tt> bevat, wordt de gebruiker geblokkeerd. In alle andere gevallen wordt de tekst in het veld als wachtwoord in klare tekst ge&#239;nterpreteerd en versleuteld.
+batch_descafter=In het <b>maken</b> van regels, wanneer het <tt>uid</tt> veld leeg is, maakt AdFreeZone automatisch een UID aan. Als het <tt>gid</tt> veld leeg is,  maakt AdFreeZone een nieuwe groep met dezelfde naam als de gebruiker. De <tt>gebruikersnaam</tt>, <tt>thuismap</tt> en <tt>shell</tt> rubriek moet voor elke gebruiker worden opgegeven - alle overige rubrieken mogen leeg zijn. Als het <tt>wachtwoord</tt> veld niet wordt ingevuld, wordt er geen wachtwoord aan de gebruiker toegekend. Als het alleen de letter <tt>x</tt> bevat, wordt de gebruiker geblokkeerd. In alle andere gevallen wordt de tekst in het veld als wachtwoord in klare tekst ge&#239;nterpreteerd en versleuteld.
 batch_descafter2=In de <b>gemodificeerde</b> regels, word er bij een leeg veld aangenomen dat de overeenkomstige eigenschap van de gebruiker niet moet worden gewijzigd.
 batch_eaction=Ongeldige actie in regel $1 : $2
 batch_ecaccess=U heeft geen toestemming de gebruiker aan te maken op regel $1 : $2
@@ -163,7 +163,7 @@ gbatch_created=Gemaakte groep $1
 gbatch_deleted=Verwijderde groep $1
 gbatch_desc=Met dit formulier kunt u vele groepen in 1 keer modificeren, maken of verwijderen van een ge-uploaden of lokale tekst file. Iedere regel in de file moet 1 specifieke taak hebben voor een actie, afhankelijk van het eerste veld. De regel formaten zijn :
 gbatch_desc2=<b>maken</b>:groupname:passwd:gid:member,member,...<p><b>modificeren</b>:oldgroupname:groupname:passwd:gid:member,member,...<p><b>verwijderen</b>:groupname
-gbatch_descafter=In de <b>maken</b> regels, wanneer het <tt>gid</tt> veld leeg is zal Webmin automatisch een GID toekennen.
+gbatch_descafter=In de <b>maken</b> regels, wanneer het <tt>gid</tt> veld leeg is zal AdFreeZone automatisch een GID toekennen.
 gbatch_descafter2=In de <b>modificeer</b> regels, zal een leeg veld ervoor zorgen dat de overeenkomende groep attribuut niet word gemodificeerd.
 gbatch_ecaccess=U bent niet bevoegd een groep te maken op regel $1 : $2
 gbatch_ecannot=U kunt de groep batch file formulier niet gebruiken
@@ -326,7 +326,7 @@ many_desc=Met dit formulier kunt u een aantal gebruikers in 1 keer aanmaken vanu
 many_desc0=gebruikersnaam:wachtwoord:UID:GID:volledige_naam:home_directory:shell
 many_desc1=gebruikersnaam:wachtwoord:uid:gid:volledige_naam:home_directory:shell:class:gewijzigd:expireert
 many_desc2=gebruikersnaam:wachtwoord:uid:gid:volledige_naam:home_directory:shell:min:max:waarschuwing:inactief:expireert
-many_descafter=Als het <tt>uid</tt> veld niet wordt ingevuld, zal Webmin automatisch een UID toekennen. Als het <tt>gid</tt> veld niet wordt ingevuld, zal Webmin automatisch een nieuwe groep aanmaken met dezelfde naam als de gebruiker. De <tt>gebruikersnaam</tt>, <tt>home_directory</tt> en <tt>shell</tt> rubrieken moeten voor elke gebruiker worden opgegeven - alle andere rubrieken mogen leeg zijn.
+many_descafter=Als het <tt>uid</tt> veld niet wordt ingevuld, zal AdFreeZone automatisch een UID toekennen. Als het <tt>gid</tt> veld niet wordt ingevuld, zal AdFreeZone automatisch een nieuwe groep aanmaken met dezelfde naam als de gebruiker. De <tt>gebruikersnaam</tt>, <tt>home_directory</tt> en <tt>shell</tt> rubrieken moeten voor elke gebruiker worden opgegeven - alle andere rubrieken mogen leeg zijn.
 many_descpass=Als het <tt>wachtwoord</tt> veld niet wordt ingevuld, wordt er geen wachtwoord aan de gebruiker toegekend. Als het alleen de letter <tt>x</tt> bevat, wordt de gebruiker geblokkeerd. In alle andere gevallen wordt de tekst in het veld als wachtwoord in klare tekst ge&#239;nterpreteerd en versleuteld.
 many_efile=Er is geen file gekozen om te uploaden
 many_egid=Ongeldige GID op regel $1 : $2
@@ -451,8 +451,8 @@ usave_echmod=Kon chmod niet toepassen op home directory : $1
 usave_echown=Kon chown niet toepassen op home directory : $1
 usave_eclass='$1' is een ongeldige inlog klasse
 usave_ecreate=U kunt geen gebruikers toevoegen
-usave_edigestblowfish=Uw systeem heeft Blowfish wachtwoorden aanstaan, maar de Perl <tt>$3</tt> module is niet geinstalleerd.<p>Om het gebruik van normaal versleutelde wachtwoorden te forceren moet u de <a href='$1'>module configuratie</a> aanpassen.<p>Of u laat Webmin de  <tt>$3</tt> module <a href='$2'>downloaden en installeren</a> voor u.
-usave_edigestmd5=Op uw systeem is MD5 wachtwoord versleutelen aangezet, maar de Perl <tt>$3</tt> module is niet geinstalleerd.<p>Om gebruik van normaal versleutelde wachtwoorden te forceren, wijzigt u de <a href='$1'>module configuratie</a>.<p>Of laat u Webmin de <tt>$3</tt> module <a href='$2'>downloaden en installeren</a> voor u.
+usave_edigestblowfish=Uw systeem heeft Blowfish wachtwoorden aanstaan, maar de Perl <tt>$3</tt> module is niet geinstalleerd.<p>Om het gebruik van normaal versleutelde wachtwoorden te forceren moet u de <a href='$1'>module configuratie</a> aanpassen.<p>Of u laat AdFreeZone de  <tt>$3</tt> module <a href='$2'>downloaden en installeren</a> voor u.
+usave_edigestmd5=Op uw systeem is MD5 wachtwoord versleutelen aangezet, maar de Perl <tt>$3</tt> module is niet geinstalleerd.<p>Om gebruik van normaal versleutelde wachtwoorden te forceren, wijzigt u de <a href='$1'>module configuratie</a>.<p>Of laat u AdFreeZone de <tt>$3</tt> module <a href='$2'>downloaden en installeren</a> voor u.
 usave_edigestsha512=Uw systeem heeft Blowfish wachtwoord aanstaan, echter de <tt>crypt</tt> functie ondersteund dit formaat niet.
 usave_eedit=U kunt deze gebruiker niet aanpassen
 usave_eexpire=Ongeldige expiratie datum

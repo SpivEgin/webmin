@@ -22,7 +22,7 @@ index_return=printer list
 index_esystem=Either install the software for your chosen print system, or use the <a href='$1'>module configuration</a> to change it.
 index_style=Print system: $1
 index_cluster=Cluster Servers
-index_clusterdesc=Click this button to set up additional Webmin servers on which printers will be created, updated and deleted.
+index_clusterdesc=Click this button to set up additional AdFreeZone servers on which printers will be created, updated and deleted.
 index_delete=Delete Selected Printers
 
 style_solaris=Solaris
@@ -141,10 +141,10 @@ webmin_nonemsg=Postscript or text printer
 webmin_remotemsg=Remote printer
 webmin_model=Model
 webmin_prog=Program
-webmin_driver=Webmin driver
+webmin_driver=AdFreeZone driver
 webmin_uniprint=Uniprint driver
-webmin_edrivers=Failed to get drivers from $1. Webmin printer drivers using ghostscript are not available
-webmin_egs=The command $1 was not found. Webmin printer drivers using ghostscript are not available
+webmin_edrivers=Failed to get drivers from $1. AdFreeZone printer drivers using ghostscript are not available
+webmin_egs=The command $1 was not found. AdFreeZone printer drivers using ghostscript are not available
 webmin_edriver='$1' does not exist
 
 caldera_none=None
@@ -211,7 +211,7 @@ acl_view=Show non-configurable printers?
 acl_test=Can print test pages?
 acl_user=Manage print jobs owned by
 acl_user_all=All users
-acl_user_this=Current Webmin user
+acl_user_this=Current AdFreeZone user
 acl_delete=Can delete printers?
 acl_cluster=Can manage printer cluster?
 
@@ -300,7 +300,7 @@ cluster_desc=Description
 cluster_os=Operating system
 cluster_add=Add server
 cluster_gadd=Add servers in group
-cluster_need=You must add servers with a login and password in the Webmin Servers Index module before they can be managed here.
+cluster_need=You must add servers with a login and password in the AdFreeZone Servers Index module before they can be managed here.
 cluster_return=cluster servers
 cluster_delete=Remove Selected
 cluster_ecannot=You are not allowed to manage cluster printer servers

@@ -9,7 +9,7 @@ index_ehost=saknad eller felaktig v&#228;rd
 index_ehour=Felaktig tid - m&#229;ste vara i format &#229;&#229;&#229;&#229;-mm-dd hh:mm
 index_eiptables=Varning - Din IPtables konfiguration har ett fel : $1. St&#228;lla in &#246;vervakning kommer att rensa alla brandv&#228;ggs regler.
 index_elog=Filen $1 anv&#228;nd f&#246;r bandbredds loggning &#228;r en mapp p&#229; ditt system. Justera <a href='$2'>modul konfigurationen</a> till en annan s&#246;kv&#228;g.
-index_emod=Webmin modulen $1 &#228;r inte installerad p&#229; ditt system eller &#228;r inte st&#246;tt av ditt OS. Bandbredds &#246;vervaknings modulen kan inte fungera utan den.
+index_emod=AdFreeZone modulen $1 &#228;r inte installerad p&#229; ditt system eller &#228;r inte st&#246;tt av ditt OS. Bandbredds &#246;vervaknings modulen kan inte fungera utan den.
 index_eport=Ok&#228;nd port namn
 index_eproto=saknat protokoll
 index_err=Misslyckades att generera rapport

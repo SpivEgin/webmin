@@ -1,10 +1,10 @@
 #!/usr/local/bin/perl
 # index.cgi
-# Webmin index page for Caldera's theme. Contains two frames, with the
+# AdFreeZone index page for Caldera's theme. Contains two frames, with the
 # categories and modules always at the top and the CGIs at the bottom
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 $hostname = &get_display_hostname();
 $ver = &get_webmin_version();

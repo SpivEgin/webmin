@@ -1,5 +1,5 @@
 ---- Changes since 1.160 ----
-First version of this module, which can copy multiple files on schedule to servers in a Webmin cluster.
+First version of this module, which can copy multiple files on schedule to servers in a AdFreeZone cluster.
 ---- Changes since 1.170 ----
 Added the ability to specify directories to copy, which will be recursively transferred to the remote servers.
 Added an option to copy files into the destination directory, rather than preserving their full paths.

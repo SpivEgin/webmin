@@ -82,7 +82,7 @@ my $con = &make_http_connection($s->{'ip'} || $s->{'host'}, $s->{'port'},
 
 # Send request headers
 &write_http_connection($con, "Host: $s->{'host'}\r\n");
-&write_http_connection($con, "User-agent: Webmin\r\n");
+&write_http_connection($con, "User-agent: AdFreeZone\r\n");
 my $auth = &encode_base64("$user:$pass");
 $auth =~ s/\n//g;
 &write_http_connection($con, "Authorization: basic $auth\r\n");
@@ -104,11 +104,11 @@ else {
 	}
 my $http_prot = $ENV{'HTTPS'} eq "ON" ? "https" : "http";
 &write_http_connection($con, sprintf(
-			"Webmin-servers: %s://%s:%d/%s\n",
+			"AdFreeZone-servers: %s://%s:%d/%s\n",
 			$http_prot, $http_host, $http_port,
 			$tconfig{'inframe'} ? "" : "$module_name/"));
 &write_http_connection($con, sprintf(
-			"Webmin-path: %s://%s:%d/%s/link.cgi%s\n",
+			"AdFreeZone-path: %s://%s:%d/%s/link.cgi%s\n",
 			$http_prot, $http_host, $http_port,
 			$module_name, $ENV{'PATH_INFO'}));
 my $cl = $ENV{'CONTENT_LENGTH'};

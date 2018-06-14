@@ -68,7 +68,7 @@ index_econf=ProFTPD konfigfilen $1 finnes ikke eller den er ugyldig. Kanskje <a 
 index_eip=&lt;Ukjent&gt;
 index_eproftpd=Kunne ikke finne ProFTPD tjeneren $1 p&#229; systemet ditt. Kanskje den ikke er installert eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
 index_eproftpd2=Programmet $1 ser ikke ut til &#229; v&#230;re ProFTP tjeneren. Kanskje den ikke er installert, eller s&#229; er <a href='$2'>moudlkonfigurasjonen</a> feil. Output fra kommandoen $3 var : $4
-index_eversion=Versjonen av ProFTPD tjeneren $1 st&#248;ttes ikke av Webmin. Bare versjonene 0.99 og nyere st&#248;ttes.
+index_eversion=Versjonen av ProFTPD tjeneren $1 st&#248;ttes ikke av AdFreeZone. Bare versjonene 0.99 og nyere st&#248;ttes.
 index_global=Global konfigurasjon
 index_name=Tjener navn
 index_port=FTP port

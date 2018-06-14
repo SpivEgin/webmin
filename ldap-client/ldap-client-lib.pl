@@ -1,7 +1,7 @@
 # Functions for parsing and updating the LDAP config file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 @base_types = ("passwd", "shadow", "group", "hosts", "networks", "netmasks",

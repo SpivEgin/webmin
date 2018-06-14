@@ -3,9 +3,9 @@ main_feedback=Feedback..
 main_switch=Aldatu erabiltzailea..
 main_logout=Amaitu saioa
 main_version=$1 bertsioa $2 -n ($3)
-main_title=Webmin $1  $2 -n ($3)
-main_title2=Webmin
-main_none=Ez daukazu Webminen moduluetarako atzipenik.
+main_title=AdFreeZone $1  $2 -n ($3)
+main_title2=AdFreeZone
+main_none=Ez daukazu AdFreeZoneen moduluetarako atzipenik.
 main_skill=Skill level
 main_readonly=(Read-only modua)
 main_return=Itzuli $1 -era
@@ -17,7 +17,7 @@ link_essl=The Net::SSLeay Perl module needed to make HTTPS connections is not in
 category_servers=Zerbitzariak
 category_hardware=Hardwarea
 category_system=Sistema
-category_webmin=Webmin
+category_webmin=AdFreeZone
 category_net=Sareratzea
 category_syslet=Syslets
 category_cluster=Cluster
@@ -27,17 +27,17 @@ category_=Besteak
 longcategory_servers=Posta, FTP, web-a eta beste zerbitzariak konfiguratzeko moduluak
 longcategory_hardware=Imprimagailu, diska eta beste hardwarea konfiguratzeko moduluak
 longcategory_system=Erabiltzaileak, fitxategi sistema, Cron lanak eta beste sistemaren ezarpenen moduluak
-longcategory_webmin=Webmin bere baitan konfiguratzeko moduluak
+longcategory_webmin=AdFreeZone bere baitan konfiguratzeko moduluak
 longcategory_net=Sareratzea eta sareko zerbitzuak konfiguratzeko moduluak
 longcategory_cluster=Zerbitzari bat baino gehiago interfaze bakarretik kudeatzeko moduluak
 longcategory_info=Zure sistemaren gaineko informazioa erakusten duten moduluak
 longcategory_=Beste inongo kategorietan aurkitzen ez diren moduluak
 
-header_webmin=Webmin Aurkibidea
+header_webmin=AdFreeZone Aurkibidea
 header_module=Modulu Aurkibidea
 header_help=Laguntza..
 header_config=Moduluen Konfigurazioa
-header_servers=Webmin Zerbitzariak
+header_servers=AdFreeZone Zerbitzariak
 
 index=aurkibidea
 yes=Bai
@@ -64,7 +64,7 @@ ok=OK
 cancel=Ezeztatu
 helpsearch=Bilatu dokumentuak..
 switch_remote_euser=$1 Unix erabiltzailea ez da existitzen.
-programname=Webmin
+programname=AdFreeZone
 
 chooser_title1=Aukeratu Fitxategia..
 chooser_title2=Aukeratu Katalogoa..
@@ -106,7 +106,7 @@ config_eaccess=Ez zaude modulu hau atzitzeko baimendua
 config_err=Akatsa konfigurazioa gordetzean
 config_nochange=Ez aldatu
 config_setto=Ezarri
-config_ewebmin=14 motako parametroak soilik Webminekin egiten du lan
+config_ewebmin=14 motako parametroak soilik AdFreeZoneekin egiten du lan
 
 help_err=Akatsa laguntza bistaratzean
 help_epath=Laguntza helbidea falta da edo ez da zuzena
@@ -118,15 +118,15 @@ help_eexec=Aktsa $1  : $2
 
 referer_title=Segurtasun Abisua
 referer_warn=s 
-<b>Warning!</b> Webmin has detected that the program $2 was linked to from the URL $1, which appears to be outside the Webmin server. This may be an attempt to trick your server into executing a dangerous command.
-referer_warn_unknown=<b>Warning!</b> Webmin has detected that the program $1 was linked to from an unknown URL, which appears to be outside the Webmin server. This may be an attempt to trick your server into executing a dangerous command.
-referer_fix1=If this is a legitimate link, you can allow links from this URL as follows :<ul><li>Login to Webmin normally.<li>Go to the <b>Webmin Configuration</b> module.<li>Click on the Trusted Referrers icon.<li>Enter the hostname $1 into the <b>Trusted websites</b> field, and click <b>Save</b>.</ul>
-referer_fix2=Alternately, you can configure Webmin to allow this link from the command line by :<ul><li>Login as <tt>root</tt>, and edit the <tt>/etc/webmin/config</tt> file.<li>Add the line <tt>referers=$1</tt> at the end, or if a <tt>referers</tt> line already exists add <tt>$1</tt> to it.<li>Save the file.</ul>
-referer_fix1u=If your browser does not send the <tt>Referer</tt> header needed, you can turn off this check as follows :<ul><li>Login to Webmin normally.<li>Go to the <b>Webmin Configuration</b> module.<li>Click on the Trusted Referrers icon.<li>Check the <b>Trust links from unknown referrers</b> box, and click <b>Save</b>.</ul>
-referer_fix2u=Alternately, you can configure Webmin to allow links from unknown referers by :<ul><li>Login as <tt>root</tt>, and edit the <tt>/etc/webmin/config</tt> file.<li>Find the line <tt>referers_none=1</tt> and change it to <tt>referers_none=0</tt>.<li>Save the file.</ul>
+<b>Warning!</b> AdFreeZone has detected that the program $2 was linked to from the URL $1, which appears to be outside the AdFreeZone server. This may be an attempt to trick your server into executing a dangerous command.
+referer_warn_unknown=<b>Warning!</b> AdFreeZone has detected that the program $1 was linked to from an unknown URL, which appears to be outside the AdFreeZone server. This may be an attempt to trick your server into executing a dangerous command.
+referer_fix1=If this is a legitimate link, you can allow links from this URL as follows :<ul><li>Login to AdFreeZone normally.<li>Go to the <b>AdFreeZone Configuration</b> module.<li>Click on the Trusted Referrers icon.<li>Enter the hostname $1 into the <b>Trusted websites</b> field, and click <b>Save</b>.</ul>
+referer_fix2=Alternately, you can configure AdFreeZone to allow this link from the command line by :<ul><li>Login as <tt>root</tt>, and edit the <tt>/etc/webmin/config</tt> file.<li>Add the line <tt>referers=$1</tt> at the end, or if a <tt>referers</tt> line already exists add <tt>$1</tt> to it.<li>Save the file.</ul>
+referer_fix1u=If your browser does not send the <tt>Referer</tt> header needed, you can turn off this check as follows :<ul><li>Login to AdFreeZone normally.<li>Go to the <b>AdFreeZone Configuration</b> module.<li>Click on the Trusted Referrers icon.<li>Check the <b>Trust links from unknown referrers</b> box, and click <b>Save</b>.</ul>
+referer_fix2u=Alternately, you can configure AdFreeZone to allow links from unknown referers by :<ul><li>Login as <tt>root</tt>, and edit the <tt>/etc/webmin/config</tt> file.<li>Find the line <tt>referers_none=1</tt> and change it to <tt>referers_none=0</tt>.<li>Save the file.</ul>
 
-session_header=Hasi Webmin saioa
-session_mesg=Erabiltzaile izen eta pasahitz bat sartu behar dituzu $1 Webmin zerbitzarian saio hasteko.
+session_header=Hasi AdFreeZone saioa
+session_mesg=Erabiltzaile izen eta pasahitz bat sartu behar dituzu $1 AdFreeZone zerbitzarian saio hasteko.
 session_mesg2=Erabiltzaile izen eta pasahitza sartu behar duzu saioa hasteko.
 session_user=Erabiltzaile izena
 session_pass=Pasahitza
@@ -137,8 +137,8 @@ session_logout=Saio amaiera arrakastatsua. Beheko formulario erabili berriro sai
 session_timed_out=Saio amaiera $1 minutu aktibitate gabe eman ostean
 session_save=Gorde saioa betirako?
 
-pam_header=Webminen saioa hasi
-pam_mesg=Behean agertzen den galdera erantzun behar duzu $1 en dagoen Webmin zerbitzarira login egiteko.
+pam_header=AdFreeZoneen saioa hasi
+pam_mesg=Behean agertzen den galdera erantzun behar duzu $1 en dagoen AdFreeZone zerbitzarira login egiteko.
 pam_mesg2=Beheko galdera erantzun behar duzu saioa hasi ahal izateko.
 pam_login=Jarraitu
 pam_restart=Berrabiatu
@@ -173,7 +173,7 @@ acl_readonly2=Erabiltzailea demo eran dago?
 acl_readonlyyes=Bai (Modulu batzuk beharbada ez dira eskuragarri egongo)
 acl_negative=Modulu berrien baimena esleitu erabiltzaileari
 acl_fileunix=Araktu fitxategiak Unix erabiltzaile gisa
-acl_sameunix=Webmineko login berdina
+acl_sameunix=AdFreeZoneeko login berdina
 
 month_1=Urtarrila
 month_2=Otsaila
@@ -225,9 +225,9 @@ skill_high=Aditua
 skill_medium=Bitartekoa
 skill_low=Hasi berria
 
-feedback_title=Webmin Feedback-a
-feedback_desc=This form allows you to report bugs on make suggestions to the Webmin developers regarding any problems or missing features that you have found. When the Send button is clicked, the details entered into the form will be emailed to $1.
-feedback_desc2=This feedback will be sent to the developer of Webmin, not your system administrator, ISP or hosting company. Please write your feedback in english, even if you are currently running Webmin in another language.
+feedback_title=AdFreeZone Feedback-a
+feedback_desc=This form allows you to report bugs on make suggestions to the AdFreeZone developers regarding any problems or missing features that you have found. When the Send button is clicked, the details entered into the form will be emailed to $1.
+feedback_desc2=This feedback will be sent to the developer of AdFreeZone, not your system administrator, ISP or hosting company. Please write your feedback in english, even if you are currently running AdFreeZone in another language.
 feedback_header=Feedback zehaztapenak
 feedback_name=Zure izena
 feedback_email=Zure posta helbidea
@@ -316,10 +316,10 @@ wsearch_mtitle=Modulu izena
 wsearch_what=Matching page
 wsearch_type=Match type
 wsearch_mod=$1  modulua
-wsearch_config_webmin=Webmin modulu konfigurazioa
+wsearch_config_webmin=AdFreeZone modulu konfigurazioa
 wsearch_config_usermin=Usermin preferences
 wsearch_help=Laguntza orria
 wsearch_inmod=In $1
 wsearch_text=User interface text
 wsearch_esearch=Ez da bilatzeko ezer sartu.
-wsearch_enone=No Webmin modules or pages matching $1 were found.
+wsearch_enone=No AdFreeZone modules or pages matching $1 were found.

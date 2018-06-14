@@ -1,1 +1,1 @@
-desc_es=Configuración de Webmin
+desc_es=Configuraciï¿½n de AdFreeZone

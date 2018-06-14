@@ -307,7 +307,7 @@ index_emsg=Die volle PostgreSQL Fehlermeldung war : $1
 index_ename=Fehlender oder ung&#252;ltiger Index Name
 index_err=Fehlgeschlagen Index zu erstellen
 index_esql=Das PostgreSQL Client-Programm $1 konnte nicht auf Ihrem System gefunden werden. Es k&#246;nnte sein, dass PostgreSQL nicht installiert ist oder dass Ihre <a href='$2'>Modulkonfiguration</a> fehlerhaft ist.
-index_eversion=Die PostgreSQL-Datenbank auf Ihrem System ist Version $1, aber Webmin unterst&#252;tzt nur Versionen $2 oder h&#246;her.
+index_eversion=Die PostgreSQL-Datenbank auf Ihrem System ist Version $1, aber AdFreeZone unterst&#252;tzt nur Versionen $2 oder h&#246;her.
 index_fields=Felder in Index
 index_fulltext=Voller Text
 index_gist=Generalisierter Index-Such-Baum
@@ -323,12 +323,12 @@ index_ltitle=PostgreSQL-Anmeldung
 index_name=Index Name
 index_nodbs=Sie d&#252;rfen auf keine Datenbanken zugreifen.
 index_nodbs3=Keine PostgreSQL-Datenbanken stimmen mit Ihrer Suche &#252;berein.
-index_nomod=Warnung: Das Perl-Modul $1 ist auf Ihrem System nicht installiert. Webmin ist deshalb nicht in der Lage zuverl&#228;ssig auf Ihre PostgreSQL-Datenbank zuzugreifen. <a href='$2'>Klicken Sie hier</a> um es jetzt zu installieren.
-index_nomods=Warnung: Die Perl-Module $1 und $2 sind auf Ihrem System nicht installiert. Webmin ist deshalb nicht in der Lage zuverl&#228;ssig auf Ihre PostgreSQL-Datenbank zuzugreifen. <a href='$3'>Klicken Sie hier</a> um sie jetzt zu installieren.
+index_nomod=Warnung: Das Perl-Modul $1 ist auf Ihrem System nicht installiert. AdFreeZone ist deshalb nicht in der Lage zuverl&#228;ssig auf Ihre PostgreSQL-Datenbank zuzugreifen. <a href='$2'>Klicken Sie hier</a> um es jetzt zu installieren.
+index_nomods=Warnung: Die Perl-Module $1 und $2 sind auf Ihrem System nicht installiert. AdFreeZone ist deshalb nicht in der Lage zuverl&#228;ssig auf Ihre PostgreSQL-Datenbank zuzugreifen. <a href='$3'>Klicken Sie hier</a> um sie jetzt zu installieren.
 index_nonunique=Nicht eindeutig
-index_nopass=Webmin muss Ihre PostgreSQL-Administrationsanmeldung und das dazugeh&#246;rige Passwort kennen, um die Datenbank verwalten zu k&#246;nnen. Bitte tragen Sie Ihren Adminstrationsbenutzernamen und das Passwort unten ein.
+index_nopass=AdFreeZone muss Ihre PostgreSQL-Administrationsanmeldung und das dazugeh&#246;rige Passwort kennen, um die Datenbank verwalten zu k&#246;nnen. Bitte tragen Sie Ihren Adminstrationsbenutzernamen und das Passwort unten ein.
 index_notrun=PostgreSQL l&#228;uft nicht auf Ihrem System - die Liste der Datenbanken konnte nicht geholt werden.
-index_nouser=Ihr Webmin-Konto wurde konfiguriert, sich als Benutzer $1 am PostgreSQL-Server anzumelden, aber diesem Benutzer wurde der Zugriff verweigert.
+index_nouser=Ihr AdFreeZone-Konto wurde konfiguriert, sich als Benutzer $1 am PostgreSQL-Server anzumelden, aber diesem Benutzer wurde der Zugriff verweigert.
 index_pass=Passwort
 index_postgresql=PostgreSQL
 index_return=Datenbankliste
@@ -341,9 +341,9 @@ index_setupok=Datenbank initialisieren
 index_showing=Es werden passende Datenbanken $1 angezeigt ..
 index_spatial=Spatial
 index_start=Starte PostgreSQL-Server
-index_startmsg2=Klicke auf diese Schaltfl&#228;che, um die PostgreSQL-Datenbank-Server auf Ihrem System zu starten. Das Webmin-Modul kann nicht zur Verwaltung der Datenbank verwendet werden, bis dieser gestartet wurde.
+index_startmsg2=Klicke auf diese Schaltfl&#228;che, um die PostgreSQL-Datenbank-Server auf Ihrem System zu starten. Das AdFreeZone-Modul kann nicht zur Verwaltung der Datenbank verwendet werden, bis dieser gestartet wurde.
 index_stop=PostgreSQL-Server stoppen
-index_stopmsg=Klicken Sie auf diesen Button, um den PostgreSQL-Datenbank-Server auf Ihrem System zu stoppen. Dies wird allen Benutzern einschlie&#223;lich dieses Webmin-Moduls den Zugriff auf die Datenbank verwehren.
+index_stopmsg=Klicken Sie auf diesen Button, um den PostgreSQL-Datenbank-Server auf Ihrem System zu stoppen. Dies wird allen Benutzern einschlie&#223;lich dieses AdFreeZone-Moduls den Zugriff auf die Datenbank verwehren.
 index_superuser=Das PostgreSQL Client-Programm psql konnte auf Ihrem System nicht ausgef&#252;hrt werden. Es k&#246;nnte sein, dass PostgreSQL nicht installiert ist oder dass Ihre <a href='$1'>Modulkonfiguration</a> fehlerhaft ist.
 index_tables=Tabellen
 index_title=PostgreSQL-Datenbankserver
@@ -538,7 +538,7 @@ user_pass=Ben&#246;tigt Passwort?
 user_passwd=Passwort
 user_return=Benutzerliste
 user_setto=Setze auf
-user_sync=Die Einstellungen unten konfigurieren die Synchronisation zwischen Unix-Benutzer die unter Webmin angelegt werden und PostgreSQL-Benutzern.
+user_sync=Die Einstellungen unten konfigurieren die Synchronisation zwischen Unix-Benutzer die unter AdFreeZone angelegt werden und PostgreSQL-Benutzern.
 user_sync_create=Neuen PostgreSQL-Benutzer anlegen wenn ein neuer Unix-Benutzer angelegt wird.
 user_sync_delete=PostgreSQL-Benutzer l&#246;schen, wenn der entsprechende Unix-Benutzer gel&#246;scht wird.
 user_sync_modify=PostgreSQL-Benutzer aktualisieren, wenn der entsprechende Unix-Benutzer ge&#228;ndert wird.

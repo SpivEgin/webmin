@@ -329,7 +329,7 @@ debug_title=Debugging features
 debug_ecannot=You are not allowed to edit the debugging features
 opts_debug_peer_list=List of domain/network patterns for which verbose log is enabled
 opts_debug_peer_level=Verbose logging level when matching the above list
-debug_version=Postfix Module for Webmin - Version $1
+debug_version=Postfix Module for AdFreeZone - Version $1
 opts_edebug=Missing or invalid verbose logging level - must be a number greater than zero
 
 ldap_title=LDAP lookups
@@ -374,7 +374,7 @@ maps_cant_write=Can not write
 help_map_format=What format should I use?
 map_noname=Missing or invalid mapping name
 map_cannot=This map cannot be edited : $1
-map_unknown=Webmin does not support the map type $1
+map_unknown=AdFreeZone does not support the map type $1
 mapping_none=No mappings of this type have been defined yet.
 
 virtual_title=Virtual Domains
@@ -895,7 +895,7 @@ mysql_edelete=SQL delete failed : $1
 mysql_eupdate=SQL update failed : $1
 mysql_elist=SQL query failed : $1
 mysql_esource=No MySQL source named $1 was found
-mysql_eneed=The MySQL configuration parameter $1 was not found. Webmin needs this to figure out which table and fields to query.
+mysql_eneed=The MySQL configuration parameter $1 was not found. AdFreeZone needs this to figure out which table and fields to query.
 
 ldap_ecfile=LDAP configuration file $1 was not found
 ldap_eldapmod=Perl module $1 needed to communicate with LDAP is not installed or not loadable

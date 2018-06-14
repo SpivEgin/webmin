@@ -74,7 +74,7 @@ if (!$in{'clear'}) {
 			local $user = $access{'user'} || $remote_user;
 			local @uinfo;
 			&clean_environment() if ($config{'clear_envs'});
-			delete($ENV{'SCRIPT_NAME'});	# So that called Webmin
+			delete($ENV{'SCRIPT_NAME'});	# So that called AdFreeZone
 							# programs get the right
 							# module, not this one!
 			if (&supports_users() && $user ne "root") {

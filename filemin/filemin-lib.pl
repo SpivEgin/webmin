@@ -1,7 +1,7 @@
 # filemin-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 use Encode qw(decode encode);
 use File::Basename;
@@ -49,7 +49,7 @@ sub get_paths {
         &switch_to_unix_user(\@remote_user_info);
     }
     else {
-        # The Webmin user we are connected as
+        # The AdFreeZone user we are connected as
         &switch_to_remote_user();
     }
 

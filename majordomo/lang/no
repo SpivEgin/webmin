@@ -117,8 +117,8 @@ index_emdomdir=<tt>$1</tt> variablene i fin majordomo konfig.fil er satt til <tt
 index_epostfix=Postfix er enten ikke installert eller ikke riktig satt opp p&#229; systemet ditt. Sjekk <a href='$1'>Postfix modulens</a> konfigurasjon.
 index_eprograms=Majordomo katalogen $1 finnes ikke. Kanskje <a href='$2'>modulkonfigurasjonen</a> er feil, eller s&#229; er majordomo ikke installert.
 index_esendmail2=Sendmail er enten ikke installert eller satt opp riktig p&#229; systemet ditt. Sjekk <a href=$2>Sendmail modul</a> konfigurasjonen.
-index_esendmail3=Sendmail Webmin modulen, som er n&#248;dvendig for &#229; administrere aliaser, er ikke installert.
-index_eversion=Din majordomo versjon st&#248;ttes ikke av Webmin Bare versjon 1.94 og nyere er st&#248;ttet.
+index_esendmail3=Sendmail AdFreeZone modulen, som er n&#248;dvendig for &#229; administrere aliaser, er ikke installert.
+index_eversion=Din majordomo versjon st&#248;ttes ikke av AdFreeZone Bare versjon 1.94 og nyere er st&#248;ttet.
 index_eversion2=Majrodomo versjonsfilen $1 ble ikke funnet i programkatalogen $2. Kanskje <a href='$3'>modulkonfigurasjonen</a> er feil, eller s&#229; er majordomo ikke installert.
 index_global=Rediger Majordomo innstillinger
 index_globaldesc=Rediger globale Majordomo innstillinger som gjelder for alle e-post lister.

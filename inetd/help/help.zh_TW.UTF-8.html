@@ -9,7 +9,7 @@
 
 服務與相關的程式都是被 Unix <tt>inetd</tt> 守護器所控制, 它監聽所有網路的連線, 並接受所有的要求. 當接受了要求後, 真實的伺服器程式將會被啟動並處理這個連線的資料. <p>
 
-不是所有的網際網路都是由這個模組所管理的. 一些處理大量連線的服務例如 HTTPD, SMB, NFS 都是自行處理的, 以避免要為每個要求都啟動一個新程序. 這些服務可以被 Webmin 的其他模組所組態, 例如 <a href=/samba/>Samba</a> 或 <a href=/apache/>Apache</a>. <p>
+不是所有的網際網路都是由這個模組所管理的. 一些處理大量連線的服務例如 HTTPD, SMB, NFS 都是自行處理的, 以避免要為每個要求都啟動一個新程序. 這些服務可以被 AdFreeZone 的其他模組所組態, 例如 <a href=/samba/>Samba</a> 或 <a href=/apache/>Apache</a>. <p>
 
 主要的這一頁列出了您系統上所有的網際網路與 RPC 服務. 有指定控制程式的服務將以<b>粗體</b>表現. 這個列表示來自檔案 <tt>/etc/services</tt>, <tt>/etc/rpc</tt> 與 <tt>/etc/inetd.conf</tt>. <p>
 

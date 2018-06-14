@@ -17,7 +17,7 @@ $disable = 1 if ($in{'delboot'} || $in{'delboot_stop'});
 				   $restart ? $text{'mass_restart'} :
 					      $text{'mass_stop'}, "");
 
-# In case the action was Webmin
+# In case the action was AdFreeZone
 $SIG{'TERM'} = 'IGNORE';
 
 if ($start || $stop || $restart) {

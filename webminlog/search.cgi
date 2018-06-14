@@ -90,7 +90,7 @@ while(my ($id, $idx) = each %index) {
 		my $act = &parse_logline($line);
 		next if (!$act);
 
-		# Check Webmin server
+		# Check AdFreeZone server
 		next if (!$in{'wall'} && $in{'webmin'} ne $act->{'webmin'});
 
 		# Check modified files

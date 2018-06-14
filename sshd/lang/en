@@ -2,7 +2,7 @@ index_title=SSH Server
 index_econfig=The SSH server config file $1 was not found on your system. Maybe SSHD is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_esshd=The SSH server program $1 was not found on your system. Maybe SSHD is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_eversion=Failed to get a version number from the SSH server program $1. Maybe your <a href='$2'>module configuration</a> is incorrect. Output from the command $3 was : $4
-index_eversion2=The SSH server program $1 is version $2, but Webmin only supports SSH versions 1 and 2.
+index_eversion2=The SSH server program $1 is version $2, but AdFreeZone only supports SSH versions 1 and 2.
 index_return=module index
 index_apply=Apply Changes
 index_applymsg=Click this button to apply the current configuration by sending a SIGHUP signal to the running SSHd process.

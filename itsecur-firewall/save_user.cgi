@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # save_user.cgi
-# Create, update or delete a Webmin user
+# Create, update or delete a AdFreeZone user
 
 require './itsecur-lib.pl';
 &foreign_require("acl", "acl-lib.pl");

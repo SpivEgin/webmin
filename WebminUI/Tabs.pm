@@ -1,14 +1,14 @@
-package WebminUI::Tabs;
-use WebminCore;
+package AdFreeZoneUI::Tabs;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::Tabs([&tabs])
+=head2 new AdFreeZoneUI::Tabs([&tabs])
 Displayed at the top of a page, to allow selection of various pages
 =cut
 sub new
 {
 my ($self, $tabs) = @_;
-if (defined(&WebminUI::Theme::Tabs::new)) {
-        return new WebminUI::Theme::Tabs(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Tabs::new)) {
+        return new AdFreeZoneUI::Theme::Tabs(@_[1..$#_]);
         }
 $self = { 'tabs' => [ ],
 	  'tab' => 0 };

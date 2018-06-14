@@ -1,1 +1,1 @@
-desc_no=Webmin logging
+desc_no=AdFreeZone logging

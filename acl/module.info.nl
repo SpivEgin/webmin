@@ -1,1 +1,1 @@
-desc_nl=Webmin Gebruikers
+desc_nl=AdFreeZone Gebruikers

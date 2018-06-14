@@ -1,7 +1,7 @@
 index_header=Squid Proxy Server
 index_msgnoconfig=The Squid config file <tt>$1</tt> does not exist. If you have Squid installed, adjust your <a href=/config.cgi?$2 >module configuration</a> to use the correct paths.
 index_msgnoexe=The Squid executable <tt>$1</tt> does not exist. If you have Squid installed, adjust your <a href=/config.cgi?$2 >module configuration</a> to use the correct path.
-index_msgnosupported2=Your version of Squid is not supported by Webmin. Only versions from $1 to $2 are supported by this module.
+index_msgnosupported2=Your version of Squid is not supported by AdFreeZone. Only versions from $1 to $2 are supported by this module.
 index_msgnodir1=Your Squid cache directories <tt>$1</tt> have not been initialized.
 index_msgnodir2=Your Squid cache directory <tt>$1</tt> has not been initialized.
 index_msgnodir3=This must be done before Squid can be run.
@@ -136,7 +136,7 @@ cach_ecannot=You are not allowed to access cache manager statistics
 cach_err=Error
 cach_nfound=The Squid cache manager program <tt>$1</tt> was not found on your system. Maybe your <a href=/config.cgi?$2 >module configuration</a> is incorrect.
 cach_return=squid index
-cach_esame=The <b>Squid cachemgr.cgi executable</b> is set to Webmin's cachemgr.cgi program, not the one supplied by Squid.
+cach_esame=The <b>Squid cachemgr.cgi executable</b> is set to AdFreeZone's cachemgr.cgi program, not the one supplied by Squid.
 
 chown_header=Change Ownership
 chown_stop=Stopping squid ...
@@ -149,7 +149,7 @@ chown_return=squid index
 clear_ecannot=You are not allowed to clear and rebuild the cache
 clear_header=Clear and Rebuild Cache
 clear_msgclear=Are you sure you want to clear and rebuild your Squid cache? This will delete <b>all</b> the files you have cached and re-start your Squid server.
-clear_msgclear2=You should make sure you are not using this cache to communicate with this Webmin server, or you will be disconnected when the cache is shut down.
+clear_msgclear2=You should make sure you are not using this cache to communicate with this AdFreeZone server, or you will be disconnected when the cache is shut down.
 clear_buttclear=Clear and Rebuild Cache
 clear_stop=Stopping squid ...
 clear_done=.. Done
@@ -521,7 +521,7 @@ eprogs_startup=Programs to start initially
 eprogs_idle=Minimum programs to run
 eprogs_concurrency=Number of concurrent requests per program
 eprogs_cap=Authentication program
-eprogs_capweb=Webmin default
+eprogs_capweb=AdFreeZone default
 eprogs_noap=Number of authentication programs
 eprogs_ttl=Authentication cache time
 eprogs_aittl=Authenticate IP cache time

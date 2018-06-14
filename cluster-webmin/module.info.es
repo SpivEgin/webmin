@@ -1,1 +1,1 @@
-desc_es=Cluster - Servidores Webmin
+desc_es=Cluster - Servidores AdFreeZone

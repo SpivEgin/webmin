@@ -58,7 +58,7 @@ if ($need_create) {
 	print "<input type=radio name=real value=1 checked> Setup as an ",
 	      "internet name server, and download root server information<p>\n";
 	print "<input type=radio name=real value=2> Setup as an internet name ",
-	      "server, but use Webmin's older root server information<p>\n";
+	      "server, but use AdFreeZone's older root server information<p>\n";
 	print "<center><input type=submit value=\"Create Primary Configuration File and Start Nameserver\"></center>\n";
 	print "</form>\n";
 	print &ui_hr();

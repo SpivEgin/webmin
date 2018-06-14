@@ -60,7 +60,7 @@ authu_return=gebruikerslijst
 authu_screate=Voeg een gebruiker toe wanneer een Unix gebruiker wordt toegevoegd
 authu_sdelete=Verwijder de gebruiker wanneer de Unix gebruiker wordt verwijderd
 authu_smodify=Wijzig de gebruiker wanneer de Unix gebruiker wordt gewijzigd
-authu_sync=De onderstaande opties stellen u in staat om Webmin te configureren voor het automatisch toevoegen, bijwerken of verwijderen van een gebruiker in dit wachtwoord bestand wanneer een gebruiker word toegevoegd, gewijzigd of verwijderd in de <tt>Gebruikers en Groepen</tt> module.
+authu_sync=De onderstaande opties stellen u in staat om AdFreeZone te configureren voor het automatisch toevoegen, bijwerken of verwijderen van een gebruiker in dit wachtwoord bestand wanneer een gebruiker word toegevoegd, gewijzigd of verwijderd in de <tt>Gebruikers en Groepen</tt> module.
 authu_title=Gebruikers Lijst
 authu_user=Gebruikersnaam
 autoindex_alt=Alternatieve tekst
@@ -345,7 +345,7 @@ cvirt_err=Fout bij het aanmaken van de virtuele server
 cvirt_etaken=Een virtuele server met dezelfde naam en poort bestaat al
 default_serv=standaard server
 defines_config=Merk op dat de volgende gedefinieerde parameters al bekend zijn: $1
-defines_desc=Wanneer Apache wordt gestart, kunnen parameters aan apache worden meegegeven met de <tt>-D</tt> opdracht regel optie. Omdat deze parameters invloed kunnen uitoefenen welke richtlijnen gebruikt worden in uw configuratie bestanden, moet Webmin weten welke parameters er aan Apache worden meegegeven wanneer het wordt gestart. Vul de parameters die aan apache worden doorgegeven in het tekstveld aan de rechterkant.
+defines_desc=Wanneer Apache wordt gestart, kunnen parameters aan apache worden meegegeven met de <tt>-D</tt> opdracht regel optie. Omdat deze parameters invloed kunnen uitoefenen welke richtlijnen gebruikt worden in uw configuratie bestanden, moet AdFreeZone weten welke parameters er aan Apache worden meegegeven wanneer het wordt gestart. Vul de parameters die aan apache worden doorgegeven in het tekstveld aan de rechterkant.
 defines_ecannot=U bent niet bevoegd om httpd definities te bewerken
 defines_list=Definieer de parameters
 defines_title=Bewerk Gedefinieerde Parameters
@@ -444,7 +444,7 @@ index_desccreate=Dit formulier kan gebruikt worden om een nieuwe Apache virtual 
 index_descglobal=De opties "Toegang verlenen" door op deze iconen te klikken geld voor de hele Apache server, inclusief alle virtuele hosts.
 index_desclist=De lijst hieronder laat alle huidige gedefinieerde Apache Virtuele Hosts zien waar u toegang tot heeft.Ook de <b>Default Server</b> toegang settings die toegevoegd zijn aan alle virtuele hosts, tenzij overschreven door anderen.
 index_econf=De Apache configuratie file $1 bestaat niet. Als u Apache heeft geinstalleerd, pas dan de <a href='$2'>module configuratie</a> aan om de juiste paden te gebruiken.
-index_eports=Uw Apache configuratie bevat meer dan 1 $1 richtlijn. De huidige versie van Webmin ondersteund deze configuratie niet.
+index_eports=Uw Apache configuratie bevat meer dan 1 $1 richtlijn. De huidige versie van AdFreeZone ondersteund deze configuratie niet.
 index_equals=gelijken
 index_eroot=De Apache root directory $1 bestaat niet. Als u Apache heeft geinstalleerd, pas dan de <a href='$2'>module configuratie</a> aan om de juiste paden te gebruiken.
 index_eserver=Het Apache server programma $1 bestaat niet. Als u Apache heeft geinstalleerd, pas dan de <a href='$2'>module configuratie</a> aan om de juiste paden te gebruiken.
@@ -957,9 +957,9 @@ perchild_num=Proces nummer
 perchild_numservers=Aantal neven processen
 perchild_sthreads=Aanvankelijke uitvoeringen per neven proces
 perchild_uid=UID
-reconfig_desc1=Uw Apache configuratie is gewijzigd, of is nog niet onderzocht door Webmin. Hieronder staat een lijst van alle Apache modules die door Webmin worden ondersteund, met degenen die nu zijn geinstalleerd geselecteerd. U kunt modules selecteren of de-selecteren wanneer de lijst niet klopt.
-reconfig_desc2=Hieronder staat een lijst van alle Apache modules die door Webmin worden ondersteund, met degenen die nu zijn geinstalleerd geselecteerd. Als u dynamisch geladen modules gebruikt moet u mogelijk de dynamisch geladen modules aanvinken.
-reconfig_desc3=Als u niet zeker bent welke modules worden gebruikt door Apache op uw systeem, kan Webmin automatisch uitzoeken welke modules ondersteund worden
+reconfig_desc1=Uw Apache configuratie is gewijzigd, of is nog niet onderzocht door AdFreeZone. Hieronder staat een lijst van alle Apache modules die door AdFreeZone worden ondersteund, met degenen die nu zijn geinstalleerd geselecteerd. U kunt modules selecteren of de-selecteren wanneer de lijst niet klopt.
+reconfig_desc2=Hieronder staat een lijst van alle Apache modules die door AdFreeZone worden ondersteund, met degenen die nu zijn geinstalleerd geselecteerd. Als u dynamisch geladen modules gebruikt moet u mogelijk de dynamisch geladen modules aanvinken.
+reconfig_desc3=Als u niet zeker bent welke modules worden gebruikt door Apache op uw systeem, kan AdFreeZone automatisch uitzoeken welke modules ondersteund worden
 reconfig_ecannot=U bent niet bevoegd om apache te her-configureren
 reconfig_ever=Fout bij het ophalen van de versie van het Apache server programma $1. Controleer uw <a href='$2'>module configuratie</a> om er zeker van te zijn dat het pad correct is.
 reconfig_ok=Configureer

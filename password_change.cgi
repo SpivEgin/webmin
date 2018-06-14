@@ -3,7 +3,7 @@
 # Actually update a user's password by directly modifying /etc/shadow
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 $ENV{'MINISERV_INTERNAL'} || die "Can only be called by miniserv.pl";
 &init_config();
@@ -15,17 +15,17 @@ $miniserv{'passwd_mode'} == 2 || die "Password changing is not enabled!";
 $in{'new1'} ne '' || &pass_error($text{'password_enew1'});
 $in{'new1'} eq $in{'new2'} || &pass_error($text{'password_enew2'});
 
-# Is this a Webmin user?
+# Is this a AdFreeZone user?
 if (&foreign_check("acl")) {
 	&foreign_require("acl", "acl-lib.pl");
 	($wuser) = grep { $_->{'name'} eq $in{'user'} } &acl::list_users();
 	if ($wuser->{'pass'} eq 'x') {
-		# A Webmin user, but using Unix authentication
+		# A AdFreeZone user, but using Unix authentication
 		$wuser = undef;
 		}
 	elsif ($wuser->{'pass'} eq '*LK*' ||
 	       $wuser->{'pass'} =~ /^\!/) {
-		&pass_error("Webmin users with locked accounts cannot change ".
+		&pass_error("AdFreeZone users with locked accounts cannot change ".
 		       	    "their passwords!");
 		}
 	}
@@ -35,7 +35,7 @@ if (!$in{'pam'} && !$wuser) {
 	}
 
 if ($wuser) {
-	# Update Webmin user's password
+	# Update AdFreeZone user's password
 	$enc = &acl::encrypt_password($in{'old'}, $wuser->{'pass'});
 	$enc eq $wuser->{'pass'} || &pass_error($text{'password_eold'});
 	$perr = &acl::check_password_restrictions($in{'user'}, $in{'new1'});

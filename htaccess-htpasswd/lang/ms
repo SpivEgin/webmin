@@ -1,6 +1,6 @@
 acl_dirs=Direktori dibenar
 acl_home=Termasuk direktori rumah pengguna Unix? 
-acl_same=Sama seperti logmasuk Webmin
+acl_same=Sama seperti logmasuk AdFreeZone
 acl_user=Cipta .htaccess dan fail htusers sebagai pengguna Unix
 dir_auto=Pilih secara automatik
 dir_crypt=Katalalu Enkripsi

@@ -3,7 +3,7 @@
 # Displays help HTML for some module, with substitutions
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 &error_setup($text{'help_err'});

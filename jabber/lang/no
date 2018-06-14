@@ -34,11 +34,11 @@ index_comments=Advarsel - din Jabber konfig.fil $1 inneholder kommentarer. Disse
 index_econfig=Jabber konfig.filen $1 finnes ikke. Enten er Jabber ikke installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
 index_edir=Jabber basekatalog $1 finnes ikke. Enten er Jabber ikke installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
 index_ejabberd=Jabber tjenerprogrammet $1 ble ikke funnet p&#229; systemet ditt. Enten er Jabber ikke installert, eller s&#229; er <a href='$2'>modulkonfigurasjonen</a> feil.
-index_emodule=Perl modulen $1 som kreves for at Webmin skal kunne behandle Jabbers XML konfigurasjon, er ikke installert. <a href='$2'>Klikk her</a> for &#229; installere den direkte fra CPAN.
-index_emodules=Perl modulene $1 og $2 som Webmin krever for &#229; behandle Jabbers XML konfigurasjon, er ikke installert.<a href='$3'>Klikk her</a> for &#229; installere dem direkte fra CPAN.
+index_emodule=Perl modulen $1 som kreves for at AdFreeZone skal kunne behandle Jabbers XML konfigurasjon, er ikke installert. <a href='$2'>Klikk her</a> for &#229; installere den direkte fra CPAN.
+index_emodules=Perl modulene $1 og $2 som AdFreeZone krever for &#229; behandle Jabbers XML konfigurasjon, er ikke installert.<a href='$3'>Klikk her</a> for &#229; installere dem direkte fra CPAN.
 index_eparse=Perl modulen $1 kunne ikke parse din Jabber konfig.fil : $2
-index_eversion=Webmin st&#248;tter bare Jabber versjon $2, men kommandoen $3 rapporterer f&#248;lgende versjonsinformasjon : $1
-index_eversion2=Webmin st&#248;tter bare Jabber versjoner under $2, men kommandoen $3 rapporterer f&#248;lgende versjonsinformasjon : $1
+index_eversion=AdFreeZone st&#248;tter bare Jabber versjon $2, men kommandoen $3 rapporterer f&#248;lgende versjonsinformasjon : $1
+index_eversion2=AdFreeZone st&#248;tter bare Jabber versjoner under $2, men kommandoen $3 rapporterer f&#248;lgende versjonsinformasjon : $1
 index_expat=Forsikre deg om at du har Expat C biblioteket og headere installert f&#248;r du fors&#248;ker &#229; installere Perl modulene, siden de ar avhengige av det og vil feile dersom biblioteket ikke er installert.
 index_restart=Bruk endringer
 index_restartmsg=Klikk p&#229; denne knappen for &#229; ta i bruk gjeldende konfigurasjon ved &#229; stopp og starte Jabber tjeneren.

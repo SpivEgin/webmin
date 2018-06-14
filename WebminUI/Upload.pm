@@ -1,15 +1,15 @@
-package WebminUI::Upload;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Upload;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Upload(name, [size])
+=head2 new AdFreeZoneUI::Upload(name, [size])
 Create a new file upload field
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Upload::new)) {
-        return new WebminUI::Theme::Upload(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Upload::new)) {
+        return new AdFreeZoneUI::Theme::Upload(@_[1..$#_]);
         }
 my ($self, $name, $size) = @_;
 $self = { 'size' => 30 };

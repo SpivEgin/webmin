@@ -3,7 +3,7 @@
 
 $netinfo_domain = $config{'netinfo_domain'} || ".";
 
-# Mapping from OSX user properties to Webmin user hash keys
+# Mapping from OSX user properties to AdFreeZone user hash keys
 %user_properties_map = (
 	'RecordName' => 'user',
 	'UniqueID' => 'uid',

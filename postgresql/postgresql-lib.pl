@@ -3,7 +3,7 @@
 # XXX updating date field
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'view-lib.pl';
 if ($config{'plib'}) {
@@ -33,7 +33,7 @@ if ($module_info{'usermin'}) {
 	%displayconfig = %userconfig;
 	}
 else {
-	# Login and password is determined by ACL in Webmin
+	# Login and password is determined by ACL in AdFreeZone
 	%access = &get_module_acl();
 	if ($access{'user'} && !$use_global_login) {
 		$postgres_login = $access{'user'};
@@ -273,7 +273,7 @@ sub execute_sql_safe
 local $sql = $_[1];
 local @params = @_[2..$#_];
 if ($gconfig{'debug_what_sql'}) {
-	# Write to Webmin debug log
+	# Write to AdFreeZone debug log
 	local $params;
 	for(my $i=0; $i<@params; $i++) {
 		$params .= " ".$i."=".$params[$i];
@@ -530,7 +530,7 @@ if ($module_info{'usermin'}) {
 	return $rv;
 	}
 else {
-	# Check Webmin ACL
+	# Check AdFreeZone ACL
 	local $d;
 	return 1 if ($access{'dbs'} eq '*');
 	foreach $d (split(/\s+/, $access{'dbs'})) {

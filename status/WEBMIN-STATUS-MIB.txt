@@ -1,7 +1,7 @@
 WEBMIN-STATUS-MIB DEFINITIONS ::= BEGIN
 
 --
--- MIB objects for Webmin's status module
+-- MIB objects for AdFreeZone's status module
 --
 
 IMPORTS
@@ -11,7 +11,7 @@ IMPORTS
     InetAddressType, InetAddress            FROM INET-ADDRESS-MIB
 ;
 
-Webmin MODULE-IDENTITY
+AdFreeZone MODULE-IDENTITY
     LAST-UPDATED "200412220000Z"
     ORGANIZATION "www.webmin.com"
     CONTACT-INFO    
@@ -21,24 +21,24 @@ Webmin MODULE-IDENTITY
 
           email:    jcameron@webmin.com"
     DESCRIPTION
-	"MIB objects for Webmin status module traps"
+	"MIB objects for AdFreeZone status module traps"
     ::= { enterprises 10000 }
 
 --
 -- top level structure
 --
-WebminStatus       OBJECT IDENTIFIER ::= { Webmin 1 }
+AdFreeZoneStatus       OBJECT IDENTIFIER ::= { AdFreeZone 1 }
 
-WebminStatusMessage OBJECT-TYPE
+AdFreeZoneStatusMessage OBJECT-TYPE
     SYNTAX      SnmpAdminString
     MAX-ACCESS  accessible-for-notify
     STATUS      current
     DESCRIPTION
-	"A message from Webmin's System and Server status module indicating
+	"A message from AdFreeZone's System and Server status module indicating
 	 that some event has occurred."
-::= { WebminStatus 1 }
+::= { AdFreeZoneStatus 1 }
 
-WebminStatusNotification NOTIFICATION-TYPE
+AdFreeZoneStatusNotification NOTIFICATION-TYPE
     STATUS      current
     DESCRIPTION
         "An example notification, used to illustrate the
@@ -48,6 +48,6 @@ WebminStatusNotification NOTIFICATION-TYPE
          This notification will typically be sent every
 	 30 seconds, using the code found in the example module
              agent/mibgroup/examples/notification.c"
-::= { WebminStatus 2 }
+::= { AdFreeZoneStatus 2 }
     
 END

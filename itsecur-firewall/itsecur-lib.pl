@@ -5,7 +5,7 @@
 # XXX only backup firewall module users?
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do "$config{'type'}-lib.pl";
 
@@ -939,7 +939,7 @@ foreach $w (@{$_[0]}) {
 			}
 		}
 	elsif ($w eq "users") {
-		# Copy all Webmin users
+		# Copy all AdFreeZone users
 		opendir(DIR, $module_config_directory);
 		push(@files, grep { /\.acl$/ } readdir(DIR));
 		closedir(DIR);

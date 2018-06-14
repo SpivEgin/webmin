@@ -1,18 +1,18 @@
-package WebminUI::File;
-use WebminUI::Textbox;
-use WebminCore;
-@ISA = ( "WebminUI::Textbox" );
+package AdFreeZoneUI::File;
+use AdFreeZoneUI::Textbox;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Textbox" );
 
-=head2 new WebminUI::File(name, value, size, [directory], [disabled])
+=head2 new AdFreeZoneUI::File(name, value, size, [directory], [disabled])
 A text box for selecting a file
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::File::new)) {
-        return new WebminUI::Theme::File(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::File::new)) {
+        return new AdFreeZoneUI::Theme::File(@_[1..$#_]);
         }
 my ($self, $name, $value, $size, $directory, $disabled) = @_;
-$self = new WebminUI::Textbox($name, $value, $size, $disabled);
+$self = new AdFreeZoneUI::Textbox($name, $value, $size, $disabled);
 bless($self);
 $self->set_directory($directory);
 return $self;
@@ -24,7 +24,7 @@ Returns the HTML for this file input
 sub html
 {
 my ($self) = @_;
-my $rv = WebminUI::Textbox::html($self);
+my $rv = AdFreeZoneUI::Textbox::html($self);
 my $name = $self->get_name();
 my $directory = $self->get_directory();
 my $add = 0;

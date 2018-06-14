@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Delete a bunch of Webmin groups
+# Delete a bunch of AdFreeZone groups
 
 use strict;
 use warnings;

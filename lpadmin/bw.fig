@@ -62,7 +62,7 @@ Single
 	 900 5700 9300 2100
 -6
 6 900 6300 9300 7800
-4 0 0 100 0 0 24 0.0000 4 330 7545 900 6600 This is the printer test page for the Webmin Printer\001
+4 0 0 100 0 0 24 0.0000 4 330 7545 900 6600 This is the printer test page for the AdFreeZone Printer\001
 4 0 0 100 0 0 24 0.0000 4 330 8340 900 7020 Administration module. If you can read this, your printer\001
 4 0 0 100 0 0 24 0.0000 4 330 4260 900 7440 is probably working properly.\001
 -6
@@ -98,5 +98,5 @@ Single
 2 2 0 0 0 7 100 0 7 0.000 0 0 -1 0 0 5
 	 5700 8100 5100 8100 5100 11700 5700 11700 5700 8100
 -6
-4 0 0 100 0 0 72 0.0000 4 960 8250 900 1500 Webmin Test Page\001
-4 0 0 100 0 0 72 0.0000 4 960 8250 900 13200 Webmin Test Page\001
+4 0 0 100 0 0 72 0.0000 4 960 8250 900 1500 AdFreeZone Test Page\001
+4 0 0 100 0 0 72 0.0000 4 960 8250 900 13200 AdFreeZone Test Page\001

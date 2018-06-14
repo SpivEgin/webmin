@@ -1,6 +1,6 @@
 =head1 webminlog-lib.pl
 
-This module contains functions for parsing the Webmin actions log file.
+This module contains functions for parsing the AdFreeZone actions log file.
 
  foreign_require("webminlog", "webminlog-lib.pl");
  @actions = webminlog::list_webmin_log(undef, "useradmin", undef, undef);
@@ -13,7 +13,7 @@ This module contains functions for parsing the Webmin actions log file.
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 our %access = &get_module_acl();
 our %access_mods = map { $_, 1 } split(/\s+/, $access{'mods'});
@@ -24,12 +24,12 @@ our (%text, $module_config_directory, $root_directory, $webmin_logfile,
 
 =head2 list_webmin_log([only-user], [only-module], [start-time, end-time])
 
-Returns an array of matching Webmin log events, each of which is a hash ref
+Returns an array of matching AdFreeZone log events, each of which is a hash ref
 in the format returned by parse_logline (see below). By default all actions
 will be returned, but you can limit it to a subset using by setting the
 following parameters :
 
-=item only-user - Only return actions by this Webmin user.
+=item only-user - Only return actions by this AdFreeZone user.
 
 =item only-module - Only actions in this module.
 
@@ -72,13 +72,13 @@ a hash ref containing the following keys :
 
 =item id - A unique ID for the action.
 
-=item user - The Webmin user who did it.
+=item user - The AdFreeZone user who did it.
 
 =item sid - The user's session ID.
 
 =item ip - The IP address they were logged in from.
 
-=item module - The Webmin module name in which the action was performed.
+=item module - The AdFreeZone module name in which the action was performed.
 
 =item script - Relative filename of the script that performed the action.
 
@@ -310,7 +310,7 @@ return @files;
 
 =head2 can_user(username)
 
-Returns 1 if the current Webmin user can view log entries for the given user.
+Returns 1 if the current AdFreeZone user can view log entries for the given user.
 
 =cut
 sub can_user
@@ -320,7 +320,7 @@ return $access_users{'*'} || $access_users{$_[0]};
 
 =head2 can_mod(module)
 
-Returns 1 if the current Webmin user can view log entries for the given module.
+Returns 1 if the current AdFreeZone user can view log entries for the given module.
 
 =cut
 sub can_mod

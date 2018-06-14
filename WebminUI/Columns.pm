@@ -1,14 +1,14 @@
-package WebminUI::Columns;
-use WebminCore;
+package AdFreeZoneUI::Columns;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::Columns(cols)
+=head2 new AdFreeZoneUI::Columns(cols)
 Displays some page elements in a multi-column table
 =cut
 sub new
 {
 my ($self, $cols) = @_;
-if (defined(&WebminUI::Theme::Columns::new)) {
-        return new WebminUI::Theme::Columns(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Columns::new)) {
+        return new AdFreeZoneUI::Theme::Columns(@_[1..$#_]);
         }
 $self = { 'columns' => 2 };
 bless($self);
@@ -43,7 +43,7 @@ return $rv;
 }
 
 =head2 add(object)
-Adds some WebminUI:: object to this list
+Adds some AdFreeZoneUI:: object to this list
 =cut
 sub add
 {
@@ -66,7 +66,7 @@ my ($self) = @_;
 return $self->{'columns'};
 }
 
-=head2 set_page(WebminUI::Page)
+=head2 set_page(AdFreeZoneUI::Page)
 Called when this menu is added to a page
 =cut
 sub set_page

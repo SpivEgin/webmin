@@ -25,7 +25,7 @@ check_econsole=Bacula konsoll kommandoen $1 ble ikke funnet.
 check_edir=Bacula konfigurasjonskatalogen $1 ble ikke funnet p&#229; systemet ditt.
 check_edirector=Bacula regiss&#248;r konfigurasjonsfilen $1 ble ikke funnet.
 check_engmod=Modulen OpenCountry Bacula grupper er ikke installert
-check_eservers=Ingen Webmin tjenergrupper er definert
+check_eservers=Ingen AdFreeZone tjenergrupper er definert
 chooser_all=Alle
 chooser_days=Datoer
 chooser_daysh=Dager i m&#229;neden &#229; utf&#248;re
@@ -266,7 +266,7 @@ index_econsole=Bacula konsoll kommandoen $1 kunne ikke kommunisere med Bacula re
 index_econsole2=Bacula konsoll-kommandoen $1 er ikke konfigurert med en gyldig Bacula regiss&#248;r-vert. Den bruker for &#248;yeblikket $1, og den eksisterer ikke.
 index_edb=Kunne ikke koble til Bacula databasen : $1 Kanskje den ikke er satt opp, eller s&#229; er <a href='$2'>modulekonfigurasjonen</a> feil.
 index_eng=Kunne ikle koble til Bacula grupper databasen : $1. Kanskje den ikke finnes, eller s&#229; er <a href='$2'>modulelkonfigurasjonen</a> feil.
-index_eversion=Systemet ditt bruker Bacula versjon $2, men Webmin modulen st&#248;tter bare versjon $1 eller nyere.
+index_eversion=Systemet ditt bruker Bacula versjon $2, men AdFreeZone modulen st&#248;tter bare versjon $1 eller nyere.
 index_fd=Fil daemon konfigurasjon
 index_fixaddr=Klikk her for &#229; fikse Bacula regiss&#248;r-verten
 index_fixpass=Klikk her for &#229; fikse konsoll passordet

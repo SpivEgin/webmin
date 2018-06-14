@@ -19,7 +19,7 @@ Example code:
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 if ($gconfig{'os_type'} =~ /^\S+\-linux$/) {
 	do "linux-lib.pl";
@@ -416,7 +416,7 @@ else {
 
 =head2 can_edit_filesys(filesys)
 
-Returns 1 if the current Webmin user can manage quotas on some filesystem.
+Returns 1 if the current AdFreeZone user can manage quotas on some filesystem.
 
 =cut
 sub can_edit_filesys
@@ -430,7 +430,7 @@ return 0;
 
 =head2 can_edit_user(user)
 
-Returns 1 if the current Webmin user can manage quotas for some Unix user.
+Returns 1 if the current AdFreeZone user can manage quotas for some Unix user.
 
 =cut
 sub can_edit_user
@@ -456,7 +456,7 @@ else {
 
 =head2 can_edit_group(group)
 
-Returns 1 if the current Webmin user can manage quotas for some Unix group.
+Returns 1 if the current AdFreeZone user can manage quotas for some Unix group.
 
 =cut
 sub can_edit_group

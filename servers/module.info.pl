@@ -1,1 +1,1 @@
-desc_pl=Serwery Webmina
+desc_pl=Serwery AdFreeZonea

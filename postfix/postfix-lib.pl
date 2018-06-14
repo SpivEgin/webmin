@@ -6,7 +6,7 @@
 $POSTFIX_MODULE_VERSION = 5;
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 $access{'postfinger'} = 0 if (&is_readonly_mode());
@@ -1767,7 +1767,7 @@ sub is_table_comment
 {
 local ($line, $force) = @_;
 if ($config{'prefix_cmts'} || $force) {
-	return $line =~ /^\s*#+\s*Webmin:\s*(.*)/ ? $1 : undef;
+	return $line =~ /^\s*#+\s*AdFreeZone:\s*(.*)/ ? $1 : undef;
 	}
 else {
 	return $line =~ /^\s*#+\s*(.*)/ ? $1 : undef;
@@ -1783,7 +1783,7 @@ if (!$cmt) {
 	return ( );
 	}
 elsif ($config{'prefix_cmts'} || $force) {
-	return ( "# Webmin: $cmt" );
+	return ( "# AdFreeZone: $cmt" );
 	}
 else {
 	return ( "# $cmt" );
@@ -2193,7 +2193,7 @@ return @rv;
 }
 
 # list_smtpd_restrictions()
-# Returns a list of SMTP server restrictions known to Webmin
+# Returns a list of SMTP server restrictions known to AdFreeZone
 sub list_smtpd_restrictions
 {
 return ( "permit_mynetworks",

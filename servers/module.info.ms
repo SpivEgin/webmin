@@ -1,1 +1,1 @@
-desc_ms=Indeks Pelayan Webmin
+desc_ms=Indeks Pelayan AdFreeZone

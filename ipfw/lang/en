@@ -9,8 +9,8 @@ index_unapply=Revert Configuration
 index_unapplydesc=Click this button to reset the configuration listed above to the one that is currently active.
 index_boot=Activate at boot
 index_bootdesc=Change this option to control whether your firewall is activated at boot time or not.
-index_setup=No IPFW firewall has been setup yet on your system. Webmin can set one up for you, to be stored in the file $1, with the initial settings based your selection of firewall type below..
-index_rsetup=The IPFW firewall configuration on your system is about to be re-set. Webmin will set up new default rules, to be stored in the file $1, with the initial settings based your selection of firewall type below..
+index_setup=No IPFW firewall has been setup yet on your system. AdFreeZone can set one up for you, to be stored in the file $1, with the initial settings based your selection of firewall type below..
+index_rsetup=The IPFW firewall configuration on your system is about to be re-set. AdFreeZone will set up new default rules, to be stored in the file $1, with the initial settings based your selection of firewall type below..
 index_auto0=Allow all traffic
 index_auto1=Do network address translation on external interface:
 index_auto2=Block all incoming connections on external interface:
@@ -23,7 +23,7 @@ index_count2=Data
 index_reset=Reset Firewall
 index_resetdesc=Click this button to clear all existing firewall rules and set up new rules for a basic initial configuration.
 index_cluster=Cluster Servers
-index_clusterdesc=Click this button to set up additional Webmin servers to which the firewall configuration will be automatically copied.
+index_clusterdesc=Click this button to set up additional AdFreeZone servers to which the firewall configuration will be automatically copied.
 index_return=firewall rules
 
 index_num=Num
@@ -35,7 +35,7 @@ index_radd=Add
 index_add=Add a new firewall rule.
 index_add2=Add Firewall Rule
 index_delete=Delete Selected
-index_existing=Webmin has detected $1 IPFW firewall rules currently in use, which are not recorded in the file $2. These rules were probably setup from a script, which this module does not know how to read and edit.<p>If you want to use this module to manage your IPFW firewall, click the button below to convert the existing rules to a save file, and then disable your existing firewall script.
+index_existing=AdFreeZone has detected $1 IPFW firewall rules currently in use, which are not recorded in the file $2. These rules were probably setup from a script, which this module does not know how to read and edit.<p>If you want to use this module to manage your IPFW firewall, click the button below to convert the existing rules to a save file, and then disable your existing firewall script.
 index_saveex=Save Firewall Rules
 index_headerex=Existing firewall configuration
 
@@ -221,7 +221,7 @@ cluster_desc=Description
 cluster_os=Operating system
 cluster_add=Add server
 cluster_gadd=Add servers in group
-cluster_need=You must add servers with a login and password in the Webmin Servers Index module before they can be managed here.
+cluster_need=You must add servers with a login and password in the AdFreeZone Servers Index module before they can be managed here.
 cluster_return=cluster servers
 cluster_delete=Remove Selected
 

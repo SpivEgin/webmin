@@ -64,7 +64,7 @@ cs_link=Link texto
 cs_page=Pagina de background
 cs_table=Tabela de background
 cs_text=Text normal
-dav_cpan=<a href='$1'>Click here</a> para fazer download do Webmin e instalar para voc&#234; automaticamente.
+dav_cpan=<a href='$1'>Click here</a> para fazer download do AdFreeZone e instalar para voc&#234; automaticamente.
 dav_desc=Usermin's DAV support allows clients that support the DAV protocol to connect to this Usermin server and read and write files. All file access with be done with the Unix privileges of the logged-in user, and will be restricted to the specified directory.
 dav_disabled=Disabled
 dav_ecannot=You are not allowed to configure the DAV server
@@ -84,7 +84,7 @@ dav_title=DAV Server
 dav_users=Users who can use DAV
 dav_users0=Users and groups listed below ..
 dav_users1=All users
-defacl_desc=This page allows you to configure various access control option that apply to Usermin modules and users. These options are similar to those in the Global ACL for each user in the Webmin Users module.
+defacl_desc=This page allows you to configure various access control option that apply to Usermin modules and users. These options are similar to those in the Global ACL for each user in the AdFreeZone Users module.
 defacl_err=Failed to save access control options
 defacl_header=Access control options for Usermin users
 defacl_title=Access Control Options
@@ -103,8 +103,8 @@ index_boot=Start at boot time
 index_bootmsg=Change this option to control whether Usermin is started at boot time or not. If it is not currently started at boot and Yes is chosen, a new init script will be created.
 index_deb=Install Usermin Debian package
 index_econfig=The directory $1 either does not exist on your system, or is not the Usermin configuration directory. Maybe Usermin is not installed, or your <a href='$2'>module configuration</a> is incorrect.
-index_esame=The Usermin configuration directory $1 set on the <a href='$2'>module configuration</a> page is the same as Webmin's directory, which is not correct.
-index_install=Webmin can automatically download and install the latest version of Usermin for you. However, this should not be done if the program is already installed and is using a different configuration directory.
+index_esame=The Usermin configuration directory $1 set on the <a href='$2'>module configuration</a> page is the same as AdFreeZone's directory, which is not correct.
+index_install=AdFreeZone can automatically download and install the latest version of Usermin for you. However, this should not be done if the program is already installed and is using a different configuration directory.
 index_restart=Restart Usermin
 index_restartmsg=Click this button to re-start the Usermin server process. This may be necessary if you have recently upgraded Perl.
 index_return=Usermin configuration
@@ -131,14 +131,14 @@ install_eirpm=RPM install failed : $1
 install_eneither=RPM does not contain a usermin module or theme
 install_enone=File does not appear to contain any modules
 install_eos=Module $1 does not support this operating system ($2 $3)
-install_eperldep=Module $1 requires Perl module $2.<br>However, you can have Webmin <a href='$3'>download and install</a> the Perl module for you.
+install_eperldep=Module $1 requires Perl module $2.<br>However, you can have AdFreeZone <a href='$3'>download and install</a> the Perl module for you.
 install_erpm=Not a Usermin module or theme RPM
 install_err1=Failed to install module from $1
 install_err2=Failed to install uploaded module
 install_err3=Failed to install module from $1
 install_etar=Not a valid module file : $1
 install_eurl=Invalid URL
-install_eusermin=Module $1 is for Webmin, not Usermin
+install_eusermin=Module $1 is for AdFreeZone, not Usermin
 install_ever=Module $1 requires Usermin version $2 or above
 install_line2=$1 in $2 ($3 kB) under category $4
 install_title=Install Module
@@ -329,7 +329,7 @@ themes_eurl=Invalid URL
 themes_installdesc=Use the form below to install a new Usermin theme on your system. Themes are typically distributed in <tt>.wbt</tt> files, but can also be installed from RPM files if supported by your operating system.
 themes_installok=Install Theme
 themes_line=$1 in $2 ($3 kB)
-themes_ok=Theme changed successfully .. redirecting to the Webmin index page.
+themes_ok=Theme changed successfully .. redirecting to the AdFreeZone index page.
 themes_sel=Current theme :
 themes_title=Usermin Themes
 ui_default=Default
@@ -424,7 +424,7 @@ upgrade_euntar=Failed to untar file : $1
 upgrade_eupdates=Failed to download list of updates : $1
 upgrade_eurl=Missing or invalid URL
 upgrade_eversion=Cannot downgrade to version $1
-upgrade_ewebmin=File is Webmin version $1, not a Usermin update.
+upgrade_ewebmin=File is AdFreeZone version $1, not a Usermin update.
 upgrade_failed=.. upgrade failed!
 upgrade_ftp=Latest version from www.usermin.com
 upgrade_local=From local file

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # edit_user.cgi
-# Show one Webmin user
+# Show one AdFreeZone user
 
 require './itsecur-lib.pl';
 &foreign_require("acl", "acl-lib.pl");

@@ -38,7 +38,7 @@ else {
 	print &text('cert_pickup', "cert_output.cgi?file=$temp2"),"<p>\n";
 	&ui_print_footer("", $text{'index_return'});
 
-	# Update the Webmin user
+	# Update the AdFreeZone user
 	my ($me) = grep { $_->{'name'} eq $base_remote_user } &list_users();
 	$me || &error($text{'edit_egone'});
 	$me->{'cert'} = "/C=$in{'countryName'}".

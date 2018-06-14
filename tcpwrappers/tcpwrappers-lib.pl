@@ -2,7 +2,7 @@
 # Library for TCP Wrappers
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 # list_rules($filename)

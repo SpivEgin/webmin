@@ -2,7 +2,7 @@
 # update system.
 
 BEGIN { push(@INC, ".."); };
-eval "use WebminCore;";
+eval "use AdFreeZoneCore;";
 &init_config();
 &foreign_require("software", "software-lib.pl");
 &foreign_require("cron", "cron-lib.pl");
@@ -186,7 +186,7 @@ sub compare_versions
 {
 my ($pkg1, $pkg2) = @_;
 if ($pkg1->{'system'} eq 'webmin' && $pkg2->{'system'} eq 'webmin') {
-	# Webmin module version compares are always numeric
+	# AdFreeZone module version compares are always numeric
 	return $pkg1->{'version'} <=> $pkg2->{'version'};
 	}
 my $ec = $pkg1->{'epoch'} <=> $pkg2->{'epoch'};
@@ -295,7 +295,7 @@ return @updates_available_cache;
 }
 
 # package_install(package-name, [system])
-# Install some package, either from an update system or from Webmin. Returns
+# Install some package, either from an update system or from AdFreeZone. Returns
 # a list of updated package names.
 sub package_install
 {
@@ -359,7 +359,7 @@ return @rv;
 }
 
 # package_install_multiple(&package-names, system)
-# Install multiple packages, either from an update system or from Webmin.
+# Install multiple packages, either from an update system or from AdFreeZone.
 # Returns a list of updated package names.
 sub package_install_multiple
 {

@@ -13,7 +13,7 @@ index_clink=Vielleicht ist es nicht installiert ist, oder Ihr <a href='$1'>Modul
 index_delete=L&#246;sche Ausgew&#228;hlte Ziele
 index_lun=Disk-Ger&#228;te
 index_manual=Editiere Konfigurationsdateien
-index_manualdesc=Manuell Bearbeiten eines der iSCSI-Target-Konfigurationsdateien, um &#196;nderungen vorzunehmen, die von Webmin nicht unterst&#252;tzt werden.
+index_manualdesc=Manuell Bearbeiten eines der iSCSI-Target-Konfigurationsdateien, um &#196;nderungen vorzunehmen, die von AdFreeZone nicht unterst&#252;tzt werden.
 index_noluns=Kein
 index_none=Keine iSCSI Ziele zum exportieren wurden bisher definiert.
 index_nousers=Jeder

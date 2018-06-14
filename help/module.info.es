@@ -1,1 +1,1 @@
-desc_es=Ayudas de Webmin
+desc_es=Ayudas de AdFreeZone

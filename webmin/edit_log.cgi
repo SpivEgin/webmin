@@ -36,7 +36,7 @@ print &ui_table_row($text{'log_clear2'},
 
 print &ui_table_hr();
 
-# Webmin users to log for
+# AdFreeZone users to log for
 print &ui_table_row($text{'log_forusers'},
 	&ui_radio("uall", $gconfig{'logusers'} ? 0 : 1,
 		  [ [ 1, $text{'log_uall'} ], [ 0, $text{'log_users'} ] ]).

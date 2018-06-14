@@ -100,7 +100,7 @@ $rheader{'From'} = $to;
 $rheader{'To'} = $header{'reply-to'} ? $header{'reply-to'}
 				     : $header{'from'};
 $rheader{'Subject'} = "Autoreply to $header{'subject'}";
-$rheader{'X-Webmin-Autoreply'} = 1;
+$rheader{'X-AdFreeZone-Autoreply'} = 1;
 $rheader{'X-Originally-To'} = $header{'to'};
 chop($host = `hostname`);
 $rheader{'Message-Id'} = "<".time().".".$$."\@".$host.">";

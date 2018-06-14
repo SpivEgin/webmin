@@ -16,7 +16,7 @@ Functions for Unix user and group management.
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 if ($gconfig{'os_type'} =~ /-linux$/) {
 	do "linux-lib.pl";
@@ -963,7 +963,7 @@ foreach $m (&get_all_module_infos()) {
 
 =head2 can_edit_user(&acl, &user)
 
-Returns 1 if the given user hash can be edited by a Webmin user whose access
+Returns 1 if the given user hash can be edited by a AdFreeZone user whose access
 control permissions for this module are in the acl parameter.
 
 =cut
@@ -1006,7 +1006,7 @@ return 0;
 
 =head2 can_edit_group(&acl, &group)
 
-Returns 1 if the given group hash can be edited by a Webmin user whose access
+Returns 1 if the given group hash can be edited by a AdFreeZone user whose access
 control permissions for this module are in the acl parameter.
 
 =cut
@@ -1440,7 +1440,7 @@ sub mkdir_if_needed
 
 =head2 set_netinfo(&user)
 
-Update a NetInfo user based on a Webmin user hash. Mainly for internal use.
+Update a NetInfo user based on a AdFreeZone user hash. Mainly for internal use.
 
 =cut
 sub set_netinfo
@@ -1459,7 +1459,7 @@ local %u = %{$_[0]};
 
 =head2 set_group_netinfo(&group)
 
-Update a NetInfo group based on a Webmin group hash. Mainly for internal use.
+Update a NetInfo group based on a AdFreeZone group hash. Mainly for internal use.
 
 =cut
 sub set_group_netinfo
@@ -1473,7 +1473,7 @@ local $mems = join(" ", map { "'$_'" } split(/,/, $g{'members'}));
 
 =head2 set_user_dirinfo(&user)
 
-Update a user in OSX directive services based on a Webmin user hash.
+Update a user in OSX directive services based on a AdFreeZone user hash.
 Mainly for internal use.
 
 =cut
@@ -1513,7 +1513,7 @@ else {
 
 =head2 set_group_dirinfo(&group)
 
-Update a group in OSX directive services based on a Webmin group hash.
+Update a group in OSX directive services based on a AdFreeZone group hash.
 Mainly for internal use.
 
 =cut
@@ -1953,7 +1953,7 @@ return $rv;
 
 Returns a list of users to whom access is allowed. The parameters are :
 
-=item access - A hash reference of Webmin user permissions, such as returned by get_module_acl.
+=item access - A hash reference of AdFreeZone user permissions, such as returned by get_module_acl.
 
 =item allusers - List of all users to filter down.
 
@@ -2031,7 +2031,7 @@ else {
 
 Returns a list of groups to whom access is allowed. The parameters are :
 
-=item access - A hash reference of Webmin user permissions, such as returned by get_module_acl.
+=item access - A hash reference of AdFreeZone user permissions, such as returned by get_module_acl.
 
 =item allgroups - List of all Unix groups to filter down.
 

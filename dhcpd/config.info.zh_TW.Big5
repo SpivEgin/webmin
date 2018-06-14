@@ -17,5 +17,5 @@ line2=系統設定,11
 start_cmd=啟動 DHCP 伺服器指令,3,Run server executable
 restart_cmd=套用系統設定的指令,3,停止並且重新啟動
 stop_cmd=停止 DHCP 伺服器的指令,3,停止
-interfaces_type=介面類型,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-Webmin
+interfaces_type=介面類型,4,redhat-Redhat,mandrake-Mandrake,suse-SuSE,debian-Debian,caldera-Caldera,gentoo-Gentoo,-AdFreeZone
 version=DHCP 伺服器版本,3,自動取得

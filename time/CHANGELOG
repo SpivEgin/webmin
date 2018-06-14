@@ -15,12 +15,12 @@ Added check for empty timeservers field.
 Display a more complete message if unable to get the hardware time from hwclock.
 ---- Changes since 1.390 ----
 Changed the main page to use tabs to split up the system time, timezone and sync sections.
-Re-wrote all user interface code to use Webmin's new UI library.
+Re-wrote all user interface code to use AdFreeZone's new UI library.
 ---- Changes since 1.420 ----
 The default NTP sync time is now set randomly instead of at midnight, and any existing automatic sync done at midnight is changed to a random time. This reduces load on public NTP servers.
 ---- Changes since 1.480 ----
 Support for setting the hardware clock is now detected automatically on Linux.
 ---- Changes since 1.510 ----
-Switched background time syncing to use the new Webmin Cron service.
+Switched background time syncing to use the new AdFreeZone Cron service.
 ---- Changes since 1.580 ----
-Added an option to have the time synced when Webmin starts at system boot.
+Added an option to have the time synced when AdFreeZone starts at system boot.

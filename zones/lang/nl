@@ -1,5 +1,5 @@
 index_ecmd=De zones administratie opdracht $1 is niet gevonden op uw systeem. Dit moet worden geinstalleerd voordat deze module kan worden gebruikt.
-index_eglobal=Webmin is aan het werk in zone $1, in plaats van de <tt>globale</tt> zone. Deze module kan alleen werken wanneer het word uitgevoerd in de <tt>globale</tt> zone.
+index_eglobal=AdFreeZone is aan het werk in zone $1, in plaats van de <tt>globale</tt> zone. Deze module kan alleen werken wanneer het word uitgevoerd in de <tt>globale</tt> zone.
 index_none=Er zijn nog geen zones gedefinieerd.
 index_add=Nieuwe zone toevoegen.
 index_return=zone lijst
@@ -14,8 +14,8 @@ edit_autoboot=Start tijdens systeem boot?
 edit_pool=Bronnen pool
 edit_reboot=Reboot
 edit_halt=Uitschakelen
-edit_winstall=Installeer Webmin
-edit_wupgrade=Upgrade Webmin
+edit_winstall=Installeer AdFreeZone
+edit_wupgrade=Upgrade AdFreeZone
 edit_boot=Bootup
 edit_install=Installeer Systeem
 edit_uninstall=De-Installeer Systeem
@@ -56,14 +56,14 @@ edit_attrtype=Data type
 edit_attrvalue=Attributen waarde
 edit_attrnone=Er zijn nog geen algemene attributen gedefinieerd.
 edit_attradd=Een nieuwe algemene attribuut toevoegen.
-edit_webmin=Open Webmin
+edit_webmin=Open AdFreeZone
 edit_brand=Merk
 
 ui_cancel=Annuleer
 
 save_err=Zone opslaan is mislukt
 save_epool=Ontbrekende of ongeldige pool
-save_ewebmin=Webmin is niet aan het werk in deze zone
+save_ewebmin=AdFreeZone is niet aan het werk in deze zone
 
 reboot_title=Reboot Zone
 reboot_rusure=Weet u zeker dat u de zone $1 wilt rebooten? Alle processen die erin werken worden herstart.
@@ -206,7 +206,7 @@ create_auto=Automatisch (onder <tt>$1</tt>)
 create_address=Eerste IP adres
 create_noaddress=Geen
 create_install=Installeer na aanmaken?
-create_webmin=Webmin instellen na het installeren?
+create_webmin=AdFreeZone instellen na het installeren?
 create_yes=Ja (Voorkomt toevoeging van pakket directory's)
 create_ok=Nu Aanmaken
 create_err=Mislukt om zone aan te maken
@@ -224,7 +224,7 @@ create_installing=Installeren van systeem software ..
 create_pkgs=Extra pakketten directory's
 create_epkg='$1' is geen geldige pakket directory
 create_addingpkgs=Pakket directory's toevoegen ..
-create_webmining=Webmin aan het instellen ..
+create_webmining=AdFreeZone aan het instellen ..
 created_wfailed=.. mislukt : $1
 create_cfg=Configureer nieuwe zone?
 create_hostname=Eerste hostnaam
@@ -284,7 +284,7 @@ log_modify_attr=Gemodificeerde algemene attributen $1 in zone $2
 log_delete_attr=Verwijderde algemene attributen $1 in zone $2
 
 webmin_eperl=Perl is niet geinstalleerd op $1
-webmin_eroot=De directory $1 bestaat niet of heeft geen Webmin.
-webmin_title=Installeer Webmin
+webmin_eroot=De directory $1 bestaat niet of heeft geen AdFreeZone.
+webmin_title=Installeer AdFreeZone
 
 __norefs=1

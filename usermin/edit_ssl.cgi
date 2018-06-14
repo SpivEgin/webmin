@@ -126,7 +126,7 @@ print "$text{'ssl_newkey'}<p>\n";
 my $curkey = &read_file_contents($miniserv{'keyfile'});
 my $origkey = &read_file_contents("$root_directory/miniserv.pem");
 if ($curkey eq $origkey) {
-	# System is using the original (insecure) Webmin key!
+	# System is using the original (insecure) AdFreeZone key!
 	print "<b>$text{'ssl_hole'}</b><p>\n";
 	}
 
@@ -182,7 +182,7 @@ print &ui_tabs_end_tab();
 
 print &ui_tabs_end(1);
 
-# Button to copy cert from Webmin
+# Button to copy cert from AdFreeZone
 &get_miniserv_config(\%wminiserv);
 if ($wminiserv{'ssl'}) {
 	print &ui_hr();

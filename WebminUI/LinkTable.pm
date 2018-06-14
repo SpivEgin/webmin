@@ -1,18 +1,18 @@
-package WebminUI::LinkTable;
-use WebminUI::Table;
-use WebminCore;
+package AdFreeZoneUI::LinkTable;
+use AdFreeZoneUI::Table;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::LinkTable(heading, [columns], [width], [name])
+=head2 new AdFreeZoneUI::LinkTable(heading, [columns], [width], [name])
 Creates a new table that just displays links, like in the Users and Groups module
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::LinkTable::new) &&
-    caller() !~ /WebminUI::Theme::LinkTable/) {
-        return new WebminUI::Theme::LinkTable(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::LinkTable::new) &&
+    caller() !~ /AdFreeZoneUI::Theme::LinkTable/) {
+        return new AdFreeZoneUI::Theme::LinkTable(@_[1..$#_]);
         }
 my ($self, $heading, $columns, $width, $name) = @_;
-$self = { 'sorter' => \&WebminUI::Table::default_sorter,
+$self = { 'sorter' => \&AdFreeZoneUI::Table::default_sorter,
 	  'columns' => 4,
 	  'sortable' => 1 };
 bless($self);
@@ -245,7 +245,7 @@ return $self->{'columns'};
 }
 
 =head2 set_form(form)
-Called by the WebminUI::Form object when this table is added to it
+Called by the AdFreeZoneUI::Form object when this table is added to it
 =cut
 sub set_form
 {
@@ -257,7 +257,7 @@ if ($self->{'selectinput'}) {
 }
 
 =head2 set_selector(input)
-Takes a WebminUI::Checkboxes or WebminUI::Radios object, and uses it to add checkboxes
+Takes a AdFreeZoneUI::Checkboxes or AdFreeZoneUI::Radios object, and uses it to add checkboxes
 to all the entries
 =cut
 sub set_selector

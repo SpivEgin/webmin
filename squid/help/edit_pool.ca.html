@@ -1,45 +1,45 @@
-<header>Edició de Pool de Retard</header>
+<header>Ediciï¿½ de Pool de Retard</header>
 
 <p>
-<b>Número de pool</b>
+<b>Nï¿½mero de pool</b>
 <br>
-És un número que comença a partir d'1, que Webmin tria per tu.
-Etiqueta el pool de manera que es pugui configurar més d'un pool i Squid
+ï¿½s un nï¿½mero que comenï¿½a a partir d'1, que AdFreeZone tria per tu.
+Etiqueta el pool de manera que es pugui configurar mï¿½s d'un pool i Squid
 el pugui tractar de forma diferent.
 <p>
 <b>Classe de pool</b>
 <br>
 Defineix la classe de pool. Cada pool de retard pot tenir una classe
 seleccionada entre les classes 1, 2 o 3. Les classes tenen els significats
-següents: "1-Agregada", "2-Agregada i Individual", "3-Agregada, Individual
-i Xarxa". La més senzilla, la classe 1, especifica una amplada de banda que
+segï¿½ents: "1-Agregada", "2-Agregada i Individual", "3-Agregada, Individual
+i Xarxa". La mï¿½s senzilla, la classe 1, especifica una amplada de banda que
 cap client a qui pertany aquest pool pot ultrapassar. La classe 2 especifica
 al mateix temps una amplada de banda agregada i una amplada de banda que
-tot individu pot utilitzar, creant així una jerarquia de límits on tots els
-individus han d'encaixar dins de l'agregada, mentre que cada individu està
-limitat pel límit individual. Finalment, la classe 3 especifica una amplada
-de banda agregada i una d'individual a més a més d'una amplada de banda per
-la xarxa, que s'aplica a tota una subxarxa. Normalment, la classe 3 només
-és útil en xarxes molt grans que tenen més d'una subxarxa.
+tot individu pot utilitzar, creant aixï¿½ una jerarquia de lï¿½mits on tots els
+individus han d'encaixar dins de l'agregada, mentre que cada individu estï¿½
+limitat pel lï¿½mit individual. Finalment, la classe 3 especifica una amplada
+de banda agregada i una d'individual a mï¿½s a mï¿½s d'una amplada de banda per
+la xarxa, que s'aplica a tota una subxarxa. Normalment, la classe 3 nomï¿½s
+ï¿½s ï¿½til en xarxes molt grans que tenen mï¿½s d'una subxarxa.
 <p>
-Els límits es poden especificar en qualsevol mena d'unitats, tot i que es
-desaran al fitxer de configuració de Squid en bytes. El primer camp és
-el trànsit mitjà que s'assignarà al pool. mentre que el segon és la mida
+Els lï¿½mits es poden especificar en qualsevol mena d'unitats, tot i que es
+desaran al fitxer de configuraciï¿½ de Squid en bytes. El primer camp ï¿½s
+el trï¿½nsit mitjï¿½ que s'assignarï¿½ al pool. mentre que el segon ï¿½s la mida
 de la galleda utilitzada, que a grans trets correspon a una amplada de 
-banda màxima en un moment donat.
+banda mï¿½xima en un moment donat.
 <p>
-Després de crear un pool per primer cop, apareixerà una nova secció al peu
-de la pàgina, permetent així seleccionar a quines ACLs s'aplicarà el pool.
-Les ACLs es creen a la pàgina de <b>Control d'Accés</b>, i es pot utilitzar
-qualsevol ACL per seleccionar a quines connexions s'aplicarà un pool de retard.
-<b>Permet</b> una ACL aplicarà el pool de retard a les connexions que hi
-coincideixin, mentre que <b>Denega</b> una ACL provocarà que les connexions
-coincidents facin cas omís del pool de retard. Així, a menys que totes les
-connexions tinguin aplicat el mateix pool de retard, convé que afegeixis
-dues ACLs, la primera serà l'ACL a la qual vols aplicar el pool de retard,
-i la segona serà l'ACL <tt>tot</tt>, de manera que només els clients
+Desprï¿½s de crear un pool per primer cop, apareixerï¿½ una nova secciï¿½ al peu
+de la pï¿½gina, permetent aixï¿½ seleccionar a quines ACLs s'aplicarï¿½ el pool.
+Les ACLs es creen a la pï¿½gina de <b>Control d'Accï¿½s</b>, i es pot utilitzar
+qualsevol ACL per seleccionar a quines connexions s'aplicarï¿½ un pool de retard.
+<b>Permet</b> una ACL aplicarï¿½ el pool de retard a les connexions que hi
+coincideixin, mentre que <b>Denega</b> una ACL provocarï¿½ que les connexions
+coincidents facin cas omï¿½s del pool de retard. Aixï¿½, a menys que totes les
+connexions tinguin aplicat el mateix pool de retard, convï¿½ que afegeixis
+dues ACLs, la primera serï¿½ l'ACL a la qual vols aplicar el pool de retard,
+i la segona serï¿½ l'ACL <tt>tot</tt>, de manera que nomï¿½s els clients
 seleccionats estaran restringits.
 <p>
-No t'oblidis d'aplicar els canvis després de crear el nou pool i d'afegir
+No t'oblidis d'aplicar els canvis desprï¿½s de crear el nou pool i d'afegir
 les ACLs corresponents.
 

@@ -2,7 +2,7 @@
 # Doesn't really contain anything ..
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("servers", "servers-lib.pl");
 

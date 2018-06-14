@@ -11,13 +11,13 @@ Functions to support the change passwords module. Some example code :
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 
 =head2 can_edit_passwd(&user)
 
-Returns 1 if the current Webmin user can change the password for the Unix
+Returns 1 if the current AdFreeZone user can change the password for the Unix
 user whose details are in the given hash ref, which is in the format returned
 by useradmin::list_users.
 
@@ -102,7 +102,7 @@ Updates a user's password. The required parameters are :
 
 =item pass - The new password, in plain text.
 
-=item do-others - If set to 1, the password is changed in other Webmin modules too.
+=item do-others - If set to 1, the password is changed in other AdFreeZone modules too.
 
 =cut
 sub change_password

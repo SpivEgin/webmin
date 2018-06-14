@@ -26,7 +26,7 @@ edit_id=ID Εντολής
 edit_cmd=Εντολή
 edit_dir=Εκτέλεση στο φάκελο
 edit_user=Εκτέλεση ως χρήστης
-edit_user_def=Χρήστης Webmin
+edit_user_def=Χρήστης AdFreeZone
 edit_raw=Η εντολή παράγει HTML;
 edit_su=Χρήση του περιβάλλοντος του χρήστη;
 edit_order=Ταξινόμηση στην κεντρική σελίδα
@@ -59,11 +59,11 @@ edit_timeoutdef=Για πάντα
 edit_secs=δευτερόλεπτα
 edit_clear=Εκκαθάριση μεταβλητών περιβάλλοντος;
 edit_format=μορφή εξόδου
-edit_format0=προβολή στο UI του Webmin
+edit_format0=προβολή στο UI του AdFreeZone
 edit_format1=Έξοδος με τύπο MIME
 edit_format2=Ανακατεύθυνση στην αρχική σελίδα
 edit_format3=Ανακατεύθυνση στη φόρμα
-edit_servers=Εκτέλεση στους διακομιστές Webmin
+edit_servers=Εκτέλεση στους διακομιστές AdFreeZone
 edit_this=αυτός ο διακομιστής
 edit_clone=Κλωνοποίηση
 
@@ -152,7 +152,7 @@ form_edit=Επεξεργασία
 sql_title1=Δημιουργία Εντολής SQL
 sql_title2=Επεξεργασία Εντολής SQL
 sql_header=Λεπτομέρειες εντολής SQL
-sql_edrivers=Δεν έχουν εγκατασταθεί πρόσθετα DBI της Perl. Το Webmin μπορεί να κατεβάσει και να εγκαταστήσει αυτόματα για εσάς τους οδηγούς για την <a href='$1'>MySQL</a> ή την <a href='$2'>PostgreSQL</a>.
+sql_edrivers=Δεν έχουν εγκατασταθεί πρόσθετα DBI της Perl. Το AdFreeZone μπορεί να κατεβάσει και να εγκαταστήσει αυτόματα για εσάς τους οδηγούς για την <a href='$1'>MySQL</a> ή την <a href='$2'>PostgreSQL</a>.
 sql_type=Τύπος βάσης δεδομένων
 sql_db=Όνομα βάσης δεδομένων
 sql_cmd=Εντολή SQL για εκτέλεση

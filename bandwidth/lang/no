@@ -10,7 +10,7 @@ index_ehost=Manglende eller ugyldig vert
 index_ehour=Ugyldig tidspunkt - m&#229; v&#230;re p&#229; formatet yyyy-mm-dd hh:mm
 index_eiptables=Advarsel - Det er en feil i din IPtables konfigurasjon : $1. Dersom du setter opp b&#229;ndbreddeoverv&#229;king vil alle brannmurregler fjernes.
 index_elog=Filen $1 som brukes for logging av b&#229;ndbredde er faktisk en katalog p&#229; systemet ditt. Endre <a href='$2'>modulkonfigurasjonen</a> for &#229; bruke en annen sti.
-index_emod=Webmin modulen $1 er ikke installert p&#229; dette systemet eller den st&#248;ttes ikke av dette opaerativsystemet. Modulen for B&#229;ndbreddeoverv&#229;king vil ikke fungere uten denne modulen.
+index_emod=AdFreeZone modulen $1 er ikke installert p&#229; dette systemet eller den st&#248;ttes ikke av dette opaerativsystemet. Modulen for B&#229;ndbreddeoverv&#229;king vil ikke fungere uten denne modulen.
 index_eport=Ukjent portnavn
 index_eproto=Manglende protokoll
 index_err=Kunne ikke generere rapport

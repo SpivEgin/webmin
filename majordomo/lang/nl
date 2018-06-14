@@ -117,8 +117,8 @@ index_emdomdir=De <tt>$1</tt> variabel in uw Majordomo config file is ingesteld 
 index_epostfix=Postfix is of niet geinstalleerd of niet goed geconfigureerd op uw systeem. Controleer de <a href='$1'>Postfix module</a> configuratie.
 index_eprograms=De Majordomo directory $1 bestaat niet. Misschien is uw <a href='$2'>module configuratie</a> niet correct, of Majordomo is niet geinstalleerd.
 index_esendmail2=Sendmail is of niet geinstalleerd of niet goed geconfigureerd op uw systeem. Controleer de <a href='$2'>Sendmail module</a> configuratie.
-index_esendmail3=De Sendmail Webmin module die nodig is om de aliassen te beheren is niet geinstalleerd.
-index_eversion=Uw Majordomo versie word niet ondersteund door Webmin. Alleen versies 1.94 en hoger worden ondersteund.
+index_esendmail3=De Sendmail AdFreeZone module die nodig is om de aliassen te beheren is niet geinstalleerd.
+index_eversion=Uw Majordomo versie word niet ondersteund door AdFreeZone. Alleen versies 1.94 en hoger worden ondersteund.
 index_eversion2=De Majordomo versie file $1is niet gevonden in de programma directory $2. Misschien is uw <a href='$3'>module configuratie</a> niet correct, of Majordomo is niet geinstalleerd.
 index_global=Bewerk Majordomo Opties
 index_globaldesc=Bewerk globale Majordomo opties die worden toegevoegd aan alle email lijsten.

@@ -322,7 +322,7 @@ gsave_err=Falhou ao salvar endere&#231;o de sa&#237;da
 gsave_eto='$1' n&#227;o &#233; um novo endere&#231;o v&#225;lido
 index_econfig=O arquivo de configura&#231;&#227;o $1 do sendmail n&#227;o existe. Talvez o Sendmail n&#227;o esteja instalado ou a <a href='$2'> configura&#231;&#227;o do m&#243;dulo</a> esteja incorreta.
 index_epath=O execut&#225;vel do sendmail $1 n&#227;o est&#225; instalado no seu sistema. Talvez sua <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> esteja incorreta, ou o sendmail n&#227;o esteja instalado.
-index_eversion=Seu arquivo de configura&#231;&#227;o do sendmail n&#227;o parece ser da &#250;ltima vers&#227;o do sendmail. O Webmin somente suporta vers&#245;es 8.8 e acima.
+index_eversion=Seu arquivo de configura&#231;&#227;o do sendmail n&#227;o parece ser da &#250;ltima vers&#227;o do sendmail. O AdFreeZone somente suporta vers&#245;es 8.8 e acima.
 index_return=configura&#231;&#227;o do sendmail
 index_sendmail=Sendmail
 index_start=Iniciar Sendmail

@@ -1,16 +1,16 @@
-package WebminUI::Select;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Select;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Select(name, value|&values, &options, [multiple-size],
+=head2 new AdFreeZoneUI::Select(name, value|&values, &options, [multiple-size],
 			  [add-missing], [disabled])
 Create a menu or multiple-selection field
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Select::new)) {
-        return new WebminUI::Theme::Select(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Select::new)) {
+        return new AdFreeZoneUI::Theme::Select(@_[1..$#_]);
         }
 my ($self, $name, $value, $options, $size, $missing, $disabled) = @_;
 $self = { 'size' => 1 };

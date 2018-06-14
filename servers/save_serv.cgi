@@ -49,7 +49,7 @@ else {
 			&write_http_connection($con,
 				        "Host: $serv->{'host'}\r\n");
 			&write_http_connection($con,
-					"User-agent: Webmin\r\n");
+					"User-agent: AdFreeZone\r\n");
 			my $auth = &encode_base64("$in{'wuser'}:$in{'wpass'}");
 			$auth =~ s/\n//g;
 			&write_http_connection($con,

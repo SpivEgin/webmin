@@ -5,7 +5,7 @@ Functions for getting SMART status
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 =head2 get_smart_version()
 

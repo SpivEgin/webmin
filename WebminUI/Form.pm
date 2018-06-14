@@ -1,13 +1,13 @@
-package WebminUI::Form;
-use WebminCore;
+package AdFreeZoneUI::Form;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::Form(cgi, [method])
+=head2 new AdFreeZoneUI::Form(cgi, [method])
 Creates a new form, which submits to the given CGI
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Form::new)) {
-        return new WebminUI::Theme::Form(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Form::new)) {
+        return new AdFreeZoneUI::Theme::Form(@_[1..$#_]);
         }
 my ($self, $program, $method) = @_;
 $self = { 'method' => 'get',
@@ -102,7 +102,7 @@ return "<form action='$self->{'program'}' ".
 }
 
 =head2 add_section(section)
-Adds a WebminUI::Section object to this form
+Adds a AdFreeZoneUI::Section object to this form
 =cut
 sub add_section
 {
@@ -120,7 +120,7 @@ return $self->{'sections'}->[$idx];
 }
 
 =head2 add_button(button, [beside, ...])
-Adds a WebminUI::Submit object to this form, for display at the bottom
+Adds a AdFreeZoneUI::Submit object to this form, for display at the bottom
 =cut
 sub add_button
 {
@@ -312,7 +312,7 @@ foreach my $i ($self->list_inputs()) {
 return @dis;
 }
 
-=head2 set_page(WebminUI::Page)
+=head2 set_page(AdFreeZoneUI::Page)
 Called when this form is added to a page
 =cut
 sub set_page

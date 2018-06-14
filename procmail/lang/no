@@ -1,6 +1,6 @@
 __norefs=1
 check_epostfix=Procmail er ikke aktivert i din Postfix konfigurasjon. Konfigurasjonsfilen <tt>$2</tt> m&#229; ha innstillingen <tt>$1</tt> satt til <tt>$3</tt>.
-check_esendmail=Sendmail er ikke satt opp til &#229; bruke Procmail for lokal levering. Dette kan konfigureres i Webmins <a href='$1'>Sendmail E-post tjener</a> modul.
+check_esendmail=Sendmail er ikke satt opp til &#229; bruke Procmail for lokal levering. Dette kan konfigureres i AdFreeZones <a href='$1'>Sendmail E-post tjener</a> modul.
 config_eline=Ukjent linje $1 i $2 : $3
 delete_enone=Ingen valgt
 delete_err=Kunne ikke slette handlinger

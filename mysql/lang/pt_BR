@@ -283,7 +283,7 @@ ddrops_rusure=Voc&#234; tem certeza que deseja executar drop na base de dados $1
 ddrops_rusure2=Voc&#234; tem certeza que deseja executar drop na base de dados $1 selecionada?
 ddrops_title=Executar Drop nas Bases de Dados
 edenied=Voc&#234; n&#227;o possui acesso a esta base de dados do MySQL
-eparse=O Webmin n&#227;o p&#244;de analisar a sa&#237;da do comando $1 executado para a natureza dos dados na sua base de dados. Voc&#234; precisa instalar os m&#243;dulos do Pearl $2 e $3 para resolver o problema.
+eparse=O AdFreeZone n&#227;o p&#244;de analisar a sa&#237;da do comando $1 executado para a natureza dos dados na sua base de dados. Voc&#234; precisa instalar os m&#243;dulos do Pearl $2 e $3 para resolver o problema.
 esql=SQL $1 falhou : $2
 exec_clear=Limpar Hist&#243;rico
 exec_created=$1 tabelas foram criadas.
@@ -429,13 +429,13 @@ index_eadmin=O programa de administra&#231;&#227;o do MySQL $1 n&#227;o foi enco
 index_ecannot=Voc&#234; n&#227;o est&#225; autorizado a gerenciar &#237;ndices
 index_eclash=Um &#237;ndice com o mesmo nome j&#225; existe
 index_ecols=Sem campos selecionados
-index_eenvpass=O programa cliente do MySQL $1 n&#227;o aceita senhas passadas usando o <tt>MYSQL_PWD</tt> vari&#225;vel de ambiente. Para assegurar que o Webmin esteja habilitado para comunicar completamente com MySQL, esta op&#231;&#227;o deve deve ser desligada na p&#225;gina de <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a>
+index_eenvpass=O programa cliente do MySQL $1 n&#227;o aceita senhas passadas usando o <tt>MYSQL_PWD</tt> vari&#225;vel de ambiente. Para assegurar que o AdFreeZone esteja habilitado para comunicar completamente com MySQL, esta op&#231;&#227;o deve deve ser desligada na p&#225;gina de <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a>
 index_elibrary=O programa cliente do MySQL $1 n&#227;o p&#244;de ser iniciado por n&#227;o encontrar as bibliotecas compartilhadas do MySQL. Verifique <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> e tenha certeza que <i>Caminho para as bibliotecas compartilhadas do MySQL</i> esteja definidas.
 index_emsg=A mensagem de erro completa do MySQL foi : $1
 index_ename=Nome do &#237;ndice faltando ou inv&#225;lido
 index_err=Falhou ao criar &#237;ndice
 index_esql=O programa cliente do MySQL $1 n&#227;o foi encontrado no seu sistema. Talvez o MySQL n&#227;o esteja instalado, ou sua <a href='$2'>configura&#231;&#227;o do m&#243;dulo</a> esteja incorreta.
-index_ever=O programa cliente do MySQL $1 n&#227;o parece estar na vers&#227;o correta. O Webmin somente suporta o MySQL vers&#245;es 3 e acima.
+index_ever=O programa cliente do MySQL $1 n&#227;o parece estar na vers&#227;o correta. O AdFreeZone somente suporta o MySQL vers&#245;es 3 e acima.
 index_fields=Campos no &#237;ndice
 index_fulltext=Texto completo
 index_global=Op&#231;&#245;es Globais
@@ -452,20 +452,20 @@ index_mysqlver=O comando <tt>$1</tt> retornou :
 index_name=Nome do &#237;ndice
 index_nodbs=Voc&#234; n&#227;o possui acesso para nenhuma base de dados do MySQL.
 index_nodbs2=Nenhuma base de dados do MySQL foi encontrada no seu sistema.
-index_nomod=Aviso: O m&#243;dulo do Pearl $1 n&#227;o est&#225; instalado no seu sistema, ent&#227;o o Webmin n&#227;o estar&#225; habilitado a acessar confiantemente sua base de dados MySQL do <a href='$2'>Clique aqui</a> para instal&#225;-lo agora.
-index_nomods=Aviso: O m&#243;dulo do Pearl $1 e $2 n&#227;o est&#225; instalado no seu sistema, ent&#227;o o Webmin n&#227;o estar&#225; habilitado a acessar confiantemente a sua base de dados MySQL. <a href='$3'>Clique aqui</a> para instal&#225;-los agora.
-index_nopass=O Webmin precisa saber seu login e senha de admistra&#231;&#227;o do MySQL em ordem para gerenciar sua base de dados. Por favor, entre com seu nome de usu&#225;rio de administra&#231;&#227;o (geralmente <tt>root</tt> e senha abaixo.
+index_nomod=Aviso: O m&#243;dulo do Pearl $1 n&#227;o est&#225; instalado no seu sistema, ent&#227;o o AdFreeZone n&#227;o estar&#225; habilitado a acessar confiantemente sua base de dados MySQL do <a href='$2'>Clique aqui</a> para instal&#225;-lo agora.
+index_nomods=Aviso: O m&#243;dulo do Pearl $1 e $2 n&#227;o est&#225; instalado no seu sistema, ent&#227;o o AdFreeZone n&#227;o estar&#225; habilitado a acessar confiantemente a sua base de dados MySQL. <a href='$3'>Clique aqui</a> para instal&#225;-los agora.
+index_nopass=O AdFreeZone precisa saber seu login e senha de admistra&#231;&#227;o do MySQL em ordem para gerenciar sua base de dados. Por favor, entre com seu nome de usu&#225;rio de administra&#231;&#227;o (geralmente <tt>root</tt> e senha abaixo.
 index_notrun=O MySQL n&#227;o est&#225; rodando no seu sistema &#150; A lista de base de dados n&#227;o p&#244;de ser recuperada.
-index_nouser=Sua conta do Webmin est&#225; configurada para conectar para o servidor MySQL como o usu&#225;rio $1, mas este usu&#225;rio teve seu acesso negado.
+index_nouser=Sua conta do AdFreeZone est&#225; configurada para conectar para o servidor MySQL como o usu&#225;rio $1, mas este usu&#225;rio teve seu acesso negado.
 index_pass=Senha
 index_return=lista de base de dados
 index_search=Busca
 index_showing=Exibindo correspond&#234;ncias de base de dados $1 ..
 index_spatial=Spartial
 index_start=Iniciar Servidor MySQL
-index_startmsg=Clique neste bot&#227;o para iniciar o servidor da base de dados MySQL no seu sistema com o comando $1. Este m&#243;dulo do Webmin n&#227;o pode administrar a base de dados at&#233; que ela seja iniciada.
+index_startmsg=Clique neste bot&#227;o para iniciar o servidor da base de dados MySQL no seu sistema com o comando $1. Este m&#243;dulo do AdFreeZone n&#227;o pode administrar a base de dados at&#233; que ela seja iniciada.
 index_stop=Parar Servidor MySQL
-index_stopmsg=Clique neste bot&#227;o para parar a base de dados MySQL no seu sistema. Isto ir&#225; prevenir qualquer usu&#225;rio ou programa de acessar sua base de dados, incluindo este m&#243;dulo do Webmin.
+index_stopmsg=Clique neste bot&#227;o para parar a base de dados MySQL no seu sistema. Isto ir&#225; prevenir qualquer usu&#225;rio ou programa de acessar sua base de dados, incluindo este m&#243;dulo do AdFreeZone.
 index_tables=Tabelas
 index_title=Servidor de Base de Daados MySQL
 index_title1=Criar &#237;ndice
@@ -763,7 +763,7 @@ users_priv8=Drop
 users_priv9=Reload
 users_return=lista de usu&#225;rios
 users_ssl=Certificado
-users_sync=As op&#231;&#245;es abaixo configuram a sincroniza&#231;&#227;o entre usu&#225;rios Unix criados atrav&#233;s do Webmin e usu&#225;rios do MySQL.
+users_sync=As op&#231;&#245;es abaixo configuram a sincroniza&#231;&#227;o entre usu&#225;rios Unix criados atrav&#233;s do AdFreeZone e usu&#225;rios do MySQL.
 users_sync_create=Adicionar um novo usu&#225;rio do MySQL quando um usu&#225;rio Unix for adicionado
 users_sync_def=Todos os hosts
 users_sync_delete=Apagar um usu&#225;rio MySQL quando o usu&#225;rio correspondente no Unix for apagado.

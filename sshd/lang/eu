@@ -2,7 +2,7 @@ index_title=SSH Zerbitzaria
 index_econfig=SSH zerbitzariaren $1 konfigurazio fitxategia ez da aurkitu zure sisteman. Beharbada SSHD ez dago instalatua, edo zure  <a href='$2'> moduluaren konfigurazia </a> ez da zuzena.
 index_esshd=SSH zerbitzariaren $1 programa ez da aurkitu zure sisteman. Beharbada SSHD ez dago instalatua, edo zure  <a href='$2'> moduluaren konfigurazia </a> ez da zuzena.
 index_eversion=Ezinezkoa SSH zerbitzariaren $1 programatik bertsio zenbaki bat lortzea. Beharbada zure <a href='$2'>moduluaren konfigurazioa</a> ez da zuzena. $3 komandoaren irteera honakoa izan da : $4
-index_eversion2=SSH zerbitzariaren $1 programaren bertsioa $2 da, baina Webminek soilik SSHren 1 eta 2 bertsioak onartzen ditu.
+index_eversion2=SSH zerbitzariaren $1 programaren bertsioa $2 da, baina AdFreeZoneek soilik SSHren 1 eta 2 bertsioak onartzen ditu.
 index_return=moduluaren  aurkibidea
 index_apply=Aplikatu aldaketak
 index_applymsg=Egin klik botoi honetan uneko konfigurazioa aplikatzeko SIGHUP seinale bat bidaliz exekutatzen ari den SSHd prozesuari.

@@ -17,7 +17,7 @@ Added buttons on the mail queue page to re-queue, hold and un-hold messages.
 Added support for the body_checks table, and improved the UI for editing the header_checks table. Thanks to Vincent Ertner for sponsoring this feature.
 Added a button on all map lists to edit the map data file manually.
 ---- Changes since 1.230 ----
-When deleting messages from the mail queue, Webmin will prompt for confirmation first.
+When deleting messages from the mail queue, AdFreeZone will prompt for confirmation first.
 ---- Changes since 1.240 ----
 Added support for the new RBL lookup parameters, thanks to Roberto Tecchio.
 When creating an autoreply alias, you can enter regexps that the headers will be checked against to prevent the reply.
@@ -29,7 +29,7 @@ Added an icon for editing the Postfix main and master configuration files.
 ---- Changes since 1.290 ----
 All Postfix table entries (including aliases) can have human-readable descriptions associated with them. These are stored as comments in the appropriate config file.
 ---- Changes since 1.300 ----
-Added locking and logging for all actions, so that changes can be viewed in the Webmin Actions Log module.
+Added locking and logging for all actions, so that changes can be viewed in the AdFreeZone Actions Log module.
 Users who are not allowed to manually edit the Postfix main.cf are also prevented from manually editing map files.
 Added an access control option to limit the directory for maps files.
 ---- Changes since 1.310 ----
@@ -53,12 +53,12 @@ Outgoing email from selected addresses and domains can now be BCCd automatically
 ---- Changes since 1.400 ----
 Changed the default LDAP class for maps to inetLocalMailRecipient.
 ---- Changes since 1.410 ----
-Added the SMTP Client Restrictions page, and replaced some oddly-designed UI fields on the SMTP Server Options page to it with more Webmin-standard inputs for configuring RBLs and client access.
+Added the SMTP Client Restrictions page, and replaced some oddly-designed UI fields on the SMTP Server Options page to it with more AdFreeZone-standard inputs for configuring RBLs and client access.
 Updated the BCC Mappings page to allow both sender and recipient maps to be defined and edited.
 ---- Changes since 1.420 ----
 Properly handle multiple reject_rbl_client DNS domains on the SMTP Client Restrictions page.
 ---- Changes since 1.430 ----
-Converted all pages to use the new Webmin UI library, for a more consistent and themable look.
+Converted all pages to use the new AdFreeZone UI library, for a more consistent and themable look.
 Autoreply messages containing non-ASCII characters are now properly quoted-printable encoded.
 ---- Changes since 1.440 ----
 Added a module config option to control if the user is prompted for confirmation before deleting queued messages.
@@ -71,8 +71,8 @@ Changed map deletion function to not remove expected line, which can otherwise c
 Autoreply messages starting with <html> or <body> will now be sent using the tex
 t/html MIME type.
 ---- Changes since 1.500 ----
-If a map is made up of files in multiple directories and a Webmin user has a directory restriction defined, he will be able to edit map entries in files under that directory.
-Fixed the descriptions of logged events as shown in the Webmin Actions Log module.
+If a map is made up of files in multiple directories and a AdFreeZone user has a directory restriction defined, he will be able to edit map entries in files under that directory.
+Fixed the descriptions of logged events as shown in the AdFreeZone Actions Log module.
 ---- Changes since 1.510 ----
 Added support for CIDR maps and multiple SMTP client restriction maps.
 Added spam checking to the autoreply script, if spamassassin is installed.

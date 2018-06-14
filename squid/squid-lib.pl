@@ -4,7 +4,7 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'parser-lib.pl';
 our ($module_root_directory, %text, %config, %in, $module_config_directory);

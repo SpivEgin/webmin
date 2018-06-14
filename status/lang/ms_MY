@@ -28,6 +28,6 @@ type_sslcert=Sijil SSL
 type_tcp=Servis TCP capaian jauh
 type_traffic=Trafik rangkaian
 type_usermin=Pelayan Web Usermin
-type_webmin=Pelayan Web Webmin
+type_webmin=Pelayan Web AdFreeZone
 type_xinetd=Pelayan Internet Extended
 up_since=Hidup semenjak $1

@@ -2,7 +2,7 @@
 # Functions for storing custom commands
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 
@@ -284,7 +284,7 @@ if ($module_info{'usermin'}) {
 	return 0;
 	}
 else {
-	# Just use Webmin user's list of databases
+	# Just use AdFreeZone user's list of databases
 	local $c;
 	local $found;
 	return 1 if ($access{'cmds'} eq '*');

@@ -1,14 +1,14 @@
 index_title=MySQL Database Server
 index_notrun=MySQL is not running on your system - database list could not be retrieved.
 index_start=Start MySQL Server
-index_startmsg=Click this button to start the MySQL database server on your system with the command $1. This Webmin module cannot administer the database until it is started.
-index_nopass=Webmin needs to know your MySQL administration login and password in order to manage your database. Please enter your administration username (usually <tt>root</tt>) and password below.
+index_startmsg=Click this button to start the MySQL database server on your system with the command $1. This AdFreeZone module cannot administer the database until it is started.
+index_nopass=AdFreeZone needs to know your MySQL administration login and password in order to manage your database. Please enter your administration username (usually <tt>root</tt>) and password below.
 index_ltitle=MySQL Login
 index_login=Login
 index_pass=Password
 index_clear=Clear
 index_stop=Stop MySQL Server
-index_stopmsg=Click this button to stop the MySQL database server on your system. This will prevent any users or programs from accessing the database, including this Webmin module.
+index_stopmsg=Click this button to stop the MySQL database server on your system. This will prevent any users or programs from accessing the database, including this AdFreeZone module.
 index_dbs=MySQL Databases
 index_add=Create a new database.
 index_global=Global Options
@@ -17,17 +17,17 @@ index_eadmin=The MySQL admin program $1 was not found on your system. Maybe MySQ
 index_esql=The MySQL client program $1 was not found on your system. Maybe MySQL is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_eshow=The MySQL status program $1 was not found on your system. Maybe MySQL is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 index_estart=The MySQL startup script $1 was not found on your system. Maybe MySQL is not installed, or your <a href='$2'>module configuration</a> is incorrect.
-index_ever=The MySQL client program $1 does not appear to be the correct version. Webmin only supports MySQL versions 3 and above.
-index_nouser=Your Webmin account is configured to connect to the MySQL server as user $1, but this user has been denied access. 
+index_ever=The MySQL client program $1 does not appear to be the correct version. AdFreeZone only supports MySQL versions 3 and above.
+index_nouser=Your AdFreeZone account is configured to connect to the MySQL server as user $1, but this user has been denied access.
 index_db=Database name
 index_tables=Tables
 index_elibrary=The MySQL client program $1 could not be run because it could not find the MySQL shared libraries. Check the <a href='$2'>module configuration</a> and make sure the <i>Path to MySQL shared libraries</i> is set.
 index_version=MySQL version $1
 index_version2=MySQL version $1 on $2
-index_nomod=Warning: The Perl module $1 is not installed on your system, so Webmin will not be able to reliably access your MySQL database. <a href='$2'>Click here</a> to install it now.
-index_nomods=Warning: The Perl modules $1 and $2 are not installed on your system, so Webmin will not be able to reliably access your MySQL database. <a href='$3'>Click here</a> to install them now.
+index_nomod=Warning: The Perl module $1 is not installed on your system, so AdFreeZone will not be able to reliably access your MySQL database. <a href='$2'>Click here</a> to install it now.
+index_nomods=Warning: The Perl modules $1 and $2 are not installed on your system, so AdFreeZone will not be able to reliably access your MySQL database. <a href='$3'>Click here</a> to install them now.
 index_mysqlver=The command <tt>$1</tt> returned :
-index_eenvpass=The MySQL client program $1 does not accept passwords passed using the <tt>MYSQL_PWD</tt> environment variable. To ensure that Webmin is able to fully communicate with MySQL, this option should be turned off on the <a href='$2'>module configuration</a> page. Alternately, you can remove any password set in the <tt>root</tt> user's <tt>.my.cnf</tt> file.
+index_eenvpass=The MySQL client program $1 does not accept passwords passed using the <tt>MYSQL_PWD</tt> environment variable. To ensure that AdFreeZone is able to fully communicate with MySQL, this option should be turned off on the <a href='$2'>module configuration</a> page. Alternately, you can remove any password set in the <tt>root</tt> user's <tt>.my.cnf</tt> file.
 index_ecnf=The MySQL config file $1 was not found on your system. Use the <a href='$2'>module configuration</a> page to set the correct path.
 index_nodbs=You do not have access to any MySQL databases.
 index_nodbs2=No MySQL databases were found on your system.
@@ -238,7 +238,7 @@ users_all=All
 users_anon=Anonymous
 users_none=None
 users_return=user list
-users_sync=The options below configure synchronization between Unix users created through Webmin and MySQL users.
+users_sync=The options below configure synchronization between Unix users created through AdFreeZone and MySQL users.
 users_syncwhen=When to synchronize
 users_sync_create=Add a new MySQL user when a Unix user is added
 users_sync_modify=Update a MySQL user when the matching Unix user is modified.
@@ -503,7 +503,7 @@ cpriv_ehost=Missing or invalid host
 cpriv_edb=Missing or invalid database name
 
 esql=SQL $1 failed : $2
-eparse=Webmin cannot parse the output from the $1 command due to the nature of data in your database. You will need to install the $2 and $3 Perl modules to solve this problem.
+eparse=AdFreeZone cannot parse the output from the $1 command due to the nature of data in your database. You will need to install the $2 and $3 Perl modules to solve this problem.
 edenied=You do not have access to this MySQL database
 perms_ecannot=You are not allowed to edit permissions
 perms_edb=You are only allowed to edit permissions for your own databases

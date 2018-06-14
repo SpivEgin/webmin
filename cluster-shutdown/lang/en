@@ -5,7 +5,7 @@ index_os=Operating System
 index_up=Alive?
 index_shut=Shut Down Servers
 index_reboot=Reboot Servers
-index_none=No servers have been defined in the <a href='$1'>Webmin Servers Index</a> module.
+index_none=No servers have been defined in the <a href='$1'>AdFreeZone Servers Index</a> module.
 index_return=module index
 index_header=Automatic system check
 index_sched=Enable automatic system check?

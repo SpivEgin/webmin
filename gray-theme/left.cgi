@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Show the left-side menu of Webmin modules
+# Show the left-side menu of AdFreeZone modules
 
 use strict;
 use warnings;
@@ -56,7 +56,7 @@ push(@leftmenu, { 'type' => 'text',
 		  'desc' => &text('left_login', $remote_user) });
 push(@leftmenu, { 'type' => 'hr' });
 
-# Webmin modules
+# AdFreeZone modules
 push(@leftmenu, &list_modules_webmin_menu());
 
 # Show module/help search form
@@ -87,7 +87,7 @@ push(@leftmenu, { 'type' => 'item',
 
 # Show feedback link, but only if a custom email is set
 %gaccess = &get_module_acl(undef, "");
-if (&get_product_name() eq 'webmin' &&		# For Webmin
+if (&get_product_name() eq 'webmin' &&		# For AdFreeZone
       !$ENV{'ANONYMOUS_USER'} &&
       int($gconfig{'nofeedbackcc'} || 0) != 2 &&
       $gaccess{'feedback'} &&
@@ -129,7 +129,7 @@ if ($miniserv{'logout'} && !$ENV{'SSL_USER'} && !$ENV{'LOCAL_USER'} &&
 	push(@leftmenu, $logout);
 	}
 
-# Show link back to original Webmin server
+# Show link back to original AdFreeZone server
 if ($ENV{'HTTP_WEBMIN_SERVERS'}) {
 	push(@leftmenu, { 'type' => 'item',
 			  'desc' => $text{'header_servers'},

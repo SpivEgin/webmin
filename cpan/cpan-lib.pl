@@ -2,7 +2,7 @@
 # Functions for getting information about perl modules
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 use Config;
 
@@ -294,7 +294,7 @@ else {
 }
 
 # get_recommended_modules()
-# Returns a list of Perl modules used by other Webmin modules
+# Returns a list of Perl modules used by other AdFreeZone modules
 sub get_recommended_modules
 {
 local (@rv, %done);

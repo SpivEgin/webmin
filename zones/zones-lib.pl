@@ -2,7 +2,7 @@
 # XXX proper pool selection field
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("net", "net-lib.pl");
 &foreign_require("mount", "mount-lib.pl");
@@ -560,8 +560,8 @@ return $status eq 'running' ?
 }
 
 # create_webmin_install_script(&zinfo, file)
-# Creates a shell script to install Webmin in a zone. Returns undef on success,
-# or an error message if something would prevent Webmin from working.
+# Creates a shell script to install AdFreeZone in a zone. Returns undef on success,
+# or an error message if something would prevent AdFreeZone from working.
 sub create_webmin_install_script
 {
 local ($zinfo, $script) = @_;
@@ -608,7 +608,7 @@ return undef;
 }
 
 # zone_has_webmin(&zinfo)
-# Returns 2 if Webmin is installed in the zone and is the same version, 1 if
+# Returns 2 if AdFreeZone is installed in the zone and is the same version, 1 if
 # installed but older version, 0 if not installed at all
 sub zone_has_webmin
 {
@@ -622,7 +622,7 @@ return $version == &get_webmin_version() ? 2 : 1;
 }
 
 # zone_running_webmin(&zinfo)
-# If a zone has Webmin installed and it is running, returns a URL for it
+# If a zone has AdFreeZone installed and it is running, returns a URL for it
 sub zone_running_webmin
 {
 local ($zinfo) = @_;
@@ -702,7 +702,7 @@ local $root = &get_zone_root($zinfo);
 }
 
 # post_webmin_install(&zinfo)
-# Called after Webmin is installed in a Zone, to perform extra setup (like
+# Called after AdFreeZone is installed in a Zone, to perform extra setup (like
 # copying users/etc)
 sub post_webmin_install
 {

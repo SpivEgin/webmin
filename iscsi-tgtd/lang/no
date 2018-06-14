@@ -13,7 +13,7 @@ index_clink=Kanskje den ikke er installerte, eller s&#229; er <a href='$1'>modul
 index_delete=Slett valgte m&#229;l
 index_lun=Disk enheter
 index_manual=Rediger konfigurasjonsfiler
-index_manualdesc=Rediger iSCSI ma&#229;-konfigurasjonsfiler manuelt, for &#229; gj&#248;re endringer som ikke st&#248;ttes av Webmin.
+index_manualdesc=Rediger iSCSI ma&#229;-konfigurasjonsfiler manuelt, for &#229; gj&#248;re endringer som ikke st&#248;ttes av AdFreeZone.
 index_noluns=Ingen
 index_none=Ingen iSCSI m&#229;l &#229; eksportere er definert enda.
 index_nousers=Enhver

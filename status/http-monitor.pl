@@ -21,7 +21,7 @@ eval {
 		return;
 		}
 	&write_http_connection($con, "Host: $_[0]->{'host'}\r\n");
-	&write_http_connection($con, "User-agent: Webmin\r\n");
+	&write_http_connection($con, "User-agent: AdFreeZone\r\n");
 	if ($_[0]->{'user'}) {
 		local $auth = &encode_base64("$_[0]->{'user'}:$_[0]->{'pass'}");
 		$auth =~ s/\n//g;

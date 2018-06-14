@@ -36,12 +36,12 @@ closedir(DIR);
 if (@missing) {
 	# Tell the user, and ask whether to copy
 	if (!$copythird) {
-		print "The following third party modules were found in your old Webmin\n";
+		print "The following third party modules were found in your old AdFreeZone\n";
 		print "installation in $olddir :\n";
 		for($i=0; $i<@missing; $i++) {
 			printf "  %-12.12s %s\n", $missing[$i], $missdesc[$i];
 			}
-		print "Copy to new Webmin installation (y/n): ";
+		print "Copy to new AdFreeZone installation (y/n): ";
 		chop($resp = <STDIN>);
 		$copythird = $resp =~ /^y/i;
 		}

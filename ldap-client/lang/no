@@ -119,10 +119,10 @@ eswitch_unavail=Hvis ikke tilgjengelig
 index_atboot=Start LDAP klient ved oppstart
 index_atbootdesc=Angir hvorvidt LDAP klient-daemonen starter n&#229;r systemet startes opp.
 index_check=Valider konfigurasjon
-index_checkdesc=Klikk p&#229; denne knappen for &#229; la Webmin validere din LDAP tjener konfigurasjon, ved &#229; sjekke at tjeneren kan kontaktes og at den inneholder brukere og grupper.
+index_checkdesc=Klikk p&#229; denne knappen for &#229; la AdFreeZone validere din LDAP tjener konfigurasjon, ved &#229; sjekke at tjeneren kan kontaktes og at den inneholder brukere og grupper.
 index_econf=NSS-LDAP konfigurasjonsfilen $1 ble ikke funnet p&#229; systemet ditt. Kanskje LDAP klient st&#248;tte ikke er installert, eller kanskje <a href='$2'>modulkonfigurasjonen</a> er feil.
 index_fix=Fiks ved &#229; lenke filer
-index_fixpam=<b>Advarsel</b> - Webmin har oppdaget to forskjellige LDAP konfigurasjonsfiler p&#229; systemet ditt. NSS-LDAP er konfigurert ved hjelp av $1, mens PAM-LDAP bruker $2.Dette kan for&#229;rsake uoverensstemmelser mellom de to tjenestene.
+index_fixpam=<b>Advarsel</b> - AdFreeZone har oppdaget to forskjellige LDAP konfigurasjonsfiler p&#229; systemet ditt. NSS-LDAP er konfigurert ved hjelp av $1, mens PAM-LDAP bruker $2.Dette kan for&#229;rsake uoverensstemmelser mellom de to tjenestene.
 index_ignore=Ikke vis denne meldingen
 index_ldapmod=LDAP klient
 index_restart=Omstart LDAP klient daemon
@@ -137,7 +137,7 @@ ldap_econf=Fant ikke LDAP klient konfigurasjonsfilen $1 p&#229; systemet ditt
 ldap_econn=Kunne ikke koble til LDAP tjener $1 port $2
 ldap_econn2=Kunne ikke koble til LDAP tjener $1 port $2 : $3
 ldap_elogin=Kunne ikke binde til LDAP tjener $1 som $2 : $3
-ldap_emodule=Perl modulen $1 som er n&#248;dvendig for &#229; snakke med LDAP tjeneren, er ikke installert. <a href='$2'>Klikk her</a> for &#229; la Webmin laste den ned og installere den.
+ldap_emodule=Perl modulen $1 som er n&#248;dvendig for &#229; snakke med LDAP tjeneren, er ikke installert. <a href='$2'>Klikk her</a> for &#229; la AdFreeZone laste den ned og installere den.
 ldap_emodule2=Perl modulen $1 smo er n&#248;dvendig for &#229; snakke med LDAP tjeneren, er ikke installert.
 ldap_eparse=Kunne ikke parse LDAP tjener URI $1
 ldap_etls=Kunne ikke bytte til TLS modus : $1

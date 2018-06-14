@@ -2,7 +2,7 @@
 # Tradotto il 24 Dicembre 2002 alle 12.10 da Michele (M@Z) Azzolari - MILANO (ITALY)
 
 index_title=Linux IPTables Firewall
-index_ecommand=Il comando $1 non &egrave; stato trovato sul tuo sistema. Webmin ha bisogno di questo comando per configurare IPtables.
+index_ecommand=Il comando $1 non &egrave; stato trovato sul tuo sistema. AdFreeZone ha bisogno di questo comando per configurare IPtables.
 index_ekernel=Si &egrave; verificato un errore rilevando la tua configurazione di IPtables: $1. Questo pu&ograve; indicare che il tuo kernel non supporta IPtables.
 index_header=Configurazione del Firewall da $1
 index_change=Mostro IPtable:
@@ -42,15 +42,15 @@ index_unapplydesc=Clicca per ritornare alla configurazione attualmente in uso.
 index_table_filter=Filtraggio dei pacchetti (filter)
 index_table_nat=Traslazione della destinazione di rete (nat)
 index_table_mangle=Alterazione del pacchetto (mangle)
-index_existing=Webmin ha rilevato $1 regole del firewall IPtables attualmente in uso che non sono salvate nel file $2. 
-Queste regole sono probabilmente attivate da uno script che questo modulo non pu&ograve; modifificare.<p>Se vuoi che Webmin gestisca il firewall IPtables, clicca sul bottone per convertire le regole esistenti in un file e poi disabilita lo script.
+index_existing=AdFreeZone ha rilevato $1 regole del firewall IPtables attualmente in uso che non sono salvate nel file $2.
+Queste regole sono probabilmente attivate da uno script che questo modulo non pu&ograve; modifificare.<p>Se vuoi che AdFreeZone gestisca il firewall IPtables, clicca sul bottone per convertire le regole esistenti in un file e poi disabilita lo script.
 index_saveex=Salva le regole del firewall
 index_atboot=Abilito il firewall all accensione?
 index_headerex=Configurazione esistente del firewall
 index_bootup=Attiva all avvio
 index_bootupdesc=Cambia questa opzione per attivare il tuo firewall all avvio oppure no.
 index_return=lista delle regole
-index_setup=Sul tuo sistema non &egrave; ancora impostato il firewall IPtables. Webmin pu&ograve; impostarlo e salvarlo nel file $1 con le impostazioni iniziali del firewall che selezioni qui sotto..
+index_setup=Sul tuo sistema non &egrave; ancora impostato il firewall IPtables. AdFreeZone pu&ograve; impostarlo e salvarlo nel file $1 con le impostazioni iniziali del firewall che selezioni qui sotto..
 index_auto0=Accetta tutto il traffico
 index_auto1=Esegui una traslazione dell indirizzo sull interfaccia esterna:
 index_auto2=Blocca tutte le connessioni in ingresso sull interfaccia esterna:

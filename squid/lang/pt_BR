@@ -1,7 +1,7 @@
 index_header=Servidor de Proxy Squid
 index_msgnoconfig=O arquivo de configura&#231;&#227;o do Squid <tt>$1</tt> n&#227;o existe. Se voc&#234; possui o Squid instalado, ajuste sua <a href=/config.cgi?$2 >configura&#231;&#227;o do m&#243;dulo</a> para usar os caminhos corretos.
 index_msgnoexe=O execut&#225;vel do Squid <tt>$1</tt> n&#227;o existe. Se voc&#234; possui o Squid installed, Se voc&#234; possui o Squid instalado, ajuste sua <a href=/config.cgi?$2 >configura&#231;&#227;o do m&#243;dulo</a> para usar os caminhos corretos.
-index_msgnosupported2=Sua vers&#227;o do Squid n&#227;o &#233; suportada pelo Webmin. Somente as vers&#245;es de $1 at&#233; $2 s&#227;o suportadas por este m&#243;dulo.
+index_msgnosupported2=Sua vers&#227;o do Squid n&#227;o &#233; suportada pelo AdFreeZone. Somente as vers&#245;es de $1 at&#233; $2 s&#227;o suportadas por este m&#243;dulo.
 index_msgnodir1=Seu diret&#243;rios de cache do Squid <tt>$1</tt> n&#227;o foram inicializados.
 index_msgnodir2=Seu diret&#243;rio de cache do Squid <tt>$1</tt> n&#227;o foi inicializado.
 index_msgnodir3=Isto ser&#225; realizado assim que o Squid for executado.
@@ -118,7 +118,7 @@ chown_return=&#237;ndice do squid
 clear_ecannot=Voc&#234; n&#227;o est&#225; autorizado a limpar e refazer o cache
 clear_header=Limpar e Refazer o Cache
 clear_msgclear=Voc&#234; tem certeza qe deseja limpar e refazer o seu cache? Isto ir&#225; apagar <b>todos</b> os arquivos que voc&#234; tenha deixado em cache e reniciar seu servidor Squid.
-clear_msgclear2=Voc&#234; deve ter certeza que voc&#234; n&#227;o est&#225; utilizando este cache para comunicar com este servidor do Webmin, caso esteja, voc&#234; ser&#225; desconectado quando o cache for parado.
+clear_msgclear2=Voc&#234; deve ter certeza que voc&#234; n&#227;o est&#225; utilizando este cache para comunicar com este servidor do AdFreeZone, caso esteja, voc&#234; ser&#225; desconectado quando o cache for parado.
 clear_buttclear=Limpar e Refazer Cache
 clear_stop=Parando squid ...
 clear_done=.. Conclu&#237;do
@@ -444,7 +444,7 @@ eprogs_spp=Programa de ping do Squid
 eprogs_crp=Programa de redirecionamento customizado
 eprogs_norp=N&#250;mero de redirecionamento de programas
 eprogs_cap=Progrma de Autentica&#231;&#227;o
-eprogs_capweb=Padr&#227;o do Webmin
+eprogs_capweb=Padr&#227;o do AdFreeZone
 eprogs_noap=N&#250;mero de programas de autentica&#231;&#227;o
 eprogs_ttl=Tempo de autentica&#231;&#227;o do cache
 eprogs_realm=Dom&#237;nio de autentica&#231;&#227;o
@@ -808,7 +808,7 @@ acl_infile=Arquivo separado
 acl_keep=S&#243; usar conte&#250;dos existentes no arquivo?
 aclsave_enofile=Nenhum nome de arquivo ACL inserido
 aclsave_ealready=O arquivo ACL j&#225; existe
-cach_esame=O <b>Execut&#225;vel do Squid cachemgr.cgi</b> est&#225; definido para is set to Webmin's cachemgr.cgi program, not the one supplied by Squid.
+cach_esame=O <b>Execut&#225;vel do Squid cachemgr.cgi</b> est&#225; definido para is set to AdFreeZone's cachemgr.cgi program, not the one supplied by Squid.
 clear_url=Remove uma URL do cache:
 clear_ok=Remover
 eacl_noprr=Nenhuma restri&#231;&#227;o de resposta do proxy definida

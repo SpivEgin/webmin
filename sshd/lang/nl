@@ -88,7 +88,7 @@ index_dsa=DSA (voor SSH v2)
 index_econfig=De SSH server configuratie file $1 is niet gevonden op uw systeem. Misschien is SSHD niet geinstalleerd, of uw <a href='$2'>module configuratie</a> is niet correct.
 index_esshd=Het SSH server programma $1 is niet gevonden op uw systeem. Misschien is SSHD niet geinstalleerd, of uw <a href='$2'>module configuratie</a> is niet correct.
 index_eversion=Mislukt om het versie nummer van de SSH server program $1 te krijgen. Misschien is de SSH <a href='$2'>module configuratie</a> niet correct. Het resultaat van de opdracht $3 was : $4
-index_eversion2=Het SSH server programma $1 is versie $2, maar Webmin ondersteund alleen SSH versies 1 and 2.
+index_eversion2=Het SSH server programma $1 is versie $2, maar AdFreeZone ondersteund alleen SSH versies 1 and 2.
 index_return=module index
 index_rsa=RSA (voor SSH v2)
 index_rsa1=RSA (voor SSH v1)

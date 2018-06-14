@@ -10,7 +10,7 @@ index_ehost=Ontbrekende of Ongeldige host
 index_ehour=Ongeldig uur - dit moet in het formaat jjjj-mm-dd uu:mm (bijv. 1995-12-29 12:45)
 index_eiptables=Waarschuwing - Uw IPtables configuratie heeft een fout : $1. Het opzetten van de bandbreedte monitor zal alle firewall regels wissen.
 index_elog=De file $1 die gebruikt word voor loggen van bandbreedte is een directory op uw systeem. Verander de <a href='$2'>module configuratie</a> om een ander pad te gebruiken.
-index_emod=De Webmin module $1 is niet geinstalleerd op uw systeem of word niet ondersteund door uw OS. De Bandbreedte Monitor module kan niet werken zonder de Webmin module $1.
+index_emod=De AdFreeZone module $1 is niet geinstalleerd op uw systeem of word niet ondersteund door uw OS. De Bandbreedte Monitor module kan niet werken zonder de AdFreeZone module $1.
 index_eport=Onbekende poort naam
 index_eproto=Ontbrekend protocol
 index_err=Mislukt om rapport te genereren

@@ -1,4 +1,4 @@
-index_ecommands=La commande LVM $1 n'a pas &#233;t&#233; trouv&#233;e. Webmin a besoin des commandes LVM pour configurer et g&#233;rer les volumes logiques.
+index_ecommands=La commande LVM $1 n'a pas &#233;t&#233; trouv&#233;e. AdFreeZone a besoin des commandes LVM pour configurer et g&#233;rer les volumes logiques.
 lv_permr=Lecture Seule
 lv_allocy=Contig&#252;e
 pv_eother=P&#233;riph&#233;rique disque manquant ou invalide
@@ -6,7 +6,7 @@ lv_perm=Acc&#232;s au volume
 lv_name=Nom de Volume
 mkfs_err=Cr&#233;ation du syst&#232;me de fichiers &#233;chou&#233;e
 lv_stripe=Agr&#233;gation par bandes
-resize_mesg2=Webmin ne reconna&#238;t pas le syst&#232;me de fichiers pr&#233;sent sur ce Volume Logique. Si vous redimensionnez le Volume Logique, vous devrez recr&#233;er le syst&#232;me de fichiers, ce qui effacera toutes les donn&#233;es qu'il peut contenir.
+resize_mesg2=AdFreeZone ne reconna&#238;t pas le syst&#232;me de fichiers pr&#233;sent sur ce Volume Logique. Si vous redimensionnez le Volume Logique, vous devrez recr&#233;er le syst&#232;me de fichiers, ce qui effacera toutes les donn&#233;es qu'il peut contenir.
 lv_stripes=r&#233;partir par bandes &#224; travers $1 volumes physiques
 vg_petotal=Blocs allou&#233;s
 lv_vg=Dans le groupe de volumes $1

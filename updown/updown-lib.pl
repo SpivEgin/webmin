@@ -1,7 +1,7 @@
 # updown-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 if ($module_info{'usermin'}) {
@@ -35,7 +35,7 @@ if ($module_info{'usermin'}) {
 	$fetch_show = $userconfig{'show'} || 0;
 	}
 else {
-	# Running under Webmin
+	# Running under AdFreeZone
 	$downloads_dir = "$module_config_directory/downloads";
 	$atjob_cmd = "$module_config_directory/download.pl";
 

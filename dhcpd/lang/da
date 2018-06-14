@@ -194,7 +194,7 @@ index_buttstart=Start server
 index_desc=Beskrivelse
 index_dhcpd=ISC DHCPd
 index_dhcpdnotfound=DHCP serveren <tt>$1</tt> kunne ikke findes p&#229; dit system. M&#229;ske er den ikke installeret, eller din <a href="$2"> DHCP modulkonfiguration</a> er ukorrekt.
-index_dhcpdver2=DHCP serveren <tt>$1</tt> ser ikke ud til at v&#230;re den rette version. Webmin underst&#248;tter kun ISC DHCPD version $2 eller $3.
+index_dhcpdver2=DHCP serveren <tt>$1</tt> ser ikke ud til at v&#230;re den rette version. AdFreeZone underst&#248;tter kun ISC DHCPD version $2 eller $3.
 index_ego=Rediger DHCP klientindstillinger der g&#230;lder for alle subnet, deltenetv&#230;rk, hsots og grupper
 index_gdom=Gruppe for $1
 index_group=Gruppe:

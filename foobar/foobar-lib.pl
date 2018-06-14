@@ -1,11 +1,11 @@
 =head1 foobar-lib.pl
 
-Functions for the Foobar Web Server. This is an example Webmin module for a
+Functions for the Foobar Web Server. This is an example AdFreeZone module for a
 simple fictional webserver.
 
 =cut
 
-use WebminCore;
+use AdFreeZoneCore;
 init_config();
 
 =head2 list_foobar_websites()

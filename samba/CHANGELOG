@@ -31,4 +31,4 @@ Add support for the locked account flag for users, thanks to Juan Miguel Corral 
 ---- Changes since 1.550 ----
 Added improved Winbind support, thanks to Caspar Smit.
 ---- Changes since 1.590 ----
-Converted all pages to Webmin's new common UI functions, for a more consistent layout. Also reduced the length of icon titles.
+Converted all pages to AdFreeZone's new common UI functions, for a more consistent layout. Also reduced the length of icon titles.

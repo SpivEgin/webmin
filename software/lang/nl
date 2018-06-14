@@ -232,7 +232,7 @@ log_upgrade_yum=Ge-upgraden $2 pakket(ten) van YUM
 log_upgrade_yum_l=Ge-upgraden pakket(ten) $1 van YUM
 log_urpmi_update=Ge-update beschikbare URPMI pakketten
 log_urpmi_upgrade=Ge-upgraden en geinstalleerde URPMI pakketten
-missing_link=Het $1 pakket kan automatisch geinstalleerd worden door Webmin. <a href='$2'>Klik Hier</a> om het te downloaden en te installeren met gebruik van $3.
+missing_link=Het $1 pakket kan automatisch geinstalleerd worden door AdFreeZone. <a href='$2'>Klik Hier</a> om het te downloaden en te installeren met gebruik van $3.
 msi_missing=Bestaat niet
 msi_size=Verkeerde afmeting
 msi_users=Maak de nieuwe applicatie beschikbaar voor

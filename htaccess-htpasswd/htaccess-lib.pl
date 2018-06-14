@@ -6,7 +6,7 @@ use warnings;
 our (%config, %module_info, @remote_user_info, $user_module_config_directory,
      $remote_user, $module_config_directory);
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'htpasswd-file-lib.pl';
 

@@ -49,7 +49,7 @@ else {
 	print "<b>$text{'slaves_none'}</b><p>\n";
 	}
 
-# Get all Webmin servers and groups
+# Get all AdFreeZone servers and groups
 my @allservers = grep { $_->{'user'} } &servers::list_servers();
 my %gothost = map { $_->{'id'}, 1 } @servers;
 my @addservers = grep { !$gothost{$_->{'id'}} } @allservers;

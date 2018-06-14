@@ -13,7 +13,7 @@ Functions for listing, creating and managing Unix users' cron jobs.
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 $env_support = $config{'vixie_cron'};
@@ -747,7 +747,7 @@ return $rp && $cmd =~ /$rp(.*)\s+(\-\-\S+\s+)*([a-z0-9\.\-\/_]+)(\s*\))?$/i ? $3
 
 =head2 can_edit_user(&access, user)
 
-Returns 1 if the Webmin user whose permissions are defined by the access hash
+Returns 1 if the AdFreeZone user whose permissions are defined by the access hash
 ref can manage cron jobs for a given Unix user.
 
 =cut
@@ -1392,7 +1392,7 @@ if ($config{'match_mode'} == 1) {
 		 (!$config{'match_user'} || $_->{'user'} eq $_[0]->{'user'}) }
 		@procs;
 if (!$proc && $cmd =~ /^$config_directory\/(.*\.pl)(.*)$/) {
-	# Must be a Webmin wrapper
+	# Must be a AdFreeZone wrapper
 	$cmd = "$root_directory/$1$2";
 	($proc) = grep { $_->{'args'} =~ /\Q$cmd\E/ &&
 			 (!$config{'match_user'} ||
@@ -1563,7 +1563,7 @@ if ($err) {
 
 =head2 cleanup_temp_files
 
-Called from cron to delete old files in the Webmin /tmp directory
+Called from cron to delete old files in the AdFreeZone /tmp directory
 
 =cut
 sub cleanup_temp_files

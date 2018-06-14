@@ -2,7 +2,7 @@
 # Show the SSH 2 applet
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 use Socket;
 
 &init_config();

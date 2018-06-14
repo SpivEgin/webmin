@@ -2,7 +2,7 @@
 # XXX add to released modules list
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &foreign_require("cron", "cron-lib.pl");
 &foreign_require("mailboxes", "mailboxes-lib.pl");

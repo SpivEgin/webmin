@@ -1,7 +1,7 @@
 ---- Changes since 1.160 ----
-First version of this module, which can backup the configuration files of other Webmin modules.
+First version of this module, which can backup the configuration files of other AdFreeZone modules.
 ---- Changes since 1.220 ----
-Added checkboxes to control if the Webmin config file for the target modules (in /etc/webmin) and the actual server config files (like httpd.conf) are included in each backup.
+Added checkboxes to control if the AdFreeZone config file for the target modules (in /etc/webmin) and the actual server config files (like httpd.conf) are included in each backup.
 Added a button on the Edit Backup page to execute it immediately.
 Extra files to include in each backup that are not associated with any module can now be manually entered.
 ---- Changes since 1.290 ----

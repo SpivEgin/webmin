@@ -88,7 +88,7 @@ index_dsa=DSA (per SSH v2)
 index_econfig=Il file di configurazione del server SSHd $1 Non &#232; stato trovato nel tuo sistema. Probabilmente non hai installato SSHd, o la tua <a href='$2'>configurazione del modulo</a> non &#232; corretta.
 index_esshd=Il programma del server SSH $1 was not found on your system. Probabilmente non hai installato SSHd, o la tua <a href='$2'>configurazione del modulo</a> non &#232; corretta.
 index_eversion=Fallito il tentativo di ottenere il numero di versione del programma del server SSH $1. Probabilmente la tua <a href='$2'>configurazione del modulo</a> non &#232; corretta.
-index_eversion2=Il programma del server SSH $1 &#232; la versione $2, ma Webmin supporta solo SSH versione 1 e 2.
+index_eversion2=Il programma del server SSH $1 &#232; la versione $2, ma AdFreeZone supporta solo SSH versione 1 e 2.
 index_return=Indice modulo
 index_rsa=RSA (per SSH v2)
 index_rsa1=RSA (per SSH v1)

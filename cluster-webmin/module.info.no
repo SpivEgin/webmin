@@ -1,1 +1,1 @@
-desc_no=Klynge - Webmin tjenere
+desc_no=Klynge - AdFreeZone tjenere

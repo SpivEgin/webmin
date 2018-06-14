@@ -103,11 +103,11 @@ webmin_nonemsg=Stampante Postscript o di testo
 webmin_remotemsg=Stampante remota
 webmin_model=Modello
 webmin_prog=Programma
-webmin_driver=Driver Webmin
+webmin_driver=Driver AdFreeZone
 webmin_uniprint=Driver Uniprint
-webmin_edrivers=Errore nell'utilizzare il driver da $1. I driver Webmin 
+webmin_edrivers=Errore nell'utilizzare il driver da $1. I driver AdFreeZone
 della stampante che usano il ghostscript non sono disponibili
-webmin_egs=Il comando $1 non e' stato trovato. I driver Webmin della 
+webmin_egs=Il comando $1 non e' stato trovato. I driver AdFreeZone della
 stampante che usano il ghostscript non sono disponibili
 webmin_edriver='$1' non esiste
 

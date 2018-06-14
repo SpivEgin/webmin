@@ -39,6 +39,6 @@ Prevent non-level-0 backups and updating of the /etc/dumpdates file for backups 
 Fixed a bug that prevented backups of directories with spaces in their names from working properly on Linux.
 ---- Changes since 1.470 ----
 When terminating a running backup, all sub-processes such as tar and dump commands are killed too.
-Converted the UI on Solaris, OSX and FreeBSD to use the new Webmin UI library.
+Converted the UI on Solaris, OSX and FreeBSD to use the new AdFreeZone UI library.
 ---- Changes since 1.510 ----
 Fixed verification when a dump is to a date-based destination and takes more than one day.

@@ -68,7 +68,7 @@ index_econf=Die ProFTPd-Konfigurationsdatei $1 konnte auf Ihrem System nicht gef
 index_eip=&lt;Unbekannt&gt;
 index_eproftpd=Der ProFTPd-Server $1 konnte auf Ihrem System nicht gefunden werden. Entweder ist er nicht installiert oder Ihre <a href='$2'>Modulkonfiguration</a> ist falsch.
 index_eproftpd2=Das Programm $1 scheint nicht der ProFTPd-Server zu sein. Entweder ist er nicht installiert oder Ihre <a href='$2'>Modulkonfiguration</a> ist falsch. Ergebnis des Kommandos $3 : $4
-index_eversion=Diese Version des ProFTPd-Server $1 wird von Webmin nicht unterst&uuml;tzt.
+index_eversion=Diese Version des ProFTPd-Server $1 wird von AdFreeZone nicht unterst&uuml;tzt.
 index_global=Globale Konfiguration
 index_name=Server-Name
 index_port=FTP Port

@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Update the times for a Webmin cron action
+# Update the times for a AdFreeZone cron action
 
 require './webmin-lib.pl';
 &ReadParse();

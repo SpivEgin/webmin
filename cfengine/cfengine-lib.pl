@@ -2,7 +2,7 @@
 # Functions for parsing the cfengine config file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 @known_sections = ( 'groups', 'control', 'homeservers', 'binservers',

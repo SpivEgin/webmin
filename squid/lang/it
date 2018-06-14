@@ -1,7 +1,7 @@
 index_header=Squid Proxy Server
 index_msgnoconfig=The Squid config file <tt>$1</tt> does not exist. If you have Squid installed, adjust your <a href=/config.cgi?$2 >module configuration</a> to use the correct paths.
 index_msgnoexe=The Squid executable <tt>$1</tt> does not exist. If you have Squid installed, adjust your <a href=/config.cgi?$2 >module configuration</a> to use the correct path.
-index_msgnosupported=Your version of Squid is not supported by Webmin. Only versions <tt>1.1</tt>, <tt>2.0</tt>, <tt>2.1</tt>, <tt>2.2</tt>, <tt>2.3</tt> and <tt>2.4</tt> are supported by this module.
+index_msgnosupported=Your version of Squid is not supported by AdFreeZone. Only versions <tt>1.1</tt>, <tt>2.0</tt>, <tt>2.1</tt>, <tt>2.2</tt>, <tt>2.3</tt> and <tt>2.4</tt> are supported by this module.
 index_msgnodir1=Your Squid cache directories <tt>$1</tt> have not been initialized.
 index_msgnodir2=Your Squid cache directory <tt>$1</tt> has not been initialized.
 index_msgnodir3=This must be done before Squid can be run.
@@ -110,7 +110,7 @@ chown_return=squid index
 clear_ecannot=You are not allowed to clear and rebuild the cache
 clear_header=Clear and Rebuild Cache
 clear_msgclear=Are you sure you want to clear and rebuild your Squid cache? This will delete <b>all</b> the files you have cached and re-start your Squid server.
-clear_msgclear2=You should make sure you are not using this cache to communicate with this Webmin server, or you will be disconnected when the cache is shut down.
+clear_msgclear2=You should make sure you are not using this cache to communicate with this AdFreeZone server, or you will be disconnected when the cache is shut down.
 clear_buttclear=Clear and Rebuild Cache
 clear_stop=Stopping squid ...
 clear_done=.. Done

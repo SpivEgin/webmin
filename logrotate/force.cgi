@@ -5,7 +5,7 @@ require './logrotate-lib.pl';
 
 &ui_print_header(undef, $text{'force_title'}, "");
 
-# Save this CGI from being killed by the rotation of Webmin's own logs
+# Save this CGI from being killed by the rotation of AdFreeZone's own logs
 $SIG{'TERM'} = 'IGNORE';
 
 print $text{'force_doing'},"\n";

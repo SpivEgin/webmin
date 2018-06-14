@@ -1,5 +1,5 @@
 find_eexist='$1' n'existe pas dans '$2'
-acl_user_def=Pareil que le login Webmin
+acl_user_def=Pareil que le login AdFreeZone
 delete_eaccess=Vous n'&#234;tes pas autoris&#233; &#224; supprimer '$1'
 share_s1=Faire confiance aux non-root
 search_ematch=Expression rationnelle manquante
@@ -30,7 +30,7 @@ search_xdev=Chercher au-del&#224; des points de montage ?
 log_delete=Fichier $1 supprim&#233;
 share_title=Partage
 delete_ddesc=Vous &#234;tes sur que vous voulez supprimer d&#233;finitivement le r&#233;pertoire '$1' et tout son contenu?
-acl_home=Inclure le r&#233;pertoire personnel de l'utilisateur Webmin
+acl_home=Inclure le r&#233;pertoire personnel de l'utilisateur AdFreeZone
 share_noff=Partage de fichiers NFS d&#233;sactiv&#233;
 info_user=Usager:
 info_perms=Permissions

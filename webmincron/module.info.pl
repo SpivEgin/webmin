@@ -1,2 +1,2 @@
-desc_pl=Zaplanowane Funkcje Webmina
-longdesc_pl=Okre¶l funkcje Webmina, które maj± byæ uruchamiane wed³ug regularnego harmonogramu przez serwer Webmin
+desc_pl=Zaplanowane Funkcje AdFreeZonea
+longdesc_pl=Okreï¿½l funkcje AdFreeZonea, ktï¿½re majï¿½ byï¿½ uruchamiane wedï¿½ug regularnego harmonogramu przez serwer AdFreeZone

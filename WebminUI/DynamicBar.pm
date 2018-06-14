@@ -1,7 +1,7 @@
-package WebminUI::DynamicBar;
-use WebminCore;
+package AdFreeZoneUI::DynamicBar;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::DynamicBar(&start-function, max)
+=head2 new AdFreeZoneUI::DynamicBar(&start-function, max)
 A page element for displaying progress towards some goal, like the download of
 a file.
 =cut
@@ -91,7 +91,7 @@ my ($self) = @_;
 return $self->{'wait'};
 }
 
-=head2 set_page(WebminUI::Page)
+=head2 set_page(AdFreeZoneUI::Page)
 Called when this dynamic text box is added to a page
 =cut
 sub set_page

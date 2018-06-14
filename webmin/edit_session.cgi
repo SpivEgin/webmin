@@ -34,7 +34,7 @@ print &ui_table_row("",
 	  ui_textbox("blockuser_time", $miniserv{'blockuser_time'}, 4)),
 	$miniserv{'blockuser_failures'} ? 1 : 0));
 
-# Lock Webmin users who failed login too many times
+# Lock AdFreeZone users who failed login too many times
 print &ui_table_row("",
     ui_checkbox("blocklock", 1, $text{'session_blocklock'},
 		$miniserv{'blocklock'}));

@@ -6,7 +6,7 @@ portsentry_title=Portsentry Configuration
 portsentry_below=(Port scan detection)
 portsentry_ecommand=The Portsentry daemon $1 was not found on your system. Maybe it is not installed, or your <a href='$2'>module configuration</a> is incorrect.
 portsentry_eversion=The program $1 does not appear to be the Portsentry daemon. Maybe it is not installed, or your <a href='$2'>module configuration</a> is incorrect.
-portsentry_eversion2=The version of Portsentry installed on your system is $2, but Webmin only supports version 1 in this release.
+portsentry_eversion2=The version of Portsentry installed on your system is $2, but AdFreeZone only supports version 1 in this release.
 portsentry_version=Portsentry version $1
 portsentry_header=Port scan detection options
 portsentry_tmode=TCP ports to monitor
@@ -68,7 +68,7 @@ hostsentry_emultiple='$1' is not a valid host to ignore multiple logins from
 
 logcheck_title=Logcheck Configuration
 logcheck_ecommand=The logcheck command $1 was not found on your system. Maybe it is not installed, or your <a href='$2'>module configuration</a> is incorrect.
-logcheck_eversion=The logcheck command $1 is not the version expected by Webmin.
+logcheck_eversion=The logcheck command $1 is not the version expected by AdFreeZone.
 logcheck_below=(Suspicious log analysis)
 logcheck_header=Logfile checking options
 logcheck_to=Email reports to

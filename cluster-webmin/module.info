@@ -1,5 +1,5 @@
-name=Cluster Webmin
-desc=Cluster Webmin Servers
+name=Cluster AdFreeZone
+desc=Cluster AdFreeZone Servers
 category=cluster
 depends=webmin servers
-longdesc=Install and manage modules, themes, users, groups and access control settings across multiple Webmin servers.
+longdesc=Install and manage modules, themes, users, groups and access control settings across multiple AdFreeZone servers.

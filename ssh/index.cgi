@@ -3,7 +3,7 @@
 # Display the SSH applet
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 &ui_print_header(undef, "SSH Login", "", undef, 1, 1);
 

@@ -10,7 +10,7 @@ index_ehost=Fehlender oder ung&#252;ltiger Host
 index_ehour=Ung&#252;ltige Zeitangabe - Format JJJJ-MM-DD SS:MM
 index_eiptables=Warnung - Ihre IPtables-Konfiguration hat einen Fehler : $1. Das Einrichten der &#220;berwachung wird alle vorhandenen Regeln l&#246;schen!
 index_elog=Die Datei $1 wird f&#252;r die Bandbreitenmessung benutzt und loggt derzeit Daten auf Ihrem Dateisystem. Benutzen Sie die <a href='$2'>Modulkonfiguration</a> um einen anderen Pfad einzustellen.
-index_emod=Das Webminmodul $1 ist nicht installiert oder wird auf diesem System nicht unterst&#252;tzt. Ohne jenes Modul kann dieses Modul nicht arbeiten.
+index_emod=Das AdFreeZonemodul $1 ist nicht installiert oder wird auf diesem System nicht unterst&#252;tzt. Ohne jenes Modul kann dieses Modul nicht arbeiten.
 index_eport=Unbekannter Portname
 index_eproto=Fehlendes Protokoll
 index_err=Konnte Report nicht generieren

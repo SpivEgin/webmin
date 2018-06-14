@@ -25,7 +25,7 @@ check_econsole=De Bacula console opdracht $1 is niet gevonden.
 check_edir=De Bacula configuratie directory $1 is niet gevonden op uw systeem.
 check_edirector=De Bacula director configuratie file $1 is niet gevonden.
 check_engmod=De OpenCountry Bacula groeps module is niet geinstalleerd
-check_eservers=Er zijn geen Webmin server groepen gedefinieerd
+check_eservers=Er zijn geen AdFreeZone server groepen gedefinieerd
 chooser_all=Alles
 chooser_days=Datums
 chooser_daysh=Dagen van de maand om uit te voeren
@@ -265,7 +265,7 @@ index_econsole=De Bacula console opdracht $1 kon niet communiceren met de Bacula
 index_econsole2=De Bacula console opdracht $1 is niet geconfigureerd met een geldige Bacula director host. Het gebruikt op dit moment $2 wat niet bestaat.
 index_edb=Mislukt te verbinden met de Bacula database : $1. Misschien is dit nog niet ingesteld, of de <a href='$2'>module configuratie</a> is niet correct.
 index_eng=Mislukt te verbinden met de Bacula groeps database : $1. Misschien bestaat dit nog niet, of de <a href='$2'>module configuratie</a> is niet correct.
-index_eversion=Uw systeem gebruikt Bacula versie $2, maar deze Webmin module ondersteunt alleen versie $1 en hoger.
+index_eversion=Uw systeem gebruikt Bacula versie $2, maar deze AdFreeZone module ondersteunt alleen versie $1 en hoger.
 index_fd=File Daemon Configuratie
 index_fixaddr=Klik hier om de Bacula Director Host te repareren
 index_fixpass=Klik hier om het Console Wachtwoord te repareren

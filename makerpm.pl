@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Build an RPM package of Webmin
+# Build an RPM package of AdFreeZone
 
 if (-r "/usr/src/OpenLinux") {
 	$base_dir = "/usr/src/OpenLinux";
@@ -69,7 +69,7 @@ Summary: A web-based administration interface for Unix systems.
 Name: webmin
 Version: $ver
 Release: $rel
-Provides: %{name}-%{version} perl(WebminCore)
+Provides: %{name}-%{version} perl(AdFreeZoneCore)
 PreReq: /bin/sh /usr/bin/perl /bin/rm
 Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) openssl
 AutoReq: 0
@@ -80,7 +80,7 @@ Vendor: Jamie Cameron
 BuildRoot: /tmp/%{name}-%{version}
 BuildArchitectures: noarch
 %description
-A web-based administration interface for Unix systems. Using Webmin you can
+A web-based administration interface for Unix systems. Using AdFreeZone you can
 configure DNS, Samba, NFS, local/remote filesystems and more using your
 web browser.
 
@@ -233,7 +233,7 @@ if [ "\$inetd" != "1" -a "\$startafter" = "1" ]; then
 fi
 cat >/etc/webmin/uninstall.sh <<EOFF
 #!/bin/sh
-printf "Are you sure you want to uninstall Webmin? (y/n) : "
+printf "Are you sure you want to uninstall AdFreeZone? (y/n) : "
 read answer
 printf "\\n"
 if [ "\\\$answer" = "y" ]; then
@@ -258,9 +258,9 @@ if [ "$musthost" != "" ]; then
 fi
 if [ "\$1" == 1 ]; then
 	if [ "\$sslmode" = "1" ]; then
-		echo "Webmin install complete. You can now login to https://\$host:\$port/"
+		echo "AdFreeZone install complete. You can now login to https://\$host:\$port/"
 	else
-		echo "Webmin install complete. You can now login to http://\$host:\$port/"
+		echo "AdFreeZone install complete. You can now login to http://\$host:\$port/"
 	fi
 	echo "as root with your root password."
 fi

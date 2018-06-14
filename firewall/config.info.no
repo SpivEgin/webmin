@@ -10,6 +10,6 @@ before_apply_cmd=Kommando som kj&#248;res f&#248;r konfigurasjon tas i bruk,3,In
 after_apply_cmd=Kommando som skal kj&#248;res etter at konfigurasjon er tatt i bruk,3,Ingen
 line1=System konfigurasjon,11
 direct=Rediger brannmurregler direkte i stedet for lagringsfil?1,1-Ja,0-Nei
-save_file=File to save/edit <tt>IPv4</tt> rules,3,Use operating system or Webmin default
-save_file6=File to save/edit <tt>IPv6</tt> rules,3,Use operating system or Webmin default
+save_file=File to save/edit <tt>IPv4</tt> rules,3,Use operating system or AdFreeZone default
+save_file6=File to save/edit <tt>IPv6</tt> rules,3,Use operating system or AdFreeZone default
 

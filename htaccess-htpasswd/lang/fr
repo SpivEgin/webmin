@@ -1,6 +1,6 @@
 acl_dirs=R&#233;pertoires autoris&#233;s
 acl_home=Inclure le r&#233;pertoire principal de l'utilisateur Unix?
-acl_same=Comme le login Webmin
+acl_same=Comme le login AdFreeZone
 acl_sync=Peut param&#233;trer la synchronisation des utilisateurs Unix?
 acl_user=Cr&#233;ation du fichier .htaccess et htusers avec l'utilisateur Unix
 dir_apache=Editer les Option d'Apache

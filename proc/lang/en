@@ -150,13 +150,13 @@ log_kills_l=Sent signal $1 to processes<br>$2
 log_renice=Changed priority of process $2 to $1
 
 acl_manage=Manage processes as user
-acl_manage_def=Current Webmin user
+acl_manage_def=Current AdFreeZone user
 acl_edit=Can kill and renice processes?
 acl_run=Can run commands?
 acl_only=Can only see own processes?
 acl_who=Can manage processes for users
 acl_who0=All users
-acl_who1=Current Webmin user
+acl_who1=Current AdFreeZone user
 acl_who2=Listed users ..
 
 kill_kill=Kill Process

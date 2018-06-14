@@ -60,7 +60,7 @@ authu_return=brukerliste
 authu_screate=Legg til en bruker n&#229;r en Unix bruker blir lagt til
 authu_sdelete=Slett brukeren n&#229;r en Unix bruker slettes
 authu_smodify=Endre brukeren n&#229;r en Unix bruker endres
-authu_sync=Innstillingene nedenfor lar deg konfigurerer Webmin til &#229; automatisk legge til, oppdatere eller slette en bruker fra denne passordfilen n&#229;r en bruker er lagt til, endret eller fjernet i modulen <tt>Brukere og grupper</tt>.
+authu_sync=Innstillingene nedenfor lar deg konfigurerer AdFreeZone til &#229; automatisk legge til, oppdatere eller slette en bruker fra denne passordfilen n&#229;r en bruker er lagt til, endret eller fjernet i modulen <tt>Brukere og grupper</tt>.
 authu_title=Brukerliste
 authu_user=Brukernavn
 autoindex_alt=Alt tekst
@@ -349,7 +349,7 @@ cvirt_err=Kunne ikke opprette virtuell tjener
 cvirt_etaken=En virtuell tjener med samme navn og port finnes allerede
 default_serv=standard tjener
 defines_config=Merk at f&#248;lgende definerte parametere allerede er kjent : $1
-defines_desc=N&#229;r Apache er startet, kan parametere sendes til den med <tt>-D</tt> kommandolinje bryteren. Siden disse parmeterene kan p&#229;virke hvilke direktiver som brukes i dine konfig.filer, m&#229; Webmin vite hvilke verdier som sendes til Apache ved oppstart. Skriv inn parametrene som er i bruk p&#229; ditt system i tekstfeltet til h&#248;yre.
+defines_desc=N&#229;r Apache er startet, kan parametere sendes til den med <tt>-D</tt> kommandolinje bryteren. Siden disse parmeterene kan p&#229;virke hvilke direktiver som brukes i dine konfig.filer, m&#229; AdFreeZone vite hvilke verdier som sendes til Apache ved oppstart. Skriv inn parametrene som er i bruk p&#229; ditt system i tekstfeltet til h&#248;yre.
 defines_ecannot=Du har ikke lov til &#229; redigere httpd defines
 defines_list=Definerte parametere
 defines_title=Rediger definerte parametere
@@ -448,7 +448,7 @@ index_desccreate=Dette skjemaet kan brukes til &#229; legge til en ny Apache vir
 index_descglobal=Innstillingene som du f&#229;r tilgang til ved &#229; klikke p&#229; disse ikonene gjelder for hele Apache tjeneren, inkludert alle virtuelle verter.
 index_desclist=Listen nedenfor viser alle Apache virtuelle verter som er definert, og som du har tilgang til. <b>Standard tjener</b> oppf&#248;ringen definerer innstillinger som gjelder for alle andre virtuelle verter
 index_econf=Apache konfigurasjonsfilen $1 finnes ikke. Dersom Apache er installert m&#229; du justere <a href='$2'>modulkonfigurasjonen</a> slik at den benytter korrekt sti.
-index_eports=Din Apache konfigurasjon inneholder mer enn 1 $1 direktiv. Gjeldende versjon av Webmin kan ikke behandle et slikt oppsett p&#229; en ordentlig m&#229;te.
+index_eports=Din Apache konfigurasjon inneholder mer enn 1 $1 direktiv. Gjeldende versjon av AdFreeZone kan ikke behandle et slikt oppsett p&#229; en ordentlig m&#229;te.
 index_equals=er lik
 index_eroot=Apache rot katalog $1 finnes ikke. Dersom du har Apache installert, m&#229; du endre <a href='$2'>modul konfigurasjonen</a> til &#229; benytte korrekte stier.
 index_eserver=Progmfilen $1 for Apache tjeneren finnes ikke. Dersom du har installert Apache m&#229; du justere <a href='2'>modulkonfigurasjonen</a> slik at den benytter riktig sti.
@@ -961,9 +961,9 @@ perchild_num=Prosess nummer
 perchild_numservers=Antall under-prosesser
 perchild_sthreads=Initielt ant. tr&#229;der per under-prosess
 perchild_uid=UID
-reconfig_desc1=Din Apache konfigurasjon er endret, eller har ikke blit unders&#248;kt av Webmin enda. Nedenfor finner du en liste over alle Apache moduler som st&#248;ttes av Webmin, med de installerte modulene avmerket. Du kan velge eller velge bort moduler dersom listen ikke er korrekt.
-reconfig_desc2=Nedenfor finner du en liste over alle Apache moduler som st&#248;ttes av Webmin, med de installerte modulene avmerket. Dersom du benytter dynamisk lastede moduler kan det v&#230;re n&#248;dvendig &#229; velge de modulene som er dynamisk lastet.
-reconfig_desc3=Dersom du er usikker p&#229; hvilke moduler som st&#248;ttes av Apache p&#229; ditt system, kan du klikke Konfigurer, siden Webmin normalt autmatisk vil kunne finne ut hvilke moduler som er st&#248;ttet.
+reconfig_desc1=Din Apache konfigurasjon er endret, eller har ikke blit unders&#248;kt av AdFreeZone enda. Nedenfor finner du en liste over alle Apache moduler som st&#248;ttes av AdFreeZone, med de installerte modulene avmerket. Du kan velge eller velge bort moduler dersom listen ikke er korrekt.
+reconfig_desc2=Nedenfor finner du en liste over alle Apache moduler som st&#248;ttes av AdFreeZone, med de installerte modulene avmerket. Dersom du benytter dynamisk lastede moduler kan det v&#230;re n&#248;dvendig &#229; velge de modulene som er dynamisk lastet.
+reconfig_desc3=Dersom du er usikker p&#229; hvilke moduler som st&#248;ttes av Apache p&#229; ditt system, kan du klikke Konfigurer, siden AdFreeZone normalt autmatisk vil kunne finne ut hvilke moduler som er st&#248;ttet.
 reconfig_ecannot=Du har ikke lov til &#229; rekonfigurere apache
 reconfig_ever=Kunne ikke hente versjonsnummer p&#229; Apache server programmet $1. Sjekk din <a href='$2'>modul konfigurasjon</a> for &#229; forsikre deg om at dette er riktig sti.
 reconfig_ok=Konfigurer

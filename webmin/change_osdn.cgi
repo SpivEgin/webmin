@@ -6,7 +6,7 @@ require './webmin-lib.pl';
 &ReadParse();
 
 if ($in{'clear'}) {
-	# Just clearing Webmin's cache
+	# Just clearing AdFreeZone's cache
 	&ui_print_header(undef, $text{'clear_title'}, "");
 
 	$sz = &disk_usage_kb($main::http_cache_directory)*1024;

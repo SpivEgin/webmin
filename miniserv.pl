@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# A very simple perl web server used by Webmin
+# A very simple perl web server used by AdFreeZone
 
 # Require basic libraries
 package miniserv;
@@ -2031,7 +2031,7 @@ if ($config{'userfile'}) {
 			}
 		}
 	else {
-		# Get the real Webmin username
+		# Get the real AdFreeZone username
 		local @can = &can_user_login($authuser, undef, $host);
 		$baseauthuser = $can[3] || $authuser;
 
@@ -2424,7 +2424,7 @@ if (&get_type($full) eq "internal/cgi" && $validated != 4) {
 		$main_process_id = $$;
 		$pkg = "main";
 		if ($full =~ /^\Q$foundroot\E\/([^\/]+)\//) {
-			# Eval in package from Webmin module name
+			# Eval in package from AdFreeZone module name
 			$pkg = $1;
 			$pkg =~ s/[^A-Za-z0-9]/_/g;
 			}
@@ -3440,7 +3440,7 @@ sub urlize {
 # validate_user(username, password, host, remote-ip, webmin-port)
 # Checks if some username and password are valid. Returns the modified username,
 # the expired / temp pass flag, the non-existence flag, and the underlying
-# Webmin username.
+# AdFreeZone username.
 sub validate_user
 {
 local ($user, $pass, $host, $actpip, $port) = @_;
@@ -3458,7 +3458,7 @@ elsif ($canmode == 0) {
 	return ( $canuser, 0, 0, $webminuser );
 	}
 elsif ($canmode == 1) {
-	# Attempt Webmin authentication
+	# Attempt AdFreeZone authentication
 	my $uinfo = &get_user_details($webminuser);
 	if ($uinfo &&
 	    &password_crypt($pass, $uinfo->{'pass'}) eq $uinfo->{'pass'}) {
@@ -3644,10 +3644,10 @@ return $resp =~ /^OK/i ? 1 : 0;
 # can_user_login(username, no-append, host)
 # Checks if a user can login or not.
 # First return value is the username.
-# Second is 0 if cannot login, 1 if using Webmin pass, 2 if PAM, 3 if password
+# Second is 0 if cannot login, 1 if using AdFreeZone pass, 2 if PAM, 3 if password
 # file, 4 if external.
 # Third is 1 if the user does not exist at all, 0 if he does.
-# Fourth is the Webmin username whose permissions apply, based on unixauth.
+# Fourth is the AdFreeZone username whose permissions apply, based on unixauth.
 # Fifth is a flag indicating if a sudo check is needed.
 sub can_user_login
 {
@@ -3800,21 +3800,21 @@ if (!$uinfo) {
 		return ( $_[0], 4, 0, $realuser, $sudo );
 		}
 	else {
-		# Fixed Webmin password
-		print DEBUG "can_user_login: Validate by Webmin\n";
+		# Fixed AdFreeZone password
+		print DEBUG "can_user_login: Validate by AdFreeZone\n";
 		return ( $_[0], 1, 0, $realuser, $sudo );
 		}
 	}
 elsif ($uinfo->{'pass'} eq 'x') {
-	# Webmin user authenticated via PAM or password file
+	# AdFreeZone user authenticated via PAM or password file
 	return ( $_[0], $use_pam ? 2 : 3, 0, $_[0] );
 	}
 elsif ($uinfo->{'pass'} eq 'e') {
-	# Webmin user authenticated externally
+	# AdFreeZone user authenticated externally
 	return ( $_[0], 4, 0, $_[0] );
 	}
 else {
-	# Normal Webmin user
+	# Normal AdFreeZone user
 	return ( $_[0], 1, 0, $_[0] );
 	}
 }
@@ -6007,7 +6007,7 @@ closedir(CRONS);
 }
 
 # precache_files()
-# Read into the Webmin cache all files marked for pre-caching
+# Read into the AdFreeZone cache all files marked for pre-caching
 sub precache_files
 {
 undef(%main::read_file_cache);
@@ -6152,7 +6152,7 @@ return undef;
 }
 
 # execute_webmin_command(command, &argv, [stdout-fd])
-# Run some Webmin script in a sub-process, like webmincron.pl
+# Run some AdFreeZone script in a sub-process, like webmincron.pl
 # Returns the PID of the new process.
 sub execute_webmin_command
 {

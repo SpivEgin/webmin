@@ -25,7 +25,7 @@ index_eldap=$1. Klikk her for &#229; endre <a href='$2'>modulkonfigurasjonen</a>
 index_emd5=Denne modulen er <a href='$1'>konfigurert</a> til &#229; bruke MD5 kryptering for passord, men Perl modulen $2 er ikke installert. <a href='$3'>Klikk her</a> for &#229; laste ned og installere $2 modulen..
 index_eperl=Perl modulen $1 som denne modulen krever, er ikke installert, eller den virker ikke ordentlig. <a href='$2'>Klikk her</a> for &#229; laste den ned og installere den.
 index_eperl2=Feilen som Perl rapporterte n&#229;r den fors&#248;kte &#229; laste modulen var :
-index_eschema=Webmin er koblet til LDAP tjeneren, men klarte ikke &#229; hente skjemaet. Forsikre deg om at tilgang ikke er nektet i <a href='$1'>LDAP Tjener</a> modulen.
+index_eschema=AdFreeZone er koblet til LDAP tjeneren, men klarte ikke &#229; hente skjemaet. Forsikre deg om at tilgang ikke er nektet i <a href='$1'>LDAP Tjener</a> modulen.
 index_eslappasswd=Denne modulen er <a href='$1'>konfigurert</a> til &#229; bruke LDAP MD5 kryptering for passord, men <tt>$2</tt> programmet som brukes til denne krypteringen, er ikke installert.
 index_eusearch=Kunne ikke s&#248;ke etter brukere under $1 : $2
 index_gadd=Legg til en ny LDAP gruppe

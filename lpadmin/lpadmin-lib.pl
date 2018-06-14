@@ -2,7 +2,7 @@
 # Functions for configuring and adding printers
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do "$config{'print_style'}-lib.pl";
 if ($config{'driver_style'}) {

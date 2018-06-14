@@ -4,7 +4,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 BEGIN { push(@INC, ".."); };
-eval "use WebminCore;";
+eval "use AdFreeZoneCore;";
 &init_config();
 our ($module_config_directory, %config, %gconfig, $module_name,
      $no_log_file_changes, $module_var_directory);
@@ -37,7 +37,7 @@ if (&foreign_check("proc")) {
 		my @m = &proc::get_memory_info();
 		$info->{'mem'} = \@m;
 		if ($m[0] > 128*1024*1024 && $gconfig{'os_type'} eq 'freebsd') {
-			# Some Webmin versions overstated memory by a factor
+			# Some AdFreeZone versions overstated memory by a factor
 			# of 1k on FreeBSD - fix it
 			$m[0] /= 1024;
 			$m[1] /= 1024;
@@ -374,7 +374,7 @@ return @rv;
 }
 
 # setup_collectinfo_job()
-# Creates or updates the Webmin function cron job, based on the interval
+# Creates or updates the AdFreeZone function cron job, based on the interval
 # set in the module config
 sub setup_collectinfo_job
 {
@@ -426,7 +426,7 @@ return @rv;
 }
 
 # scheduled_collect_system_info()
-# Called by Webmin Cron to collect system info
+# Called by AdFreeZone Cron to collect system info
 sub scheduled_collect_system_info
 {
 my $start = time();
@@ -440,8 +440,8 @@ if (&test_lock($collected_info_file)) {
 # Don't diff collected file
 $gconfig{'logfiles'} = 0;
 $gconfig{'logfullfiles'} = 0;
-$WebminCore::gconfig{'logfiles'} = 0;
-$WebminCore::gconfig{'logfullfiles'} = 0;
+$AdFreeZoneCore::gconfig{'logfiles'} = 0;
+$AdFreeZoneCore::gconfig{'logfullfiles'} = 0;
 $no_log_file_changes = 1;
 &lock_file($collected_info_file);
 

@@ -1,8 +1,8 @@
 risk=low medium high
-name=Webmin
+name=AdFreeZone
 category=webmin
-desc=Webmin Configuration
+desc=AdFreeZone Configuration
 depends=cron
-longdesc=Configure Webmin itself, such as allowed hosts, SSL, installed modules and themes.
+longdesc=Configure AdFreeZone itself, such as allowed hosts, SSL, installed modules and themes.
 cpan=1
 syslog=1

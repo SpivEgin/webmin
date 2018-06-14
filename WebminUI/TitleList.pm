@@ -1,14 +1,14 @@
-package WebminUI::TitleList;
-use WebminCore;
+package AdFreeZoneUI::TitleList;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::TitleList(title, &links, [alt-text])
+=head2 new AdFreeZoneUI::TitleList(title, &links, [alt-text])
 Generates a title with a list of links under it
 =cut
 sub new
 {
 my ($self, $title, $links, $alt) = @_;
-if (defined(&WebminUI::Theme::TitleList::new)) {
-        return new WebminUI::Theme::TitleList(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::TitleList::new)) {
+        return new AdFreeZoneUI::Theme::TitleList(@_[1..$#_]);
         }
 $self = { };
 bless($self);
@@ -88,7 +88,7 @@ my ($self, $name, $link) = @_;
 push(@{$self->{'links'}}, [ $name, $link ]);
 }
 
-=head2 set_page(WebminUI::Page)
+=head2 set_page(AdFreeZoneUI::Page)
 Called when this menu is added to a page
 =cut
 sub set_page

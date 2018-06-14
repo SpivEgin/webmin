@@ -10,7 +10,7 @@ Functions for configuring Usermin running on this system. Example usage :
 =cut
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 $access{'upgrade'} = 0 if (&is_readonly_mode());	# too hard to fake
@@ -163,7 +163,7 @@ return @rv;
 =head2 list_modules
 
 Returns a list of all usermin modules installed and supported on this system.
-Each is a hash ref in the same format as returned by Webmin's get_module_info
+Each is a hash ref in the same format as returned by AdFreeZone's get_module_info
 function.
 
 =cut
@@ -191,7 +191,7 @@ return @mlist;
 =head2 get_usermin_module_info(module, [noclone])
 
 Returns a hash contain details of a module, in the same format as 
-Webmin's get_module_info function. Useful keys include :
+AdFreeZone's get_module_info function. Useful keys include :
 
 =item dir - The module's relative directory.
 
@@ -690,7 +690,7 @@ foreach $u (@_) {
 
 =head2 can_use_module(module)
 
-Returns 1 if the current Webmin user can use some function of this module.
+Returns 1 if the current AdFreeZone user can use some function of this module.
 
 =cut
 sub can_use_module

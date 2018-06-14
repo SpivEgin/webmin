@@ -1,6 +1,6 @@
 __norefs=1
 acl_user=Utf&#248;r kommandoer som brukeren
-acl_user_def=Gjeldende Webmin bruker
+acl_user_def=Gjeldende AdFreeZone bruker
 index_clear=Nullstill historikk
 index_clearcmds=Nullstill kommandoer
 index_desc=Skriv inn en skallkommando som skal utf&#248;res i tekstfeltet nedenfor. Du kan bruke <tt>cd</tt> kommandoen til &#229; endre aktiv katalog for etterf&#248;lgende kommandoer.

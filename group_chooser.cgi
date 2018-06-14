@@ -3,7 +3,7 @@
 # This CGI generated the HTML for choosing a group or list of groups.
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 if (&get_product_name() eq 'usermin') {

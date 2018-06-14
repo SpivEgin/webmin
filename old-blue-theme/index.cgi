@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &ReadParse();
 &init_config();
 %text = &load_language($current_theme);

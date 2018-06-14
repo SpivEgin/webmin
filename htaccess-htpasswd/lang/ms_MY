@@ -1,7 +1,7 @@
 __norefs=1
 acl_dirs=Direktori yang dibenarkan
 acl_home=Termasuk direktori home pengguna Unix?
-acl_same=Sama seperti log masuk Webmin
+acl_same=Sama seperti log masuk AdFreeZone
 acl_sync=Boleh tetapkan penyegerakan pengguna Unix?
 acl_uonly=Boleh menambah dan menukar direktori dilindungi?
 acl_user=Cipta fail .htaccess dan htusers sebagai pengguna Unix

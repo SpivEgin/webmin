@@ -2,7 +2,7 @@
 # Common functions for parsing and editing the spamassassin config file
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 use Fcntl;
 &init_config();
 
@@ -27,7 +27,7 @@ if ($module_info{'usermin'}) {
 	$max_awl_keys = $userconfig{'max_awl'} || 200;
 	}
 else {
-	# Running under Webmin, typically editing global config file
+	# Running under AdFreeZone, typically editing global config file
 	%access = &get_module_acl();
 	if ($access{'file'}) {
 		&set_config_file($access{'file'});
@@ -52,7 +52,7 @@ $ldap_spamassassin_attr = $config{'attr'} || 'spamassassin';
 $ldap_username_attr = $config{'uid'} || 'uid';
 
 # set_config_file(file)
-# Change the default file read by get_config. Under Webmin, checks if this file
+# Change the default file read by get_config. Under AdFreeZone, checks if this file
 # is accessible to the current user
 sub set_config_file
 {

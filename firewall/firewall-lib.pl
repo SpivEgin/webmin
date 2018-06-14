@@ -4,7 +4,7 @@
 # cgi scripts has also to include firewall4/6-lib based on result of get_ipvx_version() 
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 
 $config{'perpage'} ||= 50;	# a value of 0 can cause problems
@@ -293,7 +293,7 @@ else {
 }
 
 # create_webmin_init()
-# Create (if necessary) the Webmin iptables init script
+# Create (if necessary) the AdFreeZone iptables init script
 sub create_webmin_init
 {
 local $res = &has_command("ip${ipvx}tables-restore");

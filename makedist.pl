@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Builds a tar.gz package of a specified Webmin version
+# Builds a tar.gz package of a specified AdFreeZone version
 
 @ARGV == 1 || @ARGV == 2 || usage();
 if ($ARGV[0] eq "-minimal" || $ARGV[0] eq "--minimal") {
@@ -38,7 +38,7 @@ $zipdir = "zips";
 	  "password_form.cgi", "password_change.cgi", "pam_login.cgi",
 	  "module_chooser.cgi", "config-windows", "xmlrpc.cgi",
 	  "uptracker.cgi", "create-module.pl", "webmin_search.cgi",
-	  "webmin-search-lib.pl", "WebminCore.pm",
+	  "webmin-search-lib.pl", "AdFreeZoneCore.pm",
 	  "record-login.pl", "record-logout.pl", "robots.txt",
 	  "unauthenticated",
 	 );
@@ -78,7 +78,7 @@ else {
 	  "authentic-theme", "firewalld", "filemin", "firewall6",
 	  );
 	}
-@dirlist = ( "WebminUI", "JSON" );
+@dirlist = ( "AdFreeZoneUI", "JSON" );
 
 if (-d "/usr/local/webadmin") {
 	chdir("/usr/local/webadmin");
@@ -174,7 +174,7 @@ if (!$min && -d $zipdir) {
 	system("rm -rf $zipdir/webmin");
 	system("mkdir $zipdir/webmin");
 	system("cp -rp $tardir/$dir/* $zipdir/webmin");
-	system("rm -rf $zipdir/webmin/{fdisk,exports,bsdexports,hpuxexports,sgiexports,zones,rbac,Webmin}");
+	system("rm -rf $zipdir/webmin/{fdisk,exports,bsdexports,hpuxexports,sgiexports,zones,rbac,AdFreeZone}");
 	system("rm -rf $zipdir/webmin/acl/Authen-SolarisRBAC-0.1/*");
 	system("echo zip >$zipdir/webmin/install-type");
 	open(FIND, "find $zipdir/webmin -name '*\\**' |");

@@ -38,18 +38,18 @@ server (a backup source for the domain). <p>
 <hr>
 <h3>Setting up the DNS Server</h3>
 If your system already has a running BIND DNS server, then you can ignore
-this section. However, if the Webmin detects that the primary DNS server
+this section. However, if the AdFreeZone detects that the primary DNS server
 configuration file (usually <tt>/etc/named.boot</tt>) is missing from your
 system, it assumes that the server has not yet been setup. <p>
 
 For normal internet use, a DNS server has to have a list of the root nameservers
 so that it can answer DNS queries that are outside its domains. If your server
-is not setup, Webmin can:
+is not setup, AdFreeZone can:
 <ol>
 <li>Download this list from the internic FTP server at <tt>rs.internic.net</tt>.
-    Assuming the host Webmin in being run on is connected to the internet
+    Assuming the host AdFreeZone in being run on is connected to the internet
     and is not blocked by any firewall, this is the best option. <p>
-<li>Use a copy of the list that is distributed with Webmin. Because the
+<li>Use a copy of the list that is distributed with AdFreeZone. Because the
     root nameservers do not change very often, this should work fine. <p>
 <li>Setup the nameserver for 'internal' use only. If you are on network that
     is not connected to the internet, then this is the option you want.<p>
@@ -75,7 +75,7 @@ the fields are:
 <li><b>Nameserver</b><br>
     This must contain the fully qualified name of the nameserver responsible
     for this domain. This will almost always be the name of the host you
-    are running Webmin on. <p>
+    are running AdFreeZone on. <p>
 </ul>
 
 <hr>

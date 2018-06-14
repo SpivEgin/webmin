@@ -44,7 +44,7 @@ foreach $t (@todo) {
 &end_update_progress();
 
 if ($tellcount) {
-	# Add link to Webmin
+	# Add link to AdFreeZone
 	&get_miniserv_config(\%miniserv);
 	$proto = $miniserv{'ssl'} ? 'https' : 'http';
 	$port = $miniserv{'port'};

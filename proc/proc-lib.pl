@@ -2,7 +2,7 @@
 # Functions for managing processes
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 use POSIX;
 use Config;
 
@@ -301,7 +301,7 @@ if (!$@) {
 	return ($ptyfh, $pid);
 	}
 else {
-	# Need to create a PTY using built-in Webmin code
+	# Need to create a PTY using built-in AdFreeZone code
 	local ($ptyfh, $ttyfh, $pty, $tty) = &get_new_pty();
 	$tty || &error("Failed to create new PTY - try installing the IO::Tty Perl module");
 	local $pid = fork();

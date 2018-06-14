@@ -1,43 +1,43 @@
 <body bgcolor=#ffffff>
 <title>Gestor de Samba</title>
 <center><img src="images/samba.gif"></center><br>
-<h2><i>Aquesta pàgina d'ajuda és incompleta</i></h2>
+<h2><i>Aquesta pï¿½gina d'ajuda ï¿½s incompleta</i></h2>
 <hr>
-<h3>Introducció</h3>
-Samba és un programa <i>freeware</i> que permet que els PCs que executen
+<h3>Introducciï¿½</h3>
+Samba ï¿½s un programa <i>freeware</i> que permet que els PCs que executen
 Windows 95 i NT puguin accedir als fitxers i impressores del teu
 sistema Unix, com si fos un servidor de fitxers/impressores Windows.
 Alguns sistemes Unix com el Linux de Redhat inclouen Samba com a
-part de la instal·lació estàndard, mentre que molts altres 
-exigeixen que el baixis i l'instal·lis per separat. <p>
+part de la instalï¿½laciï¿½ estï¿½ndard, mentre que molts altres 
+exigeixen que el baixis i l'instalï¿½lis per separat. <p>
 
-Si no tens el Samba instal·lat, la pàgina principal del mòdul es
-queixarà que no pot trobar el fitxer de configuració del Samba
-i no podràs compartir cap fitxer ni directori. Si tens instal·lat
-el Samba però et dóna aquest missatge d'error, comprova la
-<a href="/config.cgi?samba">Configuració del mòdul</a> per
-assegurar-te que Webmin està buscant el fitxer de configuració
+Si no tens el Samba instalï¿½lat, la pï¿½gina principal del mï¿½dul es
+queixarï¿½ que no pot trobar el fitxer de configuraciï¿½ del Samba
+i no podrï¿½s compartir cap fitxer ni directori. Si tens instalï¿½lat
+el Samba perï¿½ et dï¿½na aquest missatge d'error, comprova la
+<a href="/config.cgi?samba">Configuraciï¿½ del mï¿½dul</a> per
+assegurar-te que AdFreeZone estï¿½ buscant el fitxer de configuraciï¿½
 i els programes de Samba al lloc correcte. <p>
 
-Assumint que el Samba està instal·lat apropiadament, la pàgina principal
-del mòdul mostrarà una llista de tots els directoris i impressores
-compartits del sistema. Si Webmin determina que el servidor Samba no
-està en execució, se't donarà l'opció d'iniciar el servidor.
-Això pot caldre si el Samba no s'inicia en el moment d'engegar
+Assumint que el Samba estï¿½ instalï¿½lat apropiadament, la pï¿½gina principal
+del mï¿½dul mostrarï¿½ una llista de tots els directoris i impressores
+compartits del sistema. Si AdFreeZone determina que el servidor Samba no
+estï¿½ en execuciï¿½, se't donarï¿½ l'opciï¿½ d'iniciar el servidor.
+Aixï¿½ pot caldre si el Samba no s'inicia en el moment d'engegar
 el sistema. <p>
 
 <hr>
-<h3>Creació d'un Directori Compartit</h3>
-Un directori compartit Samba és un directori que els clients PC poden
-muntar. Cada directori té un nom abreujat com ara <tt>docs</tt> o
-<tt>www</tt>, que està mapejat a algun directori del sistema Unix.
-Un directori compartit és típicament referit pel client amb la
-notació <tt>\\servidor\directori</tt>. <p>
+<h3>Creaciï¿½ d'un Directori Compartit</h3>
+Un directori compartit Samba ï¿½s un directori que els clients PC poden
+muntar. Cada directori tï¿½ un nom abreujat com ara <tt>docs</tt> o
+<tt>www</tt>, que estï¿½ mapejat a algun directori del sistema Unix.
+Un directori compartit ï¿½s tï¿½picament referit pel client amb la
+notaciï¿½ <tt>\\servidor\directori</tt>. <p>
 
-Per crear un directori compartit, fes clic sobre l'enllaç <tt>Crea un
+Per crear un directori compartit, fes clic sobre l'enllaï¿½ <tt>Crea un
 nou directori compartit</tt> sota la llista de directoris de la
-pàgina principal. Tot i que Samba suporta un gran nombre de paràmetres
-per a cada directori compartit, els més importants són els següents:<p>
+pï¿½gina principal. Tot i que Samba suporta un gran nombre de parï¿½metres
+per a cada directori compartit, els mï¿½s importants sï¿½n els segï¿½ents:<p>
 <table border width=100%>
    <tr>
       <td>
@@ -45,8 +45,8 @@ per a cada directori compartit, els més importants són els següents:<p>
       </td>
       <td>
          Cada directori compartit ha de tenir un nom, utilitzat pels
-         clients per referir-s'hi. Un cas especial és la compartició
-         de <tt>Tots els Directoris Home</tt>, explicat més endavant.
+         clients per referir-s'hi. Un cas especial ï¿½s la comparticiï¿½
+         de <tt>Tots els Directoris Home</tt>, explicat mï¿½s endavant.
       </td>
    </tr>
    <tr>
@@ -55,7 +55,7 @@ per a cada directori compartit, els més importants són els següents:<p>
       </td>
       <td>
          El directori a compartir. Els clients que utilitzen aquest
-         directori compartit només poden accedir als fitxers dins de 
+         directori compartit nomï¿½s poden accedir als fitxers dins de 
          o per sota d'aquest directori.
       </td>
    </tr>
@@ -69,37 +69,37 @@ per a cada directori compartit, els més importants són els següents:<p>
    </tr>
    <tr>
       <td>
-         <b>Accés Hoste</b>
+         <b>Accï¿½s Hoste</b>
       </td>
       <td>
          Si un directori compartit permet usuaris hostes, els clients hi
          poden accedir sense necessitat de donar un nom d'usuari i una
-         contrasenya vàlids. Un directori compartit pot tant denegar usuaris
-         hostes com permetre només usuaris hostes.
+         contrasenya vï¿½lids. Un directori compartit pot tant denegar usuaris
+         hostes com permetre nomï¿½s usuaris hostes.
       </td>
    </tr>
 </table>
-Per més informació sobre les opcions d'un directori compartit, mira
-la secció <b>Opcions Avançades</b> més avall. <p>
+Per mï¿½s informaciï¿½ sobre les opcions d'un directori compartit, mira
+la secciï¿½ <b>Opcions Avanï¿½ades</b> mï¿½s avall. <p>
 
-Un cop introduïts els detalls del nou directori compartit i fet clic
-sobre el botó <tt>Crea</tt>, estarà disponible immediatament per als
-clients PC. Assumint que tota la xarxa està correctament configurada,
+Un cop introduï¿½ts els detalls del nou directori compartit i fet clic
+sobre el botï¿½ <tt>Crea</tt>, estarï¿½ disponible immediatament per als
+clients PC. Assumint que tota la xarxa estï¿½ correctament configurada,
 els usuaris podran veure el servidor i tots els directoris compartits.
 Llavors, el nou directori compartit es pot mapejar a una lletra del PC. <p>
 
 <hr>
-<h3>Creació d'una Impressora Compartida</h3>
-Una impressora compartida Samba és una impressora Unix local o remota
-que es vol posar a disposició dels clients PC. Igual que els directoris
-compartits, cada impressora compartida té un nom abreujat (com <tt>hp5si</tt>), 
-i és referida pels clients amb la notació <tt>\\servidor\impressora</tt>. <p>
+<h3>Creaciï¿½ d'una Impressora Compartida</h3>
+Una impressora compartida Samba ï¿½s una impressora Unix local o remota
+que es vol posar a disposiciï¿½ dels clients PC. Igual que els directoris
+compartits, cada impressora compartida tï¿½ un nom abreujat (com <tt>hp5si</tt>), 
+i ï¿½s referida pels clients amb la notaciï¿½ <tt>\\servidor\impressora</tt>. <p>
 
-Per crear una nova impressora compartida, fes clic a l'enllaç <tt>Crea una
-nova impressora compartida</tt> de la pàgina principal. Això mostrarà
-un formulari similar al de creació de directoris compartits, on pots
-introduir els detalls de la nova impressora. Les opcions més importants 
-d'una impressora nova són: <p>
+Per crear una nova impressora compartida, fes clic a l'enllaï¿½ <tt>Crea una
+nova impressora compartida</tt> de la pï¿½gina principal. Aixï¿½ mostrarï¿½
+un formulari similar al de creaciï¿½ de directoris compartits, on pots
+introduir els detalls de la nova impressora. Les opcions mï¿½s importants 
+d'una impressora nova sï¿½n: <p>
 <table border width=100%>
    <tr>
       <td>
@@ -107,8 +107,8 @@ d'una impressora nova són: <p>
       </td>
       <td>
          Cada impressora ha de tenir un nom, utilitzat pels clients
-         per referir-s'hi. Un cas especial és la compartició
-         <tt>Totes les Impressores</tt>, explicat més endavant.
+         per referir-s'hi. Un cas especial ï¿½s la comparticiï¿½
+         <tt>Totes les Impressores</tt>, explicat mï¿½s endavant.
       </td>
    </tr>
    <tr>
@@ -123,18 +123,18 @@ d'una impressora nova són: <p>
          <b>Directori de spool</b>
       </td>
       <td>
-         El directori on resideixen els fitxers temporals d'impressió
+         El directori on resideixen els fitxers temporals d'impressiï¿½
       </td>
    </tr>
    <tr>
       <td>
-         <b>Accés hoste</b>
+         <b>Accï¿½s hoste</b>
       </td>
       <td>
          Si una impressora compartida permet usuaris hostes, els clients hi
          poden accedir sense necessitat de donar un nom d'usuari i una
-         contrasenya vàlids. Un directori compartit pot tant denegar usuaris
-         hostes com permetre només usuaris hostes.
+         contrasenya vï¿½lids. Un directori compartit pot tant denegar usuaris
+         hostes com permetre nomï¿½s usuaris hostes.
       </td>
    </tr>
    <tr>
@@ -143,105 +143,105 @@ d'una impressora nova són: <p>
       </td>
       <td>
          El nom del controlador de la impressora que cal utilitzar. Si 
-         introdueixes un valor per a aquesta opció, i coincideix amb
+         introdueixes un valor per a aquesta opciï¿½, i coincideix amb
          un controlador d'impressora als clients PC, llavors els usuaris no
-         hauran de triar un controlador d'impressió en afegir aquesta impressora.
+         hauran de triar un controlador d'impressiï¿½ en afegir aquesta impressora.
       </td>
    </tr>
 </table><p>
 
-Igual que pels directoris compartits, hi ha moltes més opcions disponibles
+Igual que pels directoris compartits, hi ha moltes mï¿½s opcions disponibles
 per a les impressores compartides. Tan aviat com s'afegeix una impressora
-compartida, aquesta queda a disposició dels clients. Sota Windows 95 i NT,
-es pot afegir una impressora utilitzant l'opció <tt>Afegir Impressora</tt>
-del plafó de control d'impressores. Un cop afegida, l'usuari hi pot imprimir
+compartida, aquesta queda a disposiciï¿½ dels clients. Sota Windows 95 i NT,
+es pot afegir una impressora utilitzant l'opciï¿½ <tt>Afegir Impressora</tt>
+del plafï¿½ de control d'impressores. Un cop afegida, l'usuari hi pot imprimir
 igual que per qualsevol altra impressora local o de xarxa. <p>
 
 <hr>
-<h3>Creació d'una Còpia</h3>
+<h3>Creaciï¿½ d'una Cï¿½pia</h3>
 
 
 <hr>
-<h3>Edició d'un Recurs</h3>
+<h3>Ediciï¿½ d'un Recurs</h3>
 Per editar un recurs compartit existent, fes clic sobre el seu nom a la
-llista de recursos de la pàgina principal. Això mostrarà el mateix
-formulari utilitzat per crear el recurs, que et permetrà de modificar
-totes les opcions i paràmetres. Per desar els canvis, fes clic sobre
-el botó <tt>Aplica</tt> al peu de la pàgina. <p>
+llista de recursos de la pï¿½gina principal. Aixï¿½ mostrarï¿½ el mateix
+formulari utilitzat per crear el recurs, que et permetrï¿½ de modificar
+totes les opcions i parï¿½metres. Per desar els canvis, fes clic sobre
+el botï¿½ <tt>Aplica</tt> al peu de la pï¿½gina. <p>
 
-Per suprimir un recurs, fes clic sobre el botó <tt>Suprimeix</tt> al
-peu de la pàgina. Els usuaris existents no seran desconnectats immediatament
-- no obstant, no es permetrà la connexió de nous usuaris. <p>
+Per suprimir un recurs, fes clic sobre el botï¿½ <tt>Suprimeix</tt> al
+peu de la pï¿½gina. Els usuaris existents no seran desconnectats immediatament
+- no obstant, no es permetrï¿½ la connexiï¿½ de nous usuaris. <p>
 
 <hr>
 <h3>Usuaris i Seguretat</h3>
-Pels recursos compartits que no permeten accés hoste, el Samba espera
+Pels recursos compartits que no permeten accï¿½s hoste, el Samba espera
 que el client subministri un nom d'usuari i una contrasenya.
-Típicament, aquests es verifiquen contra la llista d'usuaris Unix,
-que es pot actualitzar amb el mòdul de <a href=/useradmin/>Gestió
-d'Usuaris</a>. El Samba també pot mantenir la seva pròpia llista
-d'usuaris i contrasenyes - mira la secció <b>Contrasenyes Xifrades</b>
-per a més detalls. <p>
+Tï¿½picament, aquests es verifiquen contra la llista d'usuaris Unix,
+que es pot actualitzar amb el mï¿½dul de <a href=/useradmin/>Gestiï¿½
+d'Usuaris</a>. El Samba tambï¿½ pot mantenir la seva prï¿½pia llista
+d'usuaris i contrasenyes - mira la secciï¿½ <b>Contrasenyes Xifrades</b>
+per a mï¿½s detalls. <p>
 
 Algunes versions de Windows no permeten el subministrament d'un nom
-d'usuari en accedir a un recurs - en lloc d'això, es dóna el nom 
+d'usuari en accedir a un recurs - en lloc d'aixï¿½, es dï¿½na el nom 
 utilitzat en entrar a Windows. Si tots els clients entren a Windows amb
 el mateix nom que utilitzen per a Unix, no hi ha cap problema.
-Ara bé, si no és així, tens 2 opcions:
+Ara bï¿½, si no ï¿½s aixï¿½, tens 2 opcions:
 <ol>
 <li>Windows 95 i NT poden muntar un recurs manualment, ja sigui 
    escrivint <tt>NET USE <i>DRIVE:</i> <i>SHARE</i></tt> a la
-   línia d'ordres, o bé clicant el botó de connexió d'unitat de
-   l'administrador de fitxers i introduint el camí del recurs.
+   lï¿½nia d'ordres, o bï¿½ clicant el botï¿½ de connexiï¿½ d'unitat de
+   l'administrador de fitxers i introduint el camï¿½ del recurs.
    En tots dos casos, el recurs pot estar en format
-   <tt>\\SERVIDOR\RECURS%usuari</tt>, on <i>usuari</i> és el nom
+   <tt>\\SERVIDOR\RECURS%usuari</tt>, on <i>usuari</i> ï¿½s el nom
    d'entrada al servidor. <p>
 <li>Samba es pot configurar per intentar fer coincidir la contrasenya
    subministrada contra una llista d'usuaris per tal de trobar el
-   nom d'usuari correcte. L'opció del recurs <tt>Usuaris Unix</tt>
+   nom d'usuari correcte. L'opciï¿½ del recurs <tt>Usuaris Unix</tt>
    permet especificar els usuaris o grups d'usuaris a comprovar.
-   Tingues en compte que utilitzar aquesta opció amb un nombre
-   gran d'usuaris no és gaire segur, ja que 2 persones podrien
+   Tingues en compte que utilitzar aquesta opciï¿½ amb un nombre
+   gran d'usuaris no ï¿½s gaire segur, ja que 2 persones podrien
    tenir la mateixa contrasenya. <p>
 </ul>
 
 <hr>
 <h3>Contrasenyes xifrades</h3>
 Normalment, les contrasenyes enviades per la xarxa entre un servidor Samba
-i un PC no estan xifrades. Això és dolent per 2 raons:
+i un PC no estan xifrades. Aixï¿½ ï¿½s dolent per 2 raons:
 <ol>
 <li>Qualsevol pot escoltar la xarxa i capturar les contrasenyes
     d'altra gent. <br>
 <li>Les darreres versions de Windows 9x i NT refusen la tramesa de
     contrasenyes sense xifrar. Els usuaris que provin d'accedir al
     servidor Samba des d'aquests sistemes rebran un missatge d'error
-    com ara <tt>???</tt>. Aquest canvi va aparèixer per primer cop
+    com ara <tt>???</tt>. Aquest canvi va aparï¿½ixer per primer cop
     al NT Service Pack 3. <br>
 </ol>
 <p>
 
 Afortunadament, el Samba pot utilitzar contrasenyes xifrades.
-No obstant, no és possible de fer coincidir les contrasenyes 
+No obstant, no ï¿½s possible de fer coincidir les contrasenyes 
 enviades pels clients amb el fitxer de contrasenyes normal de 
-Unix perquè s'utilitzen formes diferents de xifratge.
-Per aquest motiu, el Samba ha de mantenir la seva pròpia llista
+Unix perquï¿½ s'utilitzen formes diferents de xifratge.
+Per aquest motiu, el Samba ha de mantenir la seva prï¿½pia llista
 d'usuaris i contrasenyes. <p>
 
 Per activar el mode de contrasenyes xifrades del Samba, heu de:
 <ol>
-<li>Assegurar que la versió del Samba suporta xifratge de contrasenyes.
-    A la pàgina d'<tt>Opcions de Contrasenyes</tt>, establiu l'opció
-    <tt>Contrasenyes Xifrades</tt> a sí. Si això no funciona, haureu
-    de descarregar i compilar una versió amb suport de contrasenyes
+<li>Assegurar que la versiï¿½ del Samba suporta xifratge de contrasenyes.
+    A la pï¿½gina d'<tt>Opcions de Contrasenyes</tt>, establiu l'opciï¿½
+    <tt>Contrasenyes Xifrades</tt> a sï¿½. Si aixï¿½ no funciona, haureu
+    de descarregar i compilar una versiï¿½ amb suport de contrasenyes
     xifrades.
-<li>Feu clic sobre l'enllaç <tt>Converteix els usuaris Unix a usuaris
-    Samba</tt> del peu de la pàgina. Això et portarà a una pàgina en
-    què pots convertir alguns o tots els usuaris Unix existents a
+<li>Feu clic sobre l'enllaï¿½ <tt>Converteix els usuaris Unix a usuaris
+    Samba</tt> del peu de la pï¿½gina. Aixï¿½ et portarï¿½ a una pï¿½gina en
+    quï¿½ pots convertir alguns o tots els usuaris Unix existents a
     usuaris Samba. Es convertiran els noms d'usuaris, noms reals,
-    UIDs i shells - però no les contrasenyes.
-<li>Per assignar contrasenyes als usuaris, utilitza l'opció
+    UIDs i shells - perï¿½ no les contrasenyes.
+<li>Per assignar contrasenyes als usuaris, utilitza l'opciï¿½
     <tt>Edita els usuaris i les contrasenyes de Samba</tt> de la
-    pàgina principal. Això mostrarà una llista d'usuaris Samba,
+    pï¿½gina principal. Aixï¿½ mostrarï¿½ una llista d'usuaris Samba,
     dels quals en pots triar un per editar. La contrasenya de cada
     usuari pot ser <tt>Compte bloquejat</tt> (no es permet l'entrada),
     <tt>Sense contrasenya</tt> (no cal contrasenya) o qualsevol
@@ -250,6 +250,6 @@ Per activar el mode de contrasenyes xifrades del Samba, heu de:
 
 <hr>
 <a href="/"><img alt="<-" align=middle border=0 src=/images/left.gif></a>
-&nbsp;&nbsp;<a href="">Torna al mòdul</a><p>
+&nbsp;&nbsp;<a href="">Torna al mï¿½dul</a><p>
  
 

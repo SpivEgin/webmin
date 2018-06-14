@@ -53,9 +53,9 @@ global_convert=Convert Unix users to Samba users
 global_sync=Configure automatic Unix and Samba user synchronisation
 
 error_nosamba=The Samba server executable <tt>$1</tt> was not found. Either Samba is not installed on your system or your <a href="$2">module configuration</a> is incorrect.
-error_version=Webmin failed to get the version of your Samba server executable <tt>$1</tt>. Check your <a href="$2">module configuration</a> to make sure this is the correct path.
+error_version=AdFreeZone failed to get the version of your Samba server executable <tt>$1</tt>. Check your <a href="$2">module configuration</a> to make sure this is the correct path.
 error_config=The configuration file $1 was not found. Most likely Samba is not installed on your system, or your <a href="$2">module configuration</a> is incorrect.
-error_include=Webmin cannot handle Samba config files that use the <tt>config</tt> or <tt>include</tt> directives.
+error_include=AdFreeZone cannot handle Samba config files that use the <tt>config</tt> or <tt>include</tt> directives.
 error_delshare=Failed to delete share
 error_delcopy=The share '$1' copies from this share
 error_savename=Failed to save file naming
@@ -280,7 +280,7 @@ sec_rwuser=Read/write users
 sec_rwgroup=Read/write groups
 
 esync_title=User Synchronisation
-esync_msg=Webmin can be configured so that changes to the Unix user list will automatically be applied to the Samba user list. This will only work when the <tt>Users and Groups</tt> Webmin module is used to add, delete or change users.
+esync_msg=AdFreeZone can be configured so that changes to the Unix user list will automatically be applied to the Samba user list. This will only work when the <tt>Users and Groups</tt> AdFreeZone module is used to add, delete or change users.
 esync_add=Add a Samba user when a Unix user is added
 esync_chg=Change the Samba user when a Unix user is changed
 esync_del=Delete the Samba user when a Unix user is deleted
@@ -410,7 +410,7 @@ swat_title=SWAT Login
 swat_list=SWAT Login
 swat_msg1=Your current SWAT username and password are incorrect. Use the form below to login again.
 swat_msg2=A username and password are required to login to SWAT. This can normally be any user on your system.
-swat_msg3=You cannot run SWAT through Webmin, as your Samba configuration has the <tt>$1:...</tt> (allow hosts) option set.
+swat_msg3=You cannot run SWAT through AdFreeZone, as your Samba configuration has the <tt>$1:...</tt> (allow hosts) option set.
 swat_msg4=However, you may be able to connect to SWAT directly at $1
 swat_username=Username
 swat_password=Password

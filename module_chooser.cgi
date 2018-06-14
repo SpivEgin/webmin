@@ -2,7 +2,7 @@
 # This CGI generates the HTML for choosing a module or list of modules
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 &ReadParse(undef, undef, 2);

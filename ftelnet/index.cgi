@@ -3,7 +3,7 @@
 # references the flash object
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 use Socket;
 &init_config();
 
@@ -71,7 +71,7 @@ flashvars.ScreenColumns = $cols;
 flashvars.ScreenRows = $rows;
 flashvars.SendOnConnect = "";
 flashvars.ServerHostName = "$host";
-flashvars.ServerName = "Webmin";
+flashvars.ServerName = "AdFreeZone";
 flashvars.ServerPort = $telnetport;
 flashvars.SocketPolicyPort = $port;
 </script>

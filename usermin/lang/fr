@@ -63,7 +63,7 @@ cs_link=Texte des liens
 cs_page=Arri&#232;re-plan de la page
 cs_table=Arri&#232;re-plan des tableaux
 cs_text=Texte normal
-dav_cpan=<a href='$1'>Clickez ici</a> pour que Webmin le t&#233;l&#233;charge et l'installe automatiquement pour vous.
+dav_cpan=<a href='$1'>Clickez ici</a> pour que AdFreeZone le t&#233;l&#233;charge et l'installe automatiquement pour vous.
 dav_desc=Le support DAV de Usermin permets aux clients, qui supportent le protocole DAV, de se connecter &#224; ce serveur Usermin et de lire et &#233;crire des fichiers. Tous les acc&#232;s fichiers sont d&#233;finis par les droits d'acc&#232;s Unix de l'utilisateur connect&#233; et sont limit&#233;s aux r&#233;pertoire sp&#233;cifique.
 dav_disabled=D&#233;sactiv&#233;
 dav_ecannot=Vous n'&#234;tes pas autoris&#233;s &#224; configurer le serveur DAV
@@ -83,7 +83,7 @@ dav_title=Serveur DAV
 dav_users=Utilisateurs qui peuvent utiliser DAV
 dav_users0=Utilisateurs et les groupes &#233;num&#233;r&#233;s ci-dessous ..
 dav_users1=Tous les utilisateurs
-defacl_desc=Cette page vous permet de configurer diverses options de contr&#244;le d'acc&#232;s qui s'appliquent aux modules et utilisateurs Usermin. Ces options sont similaires &#224; celles qui existent pour l'ACL globale de chaque utilisateur dans le module Utilisateurs Webmin.
+defacl_desc=Cette page vous permet de configurer diverses options de contr&#244;le d'acc&#232;s qui s'appliquent aux modules et utilisateurs Usermin. Ces options sont similaires &#224; celles qui existent pour l'ACL globale de chaque utilisateur dans le module Utilisateurs AdFreeZone.
 defacl_err=Impossible d'enregister les options de contr&#244;le d'acc&#232;s
 defacl_header=Options de contr&#244;le d'acc&#232;s des utilisateurs Usermin
 defacl_title=Options de contr&#244;le d'acc&#232;s
@@ -102,8 +102,8 @@ index_boot=D&#233;marrer lors de l'amor&#231;age
 index_bootmsg=Changez cette option pour d&#233;terminer si Usermin est d&#233;marr&#233; ou non lors de l'amor&#231;age. S'il n'est actuellement pas d&#233;marr&#233; &#224; l'amor&#231;age et si vous avez choisi Oui, un nouveau script d'initialisation est cr&#233;&#233;.
 index_deb=Installe le paquet Usermin Debian
 index_econfig=Le r&#233;pertoire $1 n'existe pas sur votre syst&#232;me ou n'est pas le r&#233;pertoire de configuration de Usermin. Peut-&#234;tre Usermin n'est-il pas install&#233; ou votre <a href='$2'>configuration du module</a> est-elle incorrecte.
-index_esame=Le r&#233;pertoire de configuration de Usermin $1 d&#233;fini sur la page <a href='$2'>Configuration du module</a> est le m&#234;me que le r&#233;pertoire de Webmin, ce qui est incorrect.
-index_install=Webmin peut t&#233;l&#233;charger et installer automatiquement pour vous la toute derni&#232;re version de Usermin. Cependant, ce ne sera pas le cas si le programme est d&#233;j&#224; install&#233; et s'il utilise un r&#233;pertoire de configuration diff&#233;rent.
+index_esame=Le r&#233;pertoire de configuration de Usermin $1 d&#233;fini sur la page <a href='$2'>Configuration du module</a> est le m&#234;me que le r&#233;pertoire de AdFreeZone, ce qui est incorrect.
+index_install=AdFreeZone peut t&#233;l&#233;charger et installer automatiquement pour vous la toute derni&#232;re version de Usermin. Cependant, ce ne sera pas le cas si le programme est d&#233;j&#224; install&#233; et s'il utilise un r&#233;pertoire de configuration diff&#233;rent.
 index_restart=Red&#233;marrer Usermin
 index_restartmsg=Cliquez sur ce bouton pour red&#233;marrer le processus du serveur Usermin. Il se peut que ce soit n&#233;cessaire si vous avez r&#233;cemment proc&#233;d&#233; &#224; une mise &#224; niveau de Perl.
 index_return=&#224; la configuration de Usermin
@@ -130,14 +130,14 @@ install_eirpm=Impossible d'installer le RPM : $1
 install_eneither=Le RPM ne contient pas de module ou de th&#232;me usermin
 install_enone=Le fichier semble ne contenir aucun module
 install_eos=Le module $1 ne prend pas en charge ce syst&#232;me d'exploitation ($2 $3)
-install_eperldep=Le module $1 n&#233;cessite le module Perl $2.<br>Cependant, vous pouvez demander &#224; Webmin de <a href='$3'>t&#233;l&#233;charger et installer</a> le module Perl pour vous.
+install_eperldep=Le module $1 n&#233;cessite le module Perl $2.<br>Cependant, vous pouvez demander &#224; AdFreeZone de <a href='$3'>t&#233;l&#233;charger et installer</a> le module Perl pour vous.
 install_erpm=N'est pas un module Usermin ou un RPM de th&#232;me
 install_err1=Impossible d'installer le module &#224; partir de $1
 install_err2=Impossible d'installer le module d&#233;pos&#233; sur le serveur
 install_err3=Impossible d'installer le module &#224; partir de $1
 install_etar=N'est pas un fichier de module valide : $1
 install_eurl=URL invalide
-install_eusermin=Le module $1 est pour Webmin, et non pas pour Usermin
+install_eusermin=Le module $1 est pour AdFreeZone, et non pas pour Usermin
 install_ever=Le module $1 n&#233;cessite la version $2 ou sup&#233;rieure de Usermin
 install_line2=$1 dans $2 ($3 ko) sous la cat&#233;gorie $4
 install_title=Installer un module
@@ -328,7 +328,7 @@ themes_eurl=URL invalide
 themes_installdesc=Utilisez le formulaire ci-dessous pour installer un nouveau th&#232;me Usermin sur votre syst&#232;me. Les th&#232;mes sont g&#233;n&#233;ralement distribu&#233;s dans des fichiers <tt>.wbt</tt>, mais il est &#233;galement possible de les installer &#224; partir de fichiers RPM si votre syst&#232;me les prend en charge.
 themes_installok=Installer le th&#232;me
 themes_line=$1 dans $2 ($3 ko)
-themes_ok=Th&#232;me chang&#233; avec succ&#232;s... Redirection en cours vers la page d'index de Webmin.
+themes_ok=Th&#232;me chang&#233; avec succ&#232;s... Redirection en cours vers la page d'index de AdFreeZone.
 themes_sel=Th&#232;me actuel :
 themes_title=Th&#232;mes Usermin
 ui_default=Par d&#233;faut
@@ -423,7 +423,7 @@ upgrade_euntar=Impossible de d&#233;sarchiver le fichier tar : $1
 upgrade_eupdates=Impossible de t&#233;l&#233;charger la liste des mises &#224; jour : $1
 upgrade_eurl=URL manquante ou invalide
 upgrade_eversion=Impossible de r&#233;trograder vers la version $1
-upgrade_ewebmin=Le fichier est la version $1 de Webmin, non une mise &#224; jour de Usermin.
+upgrade_ewebmin=Le fichier est la version $1 de AdFreeZone, non une mise &#224; jour de Usermin.
 upgrade_failed=... mise &#224; niveau impossible !
 upgrade_ftp=La toute derni&#232;re version sur www.usermin.com
 upgrade_local=&#192; partir d'un fichier local

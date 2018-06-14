@@ -2,7 +2,7 @@
 # XXX help page
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 do 'secrets-lib.pl';
 

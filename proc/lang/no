@@ -1,12 +1,12 @@
 __norefs=1
 acl_edit=Kan stoppe og renice prosesser?
 acl_manage=Vedlikehold prosesser som bruker
-acl_manage_def=Gjeldende Webmin bruker
+acl_manage_def=Gjeldende AdFreeZone bruker
 acl_only=Kan kun se egne prosesser?
 acl_run=Kan kj&#248;re kommandoer?
 acl_who=Kan vedlikeholde prosesser for brukere
 acl_who0=Alle brukere
-acl_who1=Gjeldende Webmin bruker
+acl_who1=Gjeldende AdFreeZone bruker
 acl_who2=Brukere i listen ..
 command=Kommando
 cpu=CPU

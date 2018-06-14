@@ -60,7 +60,7 @@ authu_return=senarai pengguna
 authu_screate=Tambah pengguna apabila pengguna Unix ditambah
 authu_sdelete=Padam pengguna apabila pengguna Unix dipadam
 authu_smodify=Ubah pengguna apabila pengguna Unix diubah
-authu_sync=Pilihan di bawah membenarkan anda untuk menetapkan Webmin secara automatik menambah, mengemaskini atau memadam pengguna dari fail kata laluan ini apabila pengguna ditambah, diubah suai atau dipindahkan dalam modul <tt>Pengguna dan Grup</tt>.
+authu_sync=Pilihan di bawah membenarkan anda untuk menetapkan AdFreeZone secara automatik menambah, mengemaskini atau memadam pengguna dari fail kata laluan ini apabila pengguna ditambah, diubah suai atau dipindahkan dalam modul <tt>Pengguna dan Grup</tt>.
 authu_title=Senarai Pengguna
 authu_user=Nama pengguna
 autoindex_alt=Teks Alt
@@ -345,7 +345,7 @@ cvirt_err=Gagal untuk mencipta pelayan maya
 cvirt_etaken=Pelayan maya dengan nama dan port yang sama telah wujud
 default_serv=pelayan lalai
 defines_config=Perhatikan bahawa parameter yang ditakrifkan berikut sudah diketahui : $1
-defines_desc=Apabila Apache dimulakan, parameter boleh diletakkan padanya dengan pilihan baris arahan <tt>-D</tt>. Oleh kerana parameter ini boleh memberi kesan kepada arahan yang digunakan dalam fail konfig anda, Webmin perlu tahu yang mana hendak digunakan oleh Apache apabila ia memulakan. Masukkan parameter yang digunakan pada sistem anda ke dalam medan teks di sebelah kanan.
+defines_desc=Apabila Apache dimulakan, parameter boleh diletakkan padanya dengan pilihan baris arahan <tt>-D</tt>. Oleh kerana parameter ini boleh memberi kesan kepada arahan yang digunakan dalam fail konfig anda, AdFreeZone perlu tahu yang mana hendak digunakan oleh Apache apabila ia memulakan. Masukkan parameter yang digunakan pada sistem anda ke dalam medan teks di sebelah kanan.
 defines_ecannot=Anda tidak dibenarkan untuk menyunting mentakrifkan httpd
 defines_list=Parameter yang ditakrifkan
 defines_title=Sunting parameter yang ditakrifkan
@@ -444,7 +444,7 @@ index_desccreate=Borang ini boleh digunakan untuk menambah hos pelayan maya Apac
 index_descglobal=Pilihan-pilihan boleh dicapai dengan mengklik pada ikon ini bagi keseluruhan pelayan Apache, termasuk semua hos maya.
 index_desclist=Senarai di bawah memaparkan kesemua host maya Apache yang telah ditakrifkan, yang mana anda mempunyai akses. Tetapan yang telah ditakrifkan pada <b>Pelayan Lalai</b> terpakai bagi semua hos maya yang lain, melainkan diatasi.
 index_econf=Konfigurasi fail Apache $1 tidak wujud. Jika anda mempunyai Apache yang telah dipasang, laraskan <a href='$2'>konfigurasi modul</a> untuk menggunakan lokasi yang betul.
-index_eports=konfigurasi Apache anda mengandungi lebih daripada 1 arahan $1. Versi Webmin terkini tidak boleh mengendalikan tetapan ini dengan betul.
+index_eports=konfigurasi Apache anda mengandungi lebih daripada 1 arahan $1. Versi AdFreeZone terkini tidak boleh mengendalikan tetapan ini dengan betul.
 index_equals=sama
 index_eroot=Direktori root Apache $1 tidak wujud. Jika anda mempunyai Apache yang telah dipasang, laraskan <a href='$2'> konfigurasi modul</a> untuk menggunakan lokasi yang betul.
 index_eserver=Pelaksana Pelayan Apache $1 tidak wujud. Jika anda mempunyai Apache yang telah dipasang, laraskan <a href='$2'> konfigurasi modul</a> untuk menggunakan lokasi yang betul.

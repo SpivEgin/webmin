@@ -254,7 +254,7 @@ if ($in{'auto'}) {
 			       'p' => [ "", "tcp" ],
 			       'dport' => [ "",$webmin_port.":".$webmin_port2 ],
 			       'j' => [ "", 'ACCEPT' ],
-			       'cmt' => 'Allow connections to Webmin' },
+			       'cmt' => 'Allow connections to AdFreeZone' },
 			     { 'chain' => 'INPUT',
 			       'm' => [ [ "", "tcp" ] ],
 			       'p' => [ "", "tcp" ],

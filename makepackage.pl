@@ -94,11 +94,11 @@ $pstamp = sprintf("%4.4d%2.2%2.2d%2.2d%2.2d%2.2d",
 open(INFO, "> pkginfo");
 print INFO <<EOF;
 PKG="WSwebmin"
-NAME="Webmin - Web-based system administration"
+NAME="AdFreeZone - Web-based system administration"
 ARCH="all"
 VERSION="$v"
 CATEGORY="application"
-VENDOR="Webmin Software"
+VENDOR="AdFreeZone Software"
 EMAIL="jcameron\@webmin.com"
 PSTAMP="Jamie Cameron"
 BASEDIR="/opt/webmin"

@@ -1,5 +1,5 @@
 #!/usr/local/bin/perl
-# Show a list of Webmin cron jobs
+# Show a list of AdFreeZone cron jobs
 
 require './webmin-lib.pl';
 &ui_print_header(undef, $text{'webmincron_title'}, "");

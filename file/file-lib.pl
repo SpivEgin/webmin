@@ -2,7 +2,7 @@
 # Common functions for file manager CGIs
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &ReadParse(\%prein, 'GET');
 if ($prein{'trust'}) {
 	&open_trust_db();
@@ -67,7 +67,7 @@ if ($module_info{'usermin'}) {
 	$running_as_root = 0;
 	}
 else {
-	# Webmin gets the list of allowed directories from the ACL
+	# AdFreeZone gets the list of allowed directories from the ACL
 	%access = &get_module_acl();
 	$hide_dot_files = $config{'hide_dot_files'};
 	$follow = int($access{'follow'});

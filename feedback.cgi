@@ -2,7 +2,7 @@
 # Send the webmin feedback form
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 
 &init_config();
 if (&get_product_name() eq 'usermin') {
@@ -60,7 +60,7 @@ Content-Transfer-Encoding: 7bit
 Name:           $in{'name'}
 Email address:  $in{'email'}
 Date:           $date
-Webmin version: $ver
+AdFreeZone version: $ver
 Perl version:   $]
 Module:         $module
 Browser:        $ENV{'HTTP_USER_AGENT'}

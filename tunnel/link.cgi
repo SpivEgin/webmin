@@ -72,14 +72,14 @@ my $con = &make_http_connection($host, $port, $ssl, $meth, $path);
 
 # Send request headers
 &write_http_connection($con, "Host: $host\r\n");
-&write_http_connection($con, "User-Agent: Webmin\r\n");
+&write_http_connection($con, "User-Agent: AdFreeZone\r\n");
 if ($user) {
 	my $auth = &encode_base64("$user:$pass");
 	$auth =~ s/\n//g;
 	&write_http_connection($con, "Authorization: basic $auth\r\n");
 	}
 &write_http_connection($con, sprintf(
-			"Webmin-servers: %s://%s:%d/$module_name/\r\n",
+			"AdFreeZone-servers: %s://%s:%d/$module_name/\r\n",
 			$ENV{'HTTPS'} eq "ON" ? "https" : "http",
 			$ENV{'SERVER_NAME'}, $ENV{'SERVER_PORT'}));
 my $cl = $ENV{'CONTENT_LENGTH'};

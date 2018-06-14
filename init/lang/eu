@@ -162,4 +162,4 @@ mass_ok=.. Egina.
 
 change_err=Ez zaude exekuzio-mailak aldatzera baimendua
 change_title=Aldatu exekuzio-maila
-change_cmd=$1 exekuzio-mailara aldatzen $2 komandoarekin. Honek denbora bat har dezake, posible da aldaketa egin ondoren Webmin ez eskuragarri izatea.
+change_cmd=$1 exekuzio-mailara aldatzen $2 komandoarekin. Honek denbora bat har dezake, posible da aldaketa egin ondoren AdFreeZone ez eskuragarri izatea.

@@ -38,7 +38,7 @@ logcheck_disabled=Geplante Log-&#220;berpr&#252;fung deaktiviert
 logcheck_ecommand=Der logcheck Befehl $1 wurde nicht auf Ihrem System gefunden. Vielleicht ist es nicht installiert, oder Ihre <a href='$2'>Modulkonfiguration</a> ist falsch.
 logcheck_enabled=Logs &#252;berpr&#252;fen zu ausgew&#228;hlten Zeiten ..
 logcheck_eto=Fehlende oder ung&#252;ltige E-Mail-Adresse
-logcheck_eversion=Der logcheck Befehl $1 ist nicht die Version die Webmin erwartet.
+logcheck_eversion=Der logcheck Befehl $1 ist nicht die Version die AdFreeZone erwartet.
 logcheck_files=Log-Dateien werden &#252;berwacht
 logcheck_hacking=Hacking Log-Meldungen
 logcheck_header=Logdatei &#220;berpr&#252;fungsoptionen
@@ -79,7 +79,7 @@ portsentry_euadv=Fehlender oder ung&#252;ltiger maximaler UDP-Port f&#252;r erwe
 portsentry_euexc='$1' ist kein g&#252;ltiger ausgeschlossen UDP-Port
 portsentry_euports='$1' ist kein g&#252;ltiger Basis-Modus UDP-Port
 portsentry_eversion=Das Programm $1 scheint kein Portsentry Daemon zu sein. Vielleicht ist es nicht installiert, oder Ihre <a href='$2'>Modulkonfiguration</a> ist falsch.
-portsentry_eversion2=Die Version von Portsentry, welches auf Ihrem System installiert ist, ist $2, aber Webmin unterst&#252;tzt nur Version 1 in diesem Release.
+portsentry_eversion2=Die Version von Portsentry, welches auf Ihrem System installiert ist, ist $2, aber AdFreeZone unterst&#252;tzt nur Version 1 in diesem Release.
 portsentry_header=Optionen der Portscan Erkennung
 portsentry_ignore=Hosts den Datenverkehr zu ignorieren
 portsentry_kill=F&#252;hre kill-Befehl aus

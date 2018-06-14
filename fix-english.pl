@@ -68,7 +68,7 @@ local ($us, $uk, $linefmt) = @_;
 return ( ) if (!-r $us);
 local @rv;
 if ($linefmt) {
-	# Webmin = separated line file
+	# AdFreeZone = separated line file
 
 	# First fix up any UK spellings in the US file
 	local %uslines;

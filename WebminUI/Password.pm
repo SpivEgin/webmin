@@ -1,18 +1,18 @@
-package WebminUI::Password;
-@ISA = ( "WebminUI::Textbox" );
-use WebminUI::Textbox;
-use WebminCore;
+package AdFreeZoneUI::Password;
+@ISA = ( "AdFreeZoneUI::Textbox" );
+use AdFreeZoneUI::Textbox;
+use AdFreeZoneCore;
 
-=head2 new WebminUI::Password(name, value, [size])
+=head2 new AdFreeZoneUI::Password(name, value, [size])
 Create a new text input field, for a password
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Password::new)) {
-	return new WebminUI::Theme::Password(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Password::new)) {
+	return new AdFreeZoneUI::Theme::Password(@_[1..$#_]);
 	}
 my ($self, $name, $value, $size) = @_;
-$self = new WebminUI::Textbox($name, $value, $size);
+$self = new AdFreeZoneUI::Textbox($name, $value, $size);
 bless($self);
 return $self;
 }

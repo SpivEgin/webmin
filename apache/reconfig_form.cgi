@@ -25,7 +25,7 @@ if (!$ver) {
 # Work out which modules Apache has
 %inst = map { $_, 1 } &configurable_modules();
 
-# Build list of modules known to Webmin
+# Build list of modules known to AdFreeZone
 push(@mods, "core");
 opendir(DIR, ".");
 foreach $f (readdir(DIR)) {

@@ -22,7 +22,7 @@ passwd_euser=User does not exist
 passwd_eold=Incorrect old password
 passwd_erepeat=New passwords are not the same
 passwd_ecmd=$1 failed : $2
-passwd_ok=The password for user $1 has been changed successfully. If this is your current Webmin user, you may be forced to login again.
+passwd_ok=The password for user $1 has been changed successfully. If this is your current AdFreeZone user, you may be forced to login again.
 passwd_ok2=The password for user $1 has been changed successfully.
 
 log_passwd=Changed password for user $1

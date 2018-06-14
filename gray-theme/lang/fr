@@ -28,4 +28,4 @@ right_uquota=Utilisation et quota disque
 right_used=$1 total, $2 utilis&#233;
 right_usermin=Version de Usermin
 right_virt=M&#233;moire virtuelle
-right_webmin=Version de Webmin
+right_webmin=Version de AdFreeZone

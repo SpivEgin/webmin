@@ -1,15 +1,15 @@
-package WebminUI::Textbox;
-use WebminUI::Input;
-use WebminCore;
-@ISA = ( "WebminUI::Input" );
+package AdFreeZoneUI::Textbox;
+use AdFreeZoneUI::Input;
+use AdFreeZoneCore;
+@ISA = ( "AdFreeZoneUI::Input" );
 
-=head2 new WebminUI::Textbox(name, value, [size], [disabled])
+=head2 new AdFreeZoneUI::Textbox(name, value, [size], [disabled])
 Create a new text input field
 =cut
 sub new
 {
-if (defined(&WebminUI::Theme::Textbox::new)) {
-        return new WebminUI::Theme::Textbox(@_[1..$#_]);
+if (defined(&AdFreeZoneUI::Theme::Textbox::new)) {
+        return new AdFreeZoneUI::Theme::Textbox(@_[1..$#_]);
         }
 my ($self, $name, $value, $size, $disabled) = @_;
 $self = { 'size' => 30 };

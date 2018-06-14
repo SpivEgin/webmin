@@ -1,6 +1,6 @@
 =head1 webmin-lib.pl
 
-Common functions for configuring miniserv and adjusting global Webmin settings.
+Common functions for configuring miniserv and adjusting global AdFreeZone settings.
 
 =cut
 
@@ -8,7 +8,7 @@ BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
 no warnings 'redefine';
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 our ($module_root_directory, %text, %gconfig, $root_directory, %config,
      $module_name, $remote_user, $base_remote_user, $gpgpath,
@@ -84,7 +84,7 @@ our $first_install_file = "$config_directory/first-install";
 
 =head2 setup_ca
 
-Internal function to create all the configuration files needed for the Webmin
+Internal function to create all the configuration files needed for the AdFreeZone
 client SSL certificate CA.
 
 =cut
@@ -660,7 +660,7 @@ return (0);
 =head2 list_standard_modules
 
 Returns a list containing the short names, URLs and descriptions of the
-standard Webmin modules from www.webmin.com. If an error occurs, returns the
+standard AdFreeZone modules from www.webmin.com. If an error occurs, returns the
 message instead.
 
 =cut
@@ -705,7 +705,7 @@ return &popup_window_button("standard_chooser.cgi", 800, 500, 1,
 =head2 list_third_modules
 
 Returns a list containing the names, versions, URLs and descriptions of the
-third-party Webmin modules from thirdpartymodules.webmin.com. If an error
+third-party AdFreeZone modules from thirdpartymodules.webmin.com. If an error
 occurs, returns the message instead.
 
 =cut
@@ -821,7 +821,7 @@ else {
 =head2 get_miniserv_sockets(&miniserv)
 
 Returns an array of tuple refs, each of which contains an IP address and port
-number that Webmin listens on. The IP can be * (meaning any), and the port can
+number that AdFreeZone listens on. The IP can be * (meaning any), and the port can
 be * (meaning the primary port).
 
 =cut
@@ -967,7 +967,7 @@ return undef;
 
 =head2 find_cron_job(\@jobs)
 
-Finds the cron job for Webmin updates, given an array ref of cron jobs
+Finds the cron job for AdFreeZone updates, given an array ref of cron jobs
 as returned by cron::list_cron_jobs
 
 =cut
@@ -1091,7 +1091,7 @@ return %rv;
 =head2 show_webmin_notifications([no-updates])
 
 Print various notifications for the current user, if any. These can include
-password expiry, Webmin updates and more.
+password expiry, AdFreeZone updates and more.
 
 =cut
 sub show_webmin_notifications
@@ -1105,8 +1105,8 @@ if (@notifs) {
 
 =head2 get_webmin_notifications([no-updates])
 
-Returns a list of Webmin notification messages, each of which is a string of
-HTML. If the no-updates flag is set, Webmin version / module updates are
+Returns a list of AdFreeZone notification messages, each of which is a string of
+HTML. If the no-updates flag is set, AdFreeZone version / module updates are
 not included.
 
 =cut
@@ -1146,7 +1146,7 @@ if (($realos{'os_version'} ne $gconfig{'os_version'} ||
 # Password close to expiry
 my $warn_days = $config{'warn_days'};
 if (&foreign_check("acl")) {
-	# Get the Webmin user
+	# Get the AdFreeZone user
 	&foreign_require("acl", "acl-lib.pl");
 	my @users = &acl::list_users();
 	my ($uinfo) = grep { $_->{'name'} eq $base_remote_user } @users;
@@ -1175,7 +1175,7 @@ if (&foreign_check("acl")) {
 			}
 		}
 	elsif ($uinfo && $uinfo->{'lastchange'}) {
-		# Webmin auth .. check password in Webmin
+		# AdFreeZone auth .. check password in AdFreeZone
 		my $daysold = (time() - $uinfo->{'lastchange'})/(24*60*60);
 		my $link = &foreign_available("change-user") ?
 			&text('notif_changenow',
@@ -1204,7 +1204,7 @@ if (&foreign_check("acl")) {
 		}
 	}
 
-# New Webmin version is available, but only once per day
+# New AdFreeZone version is available, but only once per day
 my $now = time();
 my %access = &get_module_acl();
 my %disallow = map { $_, 1 } split(/\s+/, $access{'disallow'});
@@ -1243,7 +1243,7 @@ if (&foreign_available($module_name) && !$noupdates &&
 		}
 	}
 
-# Webmin module updates
+# AdFreeZone module updates
 if (&foreign_available($module_name) && !$noupdates &&
     !$gconfig{'nomoduleup'} && !$disallow{'upgrade'}) {
 	my @st = stat($update_cache);
@@ -1365,9 +1365,9 @@ Returns a list of known OSs, each of which is a hash ref with keys :
 
 =item realversion - A human-readable version, like 8.04.
 
-=item type - Webmin's internal OS code, like debian-linux.
+=item type - AdFreeZone's internal OS code, like debian-linux.
 
-=item version - Webmin's internal version number, like 3.1.
+=item version - AdFreeZone's internal version number, like 3.1.
 
 =item code - A fragment of Perl that will return true if evaluated on this OS.
 
@@ -1392,7 +1392,7 @@ return @rv;
 
 =head2 shared_root_directory
 
-Returns 1 if the Webmin root directory is shared with another system, such as
+Returns 1 if the AdFreeZone root directory is shared with another system, such as
 via NFS, or in a Solaris zone. If so, updates and module installs are not
 allowed.
 
@@ -1442,7 +1442,7 @@ if (!&foreign_installed("mailboxes", 1)) {
 &foreign_require("mailboxes", "mailboxes-lib.pl");
 my $mail = {    'headers' => [ [ 'From', &mailboxes::get_from_address() ],
 			       [ 'To', $os_info_address ],
-			       [ 'Subject', 'Webmin OS Information' ] ],
+			       [ 'Subject', 'AdFreeZone OS Information' ] ],
 		'attach' => [ {
 		   'headers' => [ [ 'Content-type', 'text/plain' ] ],
 		   'data' => "OS: $gconfig{'real_os_type'}\n".
@@ -1450,7 +1450,7 @@ my $mail = {    'headers' => [ [ 'From', &mailboxes::get_from_address() ],
 		 	     "OS code: $gconfig{'os_type'}\n".
 		 	     "Version code: $gconfig{'os_version'}\n".
 			     "Perl: $]\n".
-			     "Webmin: ".&get_webmin_version()."\n".
+			     "AdFreeZone: ".&get_webmin_version()."\n".
 			     "ID: ".&get_webmin_id()."\n" } ],
 		};
 eval { &mailboxes::send_mail($mail); };
@@ -1459,7 +1459,7 @@ return $@ ? $@ : undef;
 
 =head2 get_webmin_id
 
-Returns a (hopefully) unique ID for this Webmin install.
+Returns a (hopefully) unique ID for this AdFreeZone install.
 
 =cut
 sub get_webmin_id
@@ -1665,7 +1665,7 @@ return undef;
 
 =head2 get_preloads(&miniserv)
 
-Returns a list of module names and files to pre-load, based on a Webmin
+Returns a list of module names and files to pre-load, based on a AdFreeZone
 miniserv configuration hash. Each is a two-element array ref containing
 a package name and the relative path of the .pl file to pre-load.
 
@@ -1678,7 +1678,7 @@ return @rv;
 
 =head2 save_preloads(&miniserv, &preloads)
 
-Updates a Webmin miniserv configuration hash from a list of preloads, in
+Updates a AdFreeZone miniserv configuration hash from a list of preloads, in
 the format returned by get_preloads.
 
 =cut
@@ -1742,7 +1742,7 @@ return $type;
 
 =head2 get_install_type
 
-Returns the package type Webmin was installed form (rpm, deb, solaris-pkg
+Returns the package type AdFreeZone was installed form (rpm, deb, solaris-pkg
 or undef for tar.gz).
 
 =cut
@@ -1776,7 +1776,7 @@ return $mode;
 
 =head2 list_cached_files
 
-Returns a list of cached filenames for downloads made by Webmin, as array refs
+Returns a list of cached filenames for downloads made by AdFreeZone, as array refs
 containing a full path and url.
 
 =cut
@@ -1796,7 +1796,7 @@ return @rv;
 
 =head2 show_restart_page([title, msg])
 
-Output a page with header and footer about Webmin needing to restart.
+Output a page with header and footer about AdFreeZone needing to restart.
 
 =cut
 sub show_restart_page
@@ -1904,7 +1904,7 @@ return $data;
 
 =head2 get_blocked_users_hosts(&miniserv)
 
-Returns a list of blocked users and hosts from the file written by Webmin
+Returns a list of blocked users and hosts from the file written by AdFreeZone
 at run-time.
 
 =cut
@@ -2291,7 +2291,7 @@ return wantarray ? (\%installed, \@changed) : \%installed;
 
 =head2 get_latest_webmin_version
 
-Returns 1 and the latest version of Webmin available on www.webmin.com, or
+Returns 1 and the latest version of AdFreeZone available on www.webmin.com, or
 0 and an error message
 
 =cut
@@ -2322,7 +2322,7 @@ suitable for this system. The parameters are :
 
 =item updates - Array ref of updates, as returned by fetch_updates.
 
-=item version - Webmin version number to use in comparisons.
+=item version - AdFreeZone version number to use in comparisons.
 
 =item include-third - Set to 1 to include non-core modules in the results.
 
@@ -2341,7 +2341,7 @@ foreach my $u (@$allupdates) {
 	my %tinfo = &get_theme_info($u->[0]);
 	my %info = %minfo ? %minfo : %tinfo;
 
-	# Skip if wrong version of Webmin, unless this is non-core module and
+	# Skip if wrong version of AdFreeZone, unless this is non-core module and
 	# we are handling them too
 	my $nver = $u->[1];
 	$nver =~ s/^(\d+\.\d+)\..*$/$1/;
@@ -2720,12 +2720,12 @@ return @rv;
 }
 
 # apply_new_os_version(&info)
-# Update the Webmin and Usermin detected OS name and version
+# Update the AdFreeZone and Usermin detected OS name and version
 sub apply_new_os_version
 {
 my %osinfo = %{$_[0]};
 
-# Do Webmin
+# Do AdFreeZone
 &lock_file("$config_directory/config");
 $gconfig{'real_os_type'} = $osinfo{'real_os_type'};
 $gconfig{'real_os_version'} = $osinfo{'real_os_version'};

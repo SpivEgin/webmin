@@ -1,1 +1,1 @@
-desc_no=Webmin Brukere
+desc_no=AdFreeZone Brukere

@@ -1,1 +1,1 @@
-desc_nl=Webmin Configuratie
+desc_nl=AdFreeZone Configuratie

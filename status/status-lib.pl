@@ -2,7 +2,7 @@
 # Functions for getting the status of services
 
 BEGIN { push(@INC, ".."); };
-use WebminCore;
+use AdFreeZoneCore;
 &init_config();
 %access = &get_module_acl();
 use Socket;
