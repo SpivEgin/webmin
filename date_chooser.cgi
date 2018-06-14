@@ -3,7 +3,7 @@
 # Display a table of days in the current month
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use Time::Local;
 
 &init_config();

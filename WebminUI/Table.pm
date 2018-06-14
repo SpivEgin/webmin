@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Table;
 use AdFreeZoneUI::JavascriptButton;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Table(&headings, [width], [name], [heading])
 Create a multi-column table, with support for sorting, paging and so on

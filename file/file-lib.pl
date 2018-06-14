@@ -2,7 +2,7 @@
 # Common functions for file manager CGIs
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &ReadParse(\%prein, 'GET');
 if ($prein{'trust'}) {
 	&open_trust_db();

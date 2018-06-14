@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Radios;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Radios(name, value, &options, [disabled])

@@ -13,7 +13,7 @@ Functions for creating configuration file backups. Some example code :
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 our (%text, $module_config_directory, %config);
 &init_config();
 &foreign_require("cron", "cron-lib.pl");

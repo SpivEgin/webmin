@@ -3,7 +3,7 @@
 # XXX updating date field
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do 'view-lib.pl';
 if ($config{'plib'}) {

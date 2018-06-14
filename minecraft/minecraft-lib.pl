@@ -3,7 +3,7 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 use Time::Local;
 use POSIX;
 &init_config();

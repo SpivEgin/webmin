@@ -3,7 +3,7 @@
 # Display a form so that the user can send in a webmin bug report
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 &init_config();
 if (&get_product_name() eq 'usermin') {

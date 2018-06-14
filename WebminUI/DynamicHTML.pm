@@ -1,5 +1,5 @@
 package AdFreeZoneUI::DynamicHTML;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::DynamicHTML(&function, &args, [before])
 When the page is being rendered, executes the given function and prints any

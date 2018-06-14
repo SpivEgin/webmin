@@ -4,7 +4,7 @@
 # XXX what about SuSE connect process?
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 $details_file = "$module_config_directory/connect";
 $resolv_conf = "/etc/resolv.conf";

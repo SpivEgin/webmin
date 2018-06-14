@@ -519,7 +519,7 @@ else
 	if [ "$pam" != "" ]; then
 		echo "pam=$pam" >> $cfile
 	fi
-	echo premodules=AdFreeZoneCore >> $cfile
+	echo premodules=WebminCore >> $cfile
 	echo "server=MiniServ/$ver" >> $cfile
 
 	# Append package-specific info to config file

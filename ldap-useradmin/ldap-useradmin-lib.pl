@@ -4,7 +4,7 @@
 # www.sb-brixen.it         - www.as-bressanone.it
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("useradmin");
 &foreign_require("ldap-client");

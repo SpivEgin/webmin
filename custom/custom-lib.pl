@@ -2,7 +2,7 @@
 # Functions for storing custom commands
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 

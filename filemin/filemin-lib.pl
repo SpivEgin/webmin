@@ -1,7 +1,7 @@
 # filemin-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 use Encode qw(decode encode);
 use File::Basename;

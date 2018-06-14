@@ -1,6 +1,6 @@
 package AdFreeZoneUI::OptTextarea;
 use AdFreeZoneUI::Textarea;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Textarea" );
 
 =head2 new AdFreeZoneUI::OptTextarea(name, value, rows, cols, [default-msg], [other-msg])

@@ -3,7 +3,7 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("fdisk");
 &foreign_require("mount");

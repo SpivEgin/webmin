@@ -1,6 +1,6 @@
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 sub acl_security_form

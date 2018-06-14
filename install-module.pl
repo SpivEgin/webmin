@@ -42,7 +42,7 @@ $ENV{'WEBMIN_VAR'} = $var;
 $no_acl_check++;
 chdir($root);
 $0 = "$root/install-module.pl";
-eval "use AdFreeZoneCore;";
+eval "use WebminCore;";
 &init_config();
 
 # Install it, using the standard function

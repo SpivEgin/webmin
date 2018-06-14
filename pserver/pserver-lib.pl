@@ -1,7 +1,7 @@
 # pserver-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 $cvs_path = &has_command($config{'cvs'});

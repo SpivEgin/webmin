@@ -3,7 +3,7 @@
 # Display the top frame using the Caldera icons and style
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 $hostname = &get_display_hostname();
 $ver = &get_webmin_version();

@@ -2,7 +2,7 @@
 # Common functions for heartbeat tool configuration
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 $ha_cf = $config{'ha_cf'} ? $config{'ha_cf'} : "$config{'ha_dir'}/ha.cf";

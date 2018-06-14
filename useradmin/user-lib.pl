@@ -16,7 +16,7 @@ Functions for Unix user and group management.
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 if ($gconfig{'os_type'} =~ /-linux$/) {
 	do "linux-lib.pl";

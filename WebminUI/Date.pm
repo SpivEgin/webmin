@@ -1,7 +1,7 @@
 package AdFreeZoneUI::Date;
 use AdFreeZoneUI::Input;
 use Time::Local;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Date(name, time, [disabled])

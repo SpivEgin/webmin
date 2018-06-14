@@ -2,7 +2,7 @@
 # Functions for managing RAID
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("fdisk");
 

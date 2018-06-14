@@ -4,13 +4,13 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 our ($remote_user);
 
 &init_config();
 my ($username, $sid, $remoteip, $localip) = @ARGV;
 if ($username && $sid && $remoteip) {
-	$AdFreeZoneCore::remote_user = $remote_user = $username;
+	$WebminCore::remote_user = $remote_user = $username;
 	$main::session_id = $sid;
 	$0 = "miniserv.pl";
 	&webmin_log("logout", undef, undef, undef, "global", undef,

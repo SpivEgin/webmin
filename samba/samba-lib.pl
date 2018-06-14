@@ -3,7 +3,7 @@
 # XXX privileges for groups with 'net' command
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $has_iconv = &has_command("iconv");

@@ -1,6 +1,6 @@
 package AdFreeZoneUI::LinkTable;
 use AdFreeZoneUI::Table;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::LinkTable(heading, [columns], [width], [name])
 Creates a new table that just displays links, like in the Users and Groups module

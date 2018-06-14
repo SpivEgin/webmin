@@ -16,7 +16,7 @@ if (!$ENV{'GATEWAY_INTERFACE'}) {
 	$> == 0 || die "xmlrpc.cgi must be run as root";
 	}
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use POSIX;
 use Socket;
 $force_lang = $default_lang;

@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Multiline;
 use AdFreeZoneUI::Textarea;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Textarea" );
 
 =head2 new AdFreeZoneUI::Multiline(name, &lines, rows, cols, [disabled])

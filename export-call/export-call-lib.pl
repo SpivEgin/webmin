@@ -1,6 +1,6 @@
 # Test for a foreign module call
 
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 sub print_stuff

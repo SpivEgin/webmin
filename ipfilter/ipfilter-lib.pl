@@ -1,7 +1,7 @@
 # Functions for parsing ipf.conf
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("net", "net-lib.pl");
 

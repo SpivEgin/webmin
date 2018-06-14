@@ -3,7 +3,7 @@
 # here, and some in OS-specific files named <os_type>-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $filesystem_users_file = "$module_config_directory/filesystem-users";

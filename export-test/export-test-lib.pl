@@ -1,7 +1,7 @@
 # Use new modules API
 
 $main::no_acl_check = 1;
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 1;

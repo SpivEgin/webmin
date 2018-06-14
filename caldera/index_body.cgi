@@ -3,7 +3,7 @@
 # Display an empty page
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &header();
 

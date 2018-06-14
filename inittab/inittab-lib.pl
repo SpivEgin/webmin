@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # parse_inittab()

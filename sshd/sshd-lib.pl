@@ -3,7 +3,7 @@
 # Common functions for the ssh daemon config file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # Get version information

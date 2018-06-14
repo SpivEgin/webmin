@@ -1,6 +1,6 @@
 package AdFreeZoneUI::ConfirmPage;
 use AdFreeZoneUI::Page;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Page" );
 
 =head2 new AdFreeZoneUI::ConfirmPage(subheading, title, message, cgi, &in, [ok-message],

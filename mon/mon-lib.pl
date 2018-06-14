@@ -2,7 +2,7 @@
 # Common functions for mon 
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 $mon_config_file = "$config{'cfbasedir'}/mon.cf";

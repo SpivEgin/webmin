@@ -6,7 +6,7 @@
 #	XXX use is_server_port function
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 if (&foreign_installed("syslog-ng")) {
 	&foreign_require("syslog-ng", "syslog-ng-lib.pl");

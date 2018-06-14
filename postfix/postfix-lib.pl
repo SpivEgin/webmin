@@ -6,7 +6,7 @@
 $POSTFIX_MODULE_VERSION = 5;
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $access{'postfinger'} = 0 if (&is_readonly_mode());

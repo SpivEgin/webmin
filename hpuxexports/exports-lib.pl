@@ -2,7 +2,7 @@
 # Common functions for exports file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do "hpux-lib.pl";
 %access = &get_module_acl();

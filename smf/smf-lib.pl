@@ -2,7 +2,7 @@
 # Common functions for managing smf services
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 require '../javascript-lib.pl';
 

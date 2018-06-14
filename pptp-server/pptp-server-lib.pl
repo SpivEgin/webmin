@@ -3,7 +3,7 @@
 # XXX help pages
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do 'secrets-lib.pl';
 %access = &get_module_acl();

@@ -10,7 +10,7 @@ Functions for configuring Usermin running on this system. Example usage :
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $access{'upgrade'} = 0 if (&is_readonly_mode());	# too hard to fake

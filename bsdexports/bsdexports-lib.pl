@@ -2,7 +2,7 @@
 # Functions for managing the FreeBSD exports file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # check_exports()

@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Form;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Form(cgi, [method])
 Creates a new form, which submits to the given CGI

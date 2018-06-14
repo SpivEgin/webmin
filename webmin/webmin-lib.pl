@@ -8,7 +8,7 @@ BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
 no warnings 'redefine';
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 our ($module_root_directory, %text, %gconfig, $root_directory, %config,
      $module_name, $remote_user, $base_remote_user, $gpgpath,

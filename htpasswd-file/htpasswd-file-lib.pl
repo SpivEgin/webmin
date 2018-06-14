@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 our (%access, $module_name, %config, %gconfig, %list_authusers_cache,
      %list_authgroups_cache, $null_file);
 if (!$module_name) {

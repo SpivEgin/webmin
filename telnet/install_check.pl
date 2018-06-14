@@ -1,7 +1,7 @@
 # install_check.pl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # is_installed(mode)

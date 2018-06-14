@@ -18,7 +18,7 @@ Example code :
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 @action_buttons = ( 'start', 'restart', 'condrestart', 'reload', 'status',
 		    'stop' );

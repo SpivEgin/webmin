@@ -2,7 +2,7 @@
 # Functions for manipulating the PAM services file(s)
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # get_pam_config()

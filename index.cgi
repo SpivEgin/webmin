@@ -2,7 +2,7 @@
 # Display all AdFreeZone modules visible to the current user
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 &init_config();
 &ReadParse();

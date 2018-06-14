@@ -2,7 +2,7 @@
 # Functions for managing processes
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use POSIX;
 use Config;
 

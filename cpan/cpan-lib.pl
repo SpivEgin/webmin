@@ -2,7 +2,7 @@
 # Functions for getting information about perl modules
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 use Config;
 

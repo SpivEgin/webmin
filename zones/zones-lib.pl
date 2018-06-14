@@ -2,7 +2,7 @@
 # XXX proper pool selection field
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("net", "net-lib.pl");
 &foreign_require("mount", "mount-lib.pl");

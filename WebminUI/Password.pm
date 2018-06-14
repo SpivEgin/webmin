@@ -1,7 +1,7 @@
 package AdFreeZoneUI::Password;
 @ISA = ( "AdFreeZoneUI::Textbox" );
 use AdFreeZoneUI::Textbox;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Password(name, value, [size])
 Create a new text input field, for a password

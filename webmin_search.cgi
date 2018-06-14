@@ -3,7 +3,7 @@
 
 $trust_unknown_referers = 1;
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 &init_config();
 do "$root_directory/webmin-search-lib.pl";

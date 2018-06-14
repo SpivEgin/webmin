@@ -2,7 +2,7 @@
 # Common functions for the idmapd config
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # get_config()

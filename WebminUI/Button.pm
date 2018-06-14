@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Button;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Button(cgi, label, [name])

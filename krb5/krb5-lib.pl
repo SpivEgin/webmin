@@ -2,7 +2,7 @@
 # Common functions for the krb5 config
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # get_config()

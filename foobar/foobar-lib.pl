@@ -5,7 +5,7 @@ simple fictional webserver.
 
 =cut
 
-use AdFreeZoneCore;
+use WebminCore;
 init_config();
 
 =head2 list_foobar_websites()

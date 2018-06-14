@@ -5,7 +5,7 @@
 # XXX DTMF terminals http://telephonectld.sourceforge.net/
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # vgetty_inittabs()

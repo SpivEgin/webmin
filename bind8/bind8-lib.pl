@@ -7,7 +7,7 @@ use Time::Local;
 no warnings 'redefine';
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 our (%text, %config, %gconfig, $module_var_directory);
 
 my $dnssec_tools_minver = 1.13;

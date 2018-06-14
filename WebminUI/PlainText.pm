@@ -1,5 +1,5 @@
 package AdFreeZoneUI::PlainText;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::PlainText(text, columns)
 Displays a block of plain fixed-width text, within a page or form.

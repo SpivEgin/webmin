@@ -2,7 +2,7 @@
 # Common functions for parsing the logrotate configuration file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 if (open(VERSION, "$module_config_directory/version")) {

@@ -3,7 +3,7 @@
 # Force the webserver to re-authenticate
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 &init_config();
 &get_miniserv_config(\%miniserv);

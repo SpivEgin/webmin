@@ -1,7 +1,7 @@
 #, $in{'mode'} == 1 Functions for parsing the various RBAC configuration files
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 

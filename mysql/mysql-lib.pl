@@ -2,7 +2,7 @@
 # Common MySQL functions
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 require 'view-lib.pl';
 if ($config{'mysql_libs'}) {

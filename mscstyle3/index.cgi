@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 @available = ("webmin", "system", "servers", "cluster", "hardware", "", "net");
 &init_config();
 $hostname = &get_display_hostname();

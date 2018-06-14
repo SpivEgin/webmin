@@ -2,7 +2,7 @@
 # Common functions for parsing the rp-pppoe config file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do 'secrets-lib.pl';
 

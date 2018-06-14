@@ -2,7 +2,7 @@
 # XXX use same virtualmin spam detection trick for spam module
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do 'aliases-lib.pl';
 do 'autoreply-file-lib.pl';

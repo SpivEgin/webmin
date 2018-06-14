@@ -1,6 +1,6 @@
 package AdFreeZoneUI::User;
 use AdFreeZoneUI::Textbox;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Textbox" );
 
 =head2 new AdFreeZoneUI::User(name, value, [multiple], [disabled])

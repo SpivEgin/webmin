@@ -1,7 +1,7 @@
 # Common functions for editing the Frox config file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 @ui_tds = ( undef, "nowrap" );
 

@@ -2,7 +2,7 @@
 # Common local networking functions
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $access{'ipnodes'} = $access{'hosts'};

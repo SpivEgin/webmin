@@ -3,7 +3,7 @@
 # references the flash object
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use Socket;
 &init_config();
 

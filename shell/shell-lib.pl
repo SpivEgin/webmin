@@ -1,7 +1,7 @@
 # shell-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 1;

@@ -2,7 +2,7 @@
 # Functions for configuring wuftpd
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # get_ftpaccess()

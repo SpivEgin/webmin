@@ -2,7 +2,7 @@
 # Common functions for partitioning and formatting disks under solaris
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("mount", "mount-lib.pl");
 &foreign_require("proc", "proc-lib.pl");

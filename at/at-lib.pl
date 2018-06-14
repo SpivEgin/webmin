@@ -6,7 +6,7 @@ our (%text, %config);
 our $remote_user;
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 our %access = &get_module_acl();
 

@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Columns;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Columns(cols)
 Displays some page elements in a multi-column table

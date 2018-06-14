@@ -11,7 +11,7 @@ Functions to support the change passwords module. Some example code :
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 

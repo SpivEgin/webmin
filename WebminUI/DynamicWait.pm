@@ -1,5 +1,5 @@
 package AdFreeZoneUI::DynamicWait;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::DynamicWait(&start-function, [&args])
 A page element indicating that something is happening.

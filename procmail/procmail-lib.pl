@@ -2,7 +2,7 @@
 # Functions for parsing the .procmailrc file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %minfo = &get_module_info($module_name);
 if ($minfo{'usermin'}) {

@@ -2,7 +2,7 @@
 # Common functions for accessing inetd or xinetd
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 if ($config{'stunnel_path'} =~ /([^\/]+)$/) {

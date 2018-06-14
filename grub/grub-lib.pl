@@ -2,7 +2,7 @@
 # Functions for parsing and editing a grub menu file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 %title_order = ( 'lock', 10,

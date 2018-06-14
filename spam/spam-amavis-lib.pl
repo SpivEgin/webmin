@@ -1,7 +1,7 @@
 # spam-amavis-lib.pl
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use Fcntl;
 &init_config();
 

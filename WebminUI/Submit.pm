@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Submit;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Submit(label, [name], [disabled])

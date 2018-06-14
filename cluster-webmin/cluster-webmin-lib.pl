@@ -2,7 +2,7 @@
 # Common functions for managing webmin installs across a cluster
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("servers", "servers-lib.pl");
 

@@ -4,7 +4,7 @@ Common functions for AdFreeZone CGI scripts. This file gets in-directly included
 by all scripts that use web-lib.pl.
 Example code:
 
-  use AdFreeZoneCore;
+  use WebminCore;
   init_config();
   ui_print_header(undef, 'My Module', '');
   print 'This is AdFreeZone version ',get_webmin_version(),'<p>\n';
@@ -10228,7 +10228,7 @@ return &get_module_variable('$module_name');
 =head2 get_module_variable(name, [ref])
 
 Returns the value of some variable which is set in the caller's context, if
-using the new AdFreeZoneCore package. For internal use only.
+using the new WebminCore package. For internal use only.
 
 =cut
 sub get_module_variable
@@ -10236,7 +10236,7 @@ sub get_module_variable
 my ($v, $wantref) = @_;
 my $slash = $wantref ? "\\" : "";
 my $thispkg = &web_libs_package();
-if ($thispkg eq 'AdFreeZoneCore') {
+if ($thispkg eq 'WebminCore') {
 	my ($vt, $vn) = split('', $v, 2);
 	my $callpkg;
 	for(my $i=0; ($callpkg) = caller($i); $i++) {
@@ -10293,7 +10293,7 @@ my ($fh) = @_;
 my $callpkg = (caller(1))[0];
 my $thispkg = &web_libs_package();
 if (!ref($fh) && $fh !~ /::/ &&
-    $callpkg ne $thispkg && $thispkg eq 'AdFreeZoneCore') {
+    $callpkg ne $thispkg && $thispkg eq 'WebminCore') {
         $fh = $callpkg."::".$fh;
         }
 return $fh;
@@ -10308,7 +10308,7 @@ internal use only.
 sub web_libs_package
 {
 if ($called_from_webmin_core) {
-	return "AdFreeZoneCore";
+	return "WebminCore";
 	}
 return __PACKAGE__;
 }

@@ -1,5 +1,5 @@
 package AdFreeZoneUI::TitleList;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::TitleList(title, &links, [alt-text])
 Generates a title with a list of links under it

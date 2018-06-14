@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Menu;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Menu(&options, [columns])
 Generates a menu of options, typically using icons.

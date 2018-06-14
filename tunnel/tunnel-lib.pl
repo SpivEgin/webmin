@@ -4,7 +4,7 @@
 use strict;
 use warnings;
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 sub fix_end_url {

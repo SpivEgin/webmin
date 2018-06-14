@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Icon;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 AdFreeZoneUI::Icon(type, [message])
 This object generates an icon indicating some status. Possible types are :

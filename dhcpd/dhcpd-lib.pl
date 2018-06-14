@@ -2,7 +2,7 @@
 # Functions for parsing the DHCPD config file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # get_parent_config([file])

@@ -1,7 +1,7 @@
 # Functions for editing /etc/mailcap
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 if ($module_info{'usermin'}) {

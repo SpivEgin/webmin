@@ -1,6 +1,6 @@
 # XXX should support non-Javascript mode?
 package AdFreeZoneUI::DynamicText;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::DynamicText(&start-function, &args)
 A page element for displaying text that takes time to generate, such as from

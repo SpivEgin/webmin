@@ -2,7 +2,7 @@
 # Common functions for managing VGs, PVs and LVs
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("mount");
 if (&foreign_check("raid")) {

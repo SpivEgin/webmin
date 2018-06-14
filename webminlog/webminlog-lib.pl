@@ -13,7 +13,7 @@ This module contains functions for parsing the AdFreeZone actions log file.
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 our %access = &get_module_acl();
 our %access_mods = map { $_, 1 } split(/\s+/, $access{'mods'});

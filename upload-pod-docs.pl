@@ -13,7 +13,7 @@ if ($0 =~ /^(.*\/)[^\/]+$/) {
 chop($pwd = `pwd`);
 
 # Build list of modules
-@mods = ( [ "AdFreeZoneCore", ".",
+@mods = ( [ "WebminCore", ".",
 	    [ "web-lib-funcs.pl", "web-lib.pl", "ui-lib.pl" ],
 	    "Core AdFreeZone API" ] );
 foreach my $mi (glob("*/module.info")) {
@@ -48,7 +48,7 @@ foreach my $mi (glob("*/module.info")) {
 system("rm -rf $temp_pod_dir ; mkdir $temp_pod_dir");
 foreach $m (@mods) {
 	print STDERR "Doing module $m->[0]\n";
-	my $wikiname = $m->[1] eq "." ? "ApiAdFreeZoneCore"
+	my $wikiname = $m->[1] eq "." ? "ApiWebminCore"
 				      : "Api".join("", map { ucfirst($_) }
 						split(/\-/, $m->[1]));
 	push(@$m, $wikiname);

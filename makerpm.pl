@@ -69,7 +69,7 @@ Summary: A web-based administration interface for Unix systems.
 Name: webmin
 Version: $ver
 Release: $rel
-Provides: %{name}-%{version} perl(AdFreeZoneCore)
+Provides: %{name}-%{version} perl(WebminCore)
 PreReq: /bin/sh /usr/bin/perl /bin/rm
 Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) openssl
 AutoReq: 0

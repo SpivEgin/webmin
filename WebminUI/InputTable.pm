@@ -1,6 +1,6 @@
 package AdFreeZoneUI::InputTable;
 use AdFreeZoneUI::Table;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Table" );
 
 =head2 new AdFreeZoneUI::InputTable(&headings, [width], [name], [heading])

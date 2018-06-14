@@ -3,7 +3,7 @@
 # Change the skill level of the current user
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 &init_config();
 &ReadParse();

@@ -1,5 +1,5 @@
 package AdFreeZoneUI::TableAction;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::TableAction(cgi, label, &args, disabled)
 An object of this class can be added to a table or properties object to create

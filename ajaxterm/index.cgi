@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use Socket;
 our(%text, %config, %gconfig);
 our $module_root_directory;

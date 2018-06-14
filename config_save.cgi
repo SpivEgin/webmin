@@ -3,7 +3,7 @@
 # Save inputs from config.cgi
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 require './config-lib.pl';
 &init_config();
 &ReadParse();

@@ -19,7 +19,7 @@ Example code:
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 if ($gconfig{'os_type'} =~ /^\S+\-linux$/) {
 	do "linux-lib.pl";

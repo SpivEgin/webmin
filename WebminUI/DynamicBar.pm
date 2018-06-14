@@ -1,5 +1,5 @@
 package AdFreeZoneUI::DynamicBar;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::DynamicBar(&start-function, max)
 A page element for displaying progress towards some goal, like the download of

@@ -1,6 +1,6 @@
 package AdFreeZoneUI::OptTextbox;
 use AdFreeZoneUI::Textbox;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Textbox" );
 
 =head2 new AdFreeZoneUI::OptTextbox(name, value, size, [default-msg], [other-msg])

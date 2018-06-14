@@ -6,7 +6,7 @@ use vars qw($theme_no_table $ui_radio_selector_donejs $module_name
 Common functions for generating HTML for AdFreeZone user interface elements.
 Some example code :
 
- use AdFreeZoneCore;
+ use WebminCore;
  init_config();
  ui_print_header(undef, 'My Module', '');
 

@@ -2,7 +2,7 @@
 # XXX schedule chooser on IE
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 use Time::Local;
 if (&foreign_check("node-groups")) {

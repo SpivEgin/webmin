@@ -2,7 +2,7 @@
 # Common majordomo functions
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 %MAJOR_ENV = ( 'HOME', $config{'program_dir'} );

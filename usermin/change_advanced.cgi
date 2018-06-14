@@ -49,7 +49,7 @@ $miniserv{'pass_password'} = $in{'pass'};
 if (defined($in{'preload'})) {
 	# Save preload option, forcing new mode
 	if ($in{'preload'}) {
-		$miniserv{'premodules'} = 'AdFreeZoneCore';
+		$miniserv{'premodules'} = 'WebminCore';
 		}
 	else {
 		delete($miniserv{'premodules'});

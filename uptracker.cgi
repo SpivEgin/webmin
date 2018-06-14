@@ -2,7 +2,7 @@
 # Output Javascript in a loop to track an upload
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 &init_config();
 &ReadParse();

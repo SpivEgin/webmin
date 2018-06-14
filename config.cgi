@@ -3,7 +3,7 @@
 # Display a form for editing the configuration of a module.
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 require './config-lib.pl';
 &init_config();
 &ReadParse();

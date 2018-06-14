@@ -2,7 +2,7 @@
 # Common functions for apache configuration
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 $directive_type_count = 20;
 
 if ($module_name ne 'htaccess') {

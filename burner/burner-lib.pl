@@ -3,7 +3,7 @@
 # Common functions for managing the CD burning profiles
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 &foreign_require("fdisk", "fdisk-lib.pl");

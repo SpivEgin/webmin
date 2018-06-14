@@ -11,7 +11,7 @@
 #
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 #$config_file = "./config-$gconfig{'os_type'}";

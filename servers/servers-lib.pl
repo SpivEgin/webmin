@@ -19,7 +19,7 @@ for RPC operations. Example code :
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 use Socket;
 our (%text, %config, %gconfig, $module_config_directory);
 &init_config();

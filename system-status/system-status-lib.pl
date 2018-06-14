@@ -4,7 +4,7 @@ use strict;
 use warnings;
 no warnings 'redefine';
 BEGIN { push(@INC, ".."); };
-eval "use AdFreeZoneCore;";
+eval "use WebminCore;";
 &init_config();
 our ($module_config_directory, %config, %gconfig, $module_name,
      $no_log_file_changes, $module_var_directory);
@@ -440,8 +440,8 @@ if (&test_lock($collected_info_file)) {
 # Don't diff collected file
 $gconfig{'logfiles'} = 0;
 $gconfig{'logfullfiles'} = 0;
-$AdFreeZoneCore::gconfig{'logfiles'} = 0;
-$AdFreeZoneCore::gconfig{'logfullfiles'} = 0;
+$WebminCore::gconfig{'logfiles'} = 0;
+$WebminCore::gconfig{'logfullfiles'} = 0;
 $no_log_file_changes = 1;
 &lock_file($collected_info_file);
 

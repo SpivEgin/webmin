@@ -2,7 +2,7 @@
 # Common functions for parsing and editing the spamassassin config file
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use Fcntl;
 &init_config();
 

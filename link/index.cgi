@@ -3,7 +3,7 @@
 # Redirect to another URL
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $url = $access{'link'} || $config{'link'};

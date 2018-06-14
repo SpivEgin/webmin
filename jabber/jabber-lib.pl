@@ -6,7 +6,7 @@
 # XXX - admin <read> and <write> - what do they mean?
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 if ($config{'jabber_lib'}) {

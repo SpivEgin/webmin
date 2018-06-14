@@ -5,7 +5,7 @@ BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
 no warnings 'redefine';
-use AdFreeZoneCore;
+use WebminCore;
 our ($module_name, %config, $user_module_config_directory, %text);
 
 if (!$module_name) {

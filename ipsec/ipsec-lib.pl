@@ -5,7 +5,7 @@
 #     .conf file for addition
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # get_config([file])

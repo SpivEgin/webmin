@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 
 # Since this script is run on every keypress, init_config is intentionally
 # not called to reduce startup time.

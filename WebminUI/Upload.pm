@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Upload;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Upload(name, [size])

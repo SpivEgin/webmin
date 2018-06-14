@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Properties;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Properties([heading], [columns], [width])
 Creates a read-only properties list

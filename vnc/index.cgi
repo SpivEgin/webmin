@@ -3,7 +3,7 @@
 # Display the vnc applet
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use Socket;
 &init_config();
 

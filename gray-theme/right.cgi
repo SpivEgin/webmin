@@ -18,8 +18,8 @@ if ($redir) {
 	return;
 	}
 
-my $prehead = defined(&AdFreeZoneCore::theme_prehead) ?
-		&capture_function_output(\&AdFreeZoneCore::theme_prehead) : "";
+my $prehead = defined(&WebminCore::theme_prehead) ?
+		&capture_function_output(\&WebminCore::theme_prehead) : "";
 &popup_header(undef, $prehead);
 print "<center>\n";
 

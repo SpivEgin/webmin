@@ -4,7 +4,7 @@
 # cgi scripts has also to include firewall4/6-lib based on result of get_ipvx_version() 
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 $config{'perpage'} ||= 50;	# a value of 0 can cause problems

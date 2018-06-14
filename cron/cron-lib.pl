@@ -13,7 +13,7 @@ Functions for listing, creating and managing Unix users' cron jobs.
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $env_support = $config{'vixie_cron'};

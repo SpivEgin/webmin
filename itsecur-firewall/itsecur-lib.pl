@@ -5,7 +5,7 @@
 # XXX only backup firewall module users?
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do "$config{'type'}-lib.pl";
 

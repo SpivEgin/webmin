@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Select;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Select(name, value|&values, &options, [multiple-size],

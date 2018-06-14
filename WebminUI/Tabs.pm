@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Tabs;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Tabs([&tabs])
 Displayed at the top of a page, to allow selection of various pages

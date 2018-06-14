@@ -2,7 +2,7 @@
 # update system.
 
 BEGIN { push(@INC, ".."); };
-eval "use AdFreeZoneCore;";
+eval "use WebminCore;";
 &init_config();
 &foreign_require("software", "software-lib.pl");
 &foreign_require("cron", "cron-lib.pl");

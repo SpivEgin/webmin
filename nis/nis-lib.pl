@@ -2,7 +2,7 @@
 # Common functions for NIS client and server management
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 if (-r "$module_root_directory/$gconfig{'os_type'}-$gconfig{'os_version'}-lib.pl") {
 	do "$gconfig{'os_type'}-$gconfig{'os_version'}-lib.pl";

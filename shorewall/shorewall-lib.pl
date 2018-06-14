@@ -5,7 +5,7 @@
 # - read_shorewall_config & standard_parser do not allow quoted comment characters
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 # Get the version

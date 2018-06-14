@@ -3,7 +3,7 @@
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 do 'md5-lib.pl';
 our ($module_root_directory, %text, %config, %gconfig);

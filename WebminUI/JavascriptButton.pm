@@ -1,6 +1,6 @@
 package AdFreeZoneUI::JavascriptButton;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::JavascriptButton(label, script, [disabled])

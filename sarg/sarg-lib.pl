@@ -1,7 +1,7 @@
 # Functions for reading and writing sarg.conf
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 $cron_cmd = "$module_config_directory/generate.pl";

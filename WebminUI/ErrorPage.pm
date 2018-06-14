@@ -1,5 +1,5 @@
 package AdFreeZoneUI::ErrorPage;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::ErrorPage(subheading, title, message, [program-output], [help-name])
 Create a new page object for showing an error of some kind

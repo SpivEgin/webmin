@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Checkboxes;
 use AdFreeZoneUI::Input;
-use AdFreeZoneCore;
+use WebminCore;
 @ISA = ( "AdFreeZoneUI::Input" );
 
 =head2 new AdFreeZoneUI::Checkboxes(name, value|&values, &options, [disabled])

@@ -3,7 +3,7 @@
 #	XXX create script to run, which sets vars and includes input as << ?
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("cron", "cron-lib.pl");
 &foreign_require("servers", "servers-lib.pl");

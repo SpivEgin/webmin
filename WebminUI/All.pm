@@ -38,7 +38,7 @@ use AdFreeZoneUI::Columns;
 use AdFreeZoneUI::Icon;
 use AdFreeZoneUI::TableAction;
 use AdFreeZoneUI::InputTable;
-use AdFreeZoneCore;
+use WebminCore;
 
 1;
 

@@ -5,7 +5,7 @@ Functions for creating and listing AdFreeZone scheduled functions.
 =cut
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 
 $webmin_crons_directory = "$module_config_directory/crons";

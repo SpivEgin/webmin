@@ -13,7 +13,7 @@ Full function documentation is in web-lib-funcs.pl.
 =cut
 
 $main::export_to_caller = 1;
-package AdFreeZoneCore;
+package WebminCore;
 require Exporter;
 @ISA = qw(Exporter);
 

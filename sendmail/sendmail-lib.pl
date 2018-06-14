@@ -3,7 +3,7 @@
 # Only sendmail versions 8.8 and above are supported
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 %access = &get_module_acl();
 $features_access = $access{'opts'} && $access{'ports'} && $access{'cws'} && $access{'masq'} && $access{'trusts'} && $access{'vmode'} && $access{'amode'} && $access{'omode'} && $access{'cgs'} && $access{'relay'} && $access{'mailers'} && $access{'access'} && $access{'domains'};

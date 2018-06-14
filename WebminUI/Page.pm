@@ -1,6 +1,6 @@
 package AdFreeZoneUI::Page;
-use AdFreeZoneCore;
-use AdFreeZoneCore;
+use WebminCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Page(subheading, title, [help-name], [show-config],
 		      [no-module-index], [no-webmin-index], [rightside],

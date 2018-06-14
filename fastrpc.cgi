@@ -5,7 +5,7 @@
 # to send requests and get replies.
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 use POSIX;
 use Socket;
 $force_lang = $default_lang;

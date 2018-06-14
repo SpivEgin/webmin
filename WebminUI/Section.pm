@@ -1,5 +1,5 @@
 package AdFreeZoneUI::Section;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::Section(header, [columns], [title], [width])
 Create a new form section, which has a header and contains some inputs

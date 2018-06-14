@@ -2,7 +2,7 @@
 # Functions for disk management under linux
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 &foreign_require("mount", "mount-lib.pl");
 if (&foreign_check("raid")) {

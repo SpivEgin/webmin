@@ -1,5 +1,5 @@
 package AdFreeZoneUI::ResultPage;
-use AdFreeZoneCore;
+use WebminCore;
 
 =head2 new AdFreeZoneUI::ResultPage(subheading, title, message, [help-name])
 Create a new page object for showing some success message.

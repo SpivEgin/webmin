@@ -4,7 +4,7 @@
 # categories and modules always at the top and the CGIs at the bottom
 
 BEGIN { push(@INC, ".."); };
-use AdFreeZoneCore;
+use WebminCore;
 &init_config();
 $hostname = &get_display_hostname();
 $ver = &get_webmin_version();
