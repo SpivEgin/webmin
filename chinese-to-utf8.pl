@@ -28,6 +28,8 @@ while(<LANG>) {
 close(LANG);
 
 # Find languages with common character sets
+@fiveone_langs = map { $_->{'lang'} }
+		       grep { $_->{'charset'} eq 'windows-1251' } @langs;
 @fivenine_langs = map { $_->{'lang'} }
 		      grep { $_->{'charset'} eq 'iso-8859-2' } @langs;
 @fifteen_langs = map { $_->{'lang'} }
@@ -53,6 +55,11 @@ foreach $m (@modules) {
 	if (-r "$m/lang/ru_SU") {
 		system("iconv -f KOI8-R -t UTF-8 - <$m/lang/ru_SU >$m/lang/ru.UTF-8");
 		}
+	foreach $l (@fiveone_langs) {
+		if (-r "$m/lang/$l") {
+			system("iconv -f windows-1251 -t UTF-8 - <$m/lang/$l >$m/lang/$l.UTF-8");
+			}
+		}
 	foreach $l (@fivenine_langs) {
 		if (-r "$m/lang/$l") {
 			system("iconv -f iso-8859-2 -t UTF-8 - <$m/lang/$l >$m/lang/$l.UTF-8");
@@ -69,46 +76,98 @@ foreach $m (@modules) {
 			}
 		}
 
-	# Translate the module.info file
+	# Translate the module.info.LANG files
 	local %minfo;
-	&read_file("$m/module.info", \%minfo);
-	local %ominfo = %minfo;
-	if ($minfo{'desc_zh_TW.Big5'}) {
-		$minfo{'desc_zh_TW.UTF-8'} = &Big5ToUTF8($minfo{'desc_zh_TW.Big5'});
+	if (&read_file("$m/module.info.zh_TW.Big5", \%minfo)) {
+		%tminfo = ( );
+		foreach $k (keys %minfo) {
+			($tk = $k) =~ s/zh_TW$/zh_TW.UTF-8/;
+			$minfo{$tk} = &Big5ToUTF8($minfo{$k});
+			}
+		&write_file_diff("$m/module.info.zh_TW.UTF-8", \%tminfo);
 		}
-	if ($minfo{'desc_zh_CN'}) {
-		$minfo{'desc_zh_CN.UTF-8'} = &GB2312ToUTF8($minfo{'desc_zh_CN'});
+	%minfo = ( );
+	if (&read_file("$m/module.info.zh_CN", \%minfo)) {
+		%tminfo = ( );
+		foreach $k (keys %minfo) {
+			($tk = $k) =~ s/zh_CN$/zh_CN.UTF-8/;
+			$minfo{$tk} = &GB2312ToUTF8($minfo{$k});
+			}
+		&write_file_diff("$m/module.info.zh_CN.UTF-8", \%tminfo);
 		}
-	if ($minfo{'desc_ja_JP.euc'}) {
-		$minfo{'desc_ja_JP.UTF-8'} = &EUCToUTF8($minfo{'desc_ja_JP.euc'});
+	%minfo = ( );
+	if (&read_file("$m/module.info.ja_JP.euc", \%minfo)) {
+		%tminfo = ( );
+		foreach $k (keys %minfo) {
+			($tk = $k) =~ s/ja_JP.euc$/ja_JP.UTF-8/;
+			$tminfo{$tk} = &EUCToUTF8($minfo{$k});
+			}
+		&write_file_diff("$m/module.info.ja_JP.UTF-8", \%tminfo);
 		}
-	if ($minfo{'desc_ko_KR.euc'}) {
-		$minfo{'desc_ko_KR.UTF-8'} = &KRToUTF8($minfo{'desc_ko_KR.euc'});
+	%minfo = ( );
+	if (&read_file("$m/module.info.ko_KR.euc", \%minfo)) {
+		%tminfo = ( );
+		foreach $k (keys %minfo) {
+			($tk = $k) =~ s/ko_KR.euc$/ko_KR.UTF-8/;
+			$tminfo{$tk} = &KRToUTF8($minfo{$k});
+			}
+		&write_file_diff("$m/module.info.ko_KR.UTF-8", \%tminfo);
 		}
-	if ($minfo{'desc_ru_SU'}) {
-		$minfo{'desc_ru.UTF-8'} = &KOI8ToUTF8($minfo{'desc_ru_SU'});
+	%minfo = ( );
+	if (&read_file("$m/module.info.ru_SU", \%minfo)) {
+		%tminfo = ( );
+		foreach $k (keys %minfo) {
+			($tk = $k) =~ s/ru_SU$/ru.UTF-8/;
+			$tminfo{$tk} = &KOI8ToUTF8($minfo{$k});
+			}
+		&write_file_diff("$m/module.info.ru.UTF-8", \%tminfo);
+		}
+	foreach $l (@fiveone_langs) {
+		%minfo = ( );
+		if (&read_file("$m/module.info.$l", \%minfo)) {
+			%tminfo = ( );
+			foreach $k (keys %minfo) {
+				($tk = $k) =~ s/$l$/$l.UTF-8/;
+				$minfo{$tk} = &Windows1251ToUTF8($minfo{$k});
+				}
+			&write_file_diff("$m/module.info.$l.UTF-8", \%tminfo);
+			}
 		}
 	foreach $l (@fivenine_langs) {
-		if ($minfo{'desc_'.$l}) {
-			$minfo{'desc_'.$l.'.UTF-8'} =
-				&ISO88592ToUTF8($minfo{'desc_'.$l});
+		%minfo = ( );
+		if (&read_file("$m/module.info.$l", \%minfo)) {
+			%tminfo = ( );
+			foreach $k (keys %minfo) {
+				($tk = $k) =~ s/$l$/$l.UTF-8/;
+				$minfo{$k} = &ISO88592ToUTF8($minfo{$k});
+				}
+			&write_file_diff("$m/module.info.$l.UTF-8", \%tminfo);
 			}
 		}
 	foreach $l (@fifteen_langs) {
-		if ($minfo{'desc_'.$l}) {
-			$minfo{'desc_'.$l.'.UTF-8'} =
-				&ISO885915ToUTF8($minfo{'desc_'.$l});
+		%minfo = ( );
+		if (&read_file("$m/module.info.$l", \%minfo)) {
+			%tminfo = ( );
+			foreach $k (keys %minfo) {
+				($tk = $k) =~ s/$l$/$l.UTF-8/;
+				$tminfo{$tk} = &ISO885915ToUTF8($minfo{$k});
+				}
+			&write_file_diff("$m/module.info.$l.UTF-8", \%tminfo);
 			}
 		}
 	foreach $l (@default_langs) {
-		if ($minfo{'desc_'.$l}) {
-			$minfo{'desc_'.$l.'.UTF-8'} =
-				&DefaultToUTF8($minfo{'desc_'.$l});
+		%minfo = ( );
+		if (&read_file("$m/module.info.$l", \%minfo)) {
+			%tminfo = ( );
+			foreach $k (keys %minfo) {
+				($tk = $k) =~ s/$l$/$l.UTF-8/;
+				$tinfo{$tk} = &DefaultToUTF8($minfo{$k});
+				}
+			&write_file_diff("$m/module.info.$l.UTF-8", \%tminfo);
 			}
 		}
-	&write_file_diff("$m/module.info", \%minfo);
 
-	# Translate the config.info file
+	# Translate the config.info.LANG files
 	local %cinfo;
 	if (&read_file("$m/config.info.zh_TW.Big5", \%cinfo)) {
 		local %ocinfo = %cinfo;
@@ -148,6 +207,16 @@ foreach $m (@modules) {
 			$cinfo{$k} = &KOI8ToUTF8($cinfo{$k});
 			}
 		&write_file_diff("$m/config.info.ru.UTF-8", \%cinfo);
+		}
+	foreach $l (@fiveone_langs) {
+		%cinfo = ( );
+		if (&read_file("$m/config.info.$l", \%cinfo)) {
+			local %ocinfo = %cinfo;
+			foreach $k (keys %cinfo) {
+				$cinfo{$k} = &Windows1251ToUTF8($cinfo{$k});
+				}
+			&write_file_diff("$m/config.info.$l.UTF-8", \%cinfo);
+			}
 		}
 	foreach $l (@fivenine_langs) {
 		%cinfo = ( );
@@ -229,6 +298,17 @@ foreach $m (@modules) {
 			close(IN);
 			}
 		else {
+			foreach $l (@fiveone_langs) {
+				if ($h =~ /(\S+)\.$l\.html$/) {
+					open(IN, "$m/help/$h");
+					open(OUT, ">$m/help/$1.$l.UTF-8.html");
+					while(<IN>) {
+						print OUT &Windows1251ToUTF8($_);
+						}
+					close(OUT);
+					close(IN);
+					}
+				}
 			foreach $l (@fivenine_langs) {
 				if ($h =~ /(\S+)\.$l\.html$/) {
 					open(IN, "$m/help/$h");
@@ -323,6 +403,18 @@ open(TEMP, ">$temp");
 print TEMP $str;
 close(TEMP);
 local $out = `iconv -f KOI8-R -t UTF-8 - <$temp`;
+unlink($temp);
+return $out;
+}
+
+sub Windows1251ToUTF8
+{
+local ($str) = @_;
+local $temp = "/tmp/$$.cn";
+open(TEMP, ">$temp");
+print TEMP $str;
+close(TEMP);
+local $out = `iconv -f windows-1251 -t UTF-8 - <$temp`;
 unlink($temp);
 return $out;
 }

@@ -23,10 +23,12 @@ index_db=Database name
 index_tables=Tables
 index_elibrary=The MySQL client program $1 could not be run because it could not find the MySQL shared libraries. Check the <a href='$2'>module configuration</a> and make sure the <i>Path to MySQL shared libraries</i> is set.
 index_version=MySQL version $1
+index_version2=MySQL version $1 on $2
 index_nomod=Warning: The Perl module $1 is not installed on your system, so Webmin will not be able to reliably access your MySQL database. <a href='$2'>Click here</a> to install it now.
 index_nomods=Warning: The Perl modules $1 and $2 are not installed on your system, so Webmin will not be able to reliably access your MySQL database. <a href='$3'>Click here</a> to install them now.
 index_mysqlver=The command <tt>$1</tt> returned :
-index_eenvpass=The MySQL client program $1 does not accept passwords passed using the <tt>MYSQL_PWD</tt> environment variable. To ensure that Webmin is able to fully communicate with MySQL, this option should be turned off on the <a href='$2'>module configuration</a> page.
+index_eenvpass=The MySQL client program $1 does not accept passwords passed using the <tt>MYSQL_PWD</tt> environment variable. To ensure that Webmin is able to fully communicate with MySQL, this option should be turned off on the <a href='$2'>module configuration</a> page. Alternately, you can remove any password set in the <tt>root</tt> user's <tt>.my.cnf</tt> file.
+index_ecnf=The MySQL config file $1 was not found on your system. Use the <a href='$2'>module configuration</a> page to set the correct path.
 index_nodbs=You do not have access to any MySQL databases.
 index_nodbs2=No MySQL databases were found on your system.
 index_nodbs3=No MySQL databases matched your search.
@@ -551,7 +553,7 @@ log_tables_delete=Dropped $1 objects from database $2
 log_field_create=Added field $1 $4 to $2 in database $3
 log_field_modify=Modified field $1 $4 in $2 in database $3
 log_field_delete=Deleted field $1 from $2 in database $3
-log_fields_delete=Deleted $1 fields from $1 in database $2
+log_fields_delete=Deleted $1 fields from $2 in database $3
 log_data_create=Added row to table $2 in database $3
 log_data_modify=Modified $1 rows in table $2 in database $3
 log_data_delete=Deleted $1 rows from table $2 in database $3
@@ -590,6 +592,7 @@ log_importupload=Imported data from uploaded file
 log_importfile=Imported data from file $1
 log_set=Changed $1 MySQL variables
 log_root=Changed administration password
+log_manual=Manually edited config file
 
 backup_title=Backup Database
 backup_title2=Backup All Databases
@@ -623,6 +626,7 @@ backup_ewhere=Missing <tt>where</tt> clause
 backup_echarset=Missing character set
 backup_ebackup=<tt>mysqldump</tt> failed : $1
 backup_ebefore=Before-backup command failed!
+backup_eisdir=Backup destination $1 is a directory
 backup_done=Successfully backed up $3 bytes from database $1 to file $2.
 backup_sched=Scheduled backup enabled?
 backup_sched1=Yes, at times chosen below ..
@@ -722,6 +726,7 @@ cnf_query_cache_size=Query cache size in bytes
 cnf_equery_cache_size=Invalid query cache size
 cnf_table_cache=Tables to cache
 cnf_sort_buffer=Sort buffer size
+cnf_sort_buffer_size=Sort buffer size
 cnf_net_buffer_length=Network buffer size
 cnf_myisam_sort_buffer_size=MyISAM sort buffer size
 cnf_ekey_buffer=Missing or invalid key buffer size
@@ -729,11 +734,18 @@ cnf_ekey_buffer_size=Missing or invalid key buffer size
 cnf_emax_allowed_packet=Missing or invalid maximum packet size
 cnf_etable_cache=Missing or invalid tables to cache
 cnf_esort_buffer=Missing or invalid sort buffer size
+cnf_esort_buffer_size=Missing or invalid sort buffer size
 cnf_enet_buffer_length=Missing or invalid network buffer size
 cnf_emyisam_sort_buffer_size=Missing or invalid MyISAM sort buffer size
 cnf_emax_connections=Missing or invalid maximum number of connections
 cnf_restart=Save and Restart MySQL
 cnf_fpt=Separate file for each InnoDB table?
+
+manual_title=Edit Config Files
+manual_file=Edit config file:
+manual_ok=OK
+manual_efile=Invalid configuration file!
+manual_err=Failed to save configuration file
 
 index_title1=Create Index
 index_header1=Index options

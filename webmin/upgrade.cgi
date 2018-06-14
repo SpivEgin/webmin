@@ -271,6 +271,7 @@ elsif ($in{'mode'} eq 'deb') {
 	$ENV{'tempdir'} = $gconfig{'tempdir'};
 	print "<p>",$text{'upgrade_setupdeb'},"<p>\n";
 	print "<pre>";
+	$ENV{'DEBIAN_FRONTEND'} = 'noninteractive';
 	&proc::safe_process_exec("dpkg --install $qfile", 0, 0,
 				 STDOUT, undef, 1, 1);
 	unlink($file) if ($need_unlink);
@@ -284,7 +285,7 @@ elsif ($in{'mode'} eq 'solaris-pkg' || $in{'mode'} eq 'sun-pkg') {
 	my @p = &foreign_call("software", "file_packages", $file);
 	#
 	# The package name will always include "webmin" in lower case,
-	# but may be preceeded by the source package source ("WS" for the
+	# but may be preceded by the source package source ("WS" for the
 	# Webmin.com package, "SUNW" for the Sun distributed package).
 	# and it could have trailing characters to define a set of items
 	# that are installed separately ("r" for the Sun "root" package,
@@ -537,6 +538,16 @@ $updates = &filter_updates($updates, $version);
 if (scalar(@$updates)) {
 	print "<br>",&text('upgrade_updates', scalar(@$updates),
 		"update.cgi?source=0&show=0&missing=0"),"<p>\n";
+	}
+
+# Force refresh of cached updates, in case webmin was included
+if (&foreign_check("system-status")) {
+	&foreign_require("system-status");
+	&system_status::refresh_possible_packages([ "webmin" ]);
+	}
+if (&foreign_check("virtual-server") && @got) {
+	&foreign_require("virtual-server");
+	&virtual_server::refresh_possible_packages([ "webmin" ]);
 	}
 
 &ui_print_footer("", $text{'index_return'});

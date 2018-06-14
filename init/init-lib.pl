@@ -57,11 +57,12 @@ elsif ($config{'hostconfig'}) {
 elsif ($config{'rc_dir'}) {
 	$init_mode = "rc";
 	}
-elsif ($config{'init_base'} && -d "/etc/init" && &has_command("initctl")) {
+elsif ($config{'init_base'} && -d "/etc/init" &&
+       &has_command("initctl") &&
+       &execute_command("/sbin/init --version") == 0) {
 	$init_mode = "upstart";
 	}
-elsif ($config{'init_base'} && -d "/etc/systemd" &&
-       &has_command("systemctl") &&
+elsif (-d "/etc/systemd" && &has_command("systemctl") &&
        &execute_command("systemctl list-units") == 0) {
 	$init_mode = "systemd";
 	}
@@ -693,6 +694,8 @@ if ($init_mode eq "systemd" && (!-r "$config{'init_dir'}/$_[0]" ||
 					$_[5]->{'fork'}, $_[5]->{'pidfile'},
 					$_[5]->{'exit'});
 		}
+	&system_logged("systemctl unmask ".
+		       quotemeta($unit)." >/dev/null 2>&1");
 	&system_logged("systemctl enable ".
 		       quotemeta($unit)." >/dev/null 2>&1");
 	return;
@@ -2004,7 +2007,7 @@ systemd automatically includes init scripts).
 sub list_systemd_services
 {
 # Get all systemd unit names
-my $out = &backquote_command("systemctl list-units --full --all");
+my $out = &backquote_command("systemctl list-units --full --all -t service --no-legend");
 &error("Failed to list systemd units : $out") if ($?);
 foreach my $l (split(/\r?\n/, $out)) {
 	$l =~ s/^[^a-z0-9\-\_\.]+//i;
@@ -2019,14 +2022,15 @@ foreach my $l (split(/\r?\n/, $out)) {
 
 # Also find unit files for units that may be disabled at boot and not running,
 # and so don't show up in systemctl list-units
-opendir(UNITS, &get_systemd_root());
-push(@units, grep { !/\.wants$/ && !/^\./ } readdir(UNITS));
+my $root = &get_systemd_root();
+opendir(UNITS, $root);
+push(@units, grep { !/\.wants$/ && !/^\./ && !-d "$root/$_" } readdir(UNITS));
 closedir(UNITS);
 
 # Also add units from list-unit-files that also don't show up
-$out = &backquote_command("systemctl list-unit-files");
+$out = &backquote_command("systemctl list-unit-files -t service --no-legend");
 foreach my $l (split(/\r?\n/, $out)) {
-	if ($l =~ /^(\S+)\.service\s+disabled/ ||
+	if ($l =~ /^(\S+\.service)\s+disabled/ ||
 	    $l =~ /^(\S+)\s+disabled/) {
 		push(@units, $1);
 		}
@@ -2039,6 +2043,10 @@ foreach my $l (split(/\r?\n/, $out)) {
 		!/^dev-/ &&
 		!/^systemd-/ } @units;
 @units = &unique(@units);
+
+# Filter out templates
+my @templates = grep { /\@$/ || /\@\.service$/ } @units;
+@units = grep { !/\@$/ && !/\@\.service$/ } @units;
 
 # Dump state of all of them, 100 at a time
 my %info;

@@ -28,6 +28,9 @@ if (-r "/etc/.issue") {
 elsif (-r "/etc/issue") {
 	\$etc_issue = `cat /etc/issue`;
 	}
+if (-r "/etc/os-release") {
+	\$os_release = `cat /etc/os-release`;
+	}
 \$uname = `uname -a`;
 EOF
 open(OS, "os_list.txt");
@@ -68,7 +71,7 @@ Version: $ver
 Release: $rel
 Provides: %{name}-%{version} perl(WebminCore)
 PreReq: /bin/sh /usr/bin/perl /bin/rm
-Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) openssl
+Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl(Encode::Detect) openssl
 AutoReq: 0
 License: Freeware
 Group: System/Tools
@@ -225,6 +228,7 @@ export config_dir var_dir perl autoos port login crypt host ssl nochown autothir
 chmod 600 \$tempdir/webmin-setup.out
 rm -f /var/lock/subsys/webmin
 if [ "\$inetd" != "1" -a "\$startafter" = "1" ]; then
+	/etc/init.d/webmin stop >/dev/null 2>&1 </dev/null
 	/etc/init.d/webmin start >/dev/null 2>&1 </dev/null
 fi
 cat >/etc/webmin/uninstall.sh <<EOFF
@@ -252,12 +256,14 @@ musthost=`grep musthost= /etc/webmin/miniserv.conf | sed -e 's/musthost=//'`
 if [ "$musthost" != "" ]; then
 	host=$musthost
 fi
-if [ "\$sslmode" = "1" ]; then
-	echo "Webmin install complete. You can now login to https://\$host:\$port/"
-else
-	echo "Webmin install complete. You can now login to http://\$host:\$port/"
+if [ "\$1" == 1 ]; then
+	if [ "\$sslmode" = "1" ]; then
+		echo "Webmin install complete. You can now login to https://\$host:\$port/"
+	else
+		echo "Webmin install complete. You can now login to http://\$host:\$port/"
+	fi
+	echo "as root with your root password."
 fi
-echo "as root with your root password."
 /bin/true
 
 %preun

@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 # index.cgi
-# Display a table of all volumne groups and their physical and logical volumes.
+# Display a table of all volume groups and their physical and logical volumes.
 
 require './lvm-lib.pl';
 &ReadParse();
@@ -156,6 +156,10 @@ if (@vgs) {
 			  "<a href='edit_lv.cgi?vg=".&urlize($v->{'name'}).
 			  "&snap=1'>".&text('index_addlv2s', $v->{'name'}).
 			  "</a>");
+			push(@links,
+			  "<a href='thin_form.cgi?vg=".&urlize($v->{'name'}).
+			  "'>".&text('index_addlv3', $v->{'name'}).
+			  "</a>");
 			}
 		}
 	if (!@alllvs) {
@@ -172,6 +176,11 @@ if (@vgs) {
 					  $text{'index_lvuse'} ], 100);
 		foreach $l (@alllvs) {
 			($v) = grep { $_->{'name'} eq $l->{'vg'} } @vgs;
+			my @thinc;
+			if ($l->{'thin'}) {
+				@thinc = grep { $_->{'thin_in'} eq
+						$l->{'name'} } @alllvs;
+				}
 			if ($lv->{'is_snap'}) {
 				($snapof) = grep {
 					$_->{'size'} == $l->{'size'} &&
@@ -198,7 +207,9 @@ if (@vgs) {
 			  $v->{'name'},
 			  &nice_size(($l->{'cow_size'} || $l->{'size'})*1024),
 			  $usedmsg,
-			  (@stat ? &device_message(@stat) : undef).
+			  (@stat ? &device_message(@stat) :
+			   $l->{'thin'} ? &text('index_thin', scalar(@thinc)) :
+					  undef).
 			  ($snap ? " ".&text('index_snapof', $snap->{'name'})
 				 : ""),
 			  ]);

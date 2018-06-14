@@ -82,10 +82,19 @@ the following :
 =cut
 sub quota_can
 {
-return ($_[1]->[3] =~ /usrquota|usrjquota/ ||
-	$_[0]->[3] =~ /usrquota|usrjquota/ ? 1 : 0) +
-       ($_[1]->[3] =~ /grpquota|grpjquota/ ||
-        $_[0]->[3] =~ /grpquota|grpjquota/ ? 2 : 0);
+my %exclude_mounts;
+if (&has_command("findmnt")) {
+	%exclude_mounts = map { $_ => 1 } split( /\n/m, backquote_command('findmnt -r | grep -oP \'^(\S+)(?=.*\[\/)\'') );
+	}
+    
+# Not possible on bind mounts
+if ($_[0]->[2] =~ /^bind/ ||
+    exists($exclude_mounts{$_[0]->[0]}) && $_[0]->[2] !~ /^simfs/) {
+	return 0;
+	}
+
+return ( $_[1]->[3] =~ /usrquota|usrjquota/ || $_[0]->[3] =~ /usrquota|usrjquota/ ? 1 : 0 ) +
+       ( $_[1]->[3] =~ /grpquota|grpjquota/      || $_[0]->[3] =~ /grpquota|grpjquota/ ? 2 : 0 );
 }
 
 =head2 quota_now(&mnttab, &fstab)

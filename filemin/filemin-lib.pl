@@ -67,13 +67,14 @@ sub get_paths {
         @allowed_paths = map { $_ eq '$HOME' ? @remote_user_info[7] : $_ }
                              @allowed_paths;
         @allowed_paths = map { s/\$USER/$remote_user/g; $_ } @allowed_paths;
-        if (scalar(@allowed_paths == 1)) {
+        if (scalar(@allowed_paths) == 1) {
             $base = $allowed_paths[0];
         } else {
             $base = '/';
         }
     }
-    $path = $in{'path'} ? $in{'path'} : '';
+    @allowed_paths = &unique(@allowed_paths);
+    $path = $in{'path'} || '';
     $cwd = &simplify_path($base.$path);
 
     # Work out max upload size
@@ -126,14 +127,14 @@ sub print_template {
 
 sub print_errors {
     my @errors = @_;
-    &ui_print_header(undef, "Filemin", "");
+    &ui_print_header(undef, $module_info{'name'}, "");
     print $text{'errors_occured'};
     print "<ul>";
     foreach $error(@errors) {
         print("<li>$error</li>");
     }
     print "<ul>";
-    &ui_print_footer("index.cgi?path=$path", $text{'previous_page'});
+    &ui_print_footer("index.cgi?path=".&urlize($path), $text{'previous_page'});
 }
 
 sub print_interface {
@@ -173,13 +174,13 @@ sub print_interface {
         for(my $i = 1; $i <= scalar(@breadcr)-1; $i++) {
             chomp($breadcr[$i]);
             $cp = $cp.'/'.$breadcr[$i];
-            print "<li><a href='index.cgi?path=$cp'>".
+            print "<li><a href='index.cgi?path=".&urlize($cp)."'>".
                   &html_escape($breadcr[$i])."</a></li>";
         }
         print "</ol>";
 
         # And toolbar
-        if($userconfig{'menu_style'}) {
+        if($userconfig{'menu_style'} || $current_theme eq 'authentic-theme') {
             print_template("unauthenticated/templates/menu.html");
         } else {
             print_template("unauthenticated/templates/quicks.html");
@@ -232,15 +233,15 @@ sub print_interface {
         for(my $i = 1;$i <= $pages;$i++) {
             if($page eq $i) {
                 print "<a class='pages active' ".
-                      "href='?path=$path".
+                      "href='?path=".&urlize($path).
                       "&page=$i".
-                      "&query=$query".
+                      "&query=".&urlize($query).
                       "'>".&html_escape($i)."</a>";
             } else {
                 print "<a class='pages' ".
-                      "href='?path=$path".
+                      "href='?path=".&urlize($path).
                       "&page=$i".
-                      "&query=$query'>".&html_escape($i)."</a>";
+                      "&query=".&urlize($query)."'>".&html_escape($i)."</a>";
             }
         }
         print "</div>";
@@ -268,7 +269,7 @@ sub print_interface {
     # Render current directory entries
     print &ui_form_start("", "post", undef, "id='list_form'");
     @ui_columns = (
-            '<input id="select-unselect" type="checkbox" onclick="selectUnselect(this)" />',
+            '<input class="_select-unselect_" type="checkbox" onclick="selectUnselect(this)" />',
             ''
         );
     push @ui_columns, ('<span data-head-name>' . $text{'name'} . '</span>');
@@ -294,7 +295,6 @@ sub print_interface {
         $vlink = html_escape($link);
         $vlink = quote_escape($vlink);
         $vlink = decode('UTF-8', $vlink, Encode::FB_DEFAULT);
-        $path = html_escape($path);
         $vpath = quote_escape($vpath);
         $vpath = decode('UTF-8', $vpath, Encode::FB_DEFAULT);
 
@@ -321,11 +321,7 @@ sub print_interface {
         $actions = "<a class='action-link' href='javascript:void(0)' onclick='renameDialog(\"$vlink\")' title='$text{'rename'}' data-container='body'>$rename_icon</a>";
 
         if ( $list[ $count - 1 ][15] == 1 ) {
-            if ($path eq '/'. $link) {
-                $href = "index.cgi?path=" . &urlize("$path");
-            } else {
-                $href = "index.cgi?path=" . &urlize("$path/$link");
-            }
+            $href = "index.cgi?path=" . &urlize("$path/$link");
         } else {
             $href = "download.cgi?file=".&urlize($link)."&path=".&urlize($path);
             if($0 =~ /search.cgi/) {
@@ -343,28 +339,26 @@ sub print_interface {
             ) {
                 $actions = "$actions<a class='action-link' href='edit_file.cgi?file=".&urlize($link)."&path=".&urlize($path)."' title='$text{'edit'}' data-container='body'>$edit_icon</a>";
             }
-            if (   ( index( $type, "application-zip" ) != -1 && has_command('unzip') )
-                || ( index( $type, "application-x-7z-compressed" ) != -1 && has_command('7z') )
-                || ( index( $type, "application-x-rar" ) != -1           && has_command('unrar') )
-                || ( index( $type, "application-x-rpm" ) != -1 && has_command('rpm2cpio') && has_command('cpio') )
-                || ( index( $type, "application-x-deb" ) != -1 && has_command('dpkg') )
-                || ((      index( $type, "x-compressed-tar" ) != -1
-                        || index( $type, "-x-tar" ) != -1
-                        || ( index( $type, "-x-bzip" ) != -1 && has_command('bzip2') )
-                        || ( index( $type, "-gzip" ) != -1   && has_command('gzip') )
-                        || ( index( $type, "-x-xz" ) != -1   && has_command('xz') )
-                    )
-                    && has_command('tar')
-                )
-                )
-            {
-                $actions
-                    = "$actions <a class='action-link' href='extract.cgi?path="
-                    . &urlize($path)
-                    . "&file="
-                    . &urlize($link)
-                    . "' title='$text{'extract_archive'}' data-container='body'>$extract_icon</a> ";
-            }
+            if ((index($type, "application-zip") != -1             && has_command('unzip')) ||
+              (index($type, "application-x-7z-compressed") != -1 && has_command('7z'))    ||
+              ((index($type, "application-x-rar") != -1 || index($type, "application-vnd.rar") != -1) && has_command('unrar')) ||
+              (index($type, "application-x-rpm") != -1 && has_command('rpm2cpio') && has_command('cpio')) ||
+              (index($type, "application-x-deb") != -1 && has_command('dpkg'))
+              ||
+              (
+                  (index($type, "x-compressed-tar") != -1 ||
+                   index($type, "-x-tar") != -1           ||
+                   (index($type, "-x-bzip") != -1 && has_command('bzip2')) ||
+                   (index($type, "-gzip") != -1   && has_command('gzip'))  ||
+                   (index($type, "-x-xz") != -1   && has_command('xz'))
+                  ) &&
+                  has_command('tar')))
+          {
+              $actions =
+                "$actions <a class='action-link' href='extract.cgi?path=" . &urlize($path) .
+                "&file=" . &urlize($link) . "' title='$text{'extract_archive'}' data-container='body'>$extract_icon</a> ";
+          }
+
         }
         @row_data = (
             "<a href='$href'><img src=\"$img\"></a>",
@@ -394,8 +388,8 @@ sub get_bookmarks {
     my $bookmarks = &read_file_lines($confdir.'/.bookmarks', 1);
     $result = '';
     foreach $bookmark(@$bookmarks) {
-        $result.= "<li><a href='index.cgi?path=$bookmark'>".
-                  &html_escape($bookmark)."</a><li>";
+        $result .=
+          "<li><a href='index.cgi?path=" . &urlize($bookmark) . "'>" . &html_escape($bookmark) . "</a></li>";
     }
     return $result;
 }
@@ -412,6 +406,22 @@ sub get_paste_buffer_file
         &make_dir($tmpdir, 0700) if (!-d $tmpdir);
         return $tmpdir."/.buffer";
     }
+}
+
+# check_allowed_path(file)
+# Calls error if some path isn't allowed
+sub check_allowed_path
+{
+my ($file) = @_;
+$file = &simplify_path($file);
+my $error = 1;
+foreach my $allowed_path (@allowed_paths) {
+	if (&is_under_directory($allowed_path, $file)) {
+		$error = 0;
+		}
+	}
+$error && &error(&text('notallowed', &html_escape($file),
+		   &html_escape(join(" , ", @allowed_paths))));
 }
 
 1;

@@ -7,6 +7,7 @@ Common functions for configuring miniserv and adjusting global Webmin settings.
 BEGIN { push(@INC, ".."); };
 use strict;
 use warnings;
+no warnings 'redefine';
 use WebminCore;
 &init_config();
 our ($module_root_directory, %text, %gconfig, $root_directory, %config,
@@ -39,6 +40,9 @@ our $primary_port = 80;
 
 our $webmin_key_email = "jcameron\@webmin.com";
 our $webmin_key_fingerprint = "1719 003A CE3E 5A41 E2DE  70DF D97A 3AE9 11F6 3C51";
+
+our $authentic_key_email = "ilia\@rostovtsev.ru";
+our $authentic_key_fingerprint = "EC60 F3DA 9CB7 9ADC CF56  0D1F 121E 166D D9C8 21AB";
 
 our $standard_host = $primary_host;
 our $standard_port = $primary_port;
@@ -128,10 +132,10 @@ Installs a webmin module or theme, and returns either an error message
 or references to three arrays for descriptions, directories and sizes.
 On success or failure, the file is deleted if the unlink parameter is set.
 Unless the nodeps parameter is set to 1, any missing dependencies will cause
-installation to fail. 
+installation to fail.
 
 Any new modules will be granted to the users and groups named in the fourth
-paramter, which must be an array reference.
+parameter, which must be an array reference.
 
 =cut
 sub install_webmin_module
@@ -222,7 +226,6 @@ if ($type eq 'rpm' && $file =~ /\.rpm$/i &&
 		unlink($file) if ($need_unlink);
 		return &text('install_eirpm', "<tt>$out</tt>");
 		}
-	unlink("$config_directory/module.infos.cache");
 	&flush_webmin_caches();
 
 	$mdirs[0] = &module_root_directory($name);
@@ -277,7 +280,7 @@ else {
 		return $text{'install_enone'};
 		}
 
-	# Get the module.info or theme.info files to check dependancies
+	# Get the module.info or theme.info files to check dependencies
 	my $ver = &get_webmin_version();
 	my $tmpdir = &transname();
 	mkdir($tmpdir, 0700);
@@ -452,7 +455,7 @@ sub grant_user_module
 my %acl;
 &read_acl(undef, \%acl);
 my $fh = "GRANTS";
-&open_tempfile($fh, ">".&acl_filename()); 
+&open_tempfile($fh, ">".&acl_filename());
 my $u;
 foreach $u (keys %acl) {
 	my @mods = @{$acl{$u}};
@@ -615,21 +618,43 @@ sub gnupg_setup
 {
 return ( 1, &text('enogpg', "<tt>gpg</tt>") ) if (!&has_command($gpgpath));
 
+my ($ok, $err) = &import_gnupg_key(
+	$webmin_key_email, $webmin_key_fingerprint,
+	"$module_root_directory/jcameron-key.asc");
+return ($ok, $err) if ($ok);
+
+($ok, $err) = &import_gnupg_key(
+	$authentic_key_email, $authentic_key_fingerprint,
+	"$root_directory/authentic-theme/THEME.pgp");
+return ($ok, $err) if ($ok);
+
+return (0);
+}
+
+=head2 import_gnupg_key
+
+Imports the given key if not already in the key list
+
+=cut
+sub import_gnupg_key
+{
+my ($email, $finger, $path) = @_;
+return (0) if (!-r $path);
+
 # Check if we already have the key
 my @keys = &list_keys();
 foreach my $k (@keys) {
-	return ( 0 ) if ($k->{'email'}->[0] eq $webmin_key_email &&
-		         &key_fingerprint($k) eq $webmin_key_fingerprint);
+	return ( 0 ) if ($k->{'email'}->[0] eq $email &&
+		         &key_fingerprint($k) eq $finger);
 	}
 
 # Import it if not
 &list_keys();
-my $out = &backquote_logged(
-	"$gpgpath --import $module_root_directory/jcameron-key.asc 2>&1");
+my $out = &backquote_logged("$gpgpath --import $path 2>&1");
 if ($?) {
 	return (2, $out);
 	}
-return 0;
+return (0);
 }
 
 =head2 list_standard_modules
@@ -739,7 +764,13 @@ Rounds a version number down to the nearest .01
 =cut
 sub base_version
 {
-return sprintf("%.2f0", $_[0]);
+my ($ver) = @_;
+#remove waning about (possible) postfixes from update-from-repo.sh
+$ver =~ s/[-a-z:_].*//gi;
+if ($ver =~ /^((\d+)\.(\d+))\.*/) {
+	$ver = $1;
+	}
+return sprintf("%.2f0", $ver);
 }
 
 =head2 get_newmodule_users
@@ -818,7 +849,7 @@ return @sockets;
 
 =head2 fetch_updates(url, [login, pass], [sig-mode])
 
-Returns a list of updates from some URL, or calls &error. Each element is an 
+Returns a list of updates from some URL, or calls &error. Each element is an
 array reference containing :
 
 =item Module directory name.
@@ -1007,16 +1038,18 @@ line.
 =cut
 sub validate_key_cert
 {
-my $key = &read_file_contents($_[0]);
-$key =~ /BEGIN RSA PRIVATE KEY/i ||
-    $key =~ /BEGIN PRIVATE KEY/i ||
-	&error(&text('ssl_ekey', $_[0]));
-if (!$_[1]) {
-	$key =~ /BEGIN CERTIFICATE/ || &error(&text('ssl_ecert', $_[0]));
+my ($keyfile, $certfile) = @_;
+-r $keyfile || return &error(&text('ssl_ekey', $keyfile));
+my $key = &read_file_contents($keyfile);
+$key =~ /BEGIN (RSA |EC )?PRIVATE KEY/i ||
+	&error(&text('ssl_ekey2', $keyfile));
+if (!$certfile) {
+	$key =~ /BEGIN CERTIFICATE/ || &error(&text('ssl_ecert2', $keyfile));
 	}
 else {
-	my $cert = &read_file_contents($_[1]);
-	$cert =~ /BEGIN CERTIFICATE/ || &error(&text('ssl_ecert', $_[1]));
+	-r $certfile || return &error(&text('ssl_ecert', $certfile));
+	my $cert = &read_file_contents($certfile);
+	$cert =~ /BEGIN CERTIFICATE/ || &error(&text('ssl_ecert2', $certfile));
 	}
 }
 
@@ -1101,7 +1134,7 @@ if (($realos{'os_version'} ne $gconfig{'os_version'} ||
 		}
 	else {
 		# Large enough change to tell the user
-		push(@notifs, 
+		push(@notifs,
 		    &ui_form_start("$gconfig{'webprefix'}/webmin/fix_os.cgi").
 		    &text('os_incorrect', $realos{'real_os_type'},
 		    		          $realos{'real_os_version'})."<p>\n".
@@ -1187,7 +1220,8 @@ if (&foreign_available($module_name) && !$noupdates &&
 			&save_module_config();
 			}
 		}
-	if ($config{'last_version_number'} > &get_webmin_version()) {
+	if ($config{'last_version_number'} &&
+	    $config{'last_version_number'} > &get_webmin_version()) {
 		# New version is out there .. offer to upgrade
 		my $mode = &get_install_type();
 		my $checksig = 0;
@@ -1370,7 +1404,7 @@ if (exists($gconfig{'shared_root'}) && $gconfig{'shared_root'} eq '1') {
 	return 1;
 	}
 elsif (exists($gconfig{'shared_root'}) && $gconfig{'shared_root'} eq '0') {
-	# Definately not shared
+	# Definitely not shared
 	return 0;
 	}
 if (&running_in_zone()) {
@@ -1516,9 +1550,9 @@ for(my $i=1; $i<@_; $i++) {
 		# Compare with an IPv6 network
 		my $v6size = $2;
 		my $v6addr = &canonicalize_ip6($1);
-		my $bytes = $v6size / 16;
-		my @mo = split(/:/, $v6addr);
-		my @io = split(/:/, &canonicalize_ip6($_[0]));
+		my $bytes = $v6size / 8;
+		my @mo = &expand_ipv6_bytes($v6addr);
+		my @io = &expand_ipv6_bytes(&canonicalize_ip6($_[0]));
 		for(my $j=0; $j<$bytes; $j++) {
 			if ($mo[$j] ne $io[$j]) {
 				$mismatch = 1;
@@ -1533,6 +1567,24 @@ for(my $i=1; $i<@_; $i++) {
 	}
 return 0;
 }
+
+=head2 expand_ipv6_bytes(address)
+
+Given a canonical IPv6 address, split it into an array of bytes
+
+=cut
+sub expand_ipv6_bytes
+{
+my ($addr) = @_;
+my @rv;
+foreach my $w (split(/:/, $addr)) {
+	$w =~ /^(..)(..)$/ || return ( );
+	push(@rv, hex($1), hex($2));
+	}
+return @rv;
+}
+
+
 
 =head2 prefix_to_mask(prefix)
 
@@ -1588,8 +1640,8 @@ elsif ($h =~ /^([a-f0-9:]+)\/(\d+)$/) {
 		return &text('access_eip6', $1);
 	$2 >= 0 && $2 <= 128 ||
 		return &text('access_ecidr6', "$2");
-	$2 % 16 == 0 ||
-		return &text('access_ecidr16', "$2");
+	$2 % 8 == 0 ||
+		return &text('access_ecidr8', "$2");
 	}
 elsif ($h =~ /^[a-f0-9:]+$/) {
 	# IPv6 address
@@ -1620,7 +1672,7 @@ a package name and the relative path of the .pl file to pre-load.
 =cut
 sub get_preloads
 {
-my @rv = map { [ split(/=/, $_) ] } split(/\s+/, $_[0]->{'preload'});
+my @rv = map { [ split(/=/, $_) ] } split(/\s+/, $_[0]->{'preload'} || "");
 return @rv;
 }
 
@@ -1772,25 +1824,25 @@ local $_;
 open(OUT, "openssl x509 -in ".quotemeta($_[0])." -issuer -subject -enddate -text |");
 while(<OUT>) {
 	s/\r|\n//g;
-	if (/subject=.*CN=([^\/]+)/) {
+	if (/subject=.*CN\s*=\s*([^\/]+)/) {
 		$rv{'cn'} = $1;
 		}
-	if (/subject=.*O=([^\/]+)/) {
+	if (/subject=.*O\s*=\s*([^\/]+)/) {
 		$rv{'o'} = $1;
 		}
-	if (/subject=.*Email=([^\/]+)/) {
+	if (/subject=.*Email\s*=\s*([^\/]+)/) {
 		$rv{'email'} = $1;
 		}
-	if (/issuer=.*CN=([^\/]+)/) {
+	if (/issuer=.*CN\s*=\s*([^\/]+)/) {
 		$rv{'issuer_cn'} = $1;
 		}
-	if (/issuer=.*O=([^\/]+)/) {
+	if (/issuer=.*O\s*=\s*([^\/]+)/) {
 		$rv{'issuer_o'} = $1;
 		}
-	if (/issuer=.*Email=([^\/]+)/) {
+	if (/issuer=.*Email\s*=\s*([^\/]+)/) {
 		$rv{'issuer_email'} = $1;
 		}
-	if (/notAfter=(.*)/) {
+	if (/notAfter\s*=\s*(.*)/) {
 		$rv{'notafter'} = $1;
 		}
 	if (/Subject\s+Alternative\s+Name/i) {
@@ -2082,8 +2134,14 @@ return undef;
 sub build_ssl_subject
 {
 my ($country, $state, $city, $org, $orgunit, $cn, $email) = @_;
+$org =~ s/[\177-\377]//g if ($org);		# Remove non-ascii chars
+$orgunit =~ s/[\177-\377]//g if ($orgunit);
 my @cns = ref($cn) ? @$cn : ( $cn );
 my $subject;
+$city = substr($city, 0, 64) if ($city && length($city) > 64);
+$org = substr($org, 0, 64) if ($org && length($org) > 64);
+$orgunit = substr($orgunit, 0, 64) if ($orgunit && length($orgunit) > 64);
+$email = substr($email, 0, 64) if ($email && length($email) > 64);
 $subject .= "/C=$country" if ($country);
 $subject .= "/ST=$state" if ($state);
 $subject .= "/L=$city" if ($city);
@@ -2649,12 +2707,14 @@ sub list_visible_themes
 {
 my ($curr) = @_;
 my @rv;
+my %done;
 foreach my $theme (&list_themes()) {
-	if (!-l $root_directory."/".$theme->{'dir'} ||
-	    $theme->{'dir'} !~ /\d+$/ ||
-	    $curr && $theme->{'dir'} eq $curr) {
-		push(@rv, $theme);
-		}
+	my $iscurr = $curr && $theme->{'dir'} eq $curr;
+	next if (-l $root_directory."/".$theme->{'dir'} &&
+		 $theme->{'dir'} =~ /\d+$/ &&
+		 !$iscurr);
+	next if ($done{$theme->{'desc'}}++ && !$iscurr);
+	push(@rv, $theme);
 	}
 return @rv;
 }
@@ -2713,6 +2773,7 @@ sub renew_letsencrypt_cert
 {
 my @doms = split(/\s+/, $config{'letsencrypt_doms'});
 my $webroot = $config{'letsencrypt_webroot'};
+my $mode = $config{'letsencrypt_mode'} || "web";
 my $size = $config{'letsencrypt_size'};
 if (!@doms) {
 	print "No domains saved to renew cert for!\n";
@@ -2727,7 +2788,7 @@ elsif (!-d $webroot) {
 	return;
 	}
 my ($ok, $cert, $key, $chain) = &request_letsencrypt_cert(\@doms, $webroot,
-							  undef, $size);
+							  undef, $size, $mode);
 if (!$ok) {
 	print "Failed to renew certificate : $cert\n";
 	return;

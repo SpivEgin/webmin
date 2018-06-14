@@ -1,14 +1,18 @@
 # bind8-lib.pl
 # Common functions for bind8 config files
+
 use strict;
 use warnings;
+use Time::Local;
+no warnings 'redefine';
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;
-our (%text, %config, %gconfig);
+our (%text, %config, %gconfig, $module_var_directory);
 
 my $dnssec_tools_minver = 1.13;
 my $have_dnssec_tools = eval "require Net::DNS::SEC::Tools::dnssectools;";
+my %freeze_zone_count;
 
 if ($have_dnssec_tools) {
 	eval "use Net::DNS::SEC::Tools::dnssectools;
@@ -21,6 +25,8 @@ if ($have_dnssec_tools) {
 
 &init_config();
 do 'records-lib.pl';
+
+my $dnssec_expiry_cache = "$module_var_directory/dnssec-expiry-cache";
 
 # Globals (yuck!)
 my @extra_forward = split(/\s+/, $config{'extra_forward'} || '');
@@ -51,7 +57,7 @@ if (open(my $VERSION, "<", "$module_config_directory/version")) {
 	}
 $bind_version ||= &get_bind_version();
 if ($bind_version && $bind_version =~ /^(\d+\.\d+)\./) {
-	# Convery to properly formatted number
+	# Convert to properly formatted number
 	$bind_version = $1;
 	}
 
@@ -87,7 +93,7 @@ sub have_dnssec_tools_support
 }
 
 # get_bind_version()
-# Returns the BIND verison number, or undef if unknown
+# Returns the BIND version number, or undef if unknown
 sub get_bind_version
 {
 if (&has_command($config{'named_path'})) {
@@ -142,50 +148,51 @@ sub read_config_file
 my ($lnum, $line, $cmode, @ltok, @lnum, @tok,
       @rv, $t, $ifile, @inc, $str);
 $lnum = 0;
-open(my $FILE, "<", &make_chroot($_[0]));
-while($line = <$FILE>) {
-	# strip comments
-	$line =~ s/\r|\n//g;
-	$line =~ s/#.*$//g;
-	$line =~ s/\/\*.*\*\///g;
-	$line =~ s/\/\/.*$//g if ($line !~ /".*\/\/.*"/);
-	while(1) {
-		if (!$cmode && $line =~ /\/\*/) {
-			# start of a C-style comment
-			$cmode = 1;
-			$line =~ s/\/\*.*$//g;
-			}
-		elsif ($cmode) {
-			if ($line =~ /\*\//) {
-				# end of comment
-				$cmode = 0;
-				$line =~ s/^.*\*\///g;
+if (open(my $FILE, "<", &make_chroot($_[0]))) {
+	while($line = <$FILE>) {
+		# strip comments
+		$line =~ s/\r|\n//g;
+		$line =~ s/#.*$//g;
+		$line =~ s/\/\*.*\*\///g;
+		$line =~ s/\/\/.*$//g if ($line !~ /".*\/\/.*"/);
+		while(1) {
+			if (!$cmode && $line =~ /\/\*/) {
+				# start of a C-style comment
+				$cmode = 1;
+				$line =~ s/\/\*.*$//g;
 				}
-			else { $line = ""; last; }
+			elsif ($cmode) {
+				if ($line =~ /\*\//) {
+					# end of comment
+					$cmode = 0;
+					$line =~ s/^.*\*\///g;
+					}
+				else { $line = ""; last; }
+				}
+			else { last; }
 			}
-		else { last; }
-		}
 
-	# split line into tokens
-	undef(@ltok);
-	while(1) {
-		if ($line =~ /^\s*\"([^"]*)"(.*)$/) {
-			push(@ltok, $1); $line = $2;
+		# split line into tokens
+		undef(@ltok);
+		while(1) {
+			if ($line =~ /^\s*\"([^"]*)"(.*)$/) {
+				push(@ltok, $1); $line = $2;
+				}
+			elsif ($line =~ /^\s*([{};])(.*)$/) {
+				push(@ltok, $1); $line = $2;
+				}
+			elsif ($line =~ /^\s*([^{}; \t]+)(.*)$/) {
+				push(@ltok, $1); $line = $2;
+				}
+			else { last; }
 			}
-		elsif ($line =~ /^\s*([{};])(.*)$/) {
-			push(@ltok, $1); $line = $2;
+		foreach my $t (@ltok) {
+			push(@tok, $t); push(@lnum, $lnum);
 			}
-		elsif ($line =~ /^\s*([^{}; \t]+)(.*)$/) {
-			push(@ltok, $1); $line = $2;
-			}
-		else { last; }
+		$lnum++;
 		}
-	foreach my $t (@ltok) {
-		push(@tok, $t); push(@lnum, $lnum);
-		}
-	$lnum++;
+	close($FILE);
 	}
-close($FILE);
 $lines_count{$_[0]} = $lnum;
 
 # parse tokens into data structures
@@ -530,21 +537,22 @@ return @rv;
 # of all those greater than some line by the given count
 sub renumber
 {
-if ($_[0]->{'file'} eq $_[2]) {
-	if ($_[0]->{'line'} > $_[1]) { $_[0]->{'line'} += $_[3]; }
-	if ($_[0]->{'eline'} > $_[1]) { $_[0]->{'eline'} += $_[3]; }
+my ($parent, $lnum, $file, $c) = @_;
+if ($parent->{'file'} eq $file) {
+	if ($parent->{'line'} > $lnum) { $parent->{'line'} += $c; }
+	if ($parent->{'eline'} > $lnum) { $parent->{'eline'} += $c; }
 	}
-if ($_[0]->{'type'} == 1) {
+if ($parent->{'type'} && $parent->{'type'} == 1) {
 	# Do members
-	foreach my $d (@{$_[0]->{'members'}}) {
-		&renumber($d, $_[1], $_[2], $_[3]);
+	foreach my $d (@{$parent->{'members'}}) {
+		&renumber($d, $lnum, $file, $c);
 		}
 	}
-elsif ($_[0]->{'type'} == 2) {
+elsif ($parent->{'type'} && $parent->{'type'} == 2) {
 	# Do sub-members
-	foreach my $sm (keys %{$_[0]->{'members'}}) {
-		foreach my $d (@{$_[0]->{'members'}->{$sm}}) {
-			&renumber($d, $_[1], $_[2], $_[3]);
+	foreach my $sm (keys %{$parent->{'members'}}) {
+		foreach my $d (@{$parent->{'members'}->{$sm}}) {
+			&renumber($d, $lnum, $file, $c);
 			}
 		}
 	}
@@ -656,10 +664,17 @@ else {
 # save_port_address(name, portname, &config, indent)
 sub save_port_address {
   my ($port, @vals, $dir, $n);
-  foreach my $addr (split(/\s+/, $in{$_[0]})) {
-    $addr =~ /^\S+$/ || &error(&text('eipacl', $addr));
-    push(@vals, { 'name' => $addr });
-  }
+  my @sp = split(/\s+/, $in{$_[0]});
+  for(my $i=0; $i<@sp; $i++) {
+	$sp[$i] =~ /^\S+$/ || &error(&text('eipacl', $sp[$i]));
+	if (lc($sp[$i+1]) eq "key") {
+		push(@vals, { 'name' => $sp[$i++],
+			      'values' => [ "key", $sp[++$i] ] });
+		}
+	else {
+		push(@vals, { 'name' => $sp[$i] });
+		}
+	}
   $dir = { 'name' => $_[0], 'type' => 1, 'members' => \@vals };
   ($n = $_[1]) =~ s/[^A-Za-z0-9_]/_/g;
   $dir->{'values'} = [ $_[1], $in{$_[1]} ] if (!$in{"${n}_def"});
@@ -673,9 +688,9 @@ my ($addr, @vals, $dir);
 my @sp = split(/\s+/, $in{$_[0]});
 for(my $i=0; $i<@sp; $i++) {
 	!$_[3] || &check_ipaddress($sp[$i]) || &error(&text('eip', $sp[$i]));
-	if (lc($sp[$i]) eq "key") {
-		push(@vals, { 'name' => $sp[$i],
-			      'values' => [ $sp[++$i] ] });
+	if (lc($sp[$i+1]) eq "key") {
+		push(@vals, { 'name' => $sp[$i++],
+			      'values' => [ "key", $sp[++$i] ] });
 		}
 	else {
 		push(@vals, { 'name' => $sp[$i] });
@@ -1148,6 +1163,23 @@ elsif ($type eq "TLSA") {
 	print &ui_table_row($text{'value_TLSA4'},
 		&ui_textbox("value3", $v[3], 70));
 	}
+elsif ($type eq "SSHFP") {
+	print &ui_table_row($text{'value_SSHFP1'},
+		&ui_select("value0", $v[0],
+			   [ [ 1, $text{'sshfp_alg1'}." (1)" ],
+			     [ 2, $text{'sshfp_alg2'}." (2)" ],
+			     [ 3, $text{'sshfp_alg3'}." (3)" ],
+			     [ 4, $text{'sshfp_alg4'}." (4)" ] ]));
+
+	print &ui_table_row($text{'value_SSHFP2'},
+		&ui_select("value1", $v[1],
+			   [ [ 1, $text{'sshfp_fp1'}." (1)" ],
+			     [ 2, $text{'sshfp_fp2'}." (2)" ] ]));
+
+	print &ui_table_row($text{'value_SSHFP3'},
+		&ui_textbox("value2", $v[2], 70));
+
+	}
 elsif ($type eq "LOC") {
 	print &ui_table_row($text{'value_LOC1'},
 		&ui_textbox("value0", join(" ", @v), 40), 3);
@@ -1188,12 +1220,9 @@ elsif ($type eq "SPF") {
 	print &ui_table_row($text{'value_spfip4s'},
 		&ui_textarea("spfip4s", join("\n", @{$spf->{'ip4:'} || []}),
 		  	     3, 40), 3);
-
-	if (&supports_ipv6()) {
-		print &ui_table_row($text{'value_spfip6s'},
-			&ui_textarea("spfip6s", join("\n", @{$spf->{'ip6:'} || []}),
-				     3, 40), 3);
-		}
+	print &ui_table_row($text{'value_spfip6s'},
+		&ui_textarea("spfip6s", join("\n", @{$spf->{'ip6:'} || []}),
+			     3, 40), 3);
 
 	print &ui_table_row($text{'value_spfincludes'},
 		&ui_textarea("spfincludes", join("\n", @{$spf->{'include:'} || []}),
@@ -1442,24 +1471,28 @@ if ($v ne ".") {
 return $v;
 }
 
-# set_ownership(file)
+# set_ownership(file, [slave-mode])
 # Sets the BIND ownership and permissions on some file
 sub set_ownership
 {
+my ($file, $slave) = @_;
 my ($user, $group, $perms);
 if ($config{'file_owner'}) {
 	# From config
 	($user, $group) = split(/:/, $config{'file_owner'});
 	}
-elsif ($_[0] =~ /^(.*)\/([^\/]+)$/) {
+elsif ($file =~ /^(.*)\/([^\/]+)$/) {
 	# Match parent dir
 	my @st = stat($1);
 	($user, $group) = ($st[4], $st[5]);
 	}
-if ($config{'file_perms'}) {
+if ($slave && $config{'slave_file_perms'}) {
+	$perms = oct($config{'slave_file_perms'});
+	}
+elsif ($config{'file_perms'}) {
 	$perms = oct($config{'file_perms'});
 	}
-&set_ownership_permissions($user, $group, $perms, $_[0]);
+&set_ownership_permissions($user, $group, $perms, $file);
 }
 
 my @cat_list;
@@ -1607,6 +1640,7 @@ return $chroot.$_[0];
 
 # has_ndc(exclude-mode)
 # Returns 2 if rndc is installed, 1 if ndc is instaled, or 0
+# Mode 2 = try ndc only, 1 = try rndc only, 0 = both
 sub has_ndc
 {
 my $mode = $_[0] || 0;
@@ -2011,13 +2045,16 @@ foreach my $z (grep { $_->{'value'} eq $_[0] } @zones) {
 		# Remove file
 		my $f = &find("file", $z->{'members'});
 		if ($f) {
-			&unlink_logged(&make_chroot(
-				&absolute_path($f->{'value'})));
+			my $path = &make_chroot(&absolute_path($f->{'value'}));
+			if (-f $path) {
+				&unlink_logged($path);
+				}
 			}
 		}
 	}
 
 &flush_zone_names();
+&flush_dnssec_expired_domains();
 return $found ? 0 : 1;
 }
 
@@ -2102,6 +2139,36 @@ else {
 return undef;
 }
 
+# before_editing(&zone)
+# Must be called before reading a zone file with intent to edit
+sub before_editing
+{
+my ($zone) = @_;
+if (!$freeze_zone_count{$zone->{'name'}}) {
+	my ($out, $ok) = &try_cmd(
+		"freeze ".quotemeta($zone->{'name'})." IN ".
+		quotemeta($zone->{'view'} || "").
+		" 2>&1 </dev/null");
+	if ($ok) {
+		$freeze_zone_count{$zone->{'name'}}++;
+		&register_error_handler(\&after_editing, $zone);
+		}
+	}
+}
+
+# after_editing(&zone)
+# Must be called after updating a zone file
+sub after_editing
+{
+my ($zone) = @_;
+if ($freeze_zone_count{$zone->{'name'}}) {
+	$freeze_zone_count{$zone->{'name'}}--;
+	&try_cmd("thaw ".quotemeta($zone->{'name'})." IN ".
+		 quotemeta($zone->{'view'} || "").
+		 " 2>&1 </dev/null");
+	}
+}
+
 # restart_zone(domain, [view])
 # Call ndc or rndc to apply a single zone. Returns undef on success or an error
 # message on failure.
@@ -2111,20 +2178,14 @@ my ($dom, $view) = @_;
 my ($out, $ex);
 if ($view) {
 	# Reload a zone in a view
-	&try_cmd("freeze ".quotemeta($dom)." IN ".quotemeta($view).
-		 " 2>&1 </dev/null");
 	$out = &try_cmd("reload ".quotemeta($dom)." IN ".quotemeta($view).
 			" 2>&1 </dev/null");
 	$ex = $?;
-	&try_cmd("thaw ".quotemeta($dom)." IN ".quotemeta($view).
-		 " 2>&1 </dev/null");
 	}
 else {
 	# Just reload one top-level zone
-	&try_cmd("freeze ".quotemeta($dom)." 2>&1 </dev/null");
 	$out = &try_cmd("reload ".quotemeta($dom)." 2>&1 </dev/null");
 	$ex = $?;
-	&try_cmd("thaw ".quotemeta($dom)." 2>&1 </dev/null");
 	}
 if ($out =~ /not found/i) {
 	# Zone is not known to BIND yet - do a total reload
@@ -2155,7 +2216,7 @@ return undef;
 sub start_bind
 {
 my $chroot = &get_chroot();
-my $user;
+my $user = "";
 my $cmd;
 if ($config{'named_user'}) {
 	$user = "-u $config{'named_user'}";
@@ -2424,13 +2485,15 @@ unlink($zone_names_cache);
 # Returns a zone cache object, looked up by name or index
 sub get_zone_name
 {
+my ($key, $viewidx) = @_;
+$viewidx ||= '';
 my @zones = &list_zone_names();
-my $field = $_[0] =~ /^\d+$/ ? "index" : "name";
+my $field = $key =~ /^\d+$/ ? "index" : "name";
 foreach my $z (@zones) {
-	if ($z->{$field} eq $_[0] &&
-	    ($_[1] eq 'any' ||
-	     $_[1] eq '' && !defined($z->{'viewindex'}) ||
-	     $_[1] ne '' && $z->{'viewindex'} == $_[1])) {
+	if ($z->{$field} eq $key &&
+	    ($viewidx eq 'any' ||
+	     $viewidx eq '' && !defined($z->{'viewindex'}) ||
+	     $viewidx ne '' && $z->{'viewindex'} == $_[1])) {
 		return $z;
 		}
 	}
@@ -2899,7 +2962,7 @@ $slave_error = $_[0];
 
 sub get_forward_record_types
 {
-return ("A", "NS", "CNAME", "MX", "HINFO", "TXT", "SPF", "DMARC", "WKS", "RP", "PTR", "LOC", "SRV", "KEY", "TLSA", "NSEC3PARAM", $config{'support_aaaa'} ? ( "AAAA" ) : ( ), @extra_forward);
+return ("A", "NS", "CNAME", "MX", "HINFO", "TXT", "SPF", "DMARC", "WKS", "RP", "PTR", "LOC", "SRV", "KEY", "TLSA", "SSHFP", "NSEC3PARAM", $config{'support_aaaa'} ? ( "AAAA" ) : ( ), @extra_forward);
 }
 
 sub get_reverse_record_types
@@ -2913,21 +2976,24 @@ sub try_cmd
 {
 my $args = $_[0];
 my $rndc_args = $_[1] || $_[0];
-my $out;
+my $out = "";
+my $ex;
 if (&has_ndc() == 2) {
 	# Try with rndc
 	$out = &backquote_logged(
 		$config{'rndc_cmd'}.
 		($config{'rndc_conf'} ? " -c $config{'rndc_conf'}" : "").
 		" ".$rndc_args." 2>&1 </dev/null");
+	$ex = $?;
 	}
 if (&has_ndc() != 2 || $out =~ /connect\s+failed/i) {
 	if (&has_ndc(2)) {
-		# Try with rndc if rndc is not install or failed
+		# Try with ndc if rndc is not install or failed
 		$out = &backquote_logged("$config{'ndc_cmd'} $args 2>&1 </dev/null");
+		$ex = $?;
 		}
 	}
-return $out;
+return wantarray ? ($out, !$ex) : $out;
 }
 
 # supports_check_zone()
@@ -3244,6 +3310,8 @@ for(my $i=$#recs; $i>=0; $i--) {
 foreach my $key (@keys) {
 	&create_record($chrootfn, $dom.".", undef, "IN", "DNSKEY",
 		       join(" ", @{$key->{'values'}}));
+	&set_ownership($key->{'privatefile'});
+	&set_ownership($key->{'publicfile'});
 	}
 &bump_soa_record($chrootfn, \@recs);
 
@@ -3312,6 +3380,8 @@ $newzonekey || return "Could not find new DNSSEC zone key";
 &modify_record($fn, $zonerec, $dom.".", undef, "IN", "DNSKEY",
 	       join(" ", @{$newzonekey->{'values'}}));
 &bump_soa_record($fn, \@recs);
+&set_ownership($newzonekey->{'privatefile'});
+&set_ownership($newzonekey->{'publicfile'});
 
 # Re-sign everything
 my $err = &sign_dnssec_zone($z);
@@ -3397,7 +3467,8 @@ return $out if ($tries >= 10);
 for(my $i=$#recs; $i>=0; $i--) {
 	if ($recs[$i]->{'type'} eq 'NSEC' ||
 	    $recs[$i]->{'type'} eq 'NSEC3' ||
-	    $recs[$i]->{'type'} eq 'RRSIG') {
+	    $recs[$i]->{'type'} eq 'RRSIG' ||
+	    $recs[$i]->{'type'} eq 'NSEC3PARAM') {
 		&delete_record($fn, $recs[$i]);
 		}
 	}
@@ -3405,7 +3476,8 @@ my @signedrecs = &read_zone_file($fn.".webmin-signed", $dom);
 foreach my $r (@signedrecs) {
 	if ($r->{'type'} eq 'NSEC' ||
 	    $r->{'type'} eq 'NSEC3' ||
-	    $r->{'type'} eq 'RRSIG') {
+	    $r->{'type'} eq 'RRSIG' ||
+	    $r->{'type'} eq 'NSEC3PARAM') {
 		&create_record($fn, $r->{'name'}, $r->{'ttl'}, $r->{'class'},
 			       $r->{'type'}, join(" ", @{$r->{'values'}}),
 			       $r->{'comment'});
@@ -4085,6 +4157,74 @@ else {
 	$out =~ s/\r|\n$//g;
 	return $out;
 	}
+}
+
+# check_dnssec_client()
+# If the DNSSEC client config is invalid, return a warning message
+sub check_dnssec_client
+{
+my $conf = &get_config();
+my $options = &find("options", $conf);
+my $mems = $options ? $options->{'members'} : [ ];
+my $en = &find_value("dnssec-enable", $mems);
+return undef if (!$en || $en !~ /yes/i);
+my $tkeys = &find("trusted-keys", $conf);
+return undef if (!$tkeys || !@{$tkeys->{'members'}});
+return &text('trusted_warning',
+	     $gconfig{'webprefix'}.'/bind8/conf_trusted.cgi')."<p>\n".
+       &ui_form_start($gconfig{'webprefix'}.'/bind8/fix_trusted.cgi')."\n".
+       &ui_form_end([ [ undef, $text{'trusted_fix'} ] ]);
+}
+
+# list_dnssec_expired_domains()
+# Returns a list of all DNS zones with DNSSEC enabled that are close to expiry
+sub list_dnssec_expired_domains
+{
+my @rv;
+my %cache;
+&read_file($dnssec_expiry_cache, \%cache);
+my $changed = 0;
+foreach my $z (&list_zone_names()) {
+	next if ($z->{'type'} ne 'master');
+	my ($t, $e);
+	if ($cache{$z->{'name'}}) {
+		($t, $e) = split(/\s+/, $cache{$z->{'name'}});
+		}
+	my @st = stat(&make_chroot($z->{'file'}));
+	next if (!@st);
+	if (!defined($t) || $st[9] != $t) {
+		# Not in cache, or file has changed
+		my @recs = &read_zone_file($z->{'file'}, $z->{'name'});
+		$changed = 1;
+		$e = 0;
+		foreach my $r (@recs) {
+			next if ($r->{'type'} ne 'RRSIG');
+			next if ($r->{'values'}->[4] !~ /^(\d\d\d\d)(\d\d)(\d\d)(\d\d)(\d\d)(\d\d)/);
+			eval {
+				$e = timegm($6, $5, $4, $3, $2-1, $1-1900);
+				last;
+				}
+			}
+		$cache{$z->{'name'}} = "$st[9] $e";
+		}
+	if ($e && time() > $e - 86400) {
+		# Expires within 1 day
+		my $rvz = { %$z };
+		$rvz->{'expiry'} = $e;
+		push(@rv, $rvz);
+		}
+	}
+if ($changed) {
+	&write_file($dnssec_expiry_cache, \%cache);
+	}
+return @rv;
+}
+
+# flush_dnssec_expired_domains()
+# Clear the cache of DNSSEC expiry times
+sub flush_dnssec_expired_domains
+{
+&unlink_file($dnssec_expiry_cache);
 }
 
 1;

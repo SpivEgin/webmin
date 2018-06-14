@@ -19,14 +19,14 @@ if ($in{'multi'}) {
 		# base frame
 		&PrintHeader();
 		print "<script type='text/javascript'>\n";
-		@ul = split(/\s+/, &filter_javascript($in{'user'}));
+		@ul = &split_quoted_string(/\s+/, &filter_javascript($in{'user'}));
 		$len = @ul;
 		print "sel = new Array($len);\n";
 		print "selr = new Array($len);\n";
 		for($i=0; $i<$len; $i++) {
 			print "sel[$i] = \"".
 			      &quote_javascript($ul[$i])."\";\n";
-            
+
 			# samba valid system user can start with @ + &
 			$gn = $ul[$i];
 			$gn =~ s/^(@|\+|&)+//g;
@@ -42,10 +42,10 @@ if ($in{'multi'}) {
 		print "</script>\n";
 		print "<title>$text{'users_title1'}</title>\n";
 		print "<frameset cols='50%,50%'>\n";
-		print "<frame src=\"user_chooser.cgi?frame=1&multi=1\">\n";
+		print "<frame src=\"$gconfig{'webprefix'}/user_chooser.cgi?frame=1&multi=1\">\n";
 		print "<frameset rows='*,50' frameborder=no>\n";
-		print " <frame src=\"user_chooser.cgi?frame=2&multi=1\">\n";
-		print " <frame src=\"user_chooser.cgi?frame=3&multi=1\" scrolling=no>\n";
+		print " <frame src=\"$gconfig{'webprefix'}/user_chooser.cgi?frame=2&multi=1\">\n";
+		print " <frame src=\"$gconfig{'webprefix'}/user_chooser.cgi?frame=3&multi=1\" scrolling=no>\n";
 		print "</frameset>\n";
 		print "</frameset>\n";
 		}
@@ -71,8 +71,9 @@ if ($in{'multi'}) {
 			if ($in{'user'} eq $u->[0]) { print "<tr class='filter_match' $cb>\n"; }
 			else { print "<tr class='filter_match'>\n"; }
 			$u->[6] =~ s/'/&#39;/g;
+			$u->[0] =~ s/\\/\\\\/g;
 			print "<td width=20%><a href=\"\" onClick='return adduser(\"$u->[0]\", \"$u->[6]\")'>$u->[0]</a></td>\n";
-			print "<td>$u->[6]</td> </tr>\n";
+			print "<td>",&html_escape($u->[6]),"</td> </tr>\n";
             		$cnt++;
 			}
 		print "</table>\n";
@@ -181,7 +182,9 @@ if ($access{'uedit_mode'} == 2 || $access{'uedit_mode'} == 3) {
 	map { $ucan{$_}++ } split(/\s+/, $access{'uedit'});
 	}
 setpwent();
+local %doneu;
 while(@uinfo = getpwent()) {
+	next if ($doneu{$uinfo[0]}++);
 	if ($access{'uedit_mode'} == 5 && $access{'uedit'} !~ /^\d+$/) {
 		# Get group for matching by group name
 		@ginfo = getgrgid($uinfo[3]);
@@ -201,4 +204,3 @@ while(@uinfo = getpwent()) {
 endpwent() if ($gconfig{'os_type'} ne 'hpux');
 return sort { $a->[0] cmp $b->[0] } @users;
 }
-

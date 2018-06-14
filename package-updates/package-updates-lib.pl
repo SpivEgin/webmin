@@ -17,6 +17,8 @@ $yum_cache_file = &cache_file_path("yumcache");
 $apt_cache_file = &cache_file_path("aptcache");
 $yum_changelog_cache_dir = &cache_file_path("yumchangelog");
 
+$update_progress_dir = "$module_var_directory/progress";
+
 # cache_file_path(name)
 # Returns a path in the /var directory unless the file already exists under
 # /etc/webmin
@@ -190,7 +192,7 @@ if ($pkg1->{'system'} eq 'webmin' && $pkg2->{'system'} eq 'webmin') {
 my $ec = $pkg1->{'epoch'} <=> $pkg2->{'epoch'};
 if ($ec && ($pkg1->{'epoch'} eq '' || $pkg2->{'epoch'} eq '') &&
     $pkg1->{'system'} eq 'apt') {
-	# On some Debian systems, we don't have a my epoch
+	# On some Debian systems, we don't have any epoch
 	$ec = undef;
 	}
 return $ec ||
@@ -547,7 +549,7 @@ return 1;
 sub clear_repository_cache
 {
 if ($software::update_system eq "yum") {
-	&execute_command("yum clean all");
+	&execute_command("$software::yum_command clean all");
 	}
 elsif ($software::update_system eq "apt") {
 	&execute_command("apt-get update");
@@ -582,8 +584,8 @@ my ($pkg) = @_;
 if ($pkg->{'system'} eq 'yum') {
 	# See if yum supports changelog
 	if (!defined($supports_yum_changelog)) {
-		my $out = &backquote_command("yum -h 2>&1 </dev/null");
-		$supports_yum_changelog = $out =~ /changelog/ ? 1 : 0;
+		my $out = &backquote_command("$software::yum_command -h 2>&1 </dev/null");
+		$supports_yum_changelog = $out =~ /changelog|updateinfo/ ? 1 : 0;
 		}
 	return undef if (!$supports_yum_changelog);
 
@@ -591,25 +593,47 @@ if ($pkg->{'system'} eq 'yum') {
 	my $cfile = $yum_changelog_cache_dir."/".
 		       $pkg->{'name'}."-".$pkg->{'version'};
 	my $cl = &read_file_contents($cfile);
-	if (!$cl) {
-		# Run it for this package and version
+	if (!$cl && $software::yum_command =~ /yum/) {
+		# Run yum changelog for this package and version
 		my $started = 0;
-		&open_execute_command(YUMCL, "yum changelog all ".
-					     quotemeta($pkg->{'name'}), 1, 1);
-		while(<YUMCL>) {
+		&open_execute_command(YUMCL,
+			"$software::yum_command changelog all ".
+		        quotemeta($pkg->{'name'}), 1, 1);
+                while(<YUMCL>) {
+                        s/\r|\n//g;
+                        if (/^\Q$pkg->{'name'}-$pkg->{'version'}\E/) {
+                                $started = 1;
+                                }
+                        elsif (/^==========/ || /^changelog stats/) {
+                                $started = 0;
+                                }
+                        elsif ($started) {
+                                $cl .= $_."\n";
+                                }
+                        }
+                close(YUMCL);
+		}
+	elsif (!$cl && $software::yum_command =~ /dnf/) {
+		# Run dnf updateinfo for this package and version
+		&open_execute_command(DNFUI,
+			"$software::yum_command updateinfo info ".
+		        quotemeta($pkg->{'name'}), 1, 1);
+		while(<DNFUI>) {
 			s/\r|\n//g;
-			if (/^\Q$pkg->{'name'}-$pkg->{'version'}\E/) {
+			if (/^\s*Description\s*:\s*(.*)/) {
 				$started = 1;
+				$cl .= $1."\n";
 				}
-			elsif (/^==========/ || /^changelog stats/) {
+			elsif ($started && /^\s*:\s*(.*)/) {
+				$cl .= $1."\n";
+				}
+			else {
 				$started = 0;
 				}
-			elsif ($started) {
-				$cl .= $_."\n";
-				}
 			}
-		close(YUMCL);
-
+		close(DNFUI);
+		}
+	if ($cl) {
 		# Save the cache
 		if (!-d $yum_changelog_cache_dir) {
 			&make_dir($yum_changelog_cache_dir, 0700);
@@ -652,6 +676,42 @@ if ($gconfig{'os_type'} eq 'debian-linux') {
         return -e "/var/run/reboot-required" ? 1 : 0;
         }
 return 0;
+}
+
+# start_update_progress(&packages)
+# Record that a bunch of package updates are in progress by this process
+sub start_update_progress
+{
+my ($pkgs) = @_;
+if (!-d $update_progress_dir) {
+	&make_dir($update_progress_dir, 0700);
+	}
+my $f = "$update_progress_dir/$$";
+&write_file($f, { 'pid' => $$,
+		  'pkgs' => join(' ', @$pkgs) });
+}
+
+# end_update_progress()
+# Clear update progress marker file
+sub end_update_progress
+{
+my $f = "$update_progress_dir/$$";
+&unlink_file($f);
+}
+
+# get_update_progress()
+# Returns a list of hash refs, one per update in progress
+sub get_update_progress
+{
+my @rv;
+foreach my $f (glob("$update_progress_dir/*")) {
+	my %u;
+	&read_file($f, \%u) || next;
+	$u{'pid'} || next;
+	kill(0, $u{'pid'}) || next;
+	push(@rv, \%u);
+	}
+return @rv;
 }
 
 1;

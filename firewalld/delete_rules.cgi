@@ -3,7 +3,7 @@
 
 use strict;
 use warnings;
-require 'firewalld-lib.pl';
+require './firewalld-lib.pl';
 our (%in, %text);
 &error_setup($text{'delete_err'});
 &ReadParse();
@@ -22,6 +22,9 @@ foreach my $d (@d) {
 		}
 	elsif ($w[0] eq "service") {
 		$err = &delete_firewalld_service($zone, $w[1]);
+		}
+	elsif ($w[0] eq "forward") {
+		$err = &delete_firewalld_forward($zone, @w[1..4]);
 		}
 	else {
 		next;

@@ -171,6 +171,7 @@ if ($config{'single_file'}) {
 				    'name' => $2,
 				    'value' => $3,
 				    'user' => "NONE",
+				    'command' => '',
 				    'index' => scalar(@rv) });
 			}
 		$lnum++;
@@ -280,7 +281,12 @@ else {
 				      $_[0]->{'type'} != 3);
 	push(@c, $_[0]->{'command'});
 	}
-return join(" ", @c);
+if ($gconfig{'os_type'} eq 'syno-linux') {
+	return join("\t", @c);
+	}
+else {
+	return join(" ", @c);
+	}
 }
 
 =head2 copy_cron_temp(&job)
@@ -488,9 +494,15 @@ local($pwd);
 if (&read_file_contents($cron_temp_file) =~ /\S/) {
 	local $temp = &transname();
 	local $rv;
-	if ($config{'cron_edit_command'}) {
+	if (!&has_crontab_cmd()) {
+		# We have no crontab command .. emulate by copying to user file
+		$rv = system("cat $cron_temp_file".
+			" >$config{'cron_dir'}/$_[0] 2>/dev/null");
+		&set_ownership_permissions($_[0], undef, 0600,
+			"$config{'cron_dir'}/$_[0]");
+		}
+	elsif ($config{'cron_edit_command'}) {
 		# fake being an editor
-		# XXX does not work in translated command mode!
 		local $notemp = &transname();
 		&open_tempfile(NO, ">$notemp");
 		&print_tempfile(NO, "No\n");
@@ -514,8 +526,8 @@ if (&read_file_contents($cron_temp_file) =~ /\S/) {
 			}
 		unlink($notemp);
 		chdir($oldpwd);
-		}
-	else {
+
+	} else {
 		# use the cron copy command
 		if ($single_user) {
 			$rv = &execute_command(
@@ -527,7 +539,7 @@ if (&read_file_contents($cron_temp_file) =~ /\S/) {
 				&user_sub($config{'cron_copy_command'}, $_[0]),
 				$cron_temp_file, $temp, $temp);
 			}
-		}
+	}
 	local $out = &read_file_contents($temp);
 	unlink($temp);
 	if ($rv || $out =~ /error/i) {
@@ -537,13 +549,24 @@ if (&read_file_contents($cron_temp_file) =~ /\S/) {
 	}
 else {
 	# No more cron jobs left, so just delete
-	if ($single_user) {
-		&execute_command($config{'cron_user_delete_command'});
+	if (!&has_crontab_cmd()) {
+		# We have no crontab command .. emulate by deleting user crontab
+		$_[0] || &error("No user given!");
+		&unlink_logged("$config{'cron_dir'}/$_[0]");
 		}
-	else {
-		&execute_command(&user_sub(
-			$config{'cron_delete_command'}, $_[0]));
+	else{
+		if ($single_user) {
+			&execute_command($config{'cron_user_delete_command'});
+			}
+		else {
+			&execute_command(&user_sub(
+				$config{'cron_delete_command'}, $_[0]));
+			}
 		}
+	}
+if (!&has_crontab_cmd()) {
+	# to reload config
+	&kill_byname("crond", "SIGHUP");
 	}
 unlink($cron_temp_file);
 }
@@ -1507,14 +1530,20 @@ sub check_cron_config
 if ($config{'single_file'} && !-r $config{'single_file'}) {
 	return &text('index_esingle', "<tt>$config{'single_file'}</tt>");
 	}
-if ($config{'cron_get_command'} =~ /^(\S+)/ && !&has_command("$1")) {
+if (!&has_crontab_cmd() && $config{'cron_get_command'} =~ /^(\S+)/ &&
+    !&has_command("$1")) {
 	return &text('index_ecmd', "<tt>$1</tt>");
 	}
 # Check for directory
 local $fcron = ($config{'cron_dir'} =~ /\/fcron$/);
 if (!$single_user && !$config{'single_file'} &&
     !$fcron && !-d $config{'cron_dir'}) {
-	return &text('index_ecrondir', "<tt>$config{'cron_dir'}</tt>");
+	if (!$in{'create_dir'}) {
+		return &text('index_ecrondir', "<tt>$config{'cron_dir'}</tt>").
+		"<p><a href=\"index.cgi?create_dir=yes\">".&text('index_ecrondir_create' ,"<tt>$config{'cron_dir'}</tt>")."</a></p>";
+	} else {
+		&make_dir($config{'cron_dir'}, 0755);
+		}
 	}
 return undef;
 }
@@ -1565,6 +1594,41 @@ foreach my $f (readdir(DIR)) {
 		}
 	}
 closedir(DIR);
+}
+
+=head2 list_cron_files()
+
+Returns a list of all files containing cron jobs
+
+=cut
+sub list_cron_files
+{
+my @jobs = &list_cron_jobs();
+my @files = map { $_->{'file'} } grep { $_->{'file'} } @jobs;
+if ($config{'system_crontab'}) {
+	push(@files, $config{'system_crontab'});
+	}
+if ($config{'cronfiles_dir'}) {
+	push(@files, glob(&translate_filename($config{'cronfiles_dir'})."/*"));
+	}
+return &unique(@files);
+}
+
+=head2 has_crontab_cmd()
+
+Returns 1 if the crontab command exists on this system
+
+=cut
+sub has_crontab_cmd
+{
+my $cmd = $config{'cron_edit_command'};
+if ($cmd) {
+	$cmd =~ s/^su.*-c\s+//;
+	($cmd) = &split_quoted_string($cmd);
+	my $rv = &has_command($cmd);
+	return $rv if ($rv);
+	}
+return &has_command("crontab");
 }
 
 1;

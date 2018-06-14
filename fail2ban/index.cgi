@@ -6,7 +6,9 @@ use warnings;
 require './fail2ban-lib.pl';
 our (%in, %text, %config, $module_name, $module_root_directory);
 
-&ui_print_header(undef, $text{'index_title'}, "", "intro", 1, 1, 0,
+my $ver = &get_fail2ban_version();
+&ui_print_header($ver ? &text('index_ver', $ver) : undef,
+		 $text{'index_title'}, "", "intro", 1, 1, 0,
 		 &help_search_link("fail2ban", "google", "man"));
 
 # Check if installed
@@ -55,7 +57,8 @@ else {
 # Enable at boot
 if ($config{'init_script'}) {
 	&foreign_require("init");
-	my $st = &init::action_status($config{'init_script'});
+	my @inits = split(/\s+/, $config{'init_script'});
+	my $st = &init::action_status($inits[0]);
 	print &ui_buttons_row(
 		"atboot.cgi",
 		$text{'index_atboot'},

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 # chooser.cgi
-# Outputs HTML for a frame-based file chooser 
+# Outputs HTML for a frame-based file chooser
 
 BEGIN { push(@INC, ".."); };
 use WebminCore;
@@ -11,8 +11,12 @@ use WebminCore;
 		"cgi", "text.gif",
 		"html", "text.gif",
 		"htm", "text.gif",
+		"php", "text.gif",
+		"php5", "text.gif",
 		"gif", "image.gif",
 		"jpg", "image.gif",
+		"jpeg", "image.gif",
+		"png", "image.gif",
 		"tar", "binary.gif"
 		);
 
@@ -116,10 +120,10 @@ if ($in{'frame'} == 0) {
 		}
 	print "<frameset rows='*,50'>\n";
 	print "<frame marginwidth=5 marginheight=5 name=topframe ",
-	     "src=\"chooser.cgi?frame=1&file=".$ufile.
+	     "src=\"$gconfig{'webprefix'}/chooser.cgi?frame=1&file=".$ufile.
 	     "&chroot=".$uchroot."&type=".$utype."&add=$add\">\n";
 	print "<frame marginwidth=0 marginheight=0 name=bottomframe ",
-	      "src=\"chooser.cgi?frame=2&file=".$ufile.
+	      "src=\"$gconfig{'webprefix'}/chooser.cgi?frame=2&file=".$ufile.
 	      "&chroot=".$uchroot."&type=".$utype."&add=$add\" scrolling=no>\n";
 	print "</frameset>\n";
 	}
@@ -167,8 +171,8 @@ EOF
 	print &ui_textbox("filter",$text{'ui_filterbox'}, 50, 0, undef,"style='width:100%;color:#aaa;' onkeyup=\"filter_match(this.value,'row',true);\" onfocus=\"if (this.value == '".$text{'ui_filterbox'}."') {this.value = '';this.style.color='#000';}\" onblur=\"if (this.value == '') {this.value = '".$text{'ui_filterbox'}."';this.style.color='#aaa';}\"");
 	print &ui_hr("style='width:100%;'")."</div>";
 	print "<b>",&text('chooser_dir', &html_escape($dir)),"</b>\n";
-	opendir(DIR, $in{'chroot'}.$dir) ||
-		&popup_error(&text('chooser_eopen', "$!"));
+	$ok = opendir(DIR, $in{'chroot'}.$dir);
+	&popup_error(&text('chooser_eopen', "$!")) if (!$ok && !$in{'chroot'});
 	print &ui_columns_start(undef, 100);
     	my $cnt = 0;
 	foreach $f (sort { $a cmp $b } readdir(DIR)) {

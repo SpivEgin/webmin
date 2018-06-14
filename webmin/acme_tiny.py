@@ -12,7 +12,22 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.addHandler(logging.StreamHandler())
 LOGGER.setLevel(logging.INFO)
 
-def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
+# Does sha-256 hashing of a key string for inclusion in a DNS record
+def dns_digest(key):
+    proc = subprocess.Popen(["openssl", "dgst", "-sha256", "-binary"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    out, err = proc.communicate(key)
+    if proc.returncode != 0:
+        raise IOError("OpenSSL Error: {0}".format(err))
+    rv = base64.b64encode(out).replace("+", "-").replace("/", "_").rstrip("=")
+    return rv
+
+def extract_detail(result):
+    rv = json.loads(result.decode('utf8'))
+    if 'detail' in rv:
+        return rv['detail']
+    return result
+
+def get_crt(account_key, csr, acme_dir, dns_hook, cleanup_hook, log=LOGGER, CA=DEFAULT_CA):
     # helper function base64 encode for jose spec
     def _b64(b):
         return base64.urlsafe_b64encode(b).decode('utf8').replace("=", "")
@@ -23,6 +38,7 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = proc.communicate()
     if proc.returncode != 0:
+	log.error("OpenSSL Error: {0}".format(err))
         raise IOError("OpenSSL Error: {0}".format(err))
     pub_hex, pub_exp = re.search(
         r"modulus:\n\s+00:([a-f0-9\:\s]+?)\npublicExponent: ([0-9]+)",
@@ -67,9 +83,10 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = proc.communicate()
     if proc.returncode != 0:
+        log.error("Error loading {0}: {1}".format(csr, err))
         raise IOError("Error loading {0}: {1}".format(csr, err))
     domains = set([])
-    common_name = re.search(r"Subject:.*? CN=([^\s,;/]+)", out.decode('utf8'))
+    common_name = re.search(r"Subject:.*? CN\s?=\s?([^\s,;/]+)", out.decode('utf8'))
     if common_name is not None:
         domains.add(common_name.group(1))
     alt_names = re.search(r"Subject:.*subjectAltName=([^\s,;/]+)", out.decode('utf8'))
@@ -87,13 +104,14 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
     log.info("Registering account...")
     code, result = _send_signed_request(CA + "/acme/new-reg", {
         "resource": "new-reg",
-        "agreement": "https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf",
+        "agreement": "https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf",
     })
     if code == 201:
         log.info("Registered!")
     elif code == 409:
         log.info("Already registered!")
     else:
+	log.error("Error registering: {0}".format(extract_detail(result)))
         raise ValueError("Error registering: {0} {1}".format(code, result))
 
     # verify each domain
@@ -101,31 +119,44 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
         log.info("Verifying {0}...".format(domain))
 
         # get new challenge
+	if dns_hook:
+	    ctype = "dns-01"
+	else:
+	    ctype = "http-01"
         code, result = _send_signed_request(CA + "/acme/new-authz", {
             "resource": "new-authz",
             "identifier": {"type": "dns", "value": domain},
         })
         if code != 201:
+            log.error("Error requesting challenges: {0}".format(extract_detail(result)))
             raise ValueError("Error requesting challenges: {0} {1}".format(code, result))
 
-        # make the challenge file
-        challenge = [c for c in json.loads(result.decode('utf8'))['challenges'] if c['type'] == "http-01"][0]
+	# create the challenge string
+        challenge = [c for c in json.loads(result.decode('utf8'))['challenges'] if c['type'] == ctype][0]
         token = re.sub(r"[^A-Za-z0-9_\-]", "_", challenge['token'])
         keyauthorization = "{0}.{1}".format(token, thumbprint)
-        wellknown_path = os.path.join(acme_dir, token)
-        with open(wellknown_path, "w") as wellknown_file:
-            wellknown_file.write(keyauthorization)
-	    os.chmod(wellknown_path, 0777)
 
-        # check that the file is in place
-        wellknown_url = "http://{0}/.well-known/acme-challenge/{1}".format(domain, token)
-        try:
-            resp = urlopen(wellknown_url)
-            resp_data = resp.read().decode('utf8').strip()
-            assert resp_data == keyauthorization
-        except (IOError, AssertionError):
-	    log.warning("Wrote file to {0}, but couldn't download {1}".format(
-                wellknown_path, wellknown_url))
+	if dns_hook:
+	    # call out to the DNS record creation hook
+	    os.environ['CERTBOT_DOMAIN'] = domain
+	    os.environ['CERTBOT_VALIDATION'] = dns_digest(keyauthorization)
+	    os.system(dns_hook)
+	else:
+            # make the challenge file
+            wellknown_path = os.path.join(acme_dir, token)
+            with open(wellknown_path, "w") as wellknown_file:
+                wellknown_file.write(keyauthorization)
+	        os.chmod(wellknown_path, 0777)
+
+            # check that the file is in place
+            wellknown_url = "http://{0}/.well-known/acme-challenge/{1}".format(domain, token)
+            try:
+                resp = urlopen(wellknown_url)
+                resp_data = resp.read().decode('utf8').strip()
+                assert resp_data == keyauthorization
+            except (IOError, AssertionError):
+    	        log.warning("Wrote file to {0}, but couldn't download {1}".
+			    format(wellknown_path, wellknown_url))
 
         # notify challenge are met
         code, result = _send_signed_request(challenge['uri'], {
@@ -133,23 +164,36 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
             "keyAuthorization": keyauthorization,
         })
         if code != 202:
+            log.error("Error triggering challenge: {0}".format(extract_detail(result)))
             raise ValueError("Error triggering challenge: {0} {1}".format(code, result))
 
-        # wait for challenge to be verified
+        # wait for challenge to be verified (for up to 240 seconds)
+	tries = 0
         while True:
             try:
                 resp = urlopen(challenge['uri'])
                 challenge_status = json.loads(resp.read().decode('utf8'))
             except IOError as e:
+		log.error("Error checking challenge: {0}".format(e.code))
                 raise ValueError("Error checking challenge: {0} {1}".format(
                     e.code, json.loads(e.read().decode('utf8'))))
             if challenge_status['status'] == "pending":
+		tries = tries + 1
+		if tries > 120:
+		    log.error("Gave up waiting for validation")
+		    raise ValueError("Gave up waiting for validation")
                 time.sleep(2)
             elif challenge_status['status'] == "valid":
                 log.info("{0} verified!".format(domain))
-                os.remove(wellknown_path)
+		if dns_hook:
+		    # Cleanup DNS records
+		    if cleanup_hook:
+		        os.system(cleanup_hook)
+		else:
+                    os.remove(wellknown_path)
                 break
             else:
+		log.error("{0} challenge did not pass: {1}".format(domain, challenge_status['error']['detail']))
                 raise ValueError("{0} challenge did not pass: {1}".format(
                     domain, challenge_status))
 
@@ -163,6 +207,7 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA):
         "csr": _b64(csr_der),
     })
     if code != 201:
+	log.error("Error signing certificate: {0} {1}".format(code, extract_detail(result)))
         raise ValueError("Error signing certificate: {0} {1}".format(code, result))
 
     # return signed certificate!
@@ -190,13 +235,15 @@ def main(argv):
     )
     parser.add_argument("--account-key", required=True, help="path to your Let's Encrypt account private key")
     parser.add_argument("--csr", required=True, help="path to your certificate signing request")
-    parser.add_argument("--acme-dir", required=True, help="path to the .well-known/acme-challenge/ directory")
+    parser.add_argument("--acme-dir", required=False, help="path to the .well-known/acme-challenge/ directory")
+    parser.add_argument("--dns-hook", required=False, help="script to perform DNS validation setup")
+    parser.add_argument("--cleanup-hook", required=False, help="script to perform DNS validation cleanup")
     parser.add_argument("--quiet", action="store_const", const=logging.ERROR, help="suppress output except for errors")
     parser.add_argument("--ca", default=DEFAULT_CA, help="certificate authority, default is Let's Encrypt")
 
     args = parser.parse_args(argv)
     LOGGER.setLevel(args.quiet or LOGGER.level)
-    signed_crt = get_crt(args.account_key, args.csr, args.acme_dir, log=LOGGER, CA=args.ca)
+    signed_crt = get_crt(args.account_key, args.csr, args.acme_dir, args.dns_hook, args.cleanup_hook, log=LOGGER, CA=args.ca)
     sys.stdout.write(signed_crt)
 
 if __name__ == "__main__": # pragma: no cover

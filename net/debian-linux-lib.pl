@@ -219,9 +219,15 @@ if ($cfg->{'bridge'}) {
 	else {
 		push(@options, [ 'pre-up', 'brctl addbr '.$name ]);
 		}
-	push(@options, [ 'bridge_stp', $cfg->{'bridgestp'} ]);
-	push(@options, [ 'bridge_fd', $cfg->{'bridgefd'} ]);
-	push(@options, [ 'bridge_waitport', $cfg->{'bridgewait'} ]);
+	if ($cfg->{'bridgestp'}) {
+		push(@options, [ 'bridge_stp', $cfg->{'bridgestp'} ]);
+		}
+	if ($cfg->{'bridgefd'}) {
+		push(@options, [ 'bridge_fd', $cfg->{'bridgefd'} ]);
+		}
+	if ($cfg->{'bridgewait'}) {
+		push(@options, [ 'bridge_waitport', $cfg->{'bridgewait'} ]);
+		}
 	}
 
 # Set bonding parameters
@@ -269,8 +275,8 @@ foreach $iface (@ifaces) {
 		foreach my $o (@{$iface->[3]}) {
 			if ($o->[0] eq 'gateway' ||
 			    $o->[0] eq 'pre-up' && $o->[1] =~ /brctl/ ||
-			    $o->[0] =~ /^(pre-)?up$/ &&
-			      $o->[1] =~ /ip\s+route/) {
+			    $o->[0] =~ /^(pre-)?up$/ && $o->[1] =~ /ip\s+route/ ||
+			    $o->[0] eq 'post-up' && $o->[1] =~ /iptables-restore/) {
 				push(@options, $o);
 				}
 			}
@@ -785,7 +791,7 @@ while (defined $line) {
 	if ($line =~ /^\s*auto/) {
 		# skip auto stanzas
 		$line = <CFGFILE>;
-		while(defined($line) && $line !~ /^\s*(iface|mapping|auto|source)/) {
+		while(defined($line) && $line !~ /^\s*(iface|mapping|auto|source|allow-hotplug)/) {
 			$line = <CFGFILE>;
 			next;
 			}
@@ -793,7 +799,7 @@ while (defined $line) {
 	elsif ($line =~ /^\s*mapping/) {
 		# skip mapping stanzas
 		$line = <CFGFILE>;
-		while(defined($line) && $line !~ /^\s*(iface|mapping|auto|source)/) {
+		while(defined($line) && $line !~ /^\s*(iface|mapping|auto|source|allow-hotplug)/) {
 			$line = <CFGFILE>;
 			next;
 			}
@@ -802,12 +808,16 @@ while (defined $line) {
 		# Skip includes
 		$line = <CFGFILE>;
 		}
+	elsif ($line =~ /^\s*allow-hotplug/) {
+		# Skip hotplug lines
+		$line = <CFGFILE>;
+		}
 	elsif (my ($name, $addrfam, $method) = ($line =~ /^\s*iface\s+(\S+)\s+(\S+)\s+(\S+)\s*$/) ) {
 		# only lines starting with "iface" are expected here
 		my @iface_options;
 		# now read everything until the next iface definition
 		$line = <CFGFILE>;
-		while (defined $line && ! ($line =~ /^\s*(iface|mapping|auto|source)/)) {
+		while (defined $line && ! ($line =~ /^\s*(iface|mapping|auto|source|allow-hotplug)/)) {
 			# skip comments and empty lines
 			if ($line =~ /^\s*#/ || $line =~ /^\s*$/) {
 				$line = <CFGFILE>;
@@ -912,6 +922,7 @@ while (defined ($line=<OLDCFGFILE>)) {
                ($line =~ /^\s*iface\s+\S+\s+\S+\s+\S+\s*$/ ||
 	        $line =~ /^\s*mapping/ ||
 	        $line =~ /^\s*source/ ||
+	        $line =~ /^\s*allow-hotplug/ ||
 		$line =~ /^\s*auto/)) {
 	      	# End of an iface section
 		$inside_modify_region = 0;

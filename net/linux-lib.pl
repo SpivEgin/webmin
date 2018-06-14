@@ -9,65 +9,7 @@ local ($empty) = @_;
 my @rv;
 my $ethtool = &has_command("ethtool");
 
-if (&has_command("ifconfig")) {
-	&clean_language();
-	&open_execute_command(IFC, "ifconfig -a", 1, 1);
-	my @lines;
-	while(<IFC>) {
-		s/\r|\n//g;
-		if (/^\S+/) { push(@lines, $_); }
-		else { $lines[$#lines] .= $_; }
-		}
-	close(IFC);
-	&reset_environment();
-	foreach my $l (@lines) {
-		my %ifc;
-		$l =~ /^([^:\s]+)/ || next;
-		$ifc{'name'} = $1;
-		$l =~ /^(\S+)/;
-		$ifc{'fullname'} = $1;
-		$ifc{'fullname'} =~ s/:$//;
-		if ($l =~ /^(\S+):(\d+)/) { $ifc{'virtual'} = $2; }
-		if ($l =~ /^(\S+)\.(\d+)/) { $ifc{'vlanid'} = $2; }
-		if ($l =~ /inet addr:(\S+)/) { $ifc{'address'} = $1; }
-		elsif ($l =~ /inet (\S+)/) { $ifc{'address'} = $1; }
-		elsif (!$empty) { next; }
-		if ($l =~ /Mask:(\S+)/) { $ifc{'netmask'} = $1; }
-		elsif ($l =~ /netmask (\S+)/) { $ifc{'netmask'} = $1; }
-		if ($l =~ /Bcast:(\S+)/) { $ifc{'broadcast'} = $1; }
-		elsif ($l =~ /broadcast (\S+)/) { $ifc{'broadcast'} = $1; }
-		if ($l =~ /HWaddr (\S+)/) { $ifc{'ether'} = $1; }
-		elsif ($l =~ /ether (\S+)/) { $ifc{'ether'} = $1; }
-		if ($l =~ /MTU:(\d+)/) { $ifc{'mtu'} = $1; }
-		elsif ($l =~ /mtu (\d+)/) { $ifc{'mtu'} = $1; }
-		if ($l =~ /P-t-P:(\S+)/) { $ifc{'ptp'} = $1; }
-		elsif ($l =~ /ptp (\S+)/) { $ifc{'ptp'} = $1; }
-		$ifc{'up'}++ if ($l =~ /\sUP\s|<\S*UP\S*>/);
-		$ifc{'promisc'}++ if ($l =~ /\sPROMISC\s/);
-
-		my (@address6, @netmask6, @scope6);
-		while($l =~ s/inet6 addr:\s*(\S+)\/(\d+)\s+Scope:(Global)//i) {
-			local ($address6, $netmask6, $scope6) = ($1, $2, $3);
-			push(@address6, $address6);
-			push(@netmask6, $netmask6);
-			push(@scope6, $scope6);
-			}
-		while($l =~ s/inet6 (\S+)\s+prefixlen (\d+)\s+scopeid\s+(\S+)<global>//i) {
-			local ($address6, $netmask6, $scope6) = ($1, $2, $3);
-			push(@address6, $address6);
-			push(@netmask6, $netmask6);
-			push(@scope6, $scope6);
-			}
-		$ifc{'address6'} = \@address6;
-		$ifc{'netmask6'} = \@netmask6;
-		$ifc{'scope6'} = \@scope6;
-
-		$ifc{'edit'} = ($ifc{'name'} !~ /^ppp/);
-		$ifc{'index'} = scalar(@rv);
-		push(@rv, \%ifc);
-		}
-	}
-elsif (&has_command("ip")) {
+if (&has_command("ip")) {
 	# Get status from new ip command
 	&clean_language();
 	&open_execute_command(IFC, "ip addr", 1, 1);
@@ -140,6 +82,65 @@ elsif (&has_command("ip")) {
 			}
 		}
 	}
+elsif (&has_command("ifconfig")) {
+	&clean_language();
+	&open_execute_command(IFC, "ifconfig -a", 1, 1);
+	my @lines;
+	while(<IFC>) {
+		s/\r|\n//g;
+		if (/^\S+/) { push(@lines, $_); }
+		else { $lines[$#lines] .= $_; }
+		}
+	close(IFC);
+	&reset_environment();
+	foreach my $l (@lines) {
+		my %ifc;
+		$l =~ /^([^:\s]+)/ || next;
+		$ifc{'name'} = $1;
+		$l =~ /^(\S+)/;
+		$ifc{'fullname'} = $1;
+		$ifc{'fullname'} =~ s/:$//;
+		if ($l =~ /^(\S+):(\d+)/) { $ifc{'virtual'} = $2; }
+		if ($l =~ /^(\S+)\.(\d+)/) { $ifc{'vlanid'} = $2; }
+		if ($l =~ /inet addr:(\S+)/) { $ifc{'address'} = $1; }
+		elsif ($l =~ /inet (\S+)/) { $ifc{'address'} = $1; }
+		elsif (!$empty) { next; }
+		if ($l =~ /Mask:(\S+)/) { $ifc{'netmask'} = $1; }
+		elsif ($l =~ /netmask (\S+)/) { $ifc{'netmask'} = $1; }
+		if ($l =~ /Bcast:(\S+)/) { $ifc{'broadcast'} = $1; }
+		elsif ($l =~ /broadcast (\S+)/) { $ifc{'broadcast'} = $1; }
+		if ($l =~ /HWaddr (\S+)/) { $ifc{'ether'} = $1; }
+		elsif ($l =~ /ether (\S+)/) { $ifc{'ether'} = $1; }
+		if ($l =~ /MTU:(\d+)/) { $ifc{'mtu'} = $1; }
+		elsif ($l =~ /mtu (\d+)/) { $ifc{'mtu'} = $1; }
+		if ($l =~ /P-t-P:(\S+)/) { $ifc{'ptp'} = $1; }
+		elsif ($l =~ /ptp (\S+)/) { $ifc{'ptp'} = $1; }
+		$ifc{'up'}++ if ($l =~ /\sUP\s|<\S*UP\S*>/);
+		$ifc{'promisc'}++ if ($l =~ /\sPROMISC\s/);
+
+		my (@address6, @netmask6, @scope6);
+		while($l =~ s/inet6 addr:\s*(\S+)\/(\d+)\s+Scope:(Global)//i) {
+			local ($address6, $netmask6, $scope6) = ($1, $2, $3);
+			push(@address6, $address6);
+			push(@netmask6, $netmask6);
+			push(@scope6, $scope6);
+			}
+		while($l =~ s/inet6 (\S+)\s+prefixlen (\d+)\s+scopeid\s+(\S+)<global>//i) {
+			local ($address6, $netmask6, $scope6) = ($1, $2, $3);
+			push(@address6, $address6);
+			push(@netmask6, $netmask6);
+			push(@scope6, $scope6);
+			}
+		$ifc{'address6'} = \@address6;
+		$ifc{'netmask6'} = \@netmask6;
+		$ifc{'scope6'} = \@scope6;
+
+		$ifc{'edit'} = ($ifc{'name'} !~ /^ppp/);
+		$ifc{'index'} = scalar(@rv);
+		push(@rv, \%ifc);
+		}
+	}
+
 else {
 	&error("Both the ifconfig and ip commands are missing");
 	}
@@ -150,10 +151,10 @@ foreach my $ifc (@rv) {
 	    $ifc->{'virtual'} eq '' && $ethtool) {
 		my $out = &backquote_command(
 			"$ethtool $ifc->{'fullname'} 2>/dev/null");
-		if ($out =~ /Speed:\s+(\S+)/i) {
+		if ($out =~ /Speed:\s+(\S+)/i && $1 ne "Unknown!") {
 			$ifc->{'speed'} = $1;
 			}
-		if ($out =~ /Duplex:\s+(\S+)/i) {
+		if ($out =~ /Duplex:\s+(\S+)/i && $1 ne "Unknown!") {
 			$ifc->{'duplex'} = $1;
 			}
 		if ($out =~ /Link\s+detected:\s+(\S+)/i) {
@@ -460,7 +461,7 @@ return "VmWare" if ($name =~ /^vmnet/);
 return "Wireless" if ($name =~ /^wlan/);
 return "Bonded" if ($name =~ /^bond/);
 return "OpenVZ" if ($name =~ /^venet/);
-return "Bridge" if ($name =~ /^br/);
+return "Bridge" if ($name =~ /^(br|xenbr|virbr)/);
 return $text{'ifcs_unknown'};
 }
 
@@ -474,7 +475,7 @@ if (&has_command("netstat")) {
 	&open_execute_command(ROUTES, "netstat -rn", 1, 1);
 	while(<ROUTES>) {
 		s/\s+$//;
-		if (/^([0-9\.]+)\s+([0-9\.]+)\s+([0-9\.]+)\s+\S+\s+\S+\s+\S+\s+\S+\s+(\S+)$/) {
+		if (/^([0-9\.]+)\s+([0-9\.]+)\s+([0-9\.]+)\s+\S+\s+\S+\s+\S+\s*\S+\s+(\S+)$/) {
 			push(@rv, { 'dest' => $1,
 				    'gateway' => $2,
 				    'netmask' => $3,
@@ -485,7 +486,7 @@ if (&has_command("netstat")) {
 	&open_execute_command(ROUTES, "netstat -rn -A inet6", 1, 1);
 	while(<ROUTES>) {
 		s/\s+$//;
-		if (/^([0-9a-z:]+)\/([0-9]+)\s+([0-9a-z:]+)\s+\S+\s+\S+\s+\S+\s+\S+\s+(\S+)$/) {
+		if (/^([0-9a-z:]+)\/([0-9]+)\s+([0-9a-z:]+)\s+\S+\s+\S+\s+\S+\s*\S+\s+(\S+)$/) {
 			push(@rv, { 'dest' => $1,
 				    'gateway' => $3,
 				    'netmask' => $2,

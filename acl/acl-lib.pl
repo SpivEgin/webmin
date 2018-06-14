@@ -520,7 +520,7 @@ if ($clone) {
 
 =head2 modify_user(old-name, &details)
 
-Updates an existing Webmin user, identified by the old-name paramter. The
+Updates an existing Webmin user, identified by the old-name parameter. The
 details hash must be in the same format as returned by list_users or passed
 to create_user.
 
@@ -1344,9 +1344,11 @@ my ($miniserv, $username) = @_;
 return 1 if (&is_readonly_mode());
 &open_session_db($miniserv);
 foreach my $s (keys %sessiondb) {
-	my ($u, $t) = split(/\s+/, $sessiondb{$s});
-	if ($u eq $username) {
-		delete($sessiondb{$s});
+	if ($sessiondb{$s}) {
+		my ($u, $t) = split(/\s+/, $sessiondb{$s});
+		if ($u eq $username) {
+			delete($sessiondb{$s});
+			}
 		}
 	}
 dbmclose(%sessiondb);
@@ -1651,10 +1653,13 @@ is not given, a salt will be selected randomly.
 sub encrypt_password
 {
 my ($pass, $salt) = @_;
-if ($gconfig{'md5pass'}) {
+if ($gconfig{'md5pass'} == 1) {
 	# Use MD5 encryption
-	$salt ||= '$1$'.substr(time(), -8).'$xxxxxxxxxxxxxxxxxxxxxx';
 	return &encrypt_md5($pass, $salt);
+	}
+elsif ($gconfig{'md5pass'} == 2) {
+	# Use SHA512 encryption
+	return &encrypt_sha512($pass, $salt);
 	}
 else {
 	# Use Unix DES
@@ -1672,8 +1677,9 @@ authenticate as, as array references.
 =cut
 sub get_unixauth
 {
+my ($miniserv) = @_;
 my @rv;
-my @ua = split(/\s+/, $_[0]->{'unixauth'});
+my @ua = $miniserv->{'unixauth'} ? split(/\s+/, $miniserv->{'unixauth'}) : ( );
 foreach my $ua (@ua) {
 	if ($ua =~ /^(\S+)=(\S+)$/) {
 		push(@rv, [ $1, $2 ]);
@@ -1773,32 +1779,7 @@ if ($miniserv{'pass_nouser'}) {
 	$pass =~ /\Q$name\E/i && return $text{'cpass_name'};
 	}
 if ($miniserv{'pass_nodict'}) {
-	my $temp = &transname();
-	my $fh = "TEMP";
-	&open_tempfile($fh, ">$temp", 0, 1);
-	&print_tempfile($fh, $pass,"\n");
-	&close_tempfile($fh);
-	my $unknown;
-	if (&has_command("ispell")) {
-		open(SPELL, "ispell -a <$temp |");
-		while(<SPELL>) {
-			if (/^(#|\&|\?)/) {
-				$unknown++;
-				}
-			}
-		close(SPELL);
-		}
-	elsif (&has_command("spell")) {
-		open(SPELL, "spell <$temp |");
-		my $line = <SPELL>;
-		$unknown++ if ($line);
-		close(SPELL);
-		}
-	else {
-		return &text('cpass_spellcmd', "<tt>ispell</tt>",
-					       "<tt>spell</tt>");
-		}
-	$unknown || return $text{'cpass_dict'};
+	&is_dictionary_word($pass) && return $text{'cpass_dict'};
 	}
 if ($miniserv{'pass_oldblock'} && $user) {
 	my $c = 0;
@@ -1820,6 +1801,7 @@ sub hash_session_id
 {
 my ($sid) = @_;
 my $use_md5 = &md5_perl_module();
+$use_md5 || &error("No Perl MD5 hashing module found!");
 if (!$hash_session_id_cache{$sid}) {
         if ($use_md5) {
                 # Take MD5 hash
@@ -1842,6 +1824,7 @@ sub hash_md5_session
 {
 my ($passwd) = @_;
 my $use_md5 = &md5_perl_module();
+$use_md5 || &error("No Perl MD5 hashing module found!");
 
 # Add the password
 my $ctx = eval "new $use_md5";

@@ -8,7 +8,7 @@ use WebminCore;
 $pragma_no_cache = 1;
 #$ENV{'MINISERV_INTERNAL'} || die "Can only be called by miniserv.pl";
 &init_config();
-&ReadParse();
+&ReadParse(undef, undef, undef, 2);
 if ($gconfig{'loginbanner'} && $ENV{'HTTP_COOKIE'} !~ /banner=1/ &&
     !$in{'logout'} && !$in{'failed'} && !$in{'timed_out'}) {
 	# Show pre-login HTML page
@@ -39,8 +39,7 @@ if ($gconfig{'showhost'}) {
 &ui_print_unbuffered_header(
 	undef, undef, undef, undef, undef, 1, 1, undef,
 	"<title>$title</title>",
-	"onLoad='document.forms[0].pass.value = \"\"; ".
-	"document.forms[0].user.focus()'");
+	"onLoad='document.forms[0].user.focus()'");
 
 if ($tconfig{'inframe'}) {
 	# Framed themes lose original page

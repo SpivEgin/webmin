@@ -14,10 +14,10 @@ $zipdir = "zips";
 
 @files = ("config.cgi", "config-*-linux",
 	  "config-solaris", "images", "index.cgi", "mime.types",
-	  "miniserv.pl", "os_list.txt", "perlpath.pl", "setup.sh", "setup.pl",
+	  "miniserv.pl", "os_list.txt", "perlpath.pl", "setup.sh", "setup.pl", "setup.bat",
 	  "version", "web-lib.pl", "web-lib-funcs.pl", "README",
 	  "config_save.cgi", "chooser.cgi", "miniserv.pem",
-	  "config-aix",
+	  "config-aix", "update-from-repo.sh",
 	  "newmods.pl", "copyconfig.pl", "config-hpux", "config-freebsd",
 	  "changepass.pl", "help.cgi", "user_chooser.cgi",
 	  "group_chooser.cgi", "config-irix", "config-osf1", "thirdparty.pl",
@@ -78,7 +78,7 @@ else {
 	  "authentic-theme", "firewalld", "filemin", "firewall6",
 	  );
 	}
-@dirlist = ( "WebminUI" );
+@dirlist = ( "WebminUI", "JSON" );
 
 if (-d "/usr/local/webadmin") {
 	chdir("/usr/local/webadmin");
@@ -106,13 +106,11 @@ foreach $m (@mlist) {
 	$flist = "";
 	opendir(DIR, $m);
 	foreach $f (readdir(DIR)) {
-		next if ($f =~ /^\./ || $f eq "test" || $f =~ /\.bak$/ ||
-		         $f =~ /\.tmp$/ || $f =~ /\.site$/ || $f eq ".builds" ||
-		         $f =~ /\.git$/ || $f eq ".build" || $f eq "distrib" ||
-		         $f =~ /\.(tar|wbm|wbt)\.gz$/ || $f =~ /\.pyc$/ ||
+		next if ($f =~ /^\./ || $f =~ /\.git$/ ||
+		         $f =~ /\.(tar|wbm|wbt)\.gz$/ ||
 			 $f eq "README.md" || $f =~ /^makemodule.*\.pl$/ ||
 			 $f eq "linux.sh" || $f eq "freebsd.sh" || 
-			 $f eq "LICENCE" || $f eq "CHANGELOG.md");
+			 $f eq "LICENCE" || $f eq "version");
 		$flist .= " $m/$f";
 		}
 	closedir(DIR);
@@ -139,6 +137,7 @@ foreach $d (@dirlist) {
 opendir(DIR, "$tardir/$dir");
 while($d = readdir(DIR)) {
 	# set depends in module.info to this version
+	next if ($d eq "authentic-theme");	# Theme version matters
 	local $minfo = "$tardir/$dir/$d/module.info";
 	local $tinfo = "$tardir/$dir/$d/theme.info";
 	if (-r $minfo) {
@@ -167,7 +166,6 @@ system("/usr/local/webadmin/chinese-to-utf8.pl $tardir/$dir");
 
 # Remove useless .bak, test and other files, and create the tar.gz file
 print "Creating webmin-$vfile.tar.gz\n";
-system("find $tardir/$dir -name '*.bak' -o -name test -o -name '*.tmp' -o -name '*.site' -o -name core -o -name .xvpics -o -name .svn | xargs rm -rf");
 system("cd $tardir ; tar cvhf - $dir 2>/dev/null | gzip -c >webmin-$vfile.tar.gz");
 
 if (!$min && -d $zipdir) {

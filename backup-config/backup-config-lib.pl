@@ -227,10 +227,11 @@ Returns a backup destination string, or calls error.
 sub parse_backup_destination
 {
 my %in = %{$_[1]};
-my $mode = $in{"$_[0]_mode"};
+my $mode = $in{"$_[0]_mode"} || 0;
 if ($mode == 0) {
 	# Local file
-	$in{"$_[0]_file"} =~ /^\/\S/ || &error($text{'backup_edest'});
+	$in{"$_[0]_file"} && $in{"$_[0]_file"} =~ /^\/\S/ ||
+		&error($text{'backup_edest'});
 	return $in{"$_[0]_file"};
 	}
 elsif ($mode == 1) {
@@ -587,7 +588,7 @@ if (!$show) {
 	}
 
 # Extract contents (only files specified by manifests)
-my $flag = $show ? "t" : "x";
+my $flag = $show ? "t" : "xv";
 my $qfiles = join(" ", map { s/^\///; quotemeta($_) } &unique(@files));
 if ($gzipped) {
 	&execute_command("cd / ; gunzip -c $qfile | tar ${flag}f - $qfiles",

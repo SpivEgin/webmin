@@ -1,8 +1,5 @@
 webmin=1
-longdesc=Fast and light file manager written in perl
+longdesc=Fast and light File Manager written in Perl.
 name=File Manager
 usermin=1
-desc_no=Filbehandling
 desc=File Manager
-desc_ca=Gestor de Fitxers
-longdesc_ca=Gestor de fitxers lleuger i ràpid escrit en perl.

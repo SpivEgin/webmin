@@ -307,6 +307,11 @@ host_ssl=SSL connection required?
 host_viassl=Via SSL
 host_derr=Failed to delete allowed hosts
 host_enone=No hosts selected
+host_manual=Edit Config File
+host_manualdesc=Click this button to manually edit the allowed hosts configuration file. 
+
+manual_title=Edit Config File
+manual_err=Failed to save config file
 
 grant_title=Granted Privileges
 grant_tvi=Object
@@ -381,7 +386,7 @@ log_tables_delete=Dropped $1 objects from database $2
 log_field_create=Added field $1 $4 to $2 in database $3
 log_field_modify=Modified field $1 $4 in $2 in database $3
 log_field_delete=Deleted field $1 from $2 in database $3
-log_fields_delete=Deleted $1 fields from $1 in database $2
+log_fields_delete=Deleted $1 fields from $2 in database $3
 log_data_create=Added row to table $2 in database $3
 log_data_modify=Modified $1 rows in table $2 in database $3
 log_data_delete=Deleted $1 rows from table $2 in database $3
@@ -412,6 +417,7 @@ log_backup=Backed up database $1
 log_backup_l=Backed up database $1 to file $2
 log_backup_all=Backed up all databases
 log_backup_all_l=Backed up all databases to file $2
+log_manual=Manually edited allowed hosts config file
 
 acl_dbs=Databases this user can manage
 acl_dbscannot=This access control will become effective, after starting the PostgreSQL database server.

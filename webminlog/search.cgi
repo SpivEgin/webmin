@@ -60,7 +60,7 @@ else {
 	}
 
 if ($in{'csv'}) {
-	print "Content-type: text/csv\n\n";
+	&PrintHeader(undef, "text/csv");
 	}
 else {
 	&ui_print_header(undef, $text{'search_title'}, "");
@@ -74,6 +74,7 @@ open(LOG, $webmin_logfile);
 while(my ($id, $idx) = each %index) {
 	my ($pos, $time, $user, $module, $sid) = split(/\s+/, $idx);
 	$time ||= 0;
+	$module ||= "";
 	$sid ||= "";
 	if (($in{'uall'} == 1 ||
 	     $in{'uall'} == 0 && $in{'user'} eq $user ||

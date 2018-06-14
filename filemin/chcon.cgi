@@ -23,7 +23,7 @@ if ( scalar(@errors) > 0 ) {
 else {
     foreach my $file ( split( /\0/, $in{'name'} ) ) {
         $file =~ s/\.\.//g;
-        &simplify_path($file);
+        $file = &simplify_path($file);
         if (
             system_logged(
                     "chcon $recursive "
@@ -42,6 +42,6 @@ else {
         print_errors(@errors);
     }
     else {
-        &redirect("index.cgi?path=$path");
+	&redirect("index.cgi?path=".&urlize($path));
     }
 }

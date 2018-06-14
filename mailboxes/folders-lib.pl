@@ -88,7 +88,7 @@ elsif ($_[2]->{'type'} == 2) {
 		elsif ($cached{$u} == 1 || !$_[3]) {
 			# We need to get the entire mail
 			&pop3_command($h, "retr ".($i+1));
-			open(CACHE, ">$cd/$u.body");
+			open(CACHE, ">", "$cd/$u.body");
 			while(<$h>) {
 				s/\r//g;
 				last if ($_ eq ".\n");
@@ -101,7 +101,7 @@ elsif ($_[2]->{'type'} == 2) {
 		else {
 			# We just need the headers
 			&pop3_command($h, "top ".($i+1)." 0");
-			open(CACHE, ">$cd/$u.headers");
+			open(CACHE, ">", "$cd/$u.headers");
 			while(<$h>) {
 				s/\r//g;
 				last if ($_ eq ".\n");
@@ -135,7 +135,7 @@ elsif ($_[2]->{'type'} == 2) {
 				# Add size to the mail cache
 				$mail[$1-1]->{'size'} = $2;
 				local $u = &safe_uidl($uidl[$1-1]);
-				open(CACHE, ">>$cd/$u.headers");
+				open(CACHE, ">>", "$cd/$u.headers");
 				print CACHE $2,"\n";
 				close(CACHE);
 				}
@@ -382,7 +382,7 @@ elsif ($folder->{'type'} == 2) {
 		elsif ($cached{$u} == 1 || !$headersonly) {
 			# We need to get the entire mail
 			&pop3_command($h, "retr ".$uidlmap{$i});
-			open(CACHE, ">$cd/$u.body");
+			open(CACHE, ">", "$cd/$u.body");
 			while(<$h>) {
 				s/\r//g;
 				last if ($_ eq ".\n");
@@ -395,7 +395,7 @@ elsif ($folder->{'type'} == 2) {
 		else {
 			# We just need the headers
 			&pop3_command($h, "top ".$uidlmap{$i}." 0");
-			open(CACHE, ">$cd/$u.headers");
+			open(CACHE, ">", "$cd/$u.headers");
 			while(<$h>) {
 				s/\r//g;
 				last if ($_ eq ".\n");
@@ -430,7 +430,7 @@ elsif ($folder->{'type'} == 2) {
 				local ($ns) = $sizeneed{$1};
 				$ns->{'size'} = $2;
 				local $u = &safe_uidl($uidl[$1-1]);
-				open(CACHE, ">>$cd/$u.headers");
+				open(CACHE, ">>", "$cd/$u.headers");
 				print CACHE $2,"\n";
 				close(CACHE);
 				}
@@ -1576,7 +1576,7 @@ elsif (-d $f) {
 	}
 else {
 	# Check for MBX format
-	open(MBXTEST, $f);
+	open(MBXTEST, "<", $f);
 	my $first;
 	read(MBXTEST, $first, 5);
 	close(MBXTEST);
@@ -2047,6 +2047,10 @@ return (1, $h, $count, $uidnext);
 sub imap_command
 {
 local ($h, $c) = @_;
+if (!$h) {
+	local $err = "Invalid IMAP handle";
+	return (0, [ $err ], $err, $err);
+	}
 local @rv;
 
 # Send the command, and read lines until a non-* one is found
@@ -2326,7 +2330,7 @@ if ($url =~ /^#/) {
 	return $before.$url.$after;
 	}
 elsif ($url =~ /^cid:/i) {
-	# Definately safe (CIDs are harmless)
+	# Definitely safe (CIDs are harmless)
 	return $before.$url.$after;
 	}
 elsif ($url =~ /^(http:|https:)/) {
@@ -2378,7 +2382,7 @@ local ($h2, $lynx);
 if (($h2 = &has_command("html2text")) || ($lynx = &has_command("lynx"))) {
 	# Can use a commonly available external program
 	local $temp = &transname().".html";
-	open(TEMP, ">$temp");
+	open(TEMP, ">", $temp);
 	print TEMP $_[0];
 	close(TEMP);
 	open(OUT, ($lynx ? "$lynx -dump $temp" : "$h2 $temp")." 2>/dev/null |");
@@ -3042,15 +3046,16 @@ foreach my $folder (@$folders) {
 	}
 }
 
-# mail_preview(&mail)
+# mail_preview(&mail, [characters])
 # Returns a short text preview of a message body
 sub mail_preview
 {
-local ($mail) = @_;
+local ($mail, $chars) = @_;
+$chars ||= 100;
 local ($textbody, $htmlbody, $body) = &find_body($mail, 0);
 local $data = $body->{'data'};
 $data =~ s/\r?\n/ /g;
-$data = substr($data, 0, 100);
+$data = substr($data, 0, $chars);
 if ($data =~ /\S/) {
 	return $data;
 	}
@@ -3310,7 +3315,7 @@ foreach my $a (@$attach) {
 		}
 	else {
 		# No filename
-		push(@files, "<i>$text{'view_anofile'}</i>");
+		push(@files, $text{'view_anofile'});
 		$fn = "file.".&type_to_extension($a->{'type'});
 		push(@detach, [ $a->{'idx'}, $fn ]);
 		}
@@ -3363,7 +3368,7 @@ for(my $i=0; $i<@files; $i++) {
 	local $type = $attach[$i]->{'type'} || "message/rfc822";
 	local $typedesc = $typemap{lc($type)} || $type;
 	local @cols = (
-		"<a href='$links[$i]'>$files[$i]</a>",
+		"<a href='$links[$i]'>".&html_escape($files[$i])."</a>",
 		$typedesc,
 		$sizes[$i],
 		&ui_links_row($actions[$i]),

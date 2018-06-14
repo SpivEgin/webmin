@@ -6,9 +6,10 @@ $unsafe_index_cgi = 1;
 require './shell-lib.pl';
 %access = &get_module_acl();
 &ReadParseMime() if ($ENV{'REQUEST_METHOD'} ne 'GET');
-&ui_print_header(undef, $text{'index_title'}, "", undef,
-		 $module_info{'usermin'} ? 0 : 1, 1,
-		 undef, undef, undef,
+&ui_print_unbuffered_header(
+	undef, $text{'index_title'}, "", undef,
+	$module_info{'usermin'} ? 0 : 1, 1,
+	undef, undef, undef,
 	"onLoad='window.scroll(0, 10000); document.forms[0].cmd.focus()'");
 
 $prevfile = "$module_config_directory/previous.$remote_user";
@@ -20,8 +21,9 @@ if ($in{'clearcmds'}) {
 	}
 else {
 	open(PREVFILE, $prevfile);
-	chop(@previous = <PREVFILE>);
+	chop(@allprevious = <PREVFILE>);
 	close(PREVFILE);
+	@previous = &unique(@allprevious);
 	}
 $cmd = $in{'doprev'} ? $in{'pcmd'} : $in{'cmd'};
 
@@ -40,35 +42,51 @@ else {
 		}
 	}
 if (!$in{'clear'}) {
+	# Show the prior history and command input
 	$history = &un_urlize($in{'history'});
+	print "<pre>";
+	if ($history) {
+		print $history;
+		}
+
 	if ($cmd) {
 		# Execute the latest command
+		$chroot = $access{'chroot'} eq '/' ? '' : $access{'chroot'};
 		$fullcmd = $cmd;
-		$ok = chdir($pwd);
-		$history .= "<b>&gt; ".&html_escape($cmd, 1)."</b>\n";
+		$ok = chdir($chroot.$pwd);
+		$cmdmsg = "<b>&gt; ".&html_escape($cmd, 1)."</b>\n";
+		$history .= $cmdmsg;
+		print $cmdmsg;
 		if ($cmd =~ /^cd\s+"([^"]+)"\s*(;?\s*(.*))$/ ||
 		    $cmd =~ /^cd\s+'([^']+)'\s*(;?\s*(.*))$/ ||
 		    $cmd =~ /^cd\s+([^; ]*)\s*(;?\s*(.*))$/) {
 			$cmd = undef;
-			if (!chdir($1)) {
+			if (!chdir($chroot.$1)) {
 				$history .= &html_escape("$1: $!\n", 1);
 				}
 			else {
 				$cmd = $3 if ($2);
 				$pwd = &get_current_dir();
+				$pwd =~ s/^\Q$chroot\E//g;
 				}
 			}
 		if ($cmd) {
 			local $user = $access{'user'} || $remote_user;
+			local @uinfo;
 			&clean_environment() if ($config{'clear_envs'});
 			delete($ENV{'SCRIPT_NAME'});	# So that called Webmin
 							# programs get the right
 							# module, not this one!
 			if (&supports_users() && $user ne "root") {
-				$cmd = &command_as_user($user, 0, $cmd);
+				$cmd = &command_as_user($user, 2, $cmd);
+				@uinfo = getpwnam($user);
 				}
 			else {
 				$cmd = "($cmd)";
+				}
+			if ($chroot && $uinfo[8] !~ /\/jk_chrootsh$/) {
+				$cmd = "chroot ".quotemeta($access{'chroot'}).
+				       " sh -c ".quotemeta($cmd);
 				}
 			$pid = &open_execute_command(OUTPUT, $cmd, 2, 0);
 			$out = "";
@@ -99,12 +117,13 @@ if (!$in{'clear'}) {
 						}
 					}
 				local $buf;
-				$got = sysread(OUTPUT, $buf, 1024);
+				$got = sysread(OUTPUT, $buf, 80);
 				last if ($got <= 0);
 				$total += length($buf);
 				if ($config{'max_output'} &&
 				    length($out) < $config{'max_output'}) {
 					$out .= $buf;
+					print &html_escape($buf);
 					}
 				else {
 					$trunc = 1;
@@ -116,21 +135,28 @@ if (!$in{'clear'}) {
 			close(OUTPUT);
 			&reset_environment() if ($config{'clear_envs'});
 			if ($out && $out !~ /\n$/) {
+				print "\n";
 				$out .= "\n";
 				}
-			$out = &html_escape($out, 1);
+			$out = &html_escape($out);
+			my $msg;
 			if ($trunc) {
-				$out .= "<i>".&text('index_trunced', 
+				$msg = "<i>".&text('index_trunced', 
 					&nice_size($config{'max_output'}),
-					&nice_size($total))."</i><p>\n";
+					&nice_size($total))."</i>\n";
+				print $msg;
+				$out .= $msg;
 				}
 			if ($timedout) {
-				$out .= "<i>".&text('index_timedout', 
-					$config{'max_runtime'})."</i><p>\n";
+				$msg = "<i>".&text('index_timedout', 
+					$config{'max_runtime'})."</i>\n";
+				print $msg;
+				$out .= $msg;
 				}
 			$history .= $out;
 			}
-		@previous = &unique($fullcmd, @previous);
+		@previous = ((grep { $_ ne $fullcmd } @previous), $fullcmd);
+		push(@allprevious, $fullcmd);
 		&lock_file($prevfile);
 		&open_tempfile(PREVFILE, ">>$prevfile");
 		&print_tempfile(PREVFILE, $fullcmd,"\n");
@@ -138,14 +164,8 @@ if (!$in{'clear'}) {
 		&unlock_file($prevfile);
 		&webmin_log("run", undef, undef, { 'cmd' => $fullcmd });
 		}
-	}
-
-# Show the history and command input
-if ($history) {
-	print &ui_table_start($text{'shell_history'}, "width=100%", 2);
-	print &ui_table_row(undef, "<pre>$history</pre>", 2);
-	print &ui_table_end();
-	print &ui_hr();
+	print "</pre>";
+	print &ui_hr() if ($history);
 	}
 
 print "$text{'index_desc'}<br>\n";
@@ -163,7 +183,7 @@ print "</tr>\n";
 
 print &ui_hidden("pwd", $pwd);
 print &ui_hidden("history", &urlize($history));
-foreach $p (@previous) {
+foreach $p (@allprevious) {
 	print &ui_hidden("previous", $p);
 	}
 

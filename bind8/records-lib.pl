@@ -1,6 +1,7 @@
 # Functions for managing BIND 4 and 8/9 records files
 use strict;
 use warnings;
+no warnings 'redefine';
 
 # Globals from Webmin or bind8-lib.pl
 our (%config, %text, %in);
@@ -411,8 +412,6 @@ my $lref = &read_file_lines($f);
 splice(@$lref, $_[1]->{'line'}, 1);
 &flush_file_lines($f);
 }
-
-
 
 # make_record(name, ttl, class, type, values, comment)
 # Returns a string for some zone record

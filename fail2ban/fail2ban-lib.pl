@@ -7,6 +7,7 @@ use WebminCore;
 &init_config();
 our ($module_root_directory, %text, %config, %gconfig, $base_remote_user);
 our %access = &get_module_acl();
+our @all_files_for_lock;
 
 # check_fail2ban()
 # Returns undef if installed, or an appropriate error message if missing
@@ -42,6 +43,8 @@ my $dir = "$config{'config_dir'}/filter.d";
 my @rv;
 foreach my $f (glob("$dir/*.conf")) {
 	my @conf = &parse_config_file($f);
+	my @lconf = &parse_config_file(&make_local_file($f));
+	&merge_local_files(\@conf, \@lconf);
 	if (@conf) {
 		push(@rv, \@conf);
 		}
@@ -58,6 +61,8 @@ my $dir = "$config{'config_dir'}/action.d";
 my @rv;
 foreach my $f (glob("$dir/*.conf")) {
 	my @conf = &parse_config_file($f);
+	my @lconf = &parse_config_file(&make_local_file($f));
+	&merge_local_files(\@conf, \@lconf);
 	if (@conf) {
 		push(@rv, \@conf);
 		}
@@ -69,36 +74,79 @@ return @rv;
 # Returns a list of all sections from the jails file
 sub list_jails
 {
+# Read the main config file
 my @rv;
 my $jfile = "$config{'config_dir'}/jail.conf";
 if (-r $jfile) {
 	push(@rv, &parse_config_file($jfile));
 	}
-my $jlfile = "$config{'config_dir'}/jail.local";
-if (-r $jlfile) {
-	# Add jails from .local file that aren't directive-level overrides
-	my @lrv = &parse_config_file($jlfile);
-	my %names = map { $_->{'name'}, $_ } @rv;
-	foreach my $j (@lrv) {
-		if (!$names{$j->{'name'}}) {
-			push(@rv, $j);
-			}
-		}
-	}
+
+# Read separate config files under jail.d
 my $jdir = "$config{'config_dir'}/jail.d";
 if (-d $jdir) {
 	foreach my $f (glob("$jdir/*.conf")) {
 		push(@rv, &parse_config_file($f));
 		}
 	}
+
+# Read the main local file, and separate files under jail.d
+my @lrv;
+my $jlfile = &make_local_file($jfile);
+if (-r $jlfile) {
+	push(@lrv, &parse_config_file($jlfile));
+	}
+if (-d $jdir) {
+	foreach my $f (glob("$jdir/*.local")) {
+		push(@lrv, &parse_config_file($f));
+		}
+	}
+
+# Use local file entries to override the global config
+&merge_local_files(\@rv, \@lrv);
+
 return @rv;
+}
+
+# merge_local_files(&rv, &locals)
+# Merges .local file entries in with .conf files
+sub merge_local_files
+{
+my ($rv, $lrv) = @_;
+my %names = map { $_->{'name'}, $_ } @$rv;
+foreach my $l (@$lrv) {
+	my $r = $names{$l->{'name'}};
+	if ($r) {
+		# Section exists in the global config, so put the local
+		# directives first
+		my $m = { %$l };
+		$m->{'local'} = 1;
+		$m->{'origfile'} = $r->{'file'};
+		push(@{$m->{'members'}}, @{$r->{'members'}});
+		$rv->[&indexof($r, @$rv)] = $m;
+		}
+	else {
+		# Section does not exist, so just add it
+		push(@$rv, $l);
+		}
+	}
+}
+
+# make_local_file(path)
+sub make_local_file
+{
+my ($f) = @_;
+$f =~ s/\.conf$/\.local/g;
+return $f;
 }
 
 # get_config()
 # Returns the global config as an array ref of directives
 sub get_config
 {
-my @conf = &parse_config_file("$config{'config_dir'}/fail2ban.conf");
+my $file = "$config{'config_dir'}/fail2ban.conf";
+my @conf = &parse_config_file($file);
+my @lconf = &parse_config_file(&make_local_file($file));
+&merge_local_files(\@conf, \@lconf);
 return \@conf;
 }
 
@@ -149,25 +197,6 @@ while(<$fh>) {
 	$lnum++;
 	}
 close($fh);
-if ($file =~ /^(.*)\.conf$/) {
-	# Read local overrides file, which takes effect first for each block
-	my $localfile = $1.".local";
-	if (-r $localfile) {
-		my @lrv = &parse_config_file($localfile);
-		my %lsects = map { $_->{'name'}, $_ } @lrv;
-		foreach my $sect (@rv) {
-			# For each section in the .conf file, put directives
-			# from the .local file in first
-			my $lsect = $lsects{$sect->{'name'}};
-			next if (!$lsect);
-			my $msect = { %$lsect };
-			$msect->{'local'} = 1;
-			$msect->{'origfile'} = $sect->{'file'};
-			push(@{$msect->{'members'}}, @{$sect->{'members'}});
-			$rv[&indexof($sect, @rv)] = $msect;
-			}
-		}
-	}
 return @rv;
 }
 
@@ -327,11 +356,31 @@ if ($old && defined($dir) && $old->{'value'} ne $dir->{'value'}) {
 	}
 elsif (!$old && defined($dir)) {
 	# Add new
-	splice(@$lref, $sect->{'eline'}+1, 0, @dirlines);
-	$dir->{'line'} = $sect->{'eline'}+1;
-	$dir->{'file'} = $sect->{'file'};
-	$sect->{'eline'} += scalar(@dirlines);
-	$dir->{'eline'} = $sect->{'eline'};
+	if (!$sect->{'local'} && $file =~ /^(.*)\.conf$/) {
+		# New directives should go in a .local file. We can assume at
+		# this point that it doesn't exist yet, or that there is no
+		# section in it. So convert this section object to local.
+		my $lfile = $1.".local";
+		&unflush_file_lines($file);
+		$file = $lfile;
+		$lref = &read_file_lines($file);
+		$sect->{'line'} = $sect->{'eline'} = scalar(@$lref);
+		$sect->{'file'} = $file;
+		splice(@$lref, $sect->{'eline'}, 0, "[$sect->{'name'}]");
+		splice(@$lref, $sect->{'eline'}+1, 0, @dirlines);
+		$dir->{'line'} = $sect->{'eline'}+1;
+		$dir->{'file'} = $sect->{'file'};
+		$sect->{'eline'} += scalar(@dirlines);
+		$dir->{'eline'} = $sect->{'eline'};
+		}
+	else {
+		# Just add to the file the section is in (which will be local)
+		splice(@$lref, $sect->{'eline'}+1, 0, @dirlines);
+		$dir->{'line'} = $sect->{'eline'}+1;
+		$dir->{'file'} = $sect->{'file'};
+		$sect->{'eline'} += scalar(@dirlines);
+		$dir->{'eline'} = $sect->{'eline'};
+		}
 	}
 elsif ($old && !defined($dir)) {
 	# Remove existing
@@ -417,8 +466,11 @@ sub start_fail2ban_server
 {
 if ($config{'init_script'}) {
 	&foreign_require("init");
-	my ($ok, $out) = &init::start_action($config{'init_script'});
-	return $ok ? undef : $out;
+	foreach my $init (split(/\s+/, $config{'init_script'})) {
+		my ($ok, $out) = &init::start_action($init);
+		return $out if (!$ok);
+		}
+	return undef;
 	}
 else {
 	my $out = &backquote_logged("$config{'client_cmd'} -x start 2>&1 </dev/null");
@@ -433,8 +485,11 @@ sub stop_fail2ban_server
 {
 if ($config{'init_script'}) {
 	&foreign_require("init");
-	my ($ok, $out) = &init::stop_action($config{'init_script'});
-	return $ok ? undef : $out;
+	foreach my $init (split(/\s+/, $config{'init_script'})) {
+		my ($ok, $out) = &init::stop_action($init);
+		return $out if (!$ok);
+		}
+	return undef;
 	}
 else {
 	my $out = &backquote_logged("$config{'client_cmd'} stop 2>&1 </dev/null");
@@ -463,7 +518,33 @@ push(@rv, glob("$config{'config_dir'}/action.d/*.conf"));
 push(@rv, glob("$config{'config_dir'}/action.d/*.local"));
 push(@rv, "$config{'config_dir'}/jail.conf");
 push(@rv, "$config{'config_dir'}/jail.local");
+push(@rv, glob("$config{'config_dir'}/jail.d/*.conf"));
+push(@rv, glob("$config{'config_dir'}/jail.d/*.local"));
 return grep { -r $_ } @rv;
+}
+
+sub lock_all_config_files
+{
+@all_files_for_lock = &list_all_config_files();
+foreach my $f (@all_files_for_lock) {
+	&lock_file($f);
+	}
+}
+
+sub unlock_all_config_files
+{
+foreach my $f (reverse(@all_files_for_lock)) {
+	&unlock_file($f);
+	}
+@all_files_for_lock = ();
+}
+
+# get_fail2ban_version()
+# Returns the version number, or undef if it cannot be found
+sub get_fail2ban_version
+{
+my $out = &backquote_command("$config{'client_cmd'} -V 2>/dev/null </dev/null");
+return !$? && $out =~ /v([0-9\.]+)/ ? $1 : undef;
 }
 
 1;

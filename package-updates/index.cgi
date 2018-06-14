@@ -115,9 +115,14 @@ foreach $p (sort { $a->{'name'} cmp $b->{'name'} } (@current, @avail)) {
 		  &urlize($in{'search'}), $p->{'name'}),
 		$p->{'desc'},
 		$msg,
-		$source ? ( $source ) : $anysource ? ( "") : ( ),
+		$source ? ( $source ) : ( ),
 		]);
 	$anysource++ if ($source);
+	}
+if ($anysource) {
+	foreach my $r (@rows) {
+		$r->[4] ||= "";
+		}
 	}
 
 if ($in{'mode'} eq 'new' && !$in{'search'}) {
@@ -128,9 +133,13 @@ else {
 	# Show the packages, if any
 	if (@rows) {
 		print &text('index_count', scalar(@rows)),"<br>\n";
+		print &ui_form_start("update.cgi", "post");
+		print &ui_submit($in{'mode'} eq 'new' ? $text{'index_install'}
+		                           : $text{'index_update'}, "ok_top" );
+		print &ui_submit($text{'index_refresh'}, "refresh_top"), "<br>";
 		}
 	print &ui_form_columns_table(
-		"update.cgi",
+		"",
 		[ [ "ok", $in{'mode'} eq 'new' ? $text{'index_install'}
 					       : $text{'index_update'} ],
 		  undef,

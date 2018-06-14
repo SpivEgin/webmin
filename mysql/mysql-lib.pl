@@ -77,7 +77,9 @@ EOF
 
 @mysql_set_variables = ( $mysql_version >= 5.5 ? "key_buffer_size"
 					       : "key_buffer",
-			 "sort_buffer", "net_buffer_length" );
+			 $mysql_version >= 5.5 ? "sort_buffer_size"
+					       : "sort_buffer",
+			 "net_buffer_length" );
 @mysql_number_variables = ( $mysql_version >= 5.6 ? "table_open_cache"
 						  : "table_cache",
 			    "max_connections" );
@@ -697,7 +699,7 @@ else {
 # Returns 1 if the hosts table exists
 sub supports_hosts
 {
-return $mysql_version <= 5.7 ? 1 :
+return $mysql_version < 5.7 ? 1 :
        $mysql_version =~ /^5\.7\.(\d+)/ && $1 < 16 ? 1 : 0;
 }
 
@@ -789,8 +791,8 @@ ${$_[0]} = $out if ($_[0]);
 if ($out =~ /lib\S+\.so/) {
 	return -1;
 	}
-elsif ($out =~ /distrib\s+((3|4|5|6|10)\.[0-9\.]*)/i) {
-	return $1;
+elsif ($out =~ /(distrib|Ver)\s+((3|4|5|6|7|8|9|10)\.[0-9\.]*)/i) {
+	return $2;
 	}
 else {
 	return undef;
@@ -847,7 +849,7 @@ return $rv;
 
 # execute_before(db, handle, escape, path, db-for-config)
 # Executes the before-backup command for some DB, and sends output to the
-# given file handle. Returns 1 if the command suceeds, or 0 on failure
+# given file handle. Returns 1 if the command succeeds, or 0 on failure
 sub execute_before
 {
 local $cmd = $config{'backup_before_'.$_[4]};
@@ -979,8 +981,13 @@ local ($db, $file, $user, $pass) = @_;
 local $authstr = &make_authstr($user, $pass);
 local $cs = $sql_charset ? "--default-character-set=".quotemeta($sql_charset)
 			 : "";
+local $temp = &transname();
+&open_tempfile(TEMP, ">$temp");
+&print_tempfile(TEMP, "source ".$file.";\n");
+&close_tempfile(TEMP);
+&set_ownership_permissions(undef, undef, 0644, $temp);
 local $cmd = "$config{'mysql'} $authstr -t ".quotemeta($db)." ".$cs.
-	     " <".quotemeta($file);
+	     " <".quotemeta($temp);
 -r $file || return (1, "$file does not exist");
 if ($_[4] && $_[4] ne 'root' && $< == 0) {
 	# Restoring as a Unix user
@@ -1001,7 +1008,7 @@ local $temp = &transname();
 local $rv = &system_logged("($config{'start_cmd'}) >$temp 2>&1");
 local $out = `cat $temp`; unlink($temp);
 if ($rv || $out =~ /failed/i) {
-	return "<pre>$out</pre>";
+	return "<pre>".&html_escape($out)."</pre>";
 	}
 return undef;
 }
@@ -1019,7 +1026,7 @@ else {
 	$out = &backquote_logged("$config{'mysqladmin'} $authstr shutdown 2>&1");
 	}
 if ($? || $out =~ /failed/i) {
-	return "<pre>$out</pre>";
+	return "<pre>".&html_escape($out)."</pre>";
 	}
 return undef;
 }
@@ -1383,7 +1390,7 @@ return @rv;
 }
 
 # list_compatible_formats()
-# Returns a list of two-element arrays, containing compatability format
+# Returns a list of two-element arrays, containing compatibility format
 # codes and descriptions
 sub list_compatible_formats
 {
@@ -1393,7 +1400,7 @@ return map { [ $_, $text{'compat_'.$_} ] }
 }
 
 # list_compatible_options()
-# Returns a list of two-element arrays, containing compatability options
+# Returns a list of two-element arrays, containing compatibility options
 sub list_compatible_options
 {
 return map { [ $_, $text{'compat_'.$_} ] }
@@ -1459,7 +1466,10 @@ if ($user && $user ne "root") {
 	# Actual writing of output is done as another user
 	$writer = &command_as_user($user, undef, $writer);
 	}
-local $cmd = "$config{'mysqldump'} $authstr $dropsql $singlesql $quicksql $wheresql $charsetsql $compatiblesql $quotingsql $routinessql ".quotemeta($db)." $tablessql $eventssql $gtidsql 2>&1 | $writer";
+local $cmd = "$config{'mysqldump'} $authstr $dropsql $singlesql $quicksql $wheresql $charsetsql $compatiblesql $quotingsql $routinessql ".quotemeta($db)." $tablessql $eventssql $gtidsql | $writer";
+if (&shell_is_bash()) {
+	$cmd = "set -o pipefail ; $cmd";
+	}
 local $out = &backquote_logged("($cmd) 2>&1");
 if ($? || !-s $file) {
 	return $out;

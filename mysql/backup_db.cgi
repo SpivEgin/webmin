@@ -121,8 +121,21 @@ else {
 	}
 
 if ($in{'dest'}) {
-	print "Content-Type: text/plain\n";
-	print "Content-Disposition: Attachment\n";
+	my $mt;
+	my $fn = "backup.sql";
+	if ($in{'compress'} == 1) {
+		$mt = "application/x-gzip";
+		$fn .= ".gz";
+		}
+	elsif ($in{'compress'} == 2) {
+		$mt = "application/x-bzip2";
+		$fn .= ".bz2";
+		}
+	else {
+		$mt = "text/plain";
+		}
+	print "Content-Type: $mt\n";
+	print "Content-Disposition: Attachment; filename=\"$fn\"\n";
 	print "\n";
 	}
 else {
@@ -142,6 +155,7 @@ if (!$in{'save'}) {
 			}
 		}
 	foreach $db (@dbs) {
+		my $deletefile = 0;
 		if ($in{'all'}) {
 			# File in a directory
 			$dir = &date_subs($in{'file'});
@@ -149,10 +163,12 @@ if (!$in{'save'}) {
 			$file = $dir."/".$db.".sql".
 				($in{'compress'} == 1 ? ".gz" :
 				 $in{'compress'} == 2 ? ".bz2" : "");
+			$deletefile = 1;
 			}
 		elsif (!$in{'dest'}) {
 			# Single file
 			$file = &date_subs($in{'file'});
+			$deletefile = 1;
 			}
 		else {
 			# Temp file for download
@@ -166,25 +182,29 @@ if (!$in{'save'}) {
 					undef, undef, $file);
 				}
 			}
+		if (-d $file) {
+			print &text('backup_eisdir',
+				    &html_escape($file)),"<p>\n";
+			next;
+			}
 		if ($cron && $cmode == 0) {
 			# Run and check before-backup command (for one DB)
 			$bok = &execute_before($db, STDOUT, 1, $file,
 					       $in{'all'} ? undef : $db);
 			if (!$bok) {
-				print "$main::whatfailed : ",
-				      $text{'backup_ebefore'},"<p>\n";
+				print $text{'backup_ebefore'},"<p>\n";
 				next;
 				}
 			}
-		unlink($file);
+		&unlink_file($file) if ($deletefile);
 		local $err = &backup_database($db, $file, $in{'compress'},
 			$in{'drop'}, $in{'where_def'} ? undef : $in{'where'},
 			$in{'charset_def'} ? undef : $in{'charset'},
 			\@compat, \@tables, $access{'buser'}, $in{'single'},
 			$in{'quick'});
 		if ($err) {
-			print "$main::whatfailed : ",
-			      &text('backup_ebackup',"<pre>$err</pre>"),"<p>\n";
+			print &text('backup_ebackup',
+				"<pre>".&html_escape($err)."</pre>"),"<p>\n";
 			}
 		elsif (!$in{'dest'}) {
 			@st = stat($file);

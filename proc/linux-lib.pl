@@ -308,7 +308,12 @@ if ($c{'cache size'} =~ /^(\d+)\s+KB/i) {
 elsif ($c{'cache size'} =~ /^(\d+)\s+MB/i) {
 	$c{'cache size'} = $1*1024*1024;
 	}
-if ($c{'cpu mhz'}) {
+if (!$c{'cpu mhz'} && $c{'model name'}) {
+	$c{'bogomips'} =~ s/\..*$//;
+	$c{'model name'} .= " @ ".$c{'bogomips'}." bMips";
+	}
+
+if ($c{'model name'}) {
 	return ( $load[0], $load[1], $load[2],
 		 int($c{'cpu mhz'}), $c{'model name'}, $c{'vendor_id'},
 		 $c{'cache size'}, $c{'processor'}+1 );
@@ -460,6 +465,53 @@ $cmd .= " -n ".quotemeta($prio) if (defined($prio));
 $cmd .= " -p ".quotemeta($pid);
 local $out = &backquote_logged("$cmd 2>&1 </dev/null");
 return $? ? $out : undef;
+}
+
+# get_current_cpu_temps()
+# Returns a list of hash refs containing CPU temperatures
+sub get_current_cpu_temps
+{
+my @rv;
+if (&has_command("sensors")) {
+        my $fh = "SENSORS";
+        &open_execute_command($fh, "sensors </dev/null 2>/dev/null", 1);
+        while(<$fh>) {
+                if (/Core\s+(\d+):\s+([\+\-][0-9\.]+)/) {
+                        push(@rv, { 'core' => $1,
+                                    'temp' => $2 });
+                        }
+                elsif (/CPU:\s+([\+\-][0-9\.]+)/) {
+                        push(@rv, { 'core' => 0,
+                                    'temp' => $1 });
+                        }
+                }
+        close($fh);
+        }
+return @rv;
+}
+
+# get_cpu_io_usage()
+# Returns a list containing CPU user, kernel, idle, io and VM time, and IO
+# blocks in and out
+sub get_cpu_io_usage
+{
+my $out,@lines,@w;
+if (&has_command("vmstat")) {
+        $out = &backquote_command("vmstat 1 2 2>/dev/null");
+        @lines = split(/\r?\n/, $out);
+        @w = split(/\s+/, $lines[$#lines]);
+        shift(@w) if ($w[0] eq '');
+        if ($w[8] =~ /^\d+$/ && $w[9] =~ /^\d+$/) {
+            return ( @w[12..16], $w[8], $w[9] );
+        }
+    } elsif (&has_command("dstat")) {
+        $out = &backquote_command("dstat 1 1 2>/dev/null");
+        @lines = split(/\r?\n/, $out);
+        @w = split(/[\s|]+/, $lines[$#lines]);
+        shift(@w) if ($w[0] eq '');
+        return( @w[0..4], @w[6..7]);
+    }
+    return undef;
 }
 
 1;

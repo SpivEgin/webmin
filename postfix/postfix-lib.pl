@@ -34,7 +34,7 @@ if (!$postfix_version) {
 	&close_tempfile(VERSION);
 	}
 
-if ($postfix_version >= 2) {
+if (&compare_version_numbers($postfix_version, 2) >= 0) {
 	$virtual_maps = "virtual_alias_maps";
 	$ldap_timeout = "ldap_timeout";
 	}
@@ -121,8 +121,8 @@ foreach my $l (@$lref) {
 if (!defined($out)) {
 	# Fall back to asking Postfix
 	# -h tells postconf not to output the name of the parameter
-	$out = &backquote_command(
-	  "$config{'postfix_config_command'} -c $config_dir -h $name 2>/dev/null", 1);
+	$out = &backquote_command("$config{'postfix_config_command'} -c $config_dir -h ".
+				  quotemeta($name)." 2>/dev/null", 1);
 	if ($?) {
 		&error(&text('query_get_efailed', $name, $out));
 		}
@@ -130,6 +130,10 @@ if (!defined($out)) {
 		return undef;
 		}
 	chop($out);
+	}
+else {
+	# Trim trailing whitespace
+	$out =~ s/\s+$//;
 	}
 if ($key) {
 	# If the value asked for was like foo:bar, extract from the value
@@ -738,6 +742,7 @@ sub get_maps
 			 $_[2] ? &get_maps_types_files($_[2]) :
 			         &get_maps_types_files(&get_real_value($_[0]));
 	my $number = 0;
+	$maps_cache{$_[0]} = [ ];
 	foreach my $maps_type_file (@maps_files)
 	{
 	    my ($maps_type, $maps_file) = @$maps_type_file;
@@ -1457,7 +1462,17 @@ if (defined($save_file)) {
 # Returns the value of a parameter, with $ substitions done
 sub get_real_value
 {
-my $v = &get_current_value($_[0]);
+my ($name) = @_;
+my $v = &get_current_value($name);
+if ($postfix_version >= 2.1 && $v =~ /\$/) {
+	# Try to use the built-in command to expand the param
+	my $out = &backquote_command("$config{'postfix_config_command'} -c $config_dir -x -h ".
+				     quotemeta($name)." 2>/dev/null", 1);
+	if (!$? && $out !~ /warning:.*unknown\s+parameter/) {
+		chop($out);
+		return $out;
+		}
+	}
 $v =~ s/\$(\{([^\}]+)\}|([A-Za-z0-9\.\-\_]+))/get_real_value($2 || $3)/ge;
 return $v;
 }
@@ -1731,9 +1746,11 @@ foreach my $q (@$qfiles) {
 # Show the table and form
 print &ui_form_columns_table("delete_queues.cgi",
 	[ [ undef, $text{'mailq_delete'} ],
-	  $postfix_version >= 1.1 ? ( [ 'move', $text{'mailq_move'} ] ) : ( ),
-	  $postfix_version >= 2 ? ( [ 'hold', $text{'mailq_hold'} ],
-				    [ 'unhold', $text{'mailq_unhold'} ] ) : ( ),
+	  &compare_version_numbers($postfix_version, 1.1) >= 0 ?
+		( [ 'move', $text{'mailq_move'} ] ) : ( ),
+	  &compare_version_numbers($postfix_version, 2) >= 0 ?
+		( [ 'hold', $text{'mailq_hold'} ],
+		  [ 'unhold', $text{'mailq_unhold'} ] ) : ( ),
 	],
 	1,
 	undef,
@@ -1895,11 +1912,12 @@ elsif ($type eq "mysql") {
 		$conf->{'dbname'} || return &text('mysql_esource', $value);
 		}
 
-	# Do we have the field and table info?
-	foreach my $need ('table', 'select_field', 'where_field') {
-		$conf->{$need} || return &text('mysql_eneed', $need);
+	if (!$conf->{"query"}) {
+		# Do we have the field and table info?
+		foreach my $need ('table', 'select_field', 'where_field') {
+			$conf->{$need} || return &text('mysql_eneed', $need);
+			}
 		}
-
 	# Try a connect, and a query
 	local $dbh = &connect_mysql_db($conf);
 	if (!ref($dbh)) {
@@ -2068,6 +2086,13 @@ if ($value =~ /^[\/\.]/) {
 		}
 	-r $cfile || &error(&text('mysql_ecfile', "<tt>$cfile</tt>"));
 	$conf = &get_backend_config($cfile);
+		
+	if ($conf->{'query'} =~ /^select\s+(\S+)\s+from\s+(\S+)\s+where\s+(\S+)\s*=\s*'\%s'/i && !$conf->{'table'}) {
+		# Try to extract table and fields from the query
+		$conf->{'select_field'} = $1;
+		$conf->{'table'} = $2;
+		$conf->{'where_field'} = $3;
+		}
 	}
 else {
 	# Backend name
@@ -2078,7 +2103,7 @@ else {
 		local $v = &get_real_value($value."_".$k);
 		$conf->{$k} = $v;
 		}
-	if ($conf->{'query'} =~ /^select\s+(\S+)\s+from\s+(\S+)\s+where\s+(\S+)\s+=\s+'\%s'/i && !$conf->{'table'}) {
+	if ($conf->{'query'} =~ /^select\s+(\S+)\s+from\s+(\S+)\s+where\s+(\S+)\s*=\s*'\%s'/i && !$conf->{'table'}) {
 		# Try to extract table and fields from the query
 		$conf->{'select_field'} = $1;
 		$conf->{'table'} = $2;
@@ -2173,8 +2198,9 @@ sub list_smtpd_restrictions
 {
 return ( "permit_mynetworks",
 	 "permit_inet_interfaces",
-	 $postfix_version < 2.3 ? "reject_unknown_client"
-				: "reject_unknown_reverse_client_hostname",
+	 &compare_version_numbers($postfix_version, 2.3) < 0 ?
+		"reject_unknown_client" :
+		"reject_unknown_reverse_client_hostname",
 	 "permit_sasl_authenticated",
 	 "reject_unauth_destination",
 	 "check_relay_domains",
@@ -2187,9 +2213,11 @@ sub list_client_restrictions
 {
 return ( "permit_mynetworks",
 	 "permit_inet_interfaces",
-	 $postfix_version < 2.3 ? "reject_unknown_client"
-				: "reject_unknown_reverse_client_hostname",
+	 &compare_version_numbers($postfix_version, 2.3) < 0 ?
+		"reject_unknown_client" :
+		"reject_unknown_reverse_client_hostname",
 	 "permit_tls_all_clientcerts",
+	 "permit_sasl_authenticated",
 	);
 }
 

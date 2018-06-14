@@ -45,7 +45,7 @@ if (my $out = &check_bind_8()) {
 # Try to get the version number, and save for later calls
 my $bind_version = &get_bind_version();
 if ($bind_version && $bind_version =~ /^(\d+\.\d+)\./) {
-	# Convery to properly formatted number
+	# Convert to properly formatted number
 	$bind_version = $1;
 	}
 my $VERSION;
@@ -101,7 +101,6 @@ if (@zones && $access{'zones'} eq '*' && !$access{'ro'}) {
 	foreach my $z (@zones) {
                 my $zonefile = &make_chroot(&absolute_path($z->{'file'}));
                 if ($z->{'type'} eq 'master' && $z->{'file'} && !-r $zonefile) {
-                        print STDERR "Missing chrooted zone file '${zonefile}'\n";
 			push(@missing, $z);
 			}
 		}
@@ -117,6 +116,12 @@ if (@zones && $access{'zones'} eq '*' && !$access{'ro'}) {
 		print "<b>",&text('index_checkconfig',
 				  "../config.cgi?$module_name"),"</b><p>\n";
 		}
+	}
+
+# Check for obsolete DNSSEC config
+if ($access{'defaults'}) {
+	my $err = &check_dnssec_client();
+	print "<center>".$err."</center>" if ($err);
 	}
 
 if ($access{'defaults'}) {
@@ -505,8 +510,8 @@ foreach my $c (@{$_[0]}) {
 
 sub compare_zones
 {
-my @sp0 = split(/\./, lc($_[0]));
-my @sp1 = split(/\./, lc($_[1]));
+my @sp0 = split(/\./, lc($_[0] || ""));
+my @sp1 = split(/\./, lc($_[1] || ""));
 for(my $i=0; $i<@sp0 || $i<@sp1; $i++) {
 	if ($sp0[$i] =~ /^\d+$/ && $sp1[$i] =~ /^\d+$/) {
 		return -1 if ($sp0[$i] < $sp1[$i]);

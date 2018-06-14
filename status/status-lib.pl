@@ -25,6 +25,12 @@ if (!-r $fails_file) {
 	$fails_file = "$module_var_directory/fails";
 	}
 
+# Last email sent for each monitor
+$lastsent_file = "$module_config_directory/lastsent";
+if (!-r $lastsent_file) {
+	$lastsent_file = "$module_var_directory/lastsent";
+	}
+
 # Directory of historic results for each monitor
 $history_dir = "$module_config_directory/history";
 if (!-d $history_dir) {
@@ -387,7 +393,7 @@ return $group->{'name'}." (".
 }
 
 # list_notification_modes()
-# Returns a list of available notifcation modes (like email, sms, etc..)
+# Returns a list of available notification modes (like email, sms, etc..)
 sub list_notification_modes
 {
 my @rv = ( "email" );

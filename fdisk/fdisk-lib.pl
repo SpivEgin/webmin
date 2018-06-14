@@ -202,6 +202,10 @@ if (open(PARTS, "/proc/partitions")) {
 			# SD card / MMC, seen on Raspberry Pi
 			push(@devs, "/dev/$1");
 			}
+		elsif (/\d+\s+\d+\s+\d+\s+(nvme\d+n\d+)\s/) {
+			# NVME SSD
+			push(@devs, "/dev/$1");
+			}
 		}
 	close(PARTS);
 
@@ -403,6 +407,12 @@ while(<FDISK>) {
 			$disk->{'type'} = 'raid';
 			$disk->{'prefix'} =~ s/disc$/part/g;
 			}
+		elsif ($disk->{'device'} =~ /\/nvme(\d+)n(\d+)$/) {
+			# NVME SSD controller
+			$disk->{'desc'} = &text('select_nvme', "$1", "$2");
+			$disk->{'type'} = 'scsi';
+			$disk->{'prefix'} = $disk->{'device'}.'p';
+			}
 
 		# Work out short name, like sda
 		local $short;
@@ -441,7 +451,7 @@ while(<FDISK>) {
 		$disk->{'size'} = $disk->{'cylinders'} * $disk->{'cylsize'};
 		}
 	elsif (/(\/dev\/\S+?(\d+))[ \t*]+\d+\s+(\d+)\s+(\d+)\s+(\S+)\s+(\S{1,2})\s+(.*)/ || /(\/dev\/\S+?(\d+))[ \t*]+(\d+)\s+(\d+)\s+(\S+)\s+(\S{1,2})\s+(.*)/) {
-		# Partition within the current disk from fdisk
+		# Partition within the current disk from fdisk (msdos format)
 		local $part = { 'number' => $2,
 				'device' => $1,
 				'type' => $6,
@@ -449,6 +459,21 @@ while(<FDISK>) {
 				'end' => $4,
 				'blocks' => int($5),
 				'extended' => $6 eq '5' || $6 eq 'f' ? 1 : 0,
+				'index' => scalar(@{$disk->{'parts'}}),
+			 	'edittype' => 1, };
+		$part->{'desc'} = &partition_description($part->{'device'});
+		$part->{'size'} = ($part->{'end'} - $part->{'start'} + 1) *
+				  $disk->{'cylsize'};
+		push(@{$disk->{'parts'}}, $part);
+		}
+	elsif (/(\/dev\/\S+?(\d+))\s+(\d+)\s+(\d+)\s+(\d+)\s+([0-9\.]+[kMGTP])\s+(\S.*)/) {
+		# Partition within the current disk from fdisk (gpt format)
+		local $part = { 'number' => $2,
+                                'device' => $1,
+				'type' => $7,
+				'start' => $3,
+				'end' => $4,
+				'blocks' => $5,
 				'index' => scalar(@{$disk->{'parts'}}),
 			 	'edittype' => 1, };
 		$part->{'desc'} = &partition_description($part->{'device'});
@@ -514,7 +539,7 @@ while(<FDISK>) {
 			}
 		$part->{'type'} = 'ext2' if (!$part->{'type'} ||
 					     $part->{'type'} =~ /^ext/);
-		$part->{'type'} = 'raid' if ($part->{'type'} eq 'ext2' &&
+		$part->{'type'} = 'raid' if ($part->{'type'} =~ /^ext/ &&
 					     $part->{'raid'});
 		$part->{'desc'} = &partition_description($part->{'device'});
 		$part->{'size'} = ($part->{'end'} - $part->{'start'} + 1) *
@@ -522,7 +547,11 @@ while(<FDISK>) {
 		push(@{$disk->{'parts'}}, $part);
 		}
 	elsif (/Partition\s+Table:\s+(\S+)/) {
-		# Parted partition table type
+		# Parted partition table type (from parted)
+		$disk->{'table'} = $1;
+		}
+	elsif (/Disklabel\s+type:\s+(\S+)/) {
+		# Parted partition table type (from fdisk)
 		$disk->{'table'} = $1;
 		}
 	}
@@ -611,6 +640,8 @@ return $device =~ /(s|h|xv|v)d([a-z]+)(\d+)$/ ?
 	 &text('select_smartpart', "$1", "$2", "$3") :
        $device =~ /ataraid\/disc(\d+)\/part(\d+)$/ ?
 	 &text('select_ppart', "$1", "$2") :
+       $device =~ /nvme(\d+)n(\d+)p(\d+)$/ ?
+	 &text('select_nvmepart', "$1", "$2", "$3") :
 	 "???";
 }
 

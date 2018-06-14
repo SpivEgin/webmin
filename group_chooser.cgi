@@ -25,7 +25,7 @@ if ($in{'multi'}) {
 		# base frame
 		&PrintHeader();
 		print "<script type='text/javascript'>\n";
-		@ul = &split_quoted(&filter_javascript($in{'group'}));
+		@ul = &split_quoted_string(&filter_javascript($in{'group'}));
 		$len = @ul;
 		print "sel = new Array($len);\n";
 		print "selr = new Array($len);\n";
@@ -51,10 +51,10 @@ if ($in{'multi'}) {
 		print "</script>\n";
 		print "<title>$text{'groups_title1'}</title>\n";
 		print "<frameset cols='50%,50%'>\n";
-		print "<frame src=\"group_chooser.cgi?frame=1&multi=1\">\n";
+		print "<frame src=\"$gconfig{'webprefix'}/group_chooser.cgi?frame=1&multi=1\">\n";
 		print "<frameset rows='*,50' frameborder=no>\n";
-		print " <frame src=\"group_chooser.cgi?frame=2&multi=1\">\n";
-		print " <frame src=\"group_chooser.cgi?frame=3&multi=1\" scrolling=no>\n";
+		print " <frame src=\"$gconfig{'webprefix'}/group_chooser.cgi?frame=2&multi=1\">\n";
+		print " <frame src=\"$gconfig{'webprefix'}/group_chooser.cgi?frame=3&multi=1\" scrolling=no>\n";
 		print "</frameset>\n";
 		print "</frameset>\n";
 		}
@@ -79,6 +79,7 @@ if ($in{'multi'}) {
 		foreach $u (&get_groups_list()) {
 			if ($in{'group'} eq $u->[0]) { print "<tr class='filter_match' $cb>\n"; }
 			else { print "<tr class='filter_match'>\n"; }
+			$u->[0] =~ s/\\/\\\\/g;
 			print "<td width=20%><a href=\"\" onClick='return addgroup(\"$u->[0]\", \"$u->[3]\")'>$u->[0]</a></td>\n";
 			print "<td>$u->[3]</td> </tr>\n";
 			$cnt++;
@@ -190,7 +191,9 @@ if ($access{'gedit_mode'} == 2 || $access{'gedit_mode'} == 3) {
 	map { $gcan{$_}++ } split(/\s+/, $access{'gedit'});
 	}
 setgrent();
+local %doneg;
 while(@ginfo = getgrent()) {
+	next if ($doneg{$ginfo[0]}++);
 	@mems = &unique( split(/ /, $ginfo[3]), @{$members{$ginfo[2]}} );
 	if (@mems > 3) { @mems = (@mems[0..1], "..."); }
 	$ginfo[3] = join(' ', @mems);
@@ -206,18 +209,3 @@ while(@ginfo = getgrent()) {
 endgrent() if ($gconfig{'os_type'} ne 'hpux');
 return sort { $a->[0] cmp $b->[0] } @groups;
 }
-
-# split_quoted(string)
-sub split_quoted
-{
-local @rv;
-local $str = $_[0];
-while($str =~ /^\s*(\S*"[^"]+"\S*)(.*)$/ || $str =~ /^\s*(\S+)(.*)$/) {
-	$str = $2;
-	local $g = $1;
-	$g =~ s/"//g;
-	push(@rv, $g);
-	}
-return @rv;
-}
-

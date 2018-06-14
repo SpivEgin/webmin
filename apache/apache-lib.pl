@@ -97,6 +97,7 @@ $apache_docbase = $config{'apache_docbase'} ? $config{'apache_docbase'} :
 #  name -	The name of this directive
 #  value -	Value (possibly with spaces)
 #  members -	For type 1, a reference to the array of members
+#  indent -     Number of spaces before the name
 sub parse_config_file
 {
 local($fh, @rv, $line, %dummy);
@@ -224,32 +225,38 @@ while($line = <$fh>) {
 				    'name', "</IfVersion>" });
 			}
 		}
-	elsif ($line =~ /^\s*<(\S+)\s*(.*)>/) {
+	elsif ($line =~ /^(\s*)<(\S+)\s*(.*)>/) {
 		# start of a container directive. The first member is a dummy
 		# directive at the same line as the container
 		local(%dir, @members);
 		%dir = ('line', $_[1],
 			'file', $_[2],
 			'type', 1,
-			'name', $1,
-			'value', $2);
+			'name', $2,
+			'value', $3);
+		local $indent = $1;
 		$dir{'value'} =~ s/\s+$//g;
 		$dir{'words'} = &wsplit($dir{'value'});
 		$_[1]++;
 		@members = &parse_config_file($fh, $_[1], $_[2], $dir{'name'});
 		$dir{'members'} = \@members;
 		$dir{'eline'} = $_[1]-1;
+		$indent =~ s/\t/        /g;
+		$dir{'indent'} = length($indent);
 		push(@rv, \%dir);
 		}
-	elsif ($line =~ /^\s*(\S+)\s*(.*)$/) {
+	elsif ($line =~ /^(\s*)(\S+)\s*(.*)$/) {
 		# normal directive
 		local(%dir);
 		%dir = ('line', $_[1],
 			'eline', $_[1],
 			'file', $_[2],
 			'type', 0,
-			'name', $1,
-			'value', $2);
+			'name', $2,
+			'value', $3);
+		local $indent = $1;
+		$indent =~ s/\t/        /g;
+		$dir{'indent'} = length($indent);
 		if ($dir{'value'} =~ s/\\$//g) {
 			# multi-line directive!
 			while($line = <$fh>) {
@@ -318,7 +325,7 @@ return wantarray ? @vals : !@vals ? undef : $vals[$#vals];
 }
 
 # find_directive_struct(name, &directives)
-# Returns references to directives maching some name
+# Returns references to directives matching some name
 sub find_directive_struct
 {
 local (@vals, $ref);
@@ -586,7 +593,8 @@ for($i=0; $i<@old || $i<@{$_[1]}; $i++) {
 		$old[$i]->{'value'} = $v;
 		$old[$i]->{'words'} = &wsplit($v);
 		$old[$i]->{'eline'} = $old[$i]->{'line'};
-		splice(@$lref, $old[$i]->{'line'}, $len, "$_[0] $v");
+		splice(@$lref, $old[$i]->{'line'}, $len,
+			(" " x $old[$i]->{'indent'}).$_[0]." ".$v);
 		$change = $old[$i];
 		}
 	}

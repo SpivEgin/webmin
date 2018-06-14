@@ -6,6 +6,7 @@ require './lvm-lib.pl';
 ($vg) = grep { $_->{'name'} eq $in{'vg'} } &list_volume_groups();
 $vg || &error($text{'vg_egone'});
 @lvs = &list_logical_volumes($in{'vg'});
+@thins = grep { $_->{'thin'} } @lvs;
 @pvs = &list_physical_volumes($in{'vg'});
 
 $vgdesc = &text('lv_vg', $vg->{'name'});
@@ -51,6 +52,19 @@ else {
 				    &ui_textbox("name", $lv->{'name'}, 30));
 		}
 
+	# Thinpool to create in, if any exist
+	if (!$in{'lv'} && @thins) {
+		print &ui_table_row($text{'lv_thin'},
+			&ui_select("thin", "",
+				   [ [ "", $text{'lv_nothin'} ],
+				     (map { $_->{'name'} } @thins) ]), 3);
+		}
+	elsif ($lv->{'thin_in'}) {
+		print &ui_table_row($text{'lv_thin2'},
+			&ui_link("edit_lv.cgi?vg=$in{'vg'}&lv=$lv->{'thin_in'}",
+				 $lv->{'thin_in'}));
+		}
+
 	if (!$in{'lv'}) {
 		# Can show nice size chooser for absolute or relative size
 		@pvopts = map { $_->{'name'} }
@@ -68,6 +82,10 @@ else {
 			      	&ui_textbox("pvsize", undef, 4)."%",
 				&ui_select("pvof", undef, \@pvopts)) ],
 			  ]), 3);
+		}
+	elsif ($lv->{'snap_of'} && $lv->{'thin_in'}) {
+		# Snapshot inside a thin pool ... cannot resize
+		print &ui_hidden("size_mode", -1);
 		}
 	else {
 		# Check if size is exactly some number of TB, GB or MB, less
@@ -113,7 +131,7 @@ print &ui_table_row($text{'lv_petotal'},
 print &ui_table_row($text{'lv_pesize'},
 	&nice_size($vg->{'pe_size'}*1024));
 
-if ($in{'lv'}) {
+if ($in{'lv'} && !$lv->{'thin'}) {
 	# Device file and current status
 	print &ui_table_row($text{'lv_device'}, "<tt>$lv->{'device'}</tt>");
 
@@ -124,16 +142,19 @@ if ($in{'lv'}) {
 if ($lv->{'is_snap'}) {
 	if ($in{'lv'}) {
 		# Show which LV this is a snapshot of
-		local @snapof;
+		local $snapof;
 		if ($lv->{'snap_of'}) {
-			@snapof = grep { $_->{'name'} eq $lv->{'snap_of'}} @lvs;
+			($snapof) = grep { $_->{'name'} eq $lv->{'snap_of'} }
+					 @lvs;
 			}
 		else {
-			@snapof = grep { $_->{'size'} == $lv->{'size'} &&
-					 $_->{'has_snap'} } @lvs;
+			($snapof) = grep { $_->{'size'} == $lv->{'size'} &&
+					   $_->{'has_snap'} } @lvs;
 			}
-		if (@snapof == 1) {
-			$snapsel = "<tt>$snapof[0]->{'name'}</tt>";
+		if ($snapof) {
+			$snapsel = &ui_link(
+				"edit_lv.cgi?vg=$in{'vg'}&lv=$snapof->{'name'}",
+				$snapof->{'name'});
 			}
 		else {
 			$snapsel = "<i>$text{'lv_nosnap'}</i>";
@@ -207,8 +228,6 @@ if (!$lv->{'is_snap'}) {
                                  map { 2**$_ } ( 7 .. 16) ]));
         }
 
-
-
 # Show free disk space
 if (@stat && $stat[2]) {
 	($total, $free) = &mount::disk_space($stat[1], $stat[0]);
@@ -230,6 +249,24 @@ if ($in{'lv'}) {
 			}
 		print &ui_table_row($text{'lv_pvs'},
 			&ui_grid_table(\@pvlist, 4), 3);
+		}
+	}
+
+# Show thin pool users
+if ($in{'lv'} && $lv->{'thin'}) {
+	print &ui_table_row($text{'lv_thinused'},
+		&nice_size($lv->{'thin_used'} * 1024));
+
+	print &ui_table_row($text{'lv_thinpercent'},
+		$lv->{'thin_percent'}."%");
+
+	@thinc = grep { $_->{'thin_in'} eq $lv->{'name'} } @lvs;
+	if (@thinc) {
+		foreach $t (@thinc) {
+			push(@thinlist, &ui_link("edit_lv.cgi?vg=$in{'vg'}&lv=$t->{'name'}", $t->{'name'})." ".&nice_size($t->{'size'} * 1024));
+			}
+		print &ui_table_row($text{'lv_thincs'},
+			&ui_grid_table(\@thinlist, 4), 3);
 		}
 	}
 
@@ -261,7 +298,7 @@ else {
 	print &ui_form_end([ [ undef, $text{'create'} ] ]);
 	}
 
-if ($in{'lv'} && !$stat[2] && !$lv->{'is_snap'} &&
+if ($in{'lv'} && !$stat[2] && !$lv->{'is_snap'} && !$lv->{'thin'} &&
     $stat[1] ne 'cloudmin' && $stat[1] ne 'iscsi') {
 	print &ui_hr();
 	print &ui_buttons_start();
@@ -271,14 +308,18 @@ if ($in{'lv'} && !$stat[2] && !$lv->{'is_snap'} &&
 		# Use FS from fstab
 		print &ui_buttons_row("mkfs_form.cgi", $text{'lv_mkfs2'},
 			      &text('lv_mkfsdesc2', uc($stat[1])),
-			      &ui_hidden("dev", $lv->{'device'}),
-			      &ui_hidden("fs", $stat[1]));
+			      &ui_hidden("dev", $lv->{'device'}).
+			      &ui_hidden("fs", $stat[1]).
+			      &ui_hidden("lv", $in{'lv'}).
+			      &ui_hidden("vg", $in{'vg'}));
 		}
 	else {
 		# Can select FS
 		print &ui_buttons_row("mkfs_form.cgi", $text{'lv_mkfs'},
 			      $text{'lv_mkfsdesc'},
-			      &ui_hidden("dev", $lv->{'device'}),
+			      &ui_hidden("dev", $lv->{'device'}).
+			      &ui_hidden("lv", $in{'lv'}).
+			      &ui_hidden("vg", $in{'vg'}),
 			      &ui_select("fs", "ext3",
 				[ map { [ $_, $fdisk::text{"fs_".$_}." ($_)" ] }
 				      &fdisk::supported_filesystems() ]));
@@ -299,7 +340,7 @@ if ($in{'lv'} && !$stat[2] && !$lv->{'is_snap'} &&
 	}
 
 # Show PV move form
-if ($in{'lv'} && @pvs > 1) {
+if ($in{'lv'} && @pvs > 1 && @pvinfo) {
 	print &ui_form_start("pvmove.cgi");
 	print &ui_hidden("vg", $in{'vg'});
 	print &ui_hidden("lv", $in{'lv'});

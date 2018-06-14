@@ -10,6 +10,7 @@ index_none3=Encara no tens cap treball cron.
 index_create=Crea una nou treball planificat amb cron.
 index_ecreate=Crea una nova variable d'entorn.
 index_allow=Controla l'accés dels usuaris als treballs cron.
+index_manual=Edita manualment els treballs cron.
 index_return=a la llista de cron
 index_env=Variable d'entorn
 index_move=Desplaça
@@ -17,6 +18,7 @@ index_run=En execució
 index_ecmd=No s'ha trobat l'ordre $1 en gestionar les configuracions d'usuari de Cron. Pot ser que Cron no estigui instal·lat en aquest sistema?
 index_esingle=El fitxer $1 que llista els treballs Cron no existeix. Pot ser que Cron no estigui instal·lat en aquest sistema?
 index_ecrondir=El directori de treballs Cron $1 no existeix.  Pot ser que la configuracio del mòdul sigui incorrecta o bé que Cron no estigui instal·lat?
+index_ecrondir_create=Prova de crear el directori de treballs $1
 index_delete=Suprimeix els Treballs Seleccionats
 index_disable=Desactiva els Treballs Seleccionats
 index_enable=Activa els Treballs Seleccionats
@@ -180,4 +182,12 @@ range_eend=Hi falta la data final de l'interval o bé és invàlida
 
 delete_err=No s'han pogut suprimir els treballs Cron
 delete_enone=No has seleccionat res
+
+manual_title=Edició Manual de Treballs Cron
+manual_edit=Fitxer cron a editar:
+manual_ok=Edita
+manual_editing=Utilitza la caixa de text de sota per editar el treballs Cronde $1. Ves amb compte, perquè Webmin no en farà cap validació!
+manual_efile=El fitxer seleccionat no és vàlid!
+manual_ecannot=No tens permís per editar manualment els treballs cron
+
 __norefs=1

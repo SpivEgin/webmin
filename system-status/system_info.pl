@@ -202,9 +202,57 @@ if ($info->{'disk_total'} && &show_section('disk')) {
 		       'chart' => [ $total, $total-$free ] });
 	}
 
+# Warnings about filesytems running now on space
+if ($info->{'disk_fs'} && &show_section('disk')) {
+	foreach my $fs (@{$info->{'disk_fs'}}) {
+		next if (!$fs->{'total'});
+		if ($fs->{'free'} == 0) {
+			my $msg = &text('right_fsfull',
+					"<tt>$fs->{'dir'}</tt>",
+					&nice_size($fs->{'total'}));
+			push(@rv, { 'type' => 'warning',
+				    'level' => 'danger',
+				    'warning' => $msg });
+			}
+		elsif ($fs->{'free'}*1.0 / $fs->{'total'} < 0.01) {
+			my $msg = &text('right_fsnearly',
+					"<tt>$fs->{'dir'}</tt>",
+					&nice_size($fs->{'total'}),
+					&nice_size($fs->{'free'}));
+			push(@rv, { 'type' => 'warning',
+				    'level' => 'warn',
+				    'warning' => $msg });
+			}
+		next if (!$fs->{'itotal'});
+		if ($fs->{'ifree'} == 0) {
+			my $msg = &text('right_ifsfull',
+					"<tt>$fs->{'dir'}</tt>",
+					$fs->{'itotal'});
+			push(@rv, { 'type' => 'warning',
+				    'level' => 'danger',
+				    'warning' => $msg });
+			}
+		elsif ($fs->{'ifree'}*1.0 / $fs->{'itotal'} < 0.01) {
+			my $msg = &text('right_ifsnearly',
+					"<tt>$fs->{'dir'}</tt>",
+					$fs->{'itotal'},
+					$fs->{'ifree'});
+			push(@rv, { 'type' => 'warning',
+				    'level' => 'warn',
+				    'warning' => $msg });
+			}
+		}
+	}
+
 # Package updates
 if ($info->{'poss'} && &show_section('poss')) {
 	my @poss = @{$info->{'poss'}};
+	&foreign_require("package-updates");
+	my %prog;
+	foreach my $p (&package_updates::get_update_progress()) {
+		%prog = (%prog, (map { $_, 1 } split(/\s+/, $p->{'pkgs'})));
+		}
+	@poss = grep { !$prog{$_->{'name'}} } @poss;
 	my @secs = grep { $_->{'security'} } @poss;
 	my $msg;
 	if (@poss && @secs) {

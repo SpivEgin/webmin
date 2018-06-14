@@ -13,7 +13,7 @@ print &ui_table_row($text{'web_expires'},
 	&ui_opt_textbox("expires", $miniserv{'expires'}, 10,
 			$text{'web_expiresdef'}, $text{'web_expiressecs'}), undef, [ "valign=middle","valign=middle" ]);
 
-# Additonal expiry times based on path
+# Additional expiry times based on path
 my @expires_paths;
 foreach my $pe (split(/\t+/, $miniserv{'expires_paths'})) {
 	my ($p, $e) = split(/=/, $pe);
@@ -59,6 +59,10 @@ print &ui_table_row($text{'advanced_redir'},
 	&ui_radio("redir", $gconfig{'relative_redir'} ? 1 : 0,
 		  [ [ 1, $text{'advanced_redir1'} ],
 		    [ 0, $text{'advanced_redir0'} ] ]), undef, [ "valign=middle","valign=middle" ]);
+
+# Allow directory listing
+print &ui_table_row($text{'advanced_listdir'},
+	&ui_yesno_radio("listdir", !$miniserv{'nolistdir'}));
 
 print &ui_table_end();
 print &ui_form_end([ [ "save", $text{'save'} ] ]);

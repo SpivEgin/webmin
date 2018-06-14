@@ -129,11 +129,14 @@ return $name eq "dhcpd" && $gconfig{'os_version'} >= 7 ?
        $name eq "mysql" && $gconfig{'os_version'} < 7 ?
 		"mysql-client mysql-server mysql-admin" :
        $name eq "apache" ? "apache2" :
+       $name eq "squid" && $gconfig{'os_version'} >= 8 ?
+		"squid3" :
        $name eq "postgresql" ? "postgresql postgresql-client" :
        $name eq "openssh" ? "ssh" :
        $name eq "openldap" ? "slapd" :
        $name eq "ldap" ? "libnss-ldap libpam-ldap" :
        $name eq "dovecot" ? "dovecot-common dovecot-imapd dovecot-pop3d" :
+       $name eq "virtualmin-modules" ? "webmin-.*" :
 			       $name;
 }
 
@@ -255,6 +258,9 @@ if (&has_command("apt-show-versions")) {
 	close(PKGS);
 	&reset_environment();
 	@rv = &filter_held_packages(@rv);
+	foreach my $pkg (@rv) {
+		$pkg->{'security'} = 1 if ($pkg->{'source'} =~ /security/i);
+		}
 	return @rv;
 	}
 else {

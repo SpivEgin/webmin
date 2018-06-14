@@ -26,10 +26,10 @@ else {
 
 if ($in{'delete'}) {
 	# Just delete the jail
-	&lock_file($jail->{'file'});
+	&lock_all_config_files();
 	&delete_section($jail->{'file'}, $jail,
 			$jail->{'file'} =~ /jail.local$/ ? 1 : 0);
-	&unlock_file($jail->{'file'});
+	&unlock_all_config_files();
 	}
 else {
 	# Validate inputs
@@ -97,11 +97,12 @@ else {
 	foreach my $ip (@ignoreips) {
 		&check_ipaddress($ip) || &check_ip6address($ip) ||
 		    ($ip =~ /^([0-9\.]+)\/(\d+)/ && &check_ipaddress("$1")) ||
+		    &to_ipaddress($ip) ||
 			&error($text{'jail_eignoreip'});
 		}
 
 	# Create new section or rename existing if needed
-	&lock_file($jail->{'file'});
+	&lock_all_config_files();
 	if ($in{'new'}) {
 		&create_section($jail->{'file'}, $jail);
 		}
@@ -111,7 +112,7 @@ else {
 
 	# Save directives within the section
 	&save_directive("enabled", $in{'enabled'} ? 'true' : 'false', $jail);
-	&save_directive("filter", $in{'filter'}, $jail);
+	&save_directive("filter", $in{'filter'} || undef, $jail);
 	&save_directive("action", @actions ? join("\n", @actions)
 					   : undef, $jail);
 	&save_directive("logpath", join("\n", @logpaths), $jail);
@@ -121,7 +122,7 @@ else {
 	&save_directive("ignoreip",
 		@ignoreips ? join(" ", @ignoreips) : undef, $jail);
 
-	&unlock_file($jail->{'file'});
+	&unlock_all_config_files();
 	}
 
 # Log and redirect

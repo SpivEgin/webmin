@@ -129,13 +129,14 @@ print ui_table_row($text{'ssl_download'}, &ui_links_row(\@clinks));
 print ui_table_end();
 print ui_tabs_end_tab();
 
-# Table listing per-IP SSL certs
+# Table listing per-IP / domain SSL certs
 print ui_tabs_start_tab("mode", "ips");
 print "$text{'ssl_ipkeys'}<p>\n";
 my @ipkeys = get_ipkeys(\%miniserv);
 if (@ipkeys) {
-	print ui_columns_start([ $text{'ssl_ips'}, $text{'ssl_key'},
-				  $text{'ssl_cert'} ]);
+	print ui_columns_start([ $text{'ssl_ips'},
+				 $text{'ssl_key'},
+				 $text{'ssl_cert'} ]);
 	foreach my $k (@ipkeys) {
 		print ui_columns_row([
 			ui_link("edit_ipkey.cgi?idx=".$k->{'index'},
@@ -274,7 +275,7 @@ else {
 	my @opts;
 
 	my $webroot = $config{'letsencrypt_webroot'};
-	my $mode = $webroot ? 2 : 0;
+	my $mode = $webroot eq 'dns' ? 3 : $webroot ? 2 : 0;
 	if (&foreign_installed("apache")) {
 		&foreign_require("apache");
 		my $conf = &apache::get_config();
@@ -297,6 +298,7 @@ else {
 		}
 	push(@opts, [ 2, $text{'ssl_webroot2'},
 		      &ui_textbox("webroot", $webroot, 40) ]);
+	push(@opts, [ 3, $text{'ssl_webroot3'} ]);
 	print &ui_table_row($text{'ssl_webroot'},
 		&ui_radio_table("webroot_mode", $mode, \@opts));
 
@@ -308,6 +310,12 @@ else {
 	print &ui_table_row($text{'ssl_size'},
 		&ui_opt_textbox("size", undef, 6, $text{'default'}).
 				" ".$text{'ssl_bits'});
+
+	# Staging mode
+	print &ui_table_row($text{'ssl_staging'},
+		&ui_radio("staging", 0,
+			  [ [ 0, $text{'ssl_staging0'} ],
+			    [ 1, $text{'ssl_staging1'} ] ]));
 
 	# Renewal option
 	my $job = &find_letsencrypt_cron_job();

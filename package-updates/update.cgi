@@ -3,10 +3,21 @@
 
 require './package-updates-lib.pl';
 &ReadParse();
-$redir = "index.cgi?mode=".&urlize($in{'mode'}).
-	 "&search=".&urlize($in{'search'});
+if ($in{'redir'}) {
+	$redir = $in{'redir'};
+	$redirdesc = $in{'redirdesc'};
+	}
+elsif ($in{'redirdesc'}) {
+	$redir = "javascript:history.back()";
+	$redirdesc = $in{'redirdesc'};
+	}
+else {
+	$redir = "index.cgi?mode=".&urlize($in{'mode'}).
+		 "&search=".&urlize($in{'search'});
+	$redirdesc = $text{'index_return'};
+	}
 
-if ($in{'refresh'}) {
+if ($in{'refresh'} || $in{refresh_top}) {
 	&ui_print_unbuffered_header(undef, $text{'refresh_title'}, "");
 
 	# Clear all caches
@@ -21,7 +32,7 @@ if ($in{'refresh'}) {
 	print &text('refresh_done3', scalar(@avail)),"<p>\n";
 
 	&webmin_log("refresh");
-	&ui_print_footer($redir, $text{'index_return'});
+	&ui_print_footer($redir, $redirdesc);
 	}
 else {
 	# Upgrade some packages
@@ -89,6 +100,7 @@ else {
 
 		# Do it
 		$msg = $in{'mode'} eq 'new' ? 'update_pkg2' : 'update_pkg';
+		&start_update_progress([ map { (split(/\//, $_))[0] } @pkgs ]);
 		if ($config{'update_multiple'} && @pkgs > 1) {
 			# Update all packages at once
 			@pkgnames = ( );
@@ -125,6 +137,7 @@ else {
 		else {
 			print $text{'update_failed'},"<p>\n";
 			}
+		&end_update_progress(\@pkgs);
 
 		# Refresh collected package info
 		if (&foreign_check("system-status")) {
@@ -153,5 +166,5 @@ else {
 			    { 'got' => \@got });
 		}
 
-	&ui_print_footer($redir, $text{'index_return'});
+	&ui_print_footer($redir, $redirdesc);
 	}

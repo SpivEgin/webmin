@@ -5,11 +5,11 @@
 require './lvm-lib.pl';
 &ReadParse();
 
+@lvs = &list_logical_volumes($in{'vg'});
 ($vg) = grep { $_->{'name'} eq $in{'vg'} } &list_volume_groups();
 $vg || &error($text{'vg_egone'});
 if ($in{'lv'}) {
-	($lv) = grep { $_->{'name'} eq $in{'lv'} }
-		     &list_logical_volumes($in{'vg'});
+	($lv) = grep { $_->{'name'} eq $in{'lv'} } @lvs;
 	$lv || &error($text{'lv_egone'});
 	$oldlv = { %$lv };
 	}
@@ -39,6 +39,13 @@ elsif ($in{'delete'}) {
 	print &ui_hidden("lv", $in{'lv'});
 	print "<b>",&text($lv->{'is_snap'} ? 'lv_rusnap' : 'lv_rusure',
 			  "<tt>$lv->{'device'}</tt>"),"</b><p>\n";
+	if ($lv->{'thin'}) {
+		@thinc = grep { $_->{'thin_in'} eq $lv->{'name'} } @lvs;
+		if (@thinc) {
+			print "<b>",&text('lv_delthin',
+					  scalar(@thinc)),"</b><p>\n";
+			}
+		}
 	print &ui_form_end([ [ 'confirm', $text{'lv_deleteok'} ] ]);
 	print "</center>\n";
 	&ui_print_footer("index.cgi?mode=lvs", $text{'index_return'});
@@ -64,7 +71,11 @@ else {
 		       &list_logical_volumes($in{'vg'});
 	$same && (!$in{'lv'} || $in{'lv'} ne $in{'name'}) &&
 		&error($text{'lv_esame'});
-	if ($in{'size_mode'} == 0) {
+	if ($in{'size_mode'} == -1) {
+		# Cannot change
+		$size = undef;
+		}
+	elsif ($in{'size_mode'} == 0) {
 		# Absolute size
 		$in{'size'} =~ /^\d+$/ || &error($text{'lv_esize'});
 		$size = $in{'size'};
@@ -129,6 +140,7 @@ else {
 			$lv->{'stripesize'} = $in{'stripesize'};
 			$lv->{'readahead'} = $in{'readahead'};
 			}
+		$lv->{'thin_in'} = $in{'thin'};
 		$err = &create_logical_volume($lv);
 		&error("<pre>$err</pre>") if ($err);
 		&webmin_log("create", "lv", $in{'name'}, $lv);
@@ -136,7 +148,7 @@ else {
 	elsif ($lv->{'is_snap'}) {
 		# Modifying a snapshot
 		$oldsize = $lv->{'cow_size'} || $lv->{'size'};
-		if ($oldsize != $size) {
+		if (defined($size) && $oldsize != $size) {
 			$err = &resize_snapshot_volume($lv, $size);
 			&error("<pre>$err</pre>") if ($err);
 			$lv->{'size'} = $size;

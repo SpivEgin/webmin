@@ -21,6 +21,7 @@ $access{'ro'} && &error($text{'master_ero'});
 &lock_file(&make_chroot(&absolute_path($zone->{'file'})));
 
 # Read the existing records
+&before_editing($zone);
 my @recs;
 if ($config{'largezones'} && !defined($in{'num'})) {
 	# Adding to a large zone, so only read the SOA
@@ -296,13 +297,21 @@ else {
 		    length($in{'value3'}) % 2 == 0 ||
 			&error(&text('edit_etlsa', $in{'value3'}));
 		}
+	elsif ($in{'type'} eq 'SSHFP') {
+		$in{'value0'} =~ /^\d+$/ ||
+			&error(text('edit_ealg', $in{'value0'}));
+		$in{'value1'} =~ /^\d+$/ ||
+			&error(text('edit_efp', $in{'value1'}));
+		$in{'value2'} =~ /^[a-f0-9]+$/ ||
+			&error(&text('edit_esshfp', $in{'value2'}));
+		}
 	elsif ($in{'type'} eq 'KEY') {
 		$in{'value0'} =~ /^(\d+|0x[0-9a-f]+={0,2})$/i ||
 			&error(text('edit_eflags', $in{'value0'}));
 		$in{'value1'} =~ /^\d+$/ ||
 			&error(text('edit_eproto', $in{'value1'}));
 		$in{'value2'} =~ /^\d+$/ ||
-			&error(text('edit_ealg', $in{'value2'}));
+			&error(text('edit_ealg2', $in{'value2'}));
 		$in{'value3'} =~ s/[ \r\n]//g;
 		$in{'value3'} =~ /^[a-zA-Z0-9\/\+]+$/ ||
 			&error(text('edit_ekey'));
@@ -337,14 +346,12 @@ else {
 			  ($ip =~ /^(\S+)\/\d+$/ && &check_ipaddress($1)) ||
 			    &error(&text('edit_espfip', $ip));
 			}
-		if (&supports_ipv6()) {
-			$spf->{'ip6:'} = [ split(/\s+/, $in{'spfip6s'}) ];
-			foreach my $ip (@{$spf->{'ip6:'}}) {
-				&check_ip6address($ip) ||
-				  ($ip =~ /^(\S+)\/\d+$/ &&
-				   &check_ip6address($1)) ||
-				    &error(&text('edit_espfip6', $ip));
-				}
+		$spf->{'ip6:'} = [ split(/\s+/, $in{'spfip6s'}) ];
+		foreach my $ip (@{$spf->{'ip6:'}}) {
+			&check_ip6address($ip) ||
+			  ($ip =~ /^(\S+)\/\d+$/ &&
+			   &check_ip6address($1)) ||
+			    &error(&text('edit_espfip6', $ip));
 			}
 		$spf->{'include:'} = [ split(/\s+/, $in{'spfincludes'}) ];
 		foreach my $i (@{$spf->{'include:'}}) {
@@ -360,6 +367,9 @@ else {
 					&error(&text('edit_espf'.$m, 
 						     $in{'spf'.$m}));
 				$spf->{$m} = $in{'spf'.$m};
+				if ($m eq 'redirect') {
+					delete($spf->{'all'});
+					}
 				}
 			}
 		$vals = "\"".&join_spf($spf)."\"";
@@ -636,6 +646,7 @@ else {
 	}
 &bump_soa_record($in{'file'}, \@recs);
 &sign_dnssec_zone_if_key($zone, \@recs);
+&after_editing($zone);
 &unlock_all_files();
 $r->{'newvalues'} = $vals;
 &webmin_log($in{'new'} ? 'create' : 'modify', 'record', $in{'origin'}, $r);
@@ -653,4 +664,3 @@ sub valnamewild
 {
 return valdnsname($_[0], 1, $in{'origin'});
 }
-

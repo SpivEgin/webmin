@@ -16,6 +16,10 @@ my $dom = $zone->{'name'};
 &can_edit_zone($zone) || &error($text{'master_ecannot'});
 
 my $file = $zone->{'file'};
+if (!$in{'show'}) {
+	&lock_all_files();
+	&before_editing($zone);
+	}
 my @recs = &read_zone_file($file, $dom);
 my @gens = grep { $_->{'generate'} } @recs;
 
@@ -113,6 +117,8 @@ for(my $i=0; defined($in{"type_$i"}); $i++) {
 	}
 &bump_soa_record($file, \@recs);
 &sign_dnssec_zone_if_key($zone, \@recs);
+&after_editing($zone);
+&unlock_all_files();
 &redirect("edit_master.cgi?zone=$in{'zone'}&view=$in{'view'}");
 
 sub expand_mods

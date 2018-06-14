@@ -93,6 +93,13 @@ if ($use_md5) {
 	push(@startup_msg, "Using MD5 module $use_md5");
 	}
 
+# Check if the SHA512 perl module is available
+eval "use Crypt::SHA";
+$use_sha512 = $@ ? "Crypt::SHA" : undef;
+if ($use_sha512) {
+	push(@startup_msg, "Using SHA512 module $use_sha512");
+	}
+
 # Get miniserv's perl path and location
 $miniserv_path = $0;
 open(SOURCE, $miniserv_path);
@@ -159,8 +166,11 @@ elsif (!$config{'no_pam'}) {
 		}
 	}
 if ($config{'pam_only'} && !$use_pam) {
-	print STDERR $startup_msg[0],"\n";
+	foreach $msg (@startup_msg) {
+	     print STDERR $msg,"\n";
+	}
 	print STDERR "PAM use is mandatory, but could not be enabled!\n";
+	print STDERR "no_pam and pam_only both are set!\n" if ($config{no_pam});
 	exit(1);
 	}
 elsif ($pam_msg && !$use_pam) {
@@ -272,6 +282,21 @@ if ($use_ssl) {
 			$ssl_contexts{$ip} = $ctx;
 			}
 		}
+
+	# Setup per-hostname SSL contexts on the main IP
+	if (defined(&Net::SSLeay::CTX_set_tlsext_servername_callback)) {
+		Net::SSLeay::CTX_set_tlsext_servername_callback(
+		    $ssl_contexts{"*"},
+		    sub {
+			my $ssl = shift;
+			my $h = Net::SSLeay::get_servername($ssl);
+			my $c = $ssl_contexts{$h} ||
+				$h =~ /^[^\.]+\.(.*)$/ && $ssl_contexts{"*.$1"};
+			if ($c) {
+				Net::SSLeay::set_SSL_CTX($ssl, $c);
+				}
+			});
+		}
 	}
 
 # Load gzip library if enabled
@@ -368,9 +393,6 @@ if (!$config{'inetd'}) {
 		eval "package $mod; use $mod ()";
 		if ($@) {
 			print STDERR "Failed to pre-load $mod : $@\n";
-			}
-		else {
-			print STDERR "Pre-loaded $mod\n";
 			}
 		}
 	}
@@ -539,8 +561,11 @@ $proto = getprotobyname('tcp');
 $tried_inaddr_any = 0;
 for($i=0; $i<@sockets; $i++) {
 	$fh = "MAIN$i";
-	socket($fh, $sockets[$i]->[2], SOCK_STREAM, $proto) ||
-		die "Failed to open socket family $sockets[$i]->[2] : $!";
+	if (!socket($fh, $sockets[$i]->[2], SOCK_STREAM, $proto)) {
+		# Protocol not supported
+		push(@sockerrs, "Failed to open socket family $sockets[$i]->[2] : $!");
+		next;
+		}
 	setsockopt($fh, SOL_SOCKET, SO_REUSEADDR, pack("l", 1));
 	if ($sockets[$i]->[2] eq PF_INET()) {
 		$pack = pack_sockaddr_in($sockets[$i]->[1], $sockets[$i]->[0]);
@@ -784,7 +809,11 @@ while(1) {
 			if ($time_now - $ltime > 7*24*60*60) {
 				&run_logout_script($s, $user, undef, undef);
 				&write_logout_utmp($user, $lip);
-				if ($use_syslog && $user) {
+				if ($user =~ /^\!/ || $sessiondb{$s} eq '') {
+					# Don't log anything for logged out
+					# sessions or those with no data
+					}
+				elsif ($use_syslog && $user) {
 					syslog("info", "%s",
 					      "Timeout of session for $user");
 					}
@@ -1083,11 +1112,7 @@ while(1) {
 					else {
 						# Session is OK
 						print $outfd "2 $user\n";
-						if ($lot &&
-						    $time_now - $ltime >
-						    ($lot*60)/2) {
-							$sessiondb{$skey} = "$user $time_now $ip";
-							}
+						$sessiondb{$skey} = "$user $time_now $ip";
 						}
 					}
 				}
@@ -1308,9 +1333,9 @@ elsif ($reqline !~ /^(\S+)\s+(.*)\s+HTTP\/1\..$/) {
 	if ($use_ssl) {
 		# This could be an http request when it should be https
 		$use_ssl = 0;
-		local $url = $config{'musthost'} ?
-				"https://$config{'musthost'}:$port/" :
-				"https://$host:$port/";
+		local $urlhost = $config{'musthost'} || $host;
+		$urlhost = "[".$urlhost."]" if (&check_ip6address($urlhost));
+		local $url = "https://$urlhost:$port/";
 		if ($config{'ssl_redirect'}) {
 			# Just re-direct to the correct URL
 			sleep(1);	# Give browser a change to finish
@@ -1545,7 +1570,7 @@ foreach my $m (@mobile_prefixes) {
 		}
 	}
 
-# check for the logout flag file, and if existant deny authentication
+# check for the logout flag file, and if existent deny authentication
 if ($config{'logout'} && -r $config{'logout'}.$in{'miniserv_logout_id'}) {
 	print DEBUG "handle_request: logout flag set\n";
 	$deny_authentication++;
@@ -1681,10 +1706,6 @@ if ($config{'userfile'}) {
 			&http_error(500, "Invalid password",
 				    "Password contains invalid characters");
 			}
-		if ($twofactor{$wvu}) {
-			&http_error(500, "No two-factor support",
-				    "HTTP authentication cannot be used when two-factor is enabled");
-			}
 
 		if ($config{'passdelay'} && !$config{'inetd'} && $authuser) {
 			# check with main process for delay
@@ -1736,15 +1757,19 @@ if ($config{'userfile'}) {
 			local ($vu, $expired, $nonexist, $wvu) =
 				&validate_user($in{'user'}, $in{'pass'}, $host,
 					       $acptip, $port);
-			if ($vu && $wvu && $twofactor{$wvu}) {
-				# Check two-factor token ID
-				$err = &validate_twofactor(
-					$wvu, $in{'twofactor'});
-				if ($err) {
-					&run_failed_script($vu, 'twofactor',
-							   $loghost, $localip);
-					$twofactor_msg = $err;
-					$vu = undef;
+			if ($vu && $wvu) {
+				my $uinfo = &get_user_details($wvu);
+				if ($uinfo && $uinfo->{'twofactor_provider'}) {
+					# Check two-factor token ID
+					$err = &validate_twofactor(
+						$wvu, $in{'twofactor'});
+					if ($err) {
+						&run_failed_script(
+							$vu, 'twofactor',
+							$loghost, $localip);
+						$twofactor_msg = $err;
+						$vu = undef;
+						}
 					}
 				}
 			local $hrv = &handle_login(
@@ -2233,7 +2258,10 @@ if (-d _) {
 	@stfull = stat($full) if (!$foundidx);
 	}
 if (-d _) {
-	# This is definately a directory.. list it
+	# This is definitely a directory.. list it
+	if ($config{'nolistdir'}) {
+		&http_error(500, "Directory is missing an index file");
+		}
 	print DEBUG "handle_request: listing directory\n";
 	local $resp = "HTTP/1.0 $ok_code $ok_message\r\n".
 		      "Date: $datestr\r\n".
@@ -2361,7 +2389,8 @@ if (&get_type($full) eq "internal/cgi" && $validated != 4) {
 	$nph_script = ($full =~ /\/nph-([^\/]+)$/);
 	seek(STDERR, 0, 2);
 	if (!$config{'forkcgis'} &&
-	    ($first eq $perl_path || $first eq $linked_perl_path) &&
+	    ($first eq $perl_path || $first eq $linked_perl_path ||
+	     $first =~ /\/perl$/ || $first =~ /^\/\S+\/env\s+perl$/) &&
 	      $] >= 5.004 ||
             $config{'internalcgis'}) {
 		# setup environment for eval
@@ -2827,9 +2856,9 @@ for($i=2; $i<@_; $i++) {
 		# Compare with an IPv6 network
 		local $v6size = $2;
 		local $v6addr = &canonicalize_ip6($1);
-		local $bytes = $v6size / 16;
-		@mo = split(/:/, $v6addr);
-		local @io6 = split(/:/, &canonicalize_ip6($_[0]));
+		local $bytes = $v6size / 8;
+		@mo = &expand_ipv6_bytes($v6addr);
+		local @io6 = &expand_ipv6_bytes(&canonicalize_ip6($_[0]));
 		for($j=0; $j<$bytes; $j++) {
 			if ($mo[$j] ne $io6[$j]) {
 				$mismatch = 1;
@@ -2940,11 +2969,13 @@ foreach $i (@_) {
 		# A pattern, not a hostname, so don't change
 		push(@rv, $i);
 		}
-	else {
+	elsif ($config{'ipv6'}) {
 		# Lookup IPv6 address
 		local ($inaddr, $addr);
-		(undef, undef, undef, $inaddr) =
-		    getaddrinfo($i, undef, AF_INET6(), SOCK_STREAM);
+		eval {
+			(undef, undef, undef, $inaddr) =
+			    getaddrinfo($i, undef, AF_INET6(), SOCK_STREAM);
+			};
 		if ($inaddr) {
 			push(@rv, undef);
 			}
@@ -3099,15 +3130,17 @@ sub reset_byte_count { $write_data_count = 0; }
 sub byte_count { return $write_data_count; }
 
 # log_request(hostname, user, request, code, bytes)
+# Write an HTTP request to the log file
 sub log_request
 {
+local ($host, $user, $request, $code, $bytes) = @_;
+local $headers;
+foreach my $nolog (split(/\s+/, $config{'nolog'})) {
+	return if ($request =~ /^$nolog$/);
+	}
 if ($config{'log'}) {
-	local ($user, $ident, $headers);
-	if ($config{'logident'}) {
-		# add support for rfc1413 identity checking here
-		}
-	else { $ident = "-"; }
-	$user = $_[1] ? $_[1] : "-";
+	local $ident = "-";
+	$user ||= "-";
 	local $dstr = &make_datestr();
 	if (fileno(MINISERVLOG)) {
 		seek(MINISERVLOG, 0, 2);
@@ -3127,8 +3160,8 @@ if ($config{'log'}) {
 	else {
 		$headers = "";
 		}
-	print MINISERVLOG "$_[0] $ident $user [$dstr] \"$_[2]\" ",
-			  "$_[3] $_[4]$headers\n";
+	print MINISERVLOG "$host $ident $user [$dstr] \"$request\" ",
+			  "$code $bytes$headers\n";
 	close(MINISERVLOG);
 	}
 }
@@ -4059,7 +4092,7 @@ if ($ok && (!$expired ||
 		if (!$config{'no_httponly'}) {
 			$sec .= "; httpOnly";
 			}
-		if ($in{'page'} !~ /^\/[A-Za-z0-9\/\.\-\_]+$/) {
+		if ($in{'page'} !~ /^\/[A-Za-z0-9\/\.\-\_:]+$/) {
 			# Make redirect URL safe
 			$in{'page'} = "/";
 			}
@@ -4351,6 +4384,7 @@ if (-r $config{'dhparams_file'}) {
 		my $nid = Net::SSLeay::OBJ_sn2nid("secp384r1");
 		my $curve = Net::SSLeay::EC_KEY_new_by_curve_name($nid);
 		Net::SSLeay::CTX_set_tmp_ecdh($ssl_ctx, $curve);
+		Net::SSLeay::BIO_free($bio);
 		};
 	}
 if ($@) {
@@ -4648,6 +4682,9 @@ if (exists($users{$username})) {
 		 'nochange' => $nochange{$username},
 		 'temppass' => $temppass{$username},
 		 'preroot' => $config{'preroot_'.$username},
+		 'twofactor_provider' => $twofactor{$username}->{'provider'},
+		 'twofactor_id' => $twofactor{$username}->{'id'},
+		 'twofactor_apikey' => $twofactor{$username}->{'apikey'},
 	       };
 	}
 if ($config{'userdb'}) {
@@ -4762,6 +4799,9 @@ if ($config{'userdb'}) {
 		$user->{'nochange'} = $attrs{'nochange'};
 		$user->{'temppass'} = $attrs{'temppass'};
 		$user->{'preroot'} = $attrs{'theme'};
+		$user->{'twofactor_provider'} = $attrs{'twofactor_provider'};
+		$user->{'twofactor_id'} = $attrs{'twofactor_id'};
+		$user->{'twofactor_apikey'} = $attrs{'twofactor_apikey'};
 		}
 	&disconnect_userdb($config{'userdb'}, $dbh);
 	$get_user_details_cache{$user->{'name'}} = $user;
@@ -5145,12 +5185,17 @@ return $logout_time_cache{$user,$sid};
 sub password_crypt
 {
 local ($pass, $salt) = @_;
+local $rval;
 if ($salt =~ /^\$1\$/ && $use_md5) {
-	return &encrypt_md5($pass, $salt);
+	$rval = &encrypt_md5($pass, $salt);
 	}
-else {
-	return &unix_crypt($pass, $salt);
+elsif ($salt =~ /^\$6\$/ && $use_sha512) {
+	$rval = &encrypt_sha512($pass, $salt);
 	}
+if (!defined($rval) || $salt ne $rval) {
+	$rval = &unix_crypt($pass, $salt);
+	}
+return $rval;
 }
 
 # unix_crypt(password, salt)
@@ -5524,6 +5569,7 @@ local @substrings = (
     "iPhone",		  # Apple iPhone KHTML browser
     "iPod",		  # iPod touch browser
     "MobileSafari",	  # HTTP client in iPhone
+    "Mobile Safari",	  # Samsung Galaxy S6 browser
     "Opera Mini",	  # Opera Mini
     "HTC_P3700",	  # HTC mobile device
     "Pre/",		  # Palm Pre
@@ -5736,6 +5782,19 @@ if ($salt) {
 else {
 	return $rv;
 	}
+}
+
+# encrypt_sha512(password, [salt])
+# Hashes a password, possibly with the given salt, with SHA512
+sub encrypt_sha512
+{
+my ($passwd, $salt) = @_;
+if ($salt =~ /^\$6\$([^\$]+)/) {
+	# Extract actual salt from already encrypted password
+	$salt = $1;
+	}
+$salt ||= '$6$'.substr(time(), -8).'$';
+return crypt($passwd, $salt);
 }
 
 sub to64
@@ -6071,14 +6130,15 @@ return $tmp;
 sub validate_twofactor
 {
 my ($user, $token) = @_;
+local $uinfo = &get_user_details($user);
 $token =~ s/^\s+//;
 $token =~ s/\s+$//;
 $token || return "No two-factor token entered";
-my $tf = $twofactor{$user};
-$tf || return undef;
+$uinfo->{'twofactor_provider'} || return undef;
 pipe(TOKENr, TOKENw);
 my $pid = &execute_webmin_command($config{'twofactor_wrapper'},
-	[ $user, $tf->{'provider'}, $tf->{'id'}, $token, $tf->{'apikey'} ],
+	[ $user, $uinfo->{'twofactor_provider'}, $uinfo->{'twofactor_id'},
+	  $token, $uinfo->{'twofactor_apikey'} ],
 	TOKENw);
 close(TOKENw);
 waitpid($pid, 0);
@@ -6205,6 +6265,19 @@ foreach my $w (@w) {
 		}
 	}
 return lc(join(":", @w));
+}
+
+# expand_ipv6_bytes(address)
+# Given a canonical IPv6 address, split it into an array of bytes
+sub expand_ipv6_bytes
+{
+my ($addr) = @_;
+my @rv;
+foreach my $w (split(/:/, $addr)) {
+	$w =~ /^(..)(..)$/ || return ( );
+	push(@rv, hex($1), hex($2));
+	}
+return @rv;
 }
 
 sub get_somaxconn

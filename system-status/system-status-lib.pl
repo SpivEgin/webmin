@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+no warnings 'redefine';
 BEGIN { push(@INC, ".."); };
 eval "use WebminCore;";
 &init_config();
@@ -25,7 +26,7 @@ my $info = { };
 
 if (&foreign_check("proc")) {
 	# CPU and memory
-	&foreign_require("proc", "proc-lib.pl");
+	&foreign_require("proc");
 	if (defined(&proc::get_cpu_info)) {
 		my @c = &proc::get_cpu_info();
 		$info->{'load'} = \@c;
@@ -53,7 +54,7 @@ if (&foreign_check("proc")) {
 # Disk space on local filesystems
 if (&foreign_check("mount")) {
 	&foreign_require("mount");
-	($info->{'disk_total'}, $info->{'disk_free'}) =
+	($info->{'disk_total'}, $info->{'disk_free'}, $info->{'disk_fs'}) =
 		&mount::local_disk_space();
 	}
 
@@ -66,25 +67,22 @@ if (&foreign_installed("package-updates") && $config{'collect_pkgs'}) {
 	}
 
 # CPU and drive temps
-my @cpu = &get_current_cpu_temps();
-$info->{'cputemps'} = \@cpu if (@cpu);
+if (!$config{'collect_notemp'} && defined(&proc::get_current_cpu_temps)) {
+	my @cpu = &proc::get_current_cpu_temps();
+	$info->{'cputemps'} = \@cpu if (@cpu);
+	}
 my @drive = &get_current_drive_temps();
 $info->{'drivetemps'} = \@drive if (@drive);
 
 # IO input and output
-if ($gconfig{'os_type'} =~ /-linux$/) {
-	my $out = &backquote_command("vmstat 1 2 2>/dev/null");
-	if (!$?) {
-		my @lines = split(/\r?\n/, $out);
-		my @w = split(/\s+/, $lines[$#lines]);
-		shift(@w) if ($w[0] eq '');
-		if ($w[8] =~ /^\d+$/ && $w[9] =~ /^\d+$/) {
-			# Blocks in and out
-			$info->{'io'} = [ $w[8], $w[9] ];
-
-			# CPU user, kernel, idle, io, vm
-			$info->{'cpu'} = [ @w[12..16] ];
-			}
+if (defined(&proc::get_cpu_io_usage)) {
+	my ($user, $kernel, $idle, $io, $vm, $bin, $bout) =
+		&proc::get_cpu_io_usage();
+	if (defined($bin)) {
+		$info->{'io'} = [ $bin, $bout ];
+		}
+	if (defined($user)) {
+		$info->{'cpu'} = [ $user, $kernel, $idle, $io, $vm ];
 		}
 	}
 
@@ -95,12 +93,15 @@ return $info;
 # Returns the most recently collected system information, or the current info
 sub get_collected_info
 {
-my $infostr = $config{'collect_interval'} eq 'none' ? undef :
-			&read_file_contents($collected_info_file);
-if ($infostr) {
-	my $info = &unserialise_variable($infostr);
-	if (ref($info) eq 'HASH' && keys(%$info) > 0) {
-		return $info;
+my @st = stat($collected_info_file);
+my $i = $config{'collect_interval'} || 'none';
+if ($i ne 'none' && @st && $st[9] > time() - $i * 60 * 2) {
+	my $infostr = &read_file_contents($collected_info_file);
+	if ($infostr) {
+		my $info = &unserialise_variable($infostr);
+		if (ref($info) eq 'HASH' && keys(%$info) > 0) {
+			return $info;
+			}
 		}
 	}
 return &collect_system_info();
@@ -420,30 +421,6 @@ if (!$config{'collect_notemp'} &&
 				}
 			}
 		}
-	}
-return @rv;
-}
-
-# get_current_cpu_temps()
-# Returns a list of hashes containing core and temp keys
-sub get_current_cpu_temps
-{
-my @rv;
-if (!$config{'collect_notemp'} &&
-    $gconfig{'os_type'} =~ /-linux$/ && &has_command("sensors")) {
-	my $fh = "SENSORS";
-	&open_execute_command($fh, "sensors </dev/null 2>/dev/null", 1);
-	while(<$fh>) {
-		if (/Core\s+(\d+):\s+([\+\-][0-9\.]+)/) {
-			push(@rv, { 'core' => $1,
-				    'temp' => $2 });
-			}
-		elsif (/CPU:\s+([\+\-][0-9\.]+)/) {
-			push(@rv, { 'core' => 0,
-				    'temp' => $1 });
-			}
-		}
-	close($fh);
 	}
 return @rv;
 }

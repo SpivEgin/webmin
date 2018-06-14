@@ -51,7 +51,7 @@ Added a section to the SSL Encryption page for uploading an existing PEM format 
 Added buttons on the Proxy Servers and Downloads page for viewing and deleting cached files, and clearing the entire cache.
 Fixed a bug that prevents module installs from RPMs from working.
 ---- Changes since 1.320 ----
-Added an option to the Advanced page for supressing the display of Perl errors.
+Added an option to the Advanced page for suppressing the display of Perl errors.
 Added a new Mobile Device Options page for defining a custom theme and login process for mobile browsers.
 ---- Changes since 1.330 ----
 Added an option to the Logging page to write Webmin actions to syslog.
@@ -137,3 +137,6 @@ Added an option to the logging page for sending Webmin action log messages via e
 ---- Changes since 1.810 ----
 The Let's Encrypt key size can now be customized.
 When Perfect Forward Secrecy ciphers are selected, the required DH params file is now created and used by Webmin.
+---- Changes since 1.830 ----
+Added DNS validation support for Let's Encrypt certificate requests, for use when a system is hosting the DNS zone that you want to request a cert for.
+Per-domain-name SSL certificates can now be created as well as per-IP, allowing for multiple certs to exist on the same IP address.

@@ -24,12 +24,13 @@ my @ignoreips = $in{'ignoreip_def'} ? ( ) : split(/\s+/, $in{'ignoreip'});
 foreach my $ip (@ignoreips) {
 	&check_ipaddress($ip) || &check_ip6address($ip) ||
 	    ($ip =~ /^([0-9\.]+)\/(\d+)/ && &check_ipaddress("$1")) ||
+	    &to_ipaddress($ip) ||
 		&error($text{'jail_eignoreip'});
 	}
 
 
 # Update the jail
-&lock_file($jail->{'file'});
+&lock_all_config_files();
 foreach my $f ("maxretry", "findtime", "bantime") {
 	&save_directive($f, $in{$f."_def"} ? undef : $in{$f}, $jail);
 	}
@@ -39,7 +40,7 @@ foreach my $f ("maxretry", "findtime", "bantime") {
 		$jail);
 &save_directive("banaction", $in{'banaction'} || undef, $jail);
 &save_directive("protocol", $in{'protocol'} || undef, $jail);
-&unlock_file($jail->{'file'});
+&unlock_all_config_files();
 
 &webmin_log("jaildef");
 &redirect("list_jails.cgi");

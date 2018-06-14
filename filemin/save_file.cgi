@@ -7,24 +7,22 @@ get_paths();
 
 my @errors;
 
-$file = $in{'file'};
+# Validate inputs
+my $file = &simplify_path($cwd.'/'.$in{'file'});
+&check_allowed_path($file);
 $data = $in{'data'};
 $data =~ s/\r\n/\n/g;
-open(SAVE, ">", $cwd.'/'.$file) or push @errors, "$text{'error_saving_file'} - $!";
-print SAVE $data;
-close SAVE;
 
-if (scalar(@errors) > 0) {
-    &ui_print_header(undef, "Filemin", "");
-    print $text{'errors_occured'};
-    print "<ul>";
-    foreach $error(@errors) {
-        print("<li>$error</li>");
-    }
-    print "<ul>";
-    &ui_print_footer("javascript:history.back();", $text{'previous_page'});
-} elsif ($in{'save_close'}) {
-    &redirect("index.cgi?path=$path");
+if ( $in{'encoding'} && lc( $in{'encoding'} ) ne "utf-8" ) {
+    eval { $data = Encode::encode( $in{'encoding'}, Encode::decode( 'utf-8', $data ) ) };
+}
+&open_tempfile(SAVE, ">$file") || &error("$text{'error_saving_file'} : $!");
+&print_tempfile(SAVE, $data);
+&close_tempfile(SAVE);
+
+if ($in{'save_close'}) {
+    &redirect("index.cgi?path=".&urlize($path));
 } else {
-    &redirect("edit_file.cgi?path=$path&file=$in{'file'}");
+    &redirect("edit_file.cgi?path=".&urlize($path).
+	      "&file=".&urlize($in{'file'}));
 }

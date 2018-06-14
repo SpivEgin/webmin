@@ -4,26 +4,33 @@
 
 require './firewall-lib.pl';
 &ReadParse();
+if (&get_ipvx_version() == 6) {
+	require './firewall6-lib.pl';
+	}
+else {
+	require './firewall4-lib.pl';
+	}
 @tables = &get_iptables_save();
 $table = $tables[$in{'table'}];
 &can_edit_table($table->{'name'}) || &error($text{'etable'});
 if ($in{'clone'} ne '') {
-	&ui_print_header(undef, $text{'edit_title3'}, "");
+	&ui_print_header($text{"index_title_v${ipvx}"}, $text{'edit_title3'}, "");
 	%clone = %{$table->{'rules'}->[$in{'clone'}]};
 	$rule = \%clone;
 	}
 elsif ($in{'new'}) {
-	&ui_print_header(undef, $text{'edit_title1'}, "");
+	&ui_print_header($text{"index_title_v${ipvx}"}, $text{'edit_title1'}, "");
 	$rule = { 'chain' => $in{'chain'},
 		  'j' => &can_jump('DROP') ? 'DROP' : "" };
 	}
 else {
-	&ui_print_header(undef, $text{'edit_title2'}, "");
+	&ui_print_header($text{"index_title_v${ipvx}"}, $text{'edit_title2'}, "");
 	$rule = $table->{'rules'}->[$in{'idx'}];
 	&can_jump($rule) || &error($text{'ejump'});
 	}
 
-print &ui_form_start("save_rule.cgi", "post");
+print &ui_form_start("save_rule${ipvx}.cgi", "post");
+print &ui_hidden("version", ${ipvx_arg});
 foreach $f ('table', 'idx', 'new', 'chain', 'before', 'after') {
 	print &ui_hidden($f, $in{$f});
 	}
@@ -81,15 +88,11 @@ if (&indexof('REJECT', @jumps) >= 0 && &can_jump("REJECT")) {
 	if ($rule->{'j'}->[1] eq 'REJECT') {
 		$rwith = $rule->{'reject-with'}->[1];
 		}
-	local @rtypes = ( "icmp-net-unreachable", "icmp-host-unreachable",
-			  "icmp-port-unreachable", "icmp-proto-unreachable",
-			  "icmp-net-prohibited", "icmp-host-prohibited",
-			  "echo-reply", "tcp-reset" );
 	print &ui_table_row($text{'edit_rwith'},
 		&ui_radio("rwithdef", $rwith eq "" ? 1 : 0,
 			  [ [ 1, $text{'default'} ],
 			    [ 0, &text('edit_rwithtype',
-			      &icmptype_input("rwithtype", $rwith, \@rtypes)) ],
+			      &icmptype_input("rwithtype", $rwith, \@ipvx_rtypes)) ],
 			  ]));
 	}
 
@@ -100,7 +103,7 @@ if (($table->{'name'} eq 'nat' && $rule->{'chain'} ne 'POSTROUTING') &&
 		($rtofrom, $rtoto) = split(/\-/, $rule->{'to-ports'}->[1]);
 		}
 	print &ui_table_row($text{'edit_rtoports'},
-		&ui_radio("rtodef", rtofrom eq "" ? 1 : 0,
+		&ui_radio("rtodef", $rtofrom eq "" ? 1 : 0,
 			  [ [ 1, $text{'default'} ],
 			    [ 0, &text('edit_prange',
 				       &ui_textbox("rtofrom", $rtofrom, 6),
@@ -126,7 +129,7 @@ if (($table->{'name'} eq 'nat' && $rule->{'chain'} ne 'POSTROUTING') &&
     &can_jump("DNAT")) {
 	if ($rule->{'j'}->[1] eq 'DNAT') {
 		if ($rule->{'to-destination'}->[1] =~
-		    /^([0-9\.]+)(\-([0-9\.]+))?(:(\d+)(\-(\d+))?)?$/) {
+		    /$ipvx_todestpattern/) {
 			$dipfrom = $1;
 			$dipto = $3;
 			$dpfrom = $5;
@@ -181,13 +184,19 @@ print &ui_table_start($text{'edit_header2'}, "width=100%", 2);
 
 # Packet source
 print &ui_table_row($text{'edit_source'},
-	&print_mode("source", $rule->{'s'})." ".
-	&ui_textbox("source", $rule->{'s'}->[1], 40));
+	&ui_grid_table([
+		&print_mode("source", $rule->{'s'}),
+		&ui_textarea("source", join(" ", split(/,/, $rule->{'s'}->[1])),
+			     4, 80),
+		], 2));
 
 # Packet destination
 print &ui_table_row($text{'edit_dest'},
-	&print_mode("dest", $rule->{'d'})." ".
-	&ui_textbox("dest", $rule->{'d'}->[1], 40));
+	&ui_grid_table([
+		&print_mode("dest", $rule->{'d'}),
+		&ui_textarea("dest", join(" ", split(/,/, $rule->{'d'}->[1])),
+			     4, 80),
+		], 2));
 
 # Incoming interface
 print &ui_table_row($text{'edit_in'},
@@ -245,8 +254,8 @@ print &ui_table_hr();
 
 # ICMP packet type
 print &ui_table_row($text{'edit_icmptype'},
-	&print_mode("icmptype", $rule->{'icmp-type'})." ".
-	&icmptype_input("icmptype", $rule->{'icmp-type'}->[1]));
+	&print_mode("icmptype", $rule->{"icmp${ipvx_icmp}-type"})." ".
+	&icmptype_input("icmptype", $rule->{"icmp${ipvx_icmp}-type"}->[1]));
 
 # MAC address
 print &ui_table_row($text{'edit_mac'},
@@ -297,13 +306,15 @@ if ($rule->{'chain'} eq 'OUTPUT') {
 print &ui_table_hr();
 
 # Connection states
+my $sd = &supports_conntrack() ? "ctstate" : "state";
 print &ui_table_row($text{'edit_state'},
 	"<table cellpadding=0 cellspacing=0><tr><td valign=top>".
-	&print_mode("state", $rule->{'state'})."</td>\n".
+	&print_mode($sd, $rule->{$sd})."</td>\n".
 	"<td>&nbsp;".
-	&ui_select("state", [ split(/,/, $rule->{'state'}->[1]) ],
+	&ui_select($sd, [ split(/,/, $rule->{$sd}->[1]) ],
 	   [ map { [ $_, $text{"edit_state_".lc($_)} ] }
-		 ('NEW', 'ESTABLISHED', 'RELATED', 'INVALID', 'UNTRACKED') ], 5, 1).
+		 ('NEW', 'ESTABLISHED', 'RELATED', 'INVALID', 'UNTRACKED',
+		  $sd eq "state" ? ( ) : ('SNAT', 'DNAT')) ], 5, 1).
 	"</td></tr></table>");
 
 # Type of service
@@ -337,7 +348,7 @@ print &ui_table_row($text{'edit_physdevisbridged'},
 print &ui_table_hr();
 
 # Show unknown modules
-@mods = grep { !/^(tcp|udp|icmp|multiport|mac|limit|owner|state|tos|comment|physdev)$/ } map { $_->[1] } @{$rule->{'m'}};
+@mods = grep { !/^(tcp|udp|icmp${ipvx_icmp}|multiport|mac|limit|owner|state|conntrack|tos|comment|physdev)$/ } map { $_->[1] } @{$rule->{'m'}};
 print &ui_table_row($text{'edit_mods'},
 	&ui_textbox("mods", join(" ", @mods), 60));
 
@@ -357,7 +368,7 @@ else {
 			     [ 'delete', $text{'delete'} ] ]);
 	}
 
-&ui_print_footer("index.cgi?table=$in{'table'}", $text{'index_return'});
+&ui_print_footer("index.cgi?version=${ipvx_arg}", $text{'index_return'});
 
 # print_mode(name, &value, [yes-option, no-option], [no-no-option])
 sub print_mode
@@ -416,7 +427,7 @@ if ($types) {
 	@types = @$types;
 	}
 else {
-	open(IPTABLES, "iptables -p icmp -h 2>/dev/null |");
+	open(IPTABLES, "ip${ipvx}tables -p icmp${ipvx_icmp} -h 2>/dev/null |");
 	while(<IPTABLES>) {
 		if (/valid\s+icmp\s+types:/i) {
 			$started = 1;
@@ -442,7 +453,7 @@ else {
 sub protocol_input
 {
 local ($name, $value) = @_;
-local @stdprotos = ( 'tcp', 'udp', 'icmp', undef );
+local @stdprotos = ( 'tcp', 'udp', "icmp${ipvx_icmp}", undef );
 $value ||= "tcp";
 local @otherprotos;
 open(PROTOS, "/etc/protocols");
@@ -467,7 +478,7 @@ sub tos_input
 {
 local ($name, $value) = @_;
 local ($started, @opts);
-open(IPTABLES, "iptables -m tos -h 2>/dev/null |");
+open(IPTABLES, "ip${ipvx}tables -m tos -h 2>/dev/null |");
 while(<IPTABLES>) {
 	if (/TOS.*options:/i) {
 		$started = 1;

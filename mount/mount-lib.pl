@@ -290,11 +290,13 @@ return ( );
 }
 
 # local_disk_space([&always-count])
-# Returns the total local and free disk space on the system.
+# Returns the total local and free disk space on the system, plus a list of
+# per-filesystem total and free
 sub local_disk_space
 {
 my ($always) = @_;
 my ($total, $free) = (0, 0);
+my @fs;
 my @mounted = &mount::list_mounted();
 my %donezone;
 my %donevzfs;
@@ -304,7 +306,7 @@ my %donedevno;
 # Get list of zone pools
 my %zpools = ( 'zones' => 1, 'zroot' => 1 );
 if (&has_command("zpool")) {
-	my @out = &backquote_command("zpool list -P || zpool list -p");
+	my @out = &backquote_command("zpool list -P 2>/dev/null || zpool list -p 2>/dev/null");
 	foreach my $l (@out) {
 		if (/^(\S+)\s+(\d+)\s+(\d+)\s+(\d+)/) {
 			$zpools{$1} = [ $2 / 1024, $4 / 1024 ];
@@ -342,6 +344,14 @@ foreach my $m (@mounted) {
 			# Skip fuse user-space filesystem mounts
 			next;
 			}
+		if ($m->[2] eq "swap") {
+			# Skip virtual memory
+			next;
+			}
+		if ($m->[2] eq "squashfs") {
+			# Skip /snap mounts
+			next;
+			}
 		# Get the size - for ZFS mounts, this comes from the underlying
 		# total pool size and free
 		my ($t, $f);
@@ -349,7 +359,7 @@ foreach my $m (@mounted) {
 			($t, $f) = @$zp;
 			}
 		else {
-			($t, $f) = &mount::disk_space($m->[2], $m->[0]);
+			($t, $f) = &disk_space($m->[2], $m->[0]);
 			}
 		if (($m->[2] eq "simfs" || $m->[2] eq "vzfs" ||
 		     $m->[0] eq "/dev/vzfs" ||
@@ -360,9 +370,20 @@ foreach my $m (@mounted) {
 			}
 		$total += $t*1024;
 		$free += $f*1024;
+		my ($it, $if);
+		if (defined(&inode_space)) {
+			($it, $if) = &inode_space($m->[2], $m->[0]);
+			}
+		push(@fs, { 'total' => $t*1024,
+			    'free' => $f*1024,
+			    'itotal' => $it,
+			    'ifree' => $if,
+			    'dir' => $m->[0],
+			    'device' => $m->[1],
+			    'type' => $m->[2] });
 		}
 	}
-return ($total, $free);
+return ($total, $free, \@fs);
 }
 
 1;
