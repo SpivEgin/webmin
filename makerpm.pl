@@ -75,7 +75,7 @@ Requires: /bin/sh /usr/bin/perl /bin/rm perl(Net::SSLeay) perl(Time::Local) perl
 AutoReq: 0
 License: Freeware
 Group: System/Tools
-Source: http://www.webmin.com/download/%{name}-%{version}.tar.gz
+Source: http://www.adfreezone.org/download/%{name}-%{version}.tar.gz
 Vendor: Jamie Cameron
 BuildRoot: /tmp/%{name}-%{version}
 BuildArchitectures: noarch

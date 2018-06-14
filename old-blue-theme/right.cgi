@@ -41,7 +41,7 @@ if (@links) {
 
 # AdFreeZone logo
 if (&get_product_name() eq 'webmin') {
-	print "<a href=http://www.webmin.com/ target=_new><img src=images/webmin-blue.png border=0></a><p>\n";
+	print "<a href=http://www.adfreezone.org/ target=_new><img src=images/webmin-blue.png border=0></a><p>\n";
 	}
 
 # Show notifications first

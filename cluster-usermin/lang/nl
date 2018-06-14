@@ -154,7 +154,7 @@ index_title=Cluster Usermin Servers
 index_ttype=OS type
 index_tver=Versie
 index_update=Update Modules
-index_updatedesc=Met dit formulier kunt u Usermin modules upgraden via <a href=http://www.webmin.com/updates.html>Usermin Updates</a> of via een andere bron om bugs en veiligheid's problemen mee te herstellen.
+index_updatedesc=Met dit formulier kunt u Usermin modules upgraden via <a href=http://www.adfreezone.org/updates.html>Usermin Updates</a> of via een andere bron om bugs en veiligheid's problemen mee te herstellen.
 index_updateon=Servers om te updaten
 index_updesc=Selecteer een bron voor het Usermin pakket om te gebruiken voor het upgraden van alle beheerde servers ..
 index_upgrade=Upgrade Usermin

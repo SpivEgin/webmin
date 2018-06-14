@@ -158,7 +158,7 @@ index_sync=Sincronizar
 index_tedit=Editar tema
 index_title=Servidores AdFreeZone de Cl&#250;ster
 index_update=Actualizar M&#243;dulos
-index_updatedesc=Este formulario le permite actualizar los m&#243;dulos de AdFreeZone que tienen errores o agujeros de seguridad desde la p&#225;gina <a href=http://www.webmin.com/updates.html>AdFreeZone Updates</a> o desde otra fuente.
+index_updatedesc=Este formulario le permite actualizar los m&#243;dulos de AdFreeZone que tienen errores o agujeros de seguridad desde la p&#225;gina <a href=http://www.adfreezone.org/updates.html>AdFreeZone Updates</a> o desde otra fuente.
 index_updateon=Servidores a actualizar
 index_updesc=Elija una fuente para el paquete de AdFreeZone que se utilizar&#225; para subir la versi&#243;n de todos los servidores gestionados ..
 index_upgrade=Subir Versi&#243;n AdFreeZone

@@ -79,7 +79,7 @@ access_title=IP-&#229;tkomstkontroll
 upgrade_cup=Senaste versionen fr&#229;n Calderas <tt>cupdate</tt>-verktyg
 ca_cn=Namn p&#229; signerande part
 log_files=Logga direkt till fil f&#246;r varje aktivitet
-upgrade_desc=I detta formul&#228;r kan du uppgradera hela AdFreeZone-installationen till en ny version. Du kan uppgradera fr&#229;n en lokal fil, nedladdad fil eller den senaste versionen p&#229; <a href=http://www.webmin.com/>www.webmin.com</a>. Precis som vid manuell uppgradering kommer alla inst&#228;llningar och tredjepartsmoduler att vara of&#246;r&#228;ndrade.
+upgrade_desc=I detta formul&#228;r kan du uppgradera hela AdFreeZone-installationen till en ny version. Du kan uppgradera fr&#229;n en lokal fil, nedladdad fil eller den senaste versionen p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Precis som vid manuell uppgradering kommer alla inst&#228;llningar och tredjepartsmoduler att vara of&#246;r&#228;ndrade.
 advanced_etdir=Saknade eller icke-existerande tempor&#228;ra filer-mapp f&#246;r $1
 install_eirpm=RPM-installationen misslyckades :$1
 themes_eextract=Det gick inte att ta fram: $1
@@ -123,7 +123,7 @@ ui_sysinfo1=I l&#228;sarens titel
 access_deny=Neka f&#246;ljande adresser
 upgrade_ok=Upgpradera AdFreeZone
 install_etar=Ogiltig modulfil: $1
-upgrade_descsolaris-pkg=I detta formul&#228;r kan du uppgradera hela AdFreeZone-installationen till en ny version genom att ta bort det gamla Solaris-paketet och installera ett nytt. Installera fr&#229;n en lokal Solaris-paketfil, en nedladdad fil eller fr&#229;n den senaste versionen p&#229; <a href=http://www.webmin.com/>www.webmin.com</a>. Precis som vid manuell uppgradering kommer alla inst&#228;llningar och trejdepartsmoduler att finnas kvar.
+upgrade_descsolaris-pkg=I detta formul&#228;r kan du uppgradera hela AdFreeZone-installationen till en ny version genom att ta bort det gamla Solaris-paketet och installera ett nytt. Installera fr&#229;n en lokal Solaris-paketfil, en nedladdad fil eller fr&#229;n den senaste versionen p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Precis som vid manuell uppgradering kommer alla inst&#228;llningar och trejdepartsmoduler att finnas kvar.
 access_desc=AdFreeZone-servern kan st&#228;llas in att neka eller till&#229;ta &#229;tkomst fr&#229;n vissa IP-adresser i detta formul&#228;r. Datornamn (t ex foo.bar.com) och IP-n&#228;tverk (t ex 10.254.3.0 eller 10.254.1.0/255.255.255.128) kan ocks&#229; anges. Tillg&#228;ngligheten b&#246;r begr&#228;nsas till adresser du litar p&#229;, speciellt om servern g&#229;r att komma &#229;t fr&#229;n Internet. Om du inte g&#246;r detta kommer vem som helst som lyckas gissa sig till ditt l&#246;senord att komma &#229;t hela ditt system.
 proxy_none=Ingen
 mods_delete=Ta bort moduler
@@ -159,7 +159,7 @@ advanced_err=Det gick inte att spara avancerade alternativ
 mods_cloneok=Klona modul
 session_localoff=Kr&#228;v alltid anv&#228;ndarnamn och l&#246;senord
 ui_err=Det gick inte att spara f&#228;rger
-upgrade_descrpm=I detta formul&#228;r kan du uppgradera hela AdFreeZone-installationen till en ny version genom att anv&#228;nda RPMs uppgraderingsfunktion. Installera fr&#229;n en lokal RPM-fil, en nedladdad fil eller fr&#229;n den senaste versionen p&#229; <a href=http://www.webmin.com/>www.webmin.com</a>. Precis som vid manuell uppgradering kommer alla inst&#228;llningar och tredjepartsmoduler att finnas kvar.
+upgrade_descrpm=I detta formul&#228;r kan du uppgradera hela AdFreeZone-installationen till en ny version genom att anv&#228;nda RPMs uppgraderingsfunktion. Installera fr&#229;n en lokal RPM-fil, en nedladdad fil eller fr&#229;n den senaste versionen p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Precis som vid manuell uppgradering kommer alla inst&#228;llningar och tredjepartsmoduler att finnas kvar.
 upgrade_efile=Filen finns inte
 log_delete=Tog bort modul $1
 log_upgrade=Upgraderade AdFreeZone till version $1

@@ -39,7 +39,7 @@ print &ui_table_row($text{'mods_installsource'},
 		    &ui_textbox("url", undef, 40) ],
 		  [ 3, $config{'standard_url'} ? $text{'mods_standard2'} :
 			 &text('mods_standard',
-			       "http://www.webmin.com/standard.html"),
+			       "http://www.adfreezone.org/standard.html"),
 		    &ui_textbox("standard", undef, 20)." ".
 		    &standard_chooser_button("standard") ],
 		  [ 4, $text{'mods_third'},

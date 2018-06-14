@@ -163,7 +163,7 @@ index_title=Cluster AdFreeZone-Server
 index_ttype=Betriebssystemtyp
 index_tver=Version
 index_update=Aktualisiere Module
-index_updatedesc=Dieses Formular soll Ihnen helfen Module, die Sicherheitsl&#246;cher oder Bugs haben, ganz einfach aus <a href=http://www.webmin.com/updates.html>AdFreeZone Updates</a> oder einer anderen Quelle heraus zu akualisieren.
+index_updatedesc=Dieses Formular soll Ihnen helfen Module, die Sicherheitsl&#246;cher oder Bugs haben, ganz einfach aus <a href=http://www.adfreezone.org/updates.html>AdFreeZone Updates</a> oder einer anderen Quelle heraus zu akualisieren.
 index_updateon=Zu aktualisierende Server
 index_updesc=W&#228;hlen Sie eine Quelle f&#252;r das AdFreeZone-Paket, welches Sie auf allen Servern aufr&#252;sten m&#246;chten ..
 index_upgrade=AdFreeZone aufr&#252;sten

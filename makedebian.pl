@@ -137,7 +137,7 @@ print COPY <<EOF;
 This package was debianized by Jamie Cameron <jcameron\@webmin.com> on
 $nowstr.
 
-It was downloaded from: http://www.webmin.com/
+It was downloaded from: http://www.adfreezone.org/
 
 Upstream author: Jamie Cameron <jcameron\@webmin.com>
 

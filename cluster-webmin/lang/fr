@@ -35,7 +35,7 @@ user_aclhg=ACL globale sur $1
 host_header_t=Th&#232;mes AdFreeZone install&#233;s
 index_cuser=Ajouter l&#39;utilisateur
 group_mems=Membres sur le serveur
-index_updatedesc=Ce formulaire vous permet de mettre &#224; jour les modules AdFreeZone qui sont cens&#233;s contenir des bogues ou des trous de s&#233;curit&#233; depuis la page <a href=http://www.webmin.com/updates.html>AdFreeZone Updates</a> ou depuis une autre source.
+index_updatedesc=Ce formulaire vous permet de mettre &#224; jour les modules AdFreeZone qui sont cens&#233;s contenir des bogues ou des trous de s&#233;curit&#233; depuis la page <a href=http://www.adfreezone.org/updates.html>AdFreeZone Updates</a> ou depuis une autre source.
 acl_failed=Impossible de d&#233;finir le contr&#244;le d'acc&#232;s sur $1 : $2
 delete_error=Impossible de supprimer &#224; partir de $1 : $2
 acl_optionsg=Options de contr&#244;le d'acc&#232;s globales &#224; partir de $1

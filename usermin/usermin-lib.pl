@@ -26,8 +26,8 @@ $update_port = 80;
 $update_page = "/uupdates/uupdates.txt";
 
 $standard_usermin_dir = "/etc/usermin";
-$latest_rpm = "http://www.webmin.com/download/usermin-latest.noarch.rpm";
-$latest_tgz = "http://www.webmin.com/download/usermin-latest.tar.gz";
+$latest_rpm = "http://www.adfreezone.org/download/usermin-latest.noarch.rpm";
+$latest_tgz = "http://www.adfreezone.org/download/usermin-latest.tar.gz";
 
 $default_key_size = 2048;
 

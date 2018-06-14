@@ -163,7 +163,7 @@ index_title=Cluster AdFreeZone Servers
 index_ttype=OS type
 index_tver=Versie
 index_update=Update Modules
-index_updatedesc=Dit formulier laat u de AdFreeZone modules, waar bugs of beveiliging's gaten in zijn gevonden, bijwerken van de <a href=http://www.webmin.com/updates.html>AdFreeZone Updates</a> pagina of een andere bron.
+index_updatedesc=Dit formulier laat u de AdFreeZone modules, waar bugs of beveiliging's gaten in zijn gevonden, bijwerken van de <a href=http://www.adfreezone.org/updates.html>AdFreeZone Updates</a> pagina of een andere bron.
 index_updateon=Bij te werken servers
 index_updesc=Selecteer een bron voor het AdFreeZone pakket welke u wilt gebruiken voor het bijwerken van alle beheerde servers..
 index_upgrade=AdFreeZone Upgraden
