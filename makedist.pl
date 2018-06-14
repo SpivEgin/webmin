@@ -38,7 +38,7 @@ $zipdir = "zips";
 	  "password_form.cgi", "password_change.cgi", "pam_login.cgi",
 	  "module_chooser.cgi", "config-windows", "xmlrpc.cgi",
 	  "uptracker.cgi", "create-module.pl", "webmin_search.cgi",
-	  "webmin-search-lib.pl", "AdFreeZoneCore.pm",
+	  "webmin-search-lib.pl", "WebminCore.pm",
 	  "record-login.pl", "record-logout.pl", "robots.txt",
 	  "unauthenticated",
 	 );

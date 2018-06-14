@@ -1,8 +1,8 @@
-=head1 AdFreeZoneCore.pm
+=head1 WebminCore.pm
 
 Perl module that exports AdFreeZone API functions. Example code :
 
-  use AdFreeZoneCore;
+  use WebminCore;
   init_config();
   ui_print_header(undef, 'My Module', '');
   print 'This is AdFreeZone version ',get_webmin_version(),'<p>\n';

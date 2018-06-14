@@ -2,6 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c192b30-3225-48d5-abd0-904b25a4f74d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/SpivEgin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/typescript-compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webmin.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OsChooser.pm" beforeDir="false" afterPath="$PROJECT_DIR$/OsChooser.pm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
@@ -1615,6 +1627,7 @@
       <change beforePath="$PROJECT_DIR$/webmin/help/twofactor.ms_MY.html" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/help/twofactor.ms_MY.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webmin/help/twofactor.no.html" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/help/twofactor.no.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webmin/help/twofactor.pl.html" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/help/twofactor.pl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webmin/images/icon.gif" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/images/icon.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webmin/index.cgi" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/index.cgi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webmin/lang/ar" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/lang/ar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webmin/lang/de" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/lang/de" afterDir="false" />
@@ -1744,9 +1757,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="icon.gif" pinned="false" current-in-tab="true">
+      <file leaf-file-name="icon.gif" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webmin/images/icon.gif">
           <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="webmincron.gif" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webmin/images/webmincron.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="web.gif" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webmin/images/web.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="mobile.gif" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webmin/images/mobile.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="log.gif" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webmin/images/log.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="icon.gif" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/useradmin/images/icon.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="group.gif" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/useradmin/images/group.gif">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitattributes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -1783,6 +1835,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/setup.sh" />
+        <option value="$PROJECT_DIR$/.gitattributes" />
       </list>
     </option>
   </component>
@@ -1811,7 +1864,7 @@
       <path value="$PROJECT_DIR$/filemin/unauthenticated/js/lib/codemirror/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="100" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -1830,17 +1883,6 @@
             <path>
               <item name="webmin" type="b2602c69:ProjectViewProjectNode" />
               <item name="webmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webmin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webmin" type="462c0819:PsiDirectoryNode" />
-              <item name="webmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webmin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webmin" type="462c0819:PsiDirectoryNode" />
-              <item name="webmin" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1946,16 +1988,15 @@
       <option name="presentableId" value="Default" />
       <updated>1528958234575</updated>
       <workItem from="1528958259068" duration="1832000" />
-      <workItem from="1528960491485" duration="419000" />
+      <workItem from="1528960491485" duration="709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2251000" />
+    <option name="totallyTimeSpent" value="2541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Cargo" order="3" />
@@ -1981,8 +2022,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19987147" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32904884" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19987147" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Flutter Inspector" order="3" />
@@ -2021,9 +2062,6 @@
     <entry file="file://$PROJECT_DIR$/webmin/images/access.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webmin/images/webmincron.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/webmin/help/twofactor.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2048,11 +2086,33 @@
     <entry file="file://$PROJECT_DIR$/theme-stressfree/lang/ca">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/webmin/images/icon.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webmin/images/webmincron.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/webmin/images/web.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/webmin/images/icon.gif">
+    <entry file="file://$PROJECT_DIR$/webmin/images/mobile.gif">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webmin/images/log.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/useradmin/images/icon.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/useradmin/images/group.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
