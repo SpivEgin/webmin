@@ -83,3 +83,8 @@ rm -rf ssh
 rm -rf ssh2
 rm -rf updown
 rm -rf vnc
+cpan install inc::latest
+cpan install Test::Moose
+cpan install Types::Standard
+cpan install Moo
+cpan install Authen::OATH

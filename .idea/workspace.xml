@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c192b30-3225-48d5-abd0-904b25a4f74d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RELEASE" beforeDir="false" afterPath="$PROJECT_DIR$/RELEASE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Webmin-API-1.0/API.pm" beforeDir="false" afterPath="$PROJECT_DIR$/Webmin-API-1.0/API.pm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Webmin-API-1.0/make-module.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Webmin-API-1.0/make-module.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gray-theme/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/gray-theme/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makedebian.pl" beforeDir="false" afterPath="$PROJECT_DIR$/makedebian.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makedist.pl" beforeDir="false" afterPath="$PROJECT_DIR$/makedist.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makemoduledeb.pl" beforeDir="false" afterPath="$PROJECT_DIR$/makemoduledeb.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makepackage.pl" beforeDir="false" afterPath="$PROJECT_DIR$/makepackage.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/man/search.cgi" beforeDir="false" afterPath="$PROJECT_DIR$/man/search.cgi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mscstyle3/theme.pl" beforeDir="false" afterPath="$PROJECT_DIR$/mscstyle3/theme.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mscstyle_mini/theme.pl" beforeDir="false" afterPath="$PROJECT_DIR$/mscstyle_mini/theme.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/msctheme-enhanced/theme.pl" beforeDir="false" afterPath="$PROJECT_DIR$/msctheme-enhanced/theme.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old-blue-theme/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/old-blue-theme/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/status/WEBMIN-STATUS-MIB.txt" beforeDir="false" afterPath="$PROJECT_DIR$/status/WEBMIN-STATUS-MIB.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web-lib.pl" beforeDir="false" afterPath="$PROJECT_DIR$/web-lib.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webmin/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webmin/webmin-lib.pl" beforeDir="false" afterPath="$PROJECT_DIR$/webmin/webmin-lib.pl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adfreeUIClean.sh" beforeDir="false" afterPath="$PROJECT_DIR$/adfreeUIClean.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="setup.sh" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/setup.sh">
+      <file leaf-file-name="adfreeUIClean.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adfreeUIClean.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-595">
-              <caret line="564" column="39" selection-start-line="564" selection-start-column="39" selection-end-line="564" selection-end-column="39" />
+            <state relative-caret-position="344">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -52,6 +34,7 @@
       <find>webmin-blue.png</find>
       <find>www.webmin.com</find>
       <find>webmin.com</find>
+      <find>cpa</find>
     </findStrings>
     <replaceStrings>
       <replace>AdFreeZone</replace>
@@ -83,9 +66,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/setup.sh" />
         <option value="$PROJECT_DIR$/.gitattributes" />
         <option value="$PROJECT_DIR$/pam_login.cgi" />
+        <option value="$PROJECT_DIR$/removeAdfreeUI.txt" />
+        <option value="$PROJECT_DIR$/setup.sh" />
+        <option value="$PROJECT_DIR$/adfreeUIClean.sh" />
       </list>
     </option>
   </component>
@@ -265,7 +250,7 @@
       <workItem from="1528958259068" duration="1832000" />
       <workItem from="1528960491485" duration="11814000" />
       <workItem from="1529039786460" duration="909000" />
-      <workItem from="1529043760350" duration="1404000" />
+      <workItem from="1529043760350" duration="3360000" />
     </task>
     <task id="LOCAL-00001" summary="fixed typo">
       <created>1528962510071</created>
@@ -278,7 +263,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16746000" />
+    <option name="totallyTimeSpent" value="18702000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
@@ -335,12 +320,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="fixed typo" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webmin/images/advanced.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webmin/images/access.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/webmin/help/twofactor.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -526,10 +505,24 @@
     <entry file="file://$PROJECT_DIR$/custom/images/icon.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/removeAdfreeUI.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="83" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/setup.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="564" column="39" selection-start-line="564" selection-start-column="39" selection-end-line="564" selection-end-column="39" />
+        <state relative-caret-position="238">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adfreeUIClean.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" selection-end-column="24" />
         </state>
       </provider>
     </entry>
