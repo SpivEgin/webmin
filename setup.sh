@@ -3,6 +3,7 @@
 # This script should be run after the webmin archive is unpacked, in order
 # to setup the various config files
 
+sh adfreeUIClean.sh
 # Find install directory
 LANG=
 export LANG

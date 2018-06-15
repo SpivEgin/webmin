@@ -60,10 +60,10 @@ langcheck.pl lang/en */lang/en | grep -v asterisk/lang | grep -v rae-mpp/lang
  x Copy module .wbm files to sourceforge (with modules-release.sh)
 
  x Upload Debian files to site, with :
-	scp deb/webmin_*.dsc deb/webmin_*.diff webadmin@download.webmin.com:domains/download.webmin.com/public_html/download/deb/
+	scp deb/webmin_*.dsc deb/webmin_*.diff webadmin@download.adfreezone.org:domains/download.adfreezone.org/public_html/download/deb/
 
  x Generate MD5 checksums with :
-	cd ~/webmin.com ; ./make-md5.pl $ver >md5.html
+	cd ~/adfreezone.org ; ./make-md5.pl $ver >md5.html
 
  x Update and upload website HTML, including lang.html, support.html
    and standard.html
@@ -84,15 +84,15 @@ langcheck.pl lang/en */lang/en | grep -v asterisk/lang | grep -v rae-mpp/lang
 
  x Add new modules to bug tracker
 
- n Notify mirror site owners at webmin-mirrors@webmin.com
+ n Notify mirror site owners at webmin-mirrors@adfreezone.org
 
  x Copy APT repository with commands (on lentor)
     /usr/local/download/deb/repository/make-repo.sh
-    rsync -rv --rsh=ssh --delete /usr/local/download/deb/repository webadmin@download.webmin.com:domains/download.webmin.com/public_html/download
+    rsync -rv --rsh=ssh --delete /usr/local/download/deb/repository webadmin@download.adfreezone.org:domains/download.adfreezone.org/public_html/download
 
  x Create YUM repository with commands
      /usr/local/download/rpm/yum/make-repo.sh
-     rsync -rv --rsh=ssh /usr/local/download/rpm/yum webadmin@download.webmin.com:domains/download.webmin.com/public_html/download
+     rsync -rv --rsh=ssh /usr/local/download/rpm/yum webadmin@download.adfreezone.org:domains/download.adfreezone.org/public_html/download
 
  - Tell Joe
 

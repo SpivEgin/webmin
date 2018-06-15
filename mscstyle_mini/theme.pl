@@ -57,7 +57,7 @@ if (@_ > 0) {
 print '<body bgcolor=#424242 link=#000000 vlink=#000000 text=#000000 leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" '.$_[8].'>';
 
 if ($remote_user && @_ > 1) {
-	# Show basic header with webmin.com link and logout button
+	# Show basic header with adfreezone.org link and logout button
 	local $logout = $main::session_id ? "/session_login.cgi?logout=1"
 					  : "/switch_user.cgi";
 	print qq~<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/top_bar.jpg">

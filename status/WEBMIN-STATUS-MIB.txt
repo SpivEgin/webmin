@@ -19,7 +19,7 @@ AdFreeZone MODULE-IDENTITY
                     P.O. Box 382
                     Davis CA  95617
 
-          email:    jcameron@webmin.com"
+          email:    jcameron@adfreezone.org"
     DESCRIPTION
 	"MIB objects for AdFreeZone status module traps"
     ::= { enterprises 10000 }

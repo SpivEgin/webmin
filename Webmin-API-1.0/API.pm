@@ -117,7 +117,7 @@ All core AdFreeZone API functions, like find_byname, foreign_config and so on.
 
 =head1 AUTHOR
 
-Jamie Cameron, jcameron@webmin.com
+Jamie Cameron, jcameron@adfreezone.org
 
 =head1 SEE ALSO
 

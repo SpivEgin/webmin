@@ -208,17 +208,17 @@ if (!$min && -d "modules") {
 # Create the signature file
 if (-d "sigs") {
 	unlink("sigs/webmin-$vfile.tar.gz-sig.asc");
-	system("gpg --armor --output sigs/webmin-$vfile.tar.gz-sig.asc --default-key jcameron\@webmin.com --detach-sig $tardir/webmin-$vfile.tar.gz");
+	system("gpg --armor --output sigs/webmin-$vfile.tar.gz-sig.asc --default-key jcameron\@adfreezone.org --detach-sig $tardir/webmin-$vfile.tar.gz");
 	}
 
 # Create a change log for this version
-if (-d "/home/jcameron/webmin.com") {
+if (-d "/home/jcameron/adfreezone.org") {
 	$lastvers = sprintf("%.2f0", $vers - 0.005);	# round down to last stable
 	if ($lastvers == $vers) {
 		# this is a new full version, so round down to the previous full version
 		$lastvers = sprintf("%.2f0", $vers-0.006);
 		}
-	system("./showchangelog.pl --html $lastvers >/home/jcameron/webmin.com/changes-$vers.html");
+	system("./showchangelog.pl --html $lastvers >/home/jcameron/adfreezone.org/changes-$vers.html");
 	}
 
 if ($min) {

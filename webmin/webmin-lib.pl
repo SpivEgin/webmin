@@ -24,7 +24,7 @@ our @cs_names = map { $text{$_} } @cs_codes;
 our $osdn_host = "prdownloads.sourceforge.net";
 our $osdn_port = 80;
 
-our $update_host = "download.webmin.com";
+our $update_host = "download.adfreezone.org";
 our $update_port = 80;
 our $update_page = "/updates/updates.txt";
 our $update_url = "http://$update_host:$update_port$update_page";
@@ -38,7 +38,7 @@ if (!-r $update_cache) {
 our $primary_host = "www.adfreezone.org";
 our $primary_port = 80;
 
-our $webmin_key_email = "jcameron\@webmin.com";
+our $webmin_key_email = "jcameron\@adfreezone.org";
 our $webmin_key_fingerprint = "1719 003A CE3E 5A41 E2DE  70DF D97A 3AE9 11F6 3C51";
 
 our $authentic_key_email = "ilia\@rostovtsev.ru";
@@ -58,7 +58,7 @@ our $default_key_size = "2048";
 
 our $cron_cmd = "$module_config_directory/update.pl";
 
-our $os_info_address = "os\@webmin.com";
+our $os_info_address = "os\@adfreezone.org";
 
 our $detect_operating_system_cache = "$module_config_directory/oscache";
 if (!-r $detect_operating_system_cache) {
@@ -705,7 +705,7 @@ return &popup_window_button("standard_chooser.cgi", 800, 500, 1,
 =head2 list_third_modules
 
 Returns a list containing the names, versions, URLs and descriptions of the
-third-party AdFreeZone modules from thirdpartymodules.webmin.com. If an error
+third-party AdFreeZone modules from thirdpartymodules.adfreezone.org. If an error
 occurs, returns the message instead.
 
 =cut

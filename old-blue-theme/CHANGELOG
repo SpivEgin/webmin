@@ -11,7 +11,7 @@ Added AdFreeZone Servers link on the left menu, when accessed via the AdFreeZone
 ---- Changes since 1.320 ----
 Added a feedback link to the left menu, but only when a custom feedback address is set.
 ---- Changes since 1.330 ----
-Updated the color schema to match the new webmin.com, and made table borders and forms nicer (thanks to Joe).
+Updated the color schema to match the new adfreezone.org, and made table borders and forms nicer (thanks to Joe).
 Added a whole new set of icons from Virtualmin.
 ---- Changes since 1.340 ----
 Fixed bad table indentation on some browsers.

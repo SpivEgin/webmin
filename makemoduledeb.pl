@@ -8,7 +8,7 @@ use Term::ANSIColor qw(:constants);
 use 5.010;
 
 my $licence = "BSD";
-my $email = "Jamie Cameron <jcameron\@webmin.com>";
+my $email = "Jamie Cameron <jcameron\@adfreezone.org>";
 my $target_dir = "/tmp";
 
 my $tmp_dir = "/tmp/debian-module";
@@ -478,7 +478,7 @@ Maintainer: $email
 Architecture: all
 Standards-Version: 3.6.1
 Build-Depends-Indep: debhelper (>= 4.1.16), debconf (>= 0.5.00), perl
-Uploaders: Jamie Cameron <jcameron\@webmin.com>
+Uploaders: Jamie Cameron <jcameron\@adfreezone.org>
 Files:
   $md5 $st[7] ${prefix}${mod}-$ver.tar.gz
   $diffmd5 $diffst[7] ${prefix}${mod}-${ver}.diff

@@ -225,7 +225,7 @@ if ($section{'google'}) {
 	# Try to call the Google search engine, once for general results and
 	# once for doxfer
 	local %doneurl;
-	foreach my $host ("", "host:doxfer.webmin.com") {
+	foreach my $host ("", "host:doxfer.adfreezone.org") {
 		local ($grv, $error);
 		local $j = $in{'and'} ? ' and ' : ' or ';
 		&http_download($google_host, $google_port, "$google_page?q=".

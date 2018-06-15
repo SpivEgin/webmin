@@ -107,7 +107,7 @@ Architecture: all
 Depends: $deps
 Pre-Depends: perl
 Installed-Size: $size
-Maintainer: Jamie Cameron <jcameron\@webmin.com>
+Maintainer: Jamie Cameron <jcameron\@adfreezone.org>
 Provides: $baseproduct
 EOF
 if ($product eq "webmin") {
@@ -134,12 +134,12 @@ close(CONTROL);
 $nowstr = strftime("%a, %d %b %Y %H:%M:%S %z", localtime(time()));
 open(COPY, ">$copyright_file");
 print COPY <<EOF;
-This package was debianized by Jamie Cameron <jcameron\@webmin.com> on
+This package was debianized by Jamie Cameron <jcameron\@adfreezone.org> on
 $nowstr.
 
 It was downloaded from: http://www.adfreezone.org/
 
-Upstream author: Jamie Cameron <jcameron\@webmin.com>
+Upstream author: Jamie Cameron <jcameron\@adfreezone.org>
 
 Copyright:
 
@@ -215,7 +215,7 @@ foreach $v (sort { $a <=> $b } (keys %$changes)) {
 			}
 		}
 	print CHANGELOG "\n";
-	print CHANGELOG "-- Jamie Cameron <jcameron\@webmin.com> $vtimestr\n";
+	print CHANGELOG "-- Jamie Cameron <jcameron\@adfreezone.org> $vtimestr\n";
 	print CHANGELOG "\n";
 	}
 close(CHANGELOG);
@@ -417,11 +417,11 @@ Format: 1.0
 Source: $product
 Version: $ver$rel
 Binary: $product
-Maintainer: Jamie Cameron <jcameron\@webmin.com>
+Maintainer: Jamie Cameron <jcameron\@adfreezone.org>
 Architecture: all
 Standards-Version: 3.6.1
 Build-Depends-Indep: debhelper (>= 4.1.16), debconf (>= 0.5.00), perl
-Uploaders: Jamie Cameron <jcameron\@webmin.com>
+Uploaders: Jamie Cameron <jcameron\@adfreezone.org>
 Files:
  $md5 $st[7] ${product}-${ver}.tar.gz
  $diffmd5 $diffst[7] ${product}_${ver}.diff
@@ -444,7 +444,7 @@ if (-d "/usr/local/webadmin/deb/repository") {
 
 # Create PGP signature
 unlink("sigs/${product}_${ver}${rel}_all.deb-sig.asc");
-system("gpg --armor --output sigs/${product}_${ver}${rel}_all.deb-sig.asc --default-key jcameron\@webmin.com --detach-sig deb/${product}_${ver}${rel}_all.deb");
+system("gpg --armor --output sigs/${product}_${ver}${rel}_all.deb-sig.asc --default-key jcameron\@adfreezone.org --detach-sig deb/${product}_${ver}${rel}_all.deb");
 
 # read_file(file, &assoc, [&order], [lowercase])
 # Fill an associative array with name=value pairs from a file

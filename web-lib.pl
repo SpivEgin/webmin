@@ -6,7 +6,7 @@
 %number_to_month_map = reverse(%month_to_number_map);
 $main::default_debug_log_size = 10*1024*1024;
 
-$webmin_feedback_address = "feedback\@webmin.com";
+$webmin_feedback_address = "feedback\@adfreezone.org";
 $default_lang = "en";
 $default_charset = "iso-8859-1";
 

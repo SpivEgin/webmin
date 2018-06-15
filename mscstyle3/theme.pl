@@ -232,7 +232,7 @@ else {
 	}
 
 if ($remote_user && @_ > 1) {
-	# Show basic header with webmin.com link and logout button
+	# Show basic header with adfreezone.org link and logout button
 	local $logout = $main::session_id ? "/session_login.cgi?logout=1"
 					  : "/switch_user.cgi";
 	local $loicon = $main::session_id ? "logout.jpg" : "switch.jpg";
