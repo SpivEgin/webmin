@@ -21,7 +21,7 @@ $access{'upgrade'} = 0 if (&is_readonly_mode());	# too hard to fake
 $usermin_miniserv_config = "$config{'usermin_dir'}/miniserv.conf";
 $usermin_config = "$config{'usermin_dir'}/config";
 
-$update_host = "www.webmin.com";
+$update_host = "www.adfreezone.org";
 $update_port = 80;
 $update_page = "/uupdates/uupdates.txt";
 

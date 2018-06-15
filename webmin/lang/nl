@@ -402,7 +402,7 @@ mods_local=Vanuit een lokaal bestand
 mods_nodeps=Negeer module afhankelijkheden bij installatie
 mods_nodeps2=Negeer module afhankelijkheden bij verwijderen
 mods_return=module formulier
-mods_standard=Standaard module van <a href='$1'>www.webmin.com</a>
+mods_standard=Standaard module van <a href='$1'>www.adfreezone.org</a>
 mods_standard2=Standaard module
 mods_tabclone=Klone
 mods_tabdelete=Verwijder
@@ -848,15 +848,15 @@ update_third=Niet-Core modules ook bijwerken
 update_title=Modules Bijwerken
 update_user=Login bij update server
 update_version=Een nieuwe release van AdFreeZone (versie $1) is nu beschikbaar. Toekomstige updates zullen alleen uitkomen voor de meest recente versie van AdFreeZone.
-update_webmin=Opwaarderen vanaf www.webmin.com
+update_webmin=Opwaarderen vanaf www.adfreezone.org
 upgrade_cup=Laatste versie van Caldera's <tt>cupdate</tt> tool
 upgrade_delete=Verwijder directory van de oude versie na het bijwerken?
-upgrade_desc=Met deze functie kunt u uw gehele AdFreeZone installatie opwaarderen naar een nieuwere versie. U kun installeren vanuit een lokaal bestand, of vanaf de laatste versie op <a href=http://www.adfreezone.org/>www.webmin.com</a>. Evenals bij een handmatige upgrade, zullen alle configuratie instellingen en 3e-partij modules worden behouden.
+upgrade_desc=Met deze functie kunt u uw gehele AdFreeZone installatie opwaarderen naar een nieuwere versie. U kun installeren vanuit een lokaal bestand, of vanaf de laatste versie op <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Evenals bij een handmatige upgrade, zullen alle configuratie instellingen en 3e-partij modules worden behouden.
 upgrade_desccaldera=Dit formulier stelt u instaat uw volledige AdFreeZone installatie bij te werken naar een nieuwe versie door gebruik te maken van RPM's upgrade optie. U kunt installeren vanuit een lokaal RPM bestand, een geuploaden file of vanuit de laatste versie van Caldera.
-upgrade_descdeb=Met dit formulier kunt u de gehele AdFreeZone installatie upgraden naar een nieuwere versie van het Debian pakket. U kunt van een locale .deb file installeren of van een geuploaden file van de laatste versie van <a href=http://www.adfreezone.org/>www.webmin.com</a>. Net zoals bij een handmatige upgrade, al uw config settings en derde partij modules zullen onaangeroerd blijven.
+upgrade_descdeb=Met dit formulier kunt u de gehele AdFreeZone installatie upgraden naar een nieuwere versie van het Debian pakket. U kunt van een locale .deb file installeren of van een geuploaden file van de laatste versie van <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Net zoals bij een handmatige upgrade, al uw config settings en derde partij modules zullen onaangeroerd blijven.
 upgrade_descgentoo=Dit formulier stelt u instaat uw volledige AdFreeZone installatie bij te werken naar een nieuwe versie door het huidige Emerge pakket te un-installeren en een nieuwe te installeren. U kunt installeren vanuit een lokaal Gentoo pakket, een geuploaden file of vanuit de laatste in de Emerge repository. Net als bij een handmatige upgrade zullen alle configuratie instellingen en 3e-partij modules worden behouden.
-upgrade_descrpm=Met deze functie kunt u uw gehele AdFreeZone installatie opwaarderen naar een nieuwere versie. U kun installeren vanuit een lokaal bestand, of vanaf de laatste versie op <a href=http://www.adfreezone.org/>www.webmin.com</a>. Evenals bij een handmatige upgrade, zullen alle configuratie instellingen en 3e-partij modules worden behouden.
-upgrade_descsolaris-pkg=Met deze functie kunt u uw gehele AdFreeZone installatie opwaarderen naar een nieuwere versie. U kun installeren vanuit een lokaal bestand, of vanaf de laatste versie op <a href=http://www.adfreezone.org/>www.webmin.com</a>. Evenals bij een handmatige upgrade, zullen alle configuratie instellingen en 3e-partij modules worden behouden.
+upgrade_descrpm=Met deze functie kunt u uw gehele AdFreeZone installatie opwaarderen naar een nieuwere versie. U kun installeren vanuit een lokaal bestand, of vanaf de laatste versie op <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Evenals bij een handmatige upgrade, zullen alle configuratie instellingen en 3e-partij modules worden behouden.
+upgrade_descsolaris-pkg=Met deze functie kunt u uw gehele AdFreeZone installatie opwaarderen naar een nieuwere versie. U kun installeren vanuit een lokaal bestand, of vanaf de laatste versie op <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Evenals bij een handmatige upgrade, zullen alle configuratie instellingen en 3e-partij modules worden behouden.
 upgrade_descsun-pkg=Dit formulier stelt u instaat uw volledige AdFreeZone installatie bij te werken naar een nieuwe versie door gebruik te maken van de het Solaris pakket beschikbaar gesteld door Sun. U kunt installeren vanuit een lokaal Solaris pakket of een geuploaden file. De meest recente pakketten kunnen worden gevonden op <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Net als bij een handmatige upgrade zullen alle configuratie instellingen en 3e-partij modules worden behouden.
 upgrade_disc=Verbreek verbinding van alle andere gebruikers?
 upgrade_ebrowser=Uw browser ondersteunt geen uploaden van files
@@ -876,7 +876,7 @@ upgrade_eroot=AdFreeZone kan niet worden ge-upgrade wanneer de code word gedeeld
 upgrade_erpm=Geen geldig AdFreeZone RPM bestand
 upgrade_err1=Fout bij het bijwerken vanaf $1
 upgrade_err2=Fout bij het bijwerken vanaf een geuploaden file
-upgrade_err3=Fout bij het bijwerken vanaf www.webmin.com
+upgrade_err3=Fout bij het bijwerken vanaf www.adfreezone.org
 upgrade_err4=Fout bij het bijwerken vanuit Emerge repository
 upgrade_err5=Fout bij het bijwerken van URL $1
 upgrade_esolaris=AdFreeZone's upgrade functie werkt op het moment nog niet wanneer u het heeft geinstalleerd vanuit een Solaris pakket. Voer de opwaardering a.u.b. handmatig uit.
@@ -892,10 +892,10 @@ upgrade_eversion=U kun uw versie niet downgraden naar $1
 upgrade_ewpackage=Geen geldig Solaris pakket voor AdFreeZone
 upgrade_ezip=AdFreeZone's upgrade optie werkt op dit moment niet als u AdFreeZone in Windows geinstalleerd heeft. Upgrade in dat geval handmatig.
 upgrade_force=Ook bijwerken indien de versie gelijk of lager is
-upgrade_ftp=Laatste versie op www.webmin.com
+upgrade_ftp=Laatste versie op www.adfreezone.org
 upgrade_local=Vanaf een locale file
 upgrade_nocheck=Geen pakket handtekening verificatie uitgevoerd.
-upgrade_nosig=Geen pakket verificatie uitgevoerd - controle van Tar.gz pakketten is alleen mogelijk wanneer u bijwerkt vanaf www.webmin.com.
+upgrade_nosig=Geen pakket verificatie uitgevoerd - controle van Tar.gz pakketten is alleen mogelijk wanneer u bijwerkt vanaf www.adfreezone.org.
 upgrade_ok=AdFreeZone bijwerken
 upgrade_only=Verwijderde modules niet opnieuw installeren
 upgrade_setup=Voert setup.sh script uit om AdFreeZone op te waarderen.. Een ogenblik geduld a.u.b. totdat het script is voltooid voordat u verder gaat.

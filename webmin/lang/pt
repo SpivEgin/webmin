@@ -224,7 +224,7 @@ mods_install=Instalar M&#243;dulo
 mods_installok=Instalar M&#243;dulo
 mods_local=A partir de um ficheiro local
 mods_nodeps=Ignorar depend&#234;ncias do m&#243;dulo ao instalar
-mods_standard=M&#243;dulo padr&#227;o a partir de <a href='$1'>www.webmin.com</a>
+mods_standard=M&#243;dulo padr&#227;o a partir de <a href='$1'>www.adfreezone.org</a>
 mods_standard2=M&#243;dulo padr&#227;o
 mods_third=M&#243;dulo de uma terceira parte a partir de
 mods_thsel=Seleccionar..
@@ -457,14 +457,14 @@ update_subject=Relat&#243;rio de actualiza&#231;&#245;es dos m&#243;dulos do AdF
 update_third=Actualizar tamb&#233;m m&#243;dulos n&#227;o-essenciais
 update_title=Actualizar M&#243;dulos
 update_version=Uma nova vers&#227;o do AdFreeZone (vers&#227;o $1) est&#225; agora dispon&#237;vel para descarregamento. As pr&#243;ximas actualiza&#231;&#245;es ser&#227;o lan&#231;adas s&#243; para a &#250;ltima vers&#227;o.
-update_webmin=Actualizar a partir de www.webmin.com
+update_webmin=Actualizar a partir de www.adfreezone.org
 upgrade_cup=&#218;ltima vers&#227;o a partir da ferramenta <tt>cupdate</tt> da Caldera
 upgrade_delete=Apagar o direct&#243;rio da vers&#227;o antiga ap&#243;s a actualiza&#231;&#227;o?
-upgrade_desc=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o. Pode instalar a partir de um ficheiro local, um ficheiro remoto ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
+upgrade_desc=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o. Pode instalar a partir de um ficheiro local, um ficheiro remoto ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
 upgrade_desccaldera=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o usando a op&#231;&#227;o de actualiza&#231;&#227;o dos RPM's. Pode instalar a partir de um ficheiro RPM local, um ficheiro RPM remoto ou a partir da &#250;ltima vers&#227;o da Caldera. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
 upgrade_descgentoo=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o removendo o pacote Gentoo Emerge actual e instalando um novo. Pode instalar a partir de um ficheiro de pacote Gentoo local, um ficheiro remoto ou a partir da &#250;ltima vers&#227;o no reposit&#243;rio Emerge. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
-upgrade_descrpm=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o usando a op&#231;&#227;o de actualiza&#231;&#227;o dos RPM's. Pode instalar a partir de um ficheiro RPM local, um ficheiro RPM remoto ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
-upgrade_descsolaris-pkg=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o removendo o pacote solaris actual e instalando um novo. Pode instalar a partir de um ficheiro de pacote solaris local, um ficheiro remoto ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
+upgrade_descrpm=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o usando a op&#231;&#227;o de actualiza&#231;&#227;o dos RPM's. Pode instalar a partir de um ficheiro RPM local, um ficheiro RPM remoto ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
+upgrade_descsolaris-pkg=Este formul&#225;rio permite-lhe actualizar completamente a sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o removendo o pacote solaris actual e instalando um novo. Pode instalar a partir de um ficheiro de pacote solaris local, um ficheiro remoto ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Tal como na actualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiras partes ser&#227;o mantidas.
 upgrade_ebrowser=O seu navegador n&#227;o suporta a utiliza&#231;&#227;o de ficheiros remotos
 upgrade_ecaldera=O pacote RPM n&#227;o parece ser a vers&#227;o Caldera do AdFreeZone.
 upgrade_echecksig=A verifica&#231;&#227;o da assinatura RPM falhou : $1
@@ -480,7 +480,7 @@ upgrade_epackage=N&#227;o &#233; um pacote solaris v&#225;lido
 upgrade_erpm=N&#227;o &#233; um ficheiro RPM AdFreeZone v&#225;lido
 upgrade_err1=Erro ao actualizar a partir de $1
 upgrade_err2=Erro ao actualizar a partir do ficheiro remoto
-upgrade_err3=Erro ao actualizar a partir de www.webmin.com
+upgrade_err3=Erro ao actualizar a partir de www.adfreezone.org
 upgrade_err4=Erro ao actualizar a partir do reposit&#243;rio Emerge
 upgrade_err5=Erro ao actualizar a partir do  URL $1
 upgrade_esolaris=A actualiza&#231;&#227;o do AdFreeZone n&#227;o funciona quando fez a instala&#231;&#227;o a partir de um pacote Solaris. Por favor actualize manualmente.
@@ -494,10 +494,10 @@ upgrade_everify3=A chave p&#250;blica com o ID $1 n&#227;o est&#225; dispon&#237
 upgrade_everify4=Erro ao verificar a assinatura : $1
 upgrade_eversion=N&#227;o &#233; poss&#237;vel baixar para a vers&#227;o $1
 upgrade_force=Actualizar mesmo se a nova vers&#227;o for a mesma ou mais antiga?
-upgrade_ftp=&#218;ltima vers&#227;o a partir de www.webmin.com
+upgrade_ftp=&#218;ltima vers&#227;o a partir de www.adfreezone.org
 upgrade_local=A partir de um ficheiro local
 upgrade_nocheck=N&#227;o foi feita a verifica&#231;&#227;o da assinatura do pacote.
-upgrade_nosig=N&#227;o foi feita a verifica&#231;&#227;o da assinatura do pacote - a verifica&#231;&#227;o de pacotes tar.gz s&#243; &#233; poss&#237;vel quando se actualiza a partir de www.webmin.com.
+upgrade_nosig=N&#227;o foi feita a verifica&#231;&#227;o da assinatura do pacote - a verifica&#231;&#227;o de pacotes tar.gz s&#243; &#233; poss&#237;vel quando se actualiza a partir de www.adfreezone.org.
 upgrade_ok=Actualizar o AdFreeZone
 upgrade_only=N&#227;o reinstalar m&#243;dulos apagados?
 upgrade_setup=A correr o script setup.sh para actualizar o AdFreeZone .. Por favor aguarde um minuto at&#233; estar completo antes de continuar.

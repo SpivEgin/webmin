@@ -257,7 +257,7 @@ mods_install=Instalar M&#243;dulo
 mods_installok=Instalar M&#243;dulo
 mods_local=Desde archivo local
 mods_nodeps=Ignorar dependencias de m&#243;dulo en la instalaci&#243;n
-mods_standard=M&#243;dulo est&#225;ndar de <a href='$1'>www.webmin.com</a>
+mods_standard=M&#243;dulo est&#225;ndar de <a href='$1'>www.adfreezone.org</a>
 mods_standard2=M&#243;dulo est&#225;ndar
 mods_third=M&#243;dulo externo desde
 mods_thsel=Elegir..
@@ -518,14 +518,14 @@ update_subject=Informe de actualizaci&#243;n de m&#243;dulos de AdFreeZone
 update_third=Actualizar tambi&#233;n los m&#243;dulos que no son internos
 update_title=Actualizar M&#243;dulos
 update_version=Una nueva versi&#243;n de AdFreeZone ($1) est&#225; disponible para ser descargada. Las actualizaciones futuras s&#243;lo se publicar&#225;n para la &#250;ltima versi&#243;n.
-update_webmin=Actualizar desde www.webmin.com
+update_webmin=Actualizar desde www.adfreezone.org
 upgrade_cup=&#218;ltima versi&#243;n desde la herramienta <tt>cupdate</tt> de Caldera
 upgrade_delete=&#191;Borro directorio de versi&#243;n vieja tras mejorar actual?
-upgrade_desc=Este formulario te permite mejorar tu instalaci&#243;n completa de AdFreeZone a una nueva versi&#243;n. Puedes instalar desde un archivo local, un archivo cargado o desde la &#250;ltima versi&#243;n en <a href=http://www.adfreezone.org/>www.webmin.com</a>. Al igual que con una mejora manual, todos los valores de tu configuraci&#243;n y los m&#243;dulos de terceros ser&#225;n mantenidos.
+upgrade_desc=Este formulario te permite mejorar tu instalaci&#243;n completa de AdFreeZone a una nueva versi&#243;n. Puedes instalar desde un archivo local, un archivo cargado o desde la &#250;ltima versi&#243;n en <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Al igual que con una mejora manual, todos los valores de tu configuraci&#243;n y los m&#243;dulos de terceros ser&#225;n mantenidos.
 upgrade_desccaldera=Este formulario te permite mejorar toda tu instalaci&#243;n de webmin a una nueva versi&#243;n mediante la opci&#243;n de mejora de RPM. Puedes instalar desde un archivo RPM local, un carchivo cargado o desde la &#250;ltima versi&#243;n de Caldera.
 upgrade_descgentoo=Este formulario le permite actualizar toda su instalaci&#243;n AdFreeZone a una nueva versi&#243;n, borrando el paquete Emerge de Gentoo actual e instalando uno nuevo. Puede instalar desde un archivo local, un archivo subido o desde el repositorio Emerge. Igual que con una actualizaci&#243;n manual, todas sus configuraciones y m&#243;dulos de terceros se mantendr&#225;n.
-upgrade_descrpm=Este formulario te permite mejorar tu completa instalaci&#243;n de AdFreeZone a una nueva versi&#243;n mediante la opci&#243;n de mejora RPM. Pudes instalar de un archivo RPM local, de un archivo cargado o desde la &#250;ltima versi&#243;n en <a href=http://www.adfreezone.org/>www.webmin.com</a>. Igual que con una mejora manual, todos tus valores de configuraci&#243;n y m&#243;dulos de terceros ser&#225;n mantenidos.
-upgrade_descsolaris-pkg=Este formulario te permite mejorar tu instalaci&#243;n completa de AdFreeZone a una nueva versi&#243;n mediante el borrado del paquete solaris actual e instalando uno nuevo. Puedes instalar de un archivo de paquete solaris local, de un archivo cargado desde la &#250;ltima versi&#243;n en <a href=http://www.adfreezone.org/>www.webmin.com</a>. Igual que con una mejora manual, todos tus valores de configuraci&#243;n y m&#243;dulos de terceros ser&#225;n mantenidos.
+upgrade_descrpm=Este formulario te permite mejorar tu completa instalaci&#243;n de AdFreeZone a una nueva versi&#243;n mediante la opci&#243;n de mejora RPM. Pudes instalar de un archivo RPM local, de un archivo cargado o desde la &#250;ltima versi&#243;n en <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Igual que con una mejora manual, todos tus valores de configuraci&#243;n y m&#243;dulos de terceros ser&#225;n mantenidos.
+upgrade_descsolaris-pkg=Este formulario te permite mejorar tu instalaci&#243;n completa de AdFreeZone a una nueva versi&#243;n mediante el borrado del paquete solaris actual e instalando uno nuevo. Puedes instalar de un archivo de paquete solaris local, de un archivo cargado desde la &#250;ltima versi&#243;n en <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Igual que con una mejora manual, todos tus valores de configuraci&#243;n y m&#243;dulos de terceros ser&#225;n mantenidos.
 upgrade_descsun-pkg=Este formulario le permite actualizar toda su instalaci&#243;n AdFreeZone a una nueva versi&#243;n del paquete Solaris proporcionado por Sun. Puede instalar desde un archivo local o un archivo subido. Los paquetes m&#225;s actuales se pueden encontrar en <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Igual que con una actualizaci&#243;n manual, todas sus configuraciones y m&#243;dulos de terceros se mantendr&#225;n.
 upgrade_disc=&#191;Desconectar al resto de usuarios?
 upgrade_ebrowser=Tu navegador no soporta carga de archivos
@@ -544,7 +544,7 @@ upgrade_eroot=AdFreeZone no puede actualizarse cuando su c&#243;digo se comparte
 upgrade_erpm=No es un archivo v&#225;lido RPM de AdFreeZone
 upgrade_err1=No pude mejorar desde $1
 upgrade_err2=No pude mejorar desde archivo cargado
-upgrade_err3=No pude mejorar desde www.webmin.com
+upgrade_err3=No pude mejorar desde www.adfreezone.org
 upgrade_err4=Fallo al mejorar desde el repositorio Emerge
 upgrade_err5=Fallo al mejorar desde URL $1
 upgrade_esolaris=La caracter&#237;stica de mejora de AdFreeZone no funciona en este momento si has instalado de un paquete Solaris. Por favor mejora de forma manual.
@@ -559,10 +559,10 @@ upgrade_everify4=Fallo al verificar firma: $1
 upgrade_eversion=No puedo bajar a versi&#243;n $1
 upgrade_ewpackage=No es un paquete v&#225;lido de Solaris para AdFreeZone
 upgrade_force=&#191;Cambiar de versi&#243;n incluso si la nueva es la misma o inferior?
-upgrade_ftp=&#218;ltima versi&#243;n desde www.webmin.com
+upgrade_ftp=&#218;ltima versi&#243;n desde www.adfreezone.org
 upgrade_local=Desde archivo local
 upgrade_nocheck=No se realiz&#243; verificaci&#243;n de firma de paquete.
-upgrade_nosig=No se realiz&#243; verificaci&#243;n de firma de paquete - el chequeo de los paquetes tar.gz s&#243;lo es posible cuando se descarga desde www.webmin.com
+upgrade_nosig=No se realiz&#243; verificaci&#243;n de firma de paquete - el chequeo de los paquetes tar.gz s&#243;lo es posible cuando se descarga desde www.adfreezone.org
 upgrade_ok=Mejorar versi&#243;n AdFreeZone
 upgrade_only=&#191;No reinstalar m&#243;dulos borrados?
 upgrade_setup=Ejecutando el gui&#243;n setup.sh para mejorar AdFreeZone... Por favor, espera un minuto hasta que se complete antes de continuar.

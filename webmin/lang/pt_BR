@@ -374,7 +374,7 @@ mods_local=A partir de arquivo local
 mods_nodeps=Ignorar depend&#234;ncias de m&#243;dulos quando instalando
 mods_nodeps2=Ignorar depend&#234;ncia de m&#243;dulo quando apagado
 mods_return=formul&#225;rio de m&#243;dulos
-mods_standard=M&#243;dulo padr&#227;o para <a href='$1'>www.webmin.com</a>
+mods_standard=M&#243;dulo padr&#227;o para <a href='$1'>www.adfreezone.org</a>
 mods_standard2=M&#243;dulo padr&#227;o
 mods_tabclone=Clonar
 mods_tabdelete=Apagar
@@ -770,15 +770,15 @@ update_third=Tamb&#233;m atualizar m&#243;dulos non-core
 update_title=Atualizar M&#243;dulos
 update_user=Login para atualizar servidor
 update_version=Uma nova vers&#227;o do AdFreeZone (vers&#227;o $1) est&#225; dispon&#237;vel agora para download. Atualiza&#231;&#245;es futuras ser&#227;o lan&#231;adas somente para a &#250;ltima vers&#227;o.
-update_webmin=Atualizar a partir de www.webmin.com
+update_webmin=Atualizar a partir de www.adfreezone.org
 upgrade_cup=&#218;ltima vers&#227;o da ferramento <tt>cupdate</tt> da Caldera
 upgrade_delete=Remover diret&#243;rio da vers&#227;o anterior depois da atualiza&#231;&#227;o ?
-upgrade_desc=Este formul&#225;rio permite atualizar toda sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o. Voc&#234; pode instalar a partir de um arquivo local, um arquivo vindo por upload ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Da mesma forma que em uma atualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros se&#227;o mantidos.
+upgrade_desc=Este formul&#225;rio permite atualizar toda sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o. Voc&#234; pode instalar a partir de um arquivo local, um arquivo vindo por upload ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Da mesma forma que em uma atualiza&#231;&#227;o manual, todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros se&#227;o mantidos.
 upgrade_desccaldera=Este formul&#225;rio permite atualizar toda sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o usando a op&#231;&#227;o de atualiza&#231;&#227;o RPM. Voc&#234; pode instalar a partir de um arquivo RPM local, um arquivo vindo por upload ou a partir da &#250;ltima vers&#227;o da Caldera.
-upgrade_descdeb=Este formul&#225;rio permite fazer o upgrade completo de sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o, atualizando seu pacote Debian. Voc&#234; pode instalar de um arquivo local .deb, de um arquivo enviado ou da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros ser&#227;o mantidos.
+upgrade_descdeb=Este formul&#225;rio permite fazer o upgrade completo de sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o, atualizando seu pacote Debian. Voc&#234; pode instalar de um arquivo local .deb, de um arquivo enviado ou da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros ser&#227;o mantidos.
 upgrade_descgentoo=Este formul&#225;rio permite atualizar toda sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o removendo o pacote Gentto Emerge atual e instalando um novo. Voc&#234; pode instalar a partir de um arquivo de pacote Gentoo local, um arquivo vindo por upload ou a partir da &#250;ltima vers&#227;o no reposit&#243;rio Emerge. Da mesma que em uma atualiza&#231;&#227;o normal, toda sua configura&#231;&#227;o e m&#243;dulos de terceiros ser&#227;o mantidos.
-upgrade_descrpm=Este formul&#225;rio permite fazer o upgrade completo de sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o, usando a op&#231;&#227;o de upgrade de RPM. Voc&#234; pode instalar de um arquivo RPM local, de um arquivo enviado ou da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros ser&#227;o mantidos.
-upgrade_descsolaris-pkg=Este formul&#225;rio permite atualizar toda sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o removendo o pacote Solaris atual e instalando um novo. Voc&#234; pode instalar a partir de um arquivo de pacote Solaris local, um arquivo vindo por upload ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.webmin.com</a>. Da mesma forma que em uma atualiza&#231;&#227;o manual, toda sua configura&#231;&#227;o e m&#243;dulos d terceiros ser&#227;o mantidos.
+upgrade_descrpm=Este formul&#225;rio permite fazer o upgrade completo de sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o, usando a op&#231;&#227;o de upgrade de RPM. Voc&#234; pode instalar de um arquivo RPM local, de um arquivo enviado ou da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros ser&#227;o mantidos.
+upgrade_descsolaris-pkg=Este formul&#225;rio permite atualizar toda sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o removendo o pacote Solaris atual e instalando um novo. Voc&#234; pode instalar a partir de um arquivo de pacote Solaris local, um arquivo vindo por upload ou a partir da &#250;ltima vers&#227;o em <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Da mesma forma que em uma atualiza&#231;&#227;o manual, toda sua configura&#231;&#227;o e m&#243;dulos d terceiros ser&#227;o mantidos.
 upgrade_descsun-pkg=Este formul&#225;rio permite fazer o upgrade completo de sua instala&#231;&#227;o do AdFreeZone para uma nova vers&#227;o usando o pacote do Solaris mantido pela Sun. oc&#234; pode instalar de um arquivo local do Solaris, de um arquivo enviado. O &#250;ltimo pacote pode ser encontrado em <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Todas as suas configura&#231;&#245;es e m&#243;dulos de terceiros ser&#227;o mantidos.
 upgrade_disc=Desconectar todos os usu&#225;rios?
 upgrade_ebrowser=Seu navegador n&#227;o suporta upload de arquivos
@@ -798,7 +798,7 @@ upgrade_eroot=O AdFreeZone n&#227;o pode ser atualizado quando o seu c&#243;digo
 upgrade_erpm=N&#227;o &#233; um arquivo RPM do AdFreeZone v&#225;lido
 upgrade_err1=Falha ao atualizar a partir de $1
 upgrade_err2=Falha ao atualizar a partir de um upload de arquivo
-upgrade_err3=Falha ao atualizar a partir de www.webmin.com
+upgrade_err3=Falha ao atualizar a partir de www.adfreezone.org
 upgrade_err4=Falha ao atualizar a aprtir do reposit&#243;rio Emerge
 upgrade_err5=Falha ao atualizar a partir da URL $1
 upgrade_esolaris=O recurso de atualiza&#231;&#227;o do AdFreeZone atualmente funciona quando voc&#234; instalou a partir de um pacote Solaris. Por favor atualize manualmente.
@@ -814,10 +814,10 @@ upgrade_eversion=N&#227;o &#233; poss&#237;vel fazer o downgrade para a vers&#22
 upgrade_ewpackage=N&#227;o &#233; um pacote do Solaris v&#225;lido para o AdFreeZone
 upgrade_ezip=O recurso de atualiza&#231;&#227;o do AdFreeZone n&#227;o est&#225; habilitado quando voc&#234; possui instalado no Windows. Por favor, atualize manualmente.
 upgrade_force=Atualizar sempre se a nova vers&#227;o for a mesma ou uma mais antiga?
-upgrade_ftp=&#218;ltima vers&#227;o de www.webmin.com
+upgrade_ftp=&#218;ltima vers&#227;o de www.adfreezone.org
 upgrade_local=A partir de arquivo local
 upgrade_nocheck=Nenhuma verifica&#231;&#227;o de assinatura de pacote foi feita.
-upgrade_nosig=Nenhum verifica&#231;&#227;o de assinatura de pacote foi feita - verificar os pacotes tar.gz somente &#233; poss&#237;vel quando atualizar de www.webmin.com
+upgrade_nosig=Nenhum verifica&#231;&#227;o de assinatura de pacote foi feita - verificar os pacotes tar.gz somente &#233; poss&#237;vel quando atualizar de www.adfreezone.org
 upgrade_ok=Atualizar AdFreeZone
 upgrade_only=N&#227;o reinstalar apagados ou novos m&#243;dulos?
 upgrade_setup=Executando o script setup.sh para atualizar o AdFreeZone... Por favor aguarde um minuto at&#233; que este processo seja finalizado antes de continuar.

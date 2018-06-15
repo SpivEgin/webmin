@@ -447,7 +447,7 @@ mods_local=Fra lokal fil
 mods_nodeps=Ignorer modul avhengighet under installasjon
 mods_nodeps2=Ignorer modulavhengigheter ved sletting
 mods_return=moduler skjema
-mods_standard=Standard modul fra <a href='$1'>www.webmin.com</a>
+mods_standard=Standard modul fra <a href='$1'>www.adfreezone.org</a>
 mods_standard2=Standard modul
 mods_tabclone=Klon
 mods_tabdelete=Slett
@@ -979,14 +979,14 @@ update_third=Oppdater tredje-parts moduler ogs&#229;
 update_title=Oppdater moduler
 update_user=Brukernavn for oppdaterings-tjener
 update_version=En ny versjon av AdFreeZone (versjon $1) er n&#229; tilgjengelig for nedlasting. Oppdateringer vil kun bli lagt ut for den nyeste versjonen.
-update_webmin=Oppdater fra www.webmin.com
+update_webmin=Oppdater fra www.adfreezone.org
 upgrade_cup=Siste versjon fra Caldera's <tt>cupdate</tt> tool
 upgrade_delete=Slette gamle versjons mapper etter oppgradering??
-upgrade_desc=Her kan du oppgradere hele webmin installasjonen til en nyere versjon med RPM pakker. Du kan installere fra en lokal RPM fil, en uploaded fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Alle dine settinger og "third-party" moduler vil forbli som de er.
-upgrade_descdeb=Her kan du oppgradere hele webmin installasjonen til en nyere versjon ved &#229; oppgradere dens Debian pakke. Du kan installere fra en lokal .deb fil, en opplastet fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Alle dine innstillinger og "tredje-parts" moduler vil forbli som de er.
+upgrade_desc=Her kan du oppgradere hele webmin installasjonen til en nyere versjon med RPM pakker. Du kan installere fra en lokal RPM fil, en uploaded fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Alle dine settinger og "third-party" moduler vil forbli som de er.
+upgrade_descdeb=Her kan du oppgradere hele webmin installasjonen til en nyere versjon ved &#229; oppgradere dens Debian pakke. Du kan installere fra en lokal .deb fil, en opplastet fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Alle dine innstillinger og "tredje-parts" moduler vil forbli som de er.
 upgrade_descgentoo=Dette formularet lar deg oppgradere hele din AdFreeZone installasjon til en nyere versjon ved &#229; fjerne den aktuelle Gentoo Emerge pakken &#229; installere en ny. Du kan installere fra en lokal Gentoo pakke fil, en opplastet fil eller fra den siste versjonen i Emerge repository. Akkurat som ved en manual oppgradering, alle dine settinger og third-party moduler vil bli beholdt.
-upgrade_descrpm=Her kan du oppgradere hele webmin installasjonen til en nyere versjon med RPM pakker. Du kan installere fra en lokal RPM fil, en uploaded fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Alle dine settinger og "third-party" moduler vil forbli som de er.
-upgrade_descsolaris-pkg=Her kan du oppgradere hele webmin installasjonen til en nyere versjon ved &#229; fjerne den eksisterende solaris pakken og installere en ny. Du kan installere fra en lokal solaris pakke fil, en uploaded fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.webmin.com</a>. Alle dine settinger og "third-party" moduler vil forbli som de er.
+upgrade_descrpm=Her kan du oppgradere hele webmin installasjonen til en nyere versjon med RPM pakker. Du kan installere fra en lokal RPM fil, en uploaded fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Alle dine settinger og "third-party" moduler vil forbli som de er.
+upgrade_descsolaris-pkg=Her kan du oppgradere hele webmin installasjonen til en nyere versjon ved &#229; fjerne den eksisterende solaris pakken og installere en ny. Du kan installere fra en lokal solaris pakke fil, en uploaded fil eller fra siste versjon p&#229; <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Alle dine settinger og "third-party" moduler vil forbli som de er.
 upgrade_descsun-pkg=Her kan du oppgradere hele webmin installasjonen til en nyere versjon fra Solaris pakken levert av Sun. Du kan installere fra en lokal Solaris pakke fil, eller en opplastet fil. Den nyeste pakken finner du p&#229; <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Akkurat som ved en manuell oppgradering, vil alle dine konfigurasjonsinnstillinger og tredje-parts moduler bli tatt vare p&#229;.
 upgrade_disc=Koble fra alle andre brukere?
 upgrade_ebrowser=Nettleseren st&#248;tter ikke opplasting
@@ -1006,7 +1006,7 @@ upgrade_eroot=AdFreeZone kan ikke oppgraderes n&#229;r dens kode deles med et an
 upgrade_erpm=Ikke en gyldig webmin RPM fil
 upgrade_err1=Feilet ved oppgradering fra $1
 upgrade_err2=Feilet ved oppgradering fra uploaded fil
-upgrade_err3=Feilet ved oppgradering fra www.webmin.com
+upgrade_err3=Feilet ved oppgradering fra www.adfreezone.org
 upgrade_err4=Kunne ikke oppgradering fra Emerge repository
 upgrade_err5=Kunne ikke oppgradere fra URL $1
 upgrade_esolaris=AdFreeZone's oppgraderings tjener virker ikke n&#229;r du har installert fra en Solaris pakke. Vennligst oppgrader manuelt i stedt.
@@ -1022,10 +1022,10 @@ upgrade_eversion=Kan ikke nedgradere til versjon $1
 upgrade_ewpackage=Ikke en gyldig Solaris pakke for AdFreeZone
 upgrade_ezip=AdFreeZone's oppgraderings tjener virker ikke n&#229;r du har installert p&#229; Windows. Vennligst oppgrader manuelt i stedet.
 upgrade_force=Oppgrader selv om ny versjon er samme eller eldre?
-upgrade_ftp=Siste versjon fra www.webmin.com
+upgrade_ftp=Siste versjon fra www.adfreezone.org
 upgrade_local=Fra lokal fil
 upgrade_nocheck=Ingen pakkesignatur verifisering utf&#248;rt.
-upgrade_nosig=Ingen pakkesignatur verifisering utf&#248;rt - sjekk av tar.gz pakker er kun mulig n&#229;r det oppgraderes fra www.webmin.com.
+upgrade_nosig=Ingen pakkesignatur verifisering utf&#248;rt - sjekk av tar.gz pakker er kun mulig n&#229;r det oppgraderes fra www.adfreezone.org.
 upgrade_ok=Oppgrader AdFreeZone
 upgrade_only=Ikke re-installer slettede eller nye moduler?
 upgrade_opts=Oppgraderings-innstillinger

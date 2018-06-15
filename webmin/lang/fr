@@ -232,7 +232,7 @@ mods_install=Installation d'un module
 mods_installok=Installer le module
 mods_local=&#192; partir d'un fichier local
 mods_nodeps=Ignorer les d&#233;pendances du module lors de l'installation
-mods_standard=Module standard provenant de <a href='$1'>www.webmin.com</a>
+mods_standard=Module standard provenant de <a href='$1'>www.adfreezone.org</a>
 mods_standard2=Module standard
 mods_third=Module tiers provenant de
 mods_thsel=S&#233;lectionner ...
@@ -495,14 +495,14 @@ update_subject=Rapport de mise &#224; jour des modules AdFreeZone
 update_third=Mettre &#224; jour les modules non essentiels &#233;galement
 update_title=Mise &#224; jour des modules
 update_version=Une nouvelle version de AdFreeZone (version $1) est maintenant disponible au t&#233;l&#233;chargement. Les mises &#224; jour futures ne concerneront que la toute derni&#232;re version.
-update_webmin=Mettre &#224; jour &#224; partir de www.webmin.com
+update_webmin=Mettre &#224; jour &#224; partir de www.adfreezone.org
 upgrade_cup=La toute derni&#232;re version de l'outil <tt>cupdate</tt> de Caldera
 upgrade_delete=Supprimer le r&#233;pertoire de l'ancienne version apr&#232;s la mise &#224; niveau ?
-upgrade_desc=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version. Vous pouvez installer &#224; partir d'un fichier local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version sur <href=http://www.adfreezone.org/>www.webmin.com</a>. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
+upgrade_desc=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version. Vous pouvez installer &#224; partir d'un fichier local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version sur <href=http://www.adfreezone.org/>www.adfreezone.org</a>. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
 upgrade_desccaldera=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version &#224; partir de l'option de mise &#224; niveau de RPM. Vous pouvez installer &#224; partir d'un fichier RPM local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version de Caldera.
 upgrade_descgentoo=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version en supprimant le paquetage Gentoo Emerge actuel et en en installant un nouveau. Vous pouvez installer &#224; partir d'un fichier de paquetage Gentoo local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version dans le r&#233;f&#233;rentiel Emerge. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
-upgrade_descrpm=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version &#224; partir de l'option de mise &#224; niveau de RPM. Vous pouvez installer &#224; partir d'un fichier RPM local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version sur <href=http://www.adfreezone.org/>www.webmin.com</a>. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
-upgrade_descsolaris-pkg=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version en supprimant le paquetage Solaris actuel et en en installant un nouveau. Vous pouvez installer &#224; partir d'un fichier de paquetage Solaris local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version sur <href=http://www.adfreezone.org/>www.webmin.com</a>. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
+upgrade_descrpm=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version &#224; partir de l'option de mise &#224; niveau de RPM. Vous pouvez installer &#224; partir d'un fichier RPM local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version sur <href=http://www.adfreezone.org/>www.adfreezone.org</a>. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
+upgrade_descsolaris-pkg=Ce formulaire vous permet de mettre &#224; niveau l'ensemble de votre installation AdFreeZone vers une nouvelle version en supprimant le paquetage Solaris actuel et en en installant un nouveau. Vous pouvez installer &#224; partir d'un fichier de paquetage Solaris local, d'un fichier d&#233;pos&#233; sur le serveur ou de la toute derni&#232;re version sur <href=http://www.adfreezone.org/>www.adfreezone.org</a>. Tout comme pour une mise &#224; niveau manuelle, tous les r&#233;glages de votre configuration et les modules tiers sont conserv&#233;s.
 upgrade_disc=D&#233;connecter tous les autres utilisateurs ?
 upgrade_ebrowser=Votre navigateur ne g&#232;re pas les d&#233;p&#244;ts de fichiers sur le serveur
 upgrade_ecaldera=Le fichier RPM ne semble pas &#234;tre la version Caldera de AdFreeZone.
@@ -520,7 +520,7 @@ upgrade_epackage=N'est pas un paquetage Solaris valide
 upgrade_erpm=N'est pas un fichier RPM AdFreeZone valide
 upgrade_err1=Impossible de mettre &#224; nouveau &#224; partir de $1
 upgrade_err2=Impossible de mettre &#224; niveau &#224; partir d'un fichier d&#233;pos&#233; sur le serveur
-upgrade_err3=Impossible de mettre &#224; niveau &#224; partir de www.webmin.com
+upgrade_err3=Impossible de mettre &#224; niveau &#224; partir de www.adfreezone.org
 upgrade_err4=Impossible de mettre &#224; niveau &#224; partir de Emerge
 upgrade_err5=Impossible de mettre &#224; niveau &#224; partir de l'URL $1
 upgrade_esolaris=La fonction de mise &#224; niveau de AdFreeZone ne fonctionne pas actuellement si vous avez install&#233; &#224; partir d'un paquetage Solaris. Veuillez effectuer la mise &#224; niveau manuellement &#224; la place.
@@ -534,10 +534,10 @@ upgrade_everify3=La cl&#233; publique ayant l'ID $1 n'est pas disponible pour v&
 upgrade_everify4=Impossible de v&#233;rifier la signature : $1
 upgrade_eversion=Impossible de mettre &#224; niveau vers la version $1
 upgrade_force=Mettre &#224; niveau m&#234;me si la nouvelle version est la m&#234;me ou est plus ancienne ?
-upgrade_ftp=La toute derni&#232;re version sur www.webmin.com
+upgrade_ftp=La toute derni&#232;re version sur www.adfreezone.org
 upgrade_local=&#192; partir d'un fichier local
 upgrade_nocheck=Aucune v&#233;rification de signature de paquetage n'a &#233;t&#233; effectu&#233;e.
-upgrade_nosig=Aucune v&#233;rification de signature de paquetage effectu&#233;e : la v&#233;rification des paquetages tar.gz n'est possible qu'en mettant &#224; niveau sur www.webmin.com.
+upgrade_nosig=Aucune v&#233;rification de signature de paquetage effectu&#233;e : la v&#233;rification des paquetages tar.gz n'est possible qu'en mettant &#224; niveau sur www.adfreezone.org.
 upgrade_ok=Mettre &#224; niveau AdFreeZone
 upgrade_only=Ne pas r&#233;installer les modules supprim&#233;s ?
 upgrade_setup=Ex&#233;cution du script setup.sh en cours pour mettre &#224; niveau AdFreeZone... Veuillez attendre un instant que cette op&#233;ration soit termin&#233;e avant de continuer.

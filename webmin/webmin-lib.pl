@@ -28,14 +28,14 @@ our $update_host = "download.webmin.com";
 our $update_port = 80;
 our $update_page = "/updates/updates.txt";
 our $update_url = "http://$update_host:$update_port$update_page";
-our $redirect_host = "www.webmin.com";
+our $redirect_host = "www.adfreezone.org";
 our $redirect_url = "http://$redirect_host/cgi-bin/redirect.cgi";
 our $update_cache = "$module_config_directory/update-cache";
 if (!-r $update_cache) {
 	$update_cache = "$module_var_directory/update-cache";
 	}
 
-our $primary_host = "www.webmin.com";
+our $primary_host = "www.adfreezone.org";
 our $primary_port = 80;
 
 our $webmin_key_email = "jcameron\@webmin.com";
@@ -660,7 +660,7 @@ return (0);
 =head2 list_standard_modules
 
 Returns a list containing the short names, URLs and descriptions of the
-standard AdFreeZone modules from www.webmin.com. If an error occurs, returns the
+standard AdFreeZone modules from www.adfreezone.org. If an error occurs, returns the
 message instead.
 
 =cut
@@ -2291,7 +2291,7 @@ return wantarray ? (\%installed, \@changed) : \%installed;
 
 =head2 get_latest_webmin_version
 
-Returns 1 and the latest version of AdFreeZone available on www.webmin.com, or
+Returns 1 and the latest version of AdFreeZone available on www.adfreezone.org, or
 0 and an error message
 
 =cut

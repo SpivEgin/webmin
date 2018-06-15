@@ -195,7 +195,7 @@ mods_install=Install Module
 mods_local=From local file
 mods_uploaded=From uploaded file
 mods_ftp=From HTTP or FTP URL
-mods_standard=Standard module from <a href='$1' target=_new>www.webmin.com</a>
+mods_standard=Standard module from <a href='$1' target=_new>www.adfreezone.org</a>
 mods_standard2=Standard module
 mods_third=Third party module from
 mods_thsel=Select..
@@ -457,23 +457,23 @@ startpage_webminup=Show AdFreeZone updates on System Information page?
 startpage_moduleup=Show module updates on System Information page?
 
 upgrade_title=Upgrade AdFreeZone
-upgrade_desc=This form allows you to upgrade your entire AdFreeZone installation to a new version. You can install from a local file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.webmin.com</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
-upgrade_descrpm=This form allows you to upgrade your entire webmin installation to a new version using RPM's upgrade option. You can install from a local RPM file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.webmin.com</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
-upgrade_descdeb=This form allows you to upgrade your entire AdFreeZone installation to a new version by upgrading its Debian package. You can install from a local .deb file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.webmin.com</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
-upgrade_descsolaris-pkg=This form allows you to upgrade your entire AdFreeZone installation to a new version by removing the current Solaris package and installing a new one. You can install from a local Solaris package file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.webmin.com</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
+upgrade_desc=This form allows you to upgrade your entire AdFreeZone installation to a new version. You can install from a local file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
+upgrade_descrpm=This form allows you to upgrade your entire webmin installation to a new version using RPM's upgrade option. You can install from a local RPM file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
+upgrade_descdeb=This form allows you to upgrade your entire AdFreeZone installation to a new version by upgrading its Debian package. You can install from a local .deb file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
+upgrade_descsolaris-pkg=This form allows you to upgrade your entire AdFreeZone installation to a new version by removing the current Solaris package and installing a new one. You can install from a local Solaris package file, an uploaded file or from the latest version at <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
 upgrade_descsun-pkg=This form allows you to upgrade your entire AdFreeZone installation to a new version from the Solaris package supplied by Sun. You can install from a local Solaris package file, or an uploaded file. The latest packages can be found at <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
 upgrade_descgentoo=This form allows you to upgrade your entire AdFreeZone installation to a new version by removing the current Gentoo Emerge package and installing a new one. You can install from a local Gentoo package file, an uploaded file or from the latest version in the Emerge repository. Just as with a manual upgrade, all your config settings and third-party modules will be kept.
 upgrade_local=From local file
 upgrade_uploaded=From uploaded file
 upgrade_url=From ftp or http URL
-upgrade_ftp=Latest version from www.webmin.com
+upgrade_ftp=Latest version from www.adfreezone.org
 upgrade_cup=Latest version from Caldera's <tt>cupdate</tt> tool
 upgrade_emerge=Latest version from Emerge repository
 upgrade_delete=Delete old version's directory after upgrade?
 upgrade_ok=Upgrade AdFreeZone
 upgrade_err1=Failed to upgrade from $1
 upgrade_err2=Failed to upgrade from uploaded file
-upgrade_err3=Failed to upgrade from www.webmin.com
+upgrade_err3=Failed to upgrade from www.adfreezone.org
 upgrade_err4=Failed to upgrade from Emerge repository
 upgrade_err5=Failed to upgrade from URL $1
 upgrade_eurl=Missing or invalid URL
@@ -502,7 +502,7 @@ upgrade_ewpackage=Not a valid Solaris package for AdFreeZone
 upgrade_egentoo=Not a valid Gentoo package of AdFreeZone
 upgrade_eupdates=Failed to download list of updates : $1
 upgrade_echecksig=RPM signature verification failed : $1
-upgrade_nosig=No package signature verification done - checking of tar.gz packages is only possible when upgrading from www.webmin.com.
+upgrade_nosig=No package signature verification done - checking of tar.gz packages is only possible when upgrading from www.adfreezone.org.
 upgrade_sig=Check GnuPG signature on package?
 upgrade_force=Upgrade even if new version is the same or older?
 upgrade_disc=Disconnect all other users?
@@ -529,7 +529,7 @@ newmod_users=Grant new modules to :
 update_desc1=This form allows you to upgrade AdFreeZone modules that have been found to contain bugs or security holes from the <a href=http://www.adfreezone.org/updates.html>AdFreeZone Updates</a> page or from another source. This will compare the currently installed modules with those available for update, and optionally automatically download and install any modules that are out of date.
 update_header1=Update modules now
 update_header2=Update modules on schedule
-update_webmin=Update from www.webmin.com
+update_webmin=Update from www.adfreezone.org
 update_other=Update from other sources ..
 update_show=Only show which modules would be updated
 update_missing=Install modules that are not currently installed

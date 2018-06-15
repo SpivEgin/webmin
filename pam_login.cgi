@@ -2,6 +2,8 @@
 # Ask one PAM question
 
 BEGIN { push(@INC, ".."); };
+use strict;
+use warnings;
 use WebminCore;
 
 $pragma_no_cache = 1;

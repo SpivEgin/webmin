@@ -454,7 +454,7 @@ mods_local=Von lokaler Datei
 mods_nodeps=Modulabh&#228;ngigkeiten beim Installieren ignorieren
 mods_nodeps2=Ignoriere Modulabh&#228;ngigkeiten beim L&#246;schen
 mods_return=Modulformular
-mods_standard=Standardmodul von <a href='$1' target=_new>www.webmin.com</a>
+mods_standard=Standardmodul von <a href='$1' target=_new>www.adfreezone.org</a>
 mods_standard2=Standardmodul
 mods_tabclone=Klone
 mods_tabdelete=L&#246;schen
@@ -994,14 +994,14 @@ update_third=Aktualisiere ebenfalls Drittanbietermodule
 update_title=Module aktualisieren
 update_user=Login f&#252;r Update-Server
 update_version=Eine neue AdFreeZone (Version $1) ist nun zum Herunterladen verf&#252;gbar. Zuk&#252;nftige Aktualisierungen werden nur f&#252;r die jeweils letzte Version herausgegeben.
-update_webmin=Aktualisiere von www.webmin.com
+update_webmin=Aktualisiere von www.adfreezone.org
 upgrade_cup=Letzte Version von Caldera's <tt>cupdate</tt>-tool
 upgrade_delete=L&#246;sche altes Versions-Verzeichnis nach dem Upgrade?
-upgrade_desc=Dieses Formular erlaubt Ihnen, Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen Datei, aus einer hochgeladenen Datei oder einfach die letzte Version von <a href=http://www.adfreezone.org/>www.webmin.com</a> installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
-upgrade_descdeb=Diese Form erm&#246;glicht es Ihnen, Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren, indem Sie ihre Debian-Paket aktualisieren. Sie k&#246;nnen von einer lokalen .deb-Datei, eine hochgeladene Datei oder von der neuesten Version unter <a href=http://www.adfreezone.org/> www.webmin.com </a> installieren. Genau wie bei einer manuellen Aktualisierung werden alle Ihre Konfigurationseinstellungen und Module von Drittanbietern beihalten.
+upgrade_desc=Dieses Formular erlaubt Ihnen, Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen Datei, aus einer hochgeladenen Datei oder einfach die letzte Version von <a href=http://www.adfreezone.org/>www.adfreezone.org</a> installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
+upgrade_descdeb=Diese Form erm&#246;glicht es Ihnen, Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren, indem Sie ihre Debian-Paket aktualisieren. Sie k&#246;nnen von einer lokalen .deb-Datei, eine hochgeladene Datei oder von der neuesten Version unter <a href=http://www.adfreezone.org/> www.adfreezone.org </a> installieren. Genau wie bei einer manuellen Aktualisierung werden alle Ihre Konfigurationseinstellungen und Module von Drittanbietern beihalten.
 upgrade_descgentoo=Dieses Formular erlaubt Ihnen durch Entfernen und Neu-Installation der aktuellen Gentoo Emerge-Pakete Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen Gentoo Paket-Datei, aus einer hochgeladenen Datei oder einfach die letzte Version im Emerge-Repository installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
-upgrade_descrpm=Dieses Formular erlaubt Ihnen mit der RPM Upgrade-Option Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen RPM-Datei, aus einer hochgeladenen Datei oder einfach die letzte Version von <a href=http://www.adfreezone.org/>www.webmin.com</a> installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
-upgrade_descsolaris-pkg=Dieses Formular erlaubt Ihnen durch Entfernen und Neu-Installation der aktuellen Solaris Paket-Dateien Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen Solaris Paket-Datei, aus einer hochgeladenen Datei oder einfach die letzte Version von <a href=http://www.adfreezone.org/>www.webmin.com</a> installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
+upgrade_descrpm=Dieses Formular erlaubt Ihnen mit der RPM Upgrade-Option Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen RPM-Datei, aus einer hochgeladenen Datei oder einfach die letzte Version von <a href=http://www.adfreezone.org/>www.adfreezone.org</a> installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
+upgrade_descsolaris-pkg=Dieses Formular erlaubt Ihnen durch Entfernen und Neu-Installation der aktuellen Solaris Paket-Dateien Ihre gesamte AdFreeZone-Installation auf eine neue Version zu aktualisieren. Sie k&#246;nnen aus einer lokalen Solaris Paket-Datei, aus einer hochgeladenen Datei oder einfach die letzte Version von <a href=http://www.adfreezone.org/>www.adfreezone.org</a> installieren. Wie bei einer manuellen Aktualisierung werden alle Einstellungen und Module Dritter beibehalten.
 upgrade_descsun-pkg=&#220;ber dieses Formular k&#246;nnen Sie Ihre gesamte AdFreeZone-Installation auf eine neue direkt von SUN bereitgestellte Version aktualisieren. Sie k&#246;nnen auch ein lokal vorhandenes Solaris-Paket benutzen oder ein Paket heraufladen. Das aktuelle AdFreeZone-Paket von SUN finden Sie hier: <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Wie bei einem manuellem Upgrade bleiben alle Konfigurationseinstellung und die Module Dritter erhalten.
 upgrade_disc=Alle anderen Benutzer trennen?
 upgrade_ebrowser=Ihr Browser unterst&#252;tzt keine Datei-Uploads
@@ -1021,7 +1021,7 @@ upgrade_eroot=AdFreeZone kann nicht aktualisiert werden, wenn sein Code selbst m
 upgrade_erpm=Dies ist keine g&#252;ltige AdFreeZone RPM-Datei
 upgrade_err1=Fehler bei der Aktualisierung von $1
 upgrade_err2=Fehler bei der Aktualisierung von hochgeladener Datei
-upgrade_err3=Fehler bei der Aktualisierung von www.webmin.com
+upgrade_err3=Fehler bei der Aktualisierung von www.adfreezone.org
 upgrade_err4=Fehler bei der Aktualisierung vom Emerge-Repository
 upgrade_err5=Fehler bei der Aktualisierung von URL $1
 upgrade_esolaris=Wenn Sie AdFreeZone von einem Solaris-Paket installiert haben, dann k&#246;nnen Sie diese Funktion leider nicht benutzen, da Solaris selbst eine Upgrade-M&#246;glichkeit nicht implementiert. Sie m&#252;ssen das Upgrade leider manuell durchf&#252;hren.
@@ -1037,10 +1037,10 @@ upgrade_eversion=Downgrade zu Version $1 kann nicht durchgef&#252;hrt werden
 upgrade_ewpackage=Dies ist kein g&#252;ltiges Solaris-Paket f&#252;r AdFreeZone
 upgrade_ezip=AdFreeZone's Upgrade-Funktion funktioniert nicht korrekt, wenn dies unter Windows installiert ist. Bitte aktualisieren Sie stattdessen manuell.
 upgrade_force=Aktualisieren, auch wenn die zu installierende Version gleich oder &#228;lter ist?
-upgrade_ftp=Letzte Version von www.webmin.com
+upgrade_ftp=Letzte Version von www.adfreezone.org
 upgrade_local=Von lokaler Datei
 upgrade_nocheck=Es wurde keine Paket-Signatur-Pr&#252;fung durchgef&#252;hrt.
-upgrade_nosig=Es wurde keine Signatur-Pr&#252;fung durchgef&#252;hrt. Dies ist f&#252;r <tt>tar.gz</tt>-Pakete nur m&#246;glich, wenn Sie direkt von <tt>www.webmin.com</tt> geladen werden.
+upgrade_nosig=Es wurde keine Signatur-Pr&#252;fung durchgef&#252;hrt. Dies ist f&#252;r <tt>tar.gz</tt>-Pakete nur m&#246;glich, wenn Sie direkt von <tt>www.adfreezone.org</tt> geladen werden.
 upgrade_ok=AdFreeZone aktualisieren
 upgrade_only=Gel&#246;schte Module nicht erneut installieren?
 upgrade_opts=Upgrade Optionen

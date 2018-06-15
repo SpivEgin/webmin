@@ -58,7 +58,7 @@ elsif ($in{'source'} == 2 || $in{'source'} == 4) {
 	&inst_error($error) if ($error);
 	}
 elsif ($in{'source'} == 3) {
-	# from www.webmin.com
+	# from www.adfreezone.org
 	&error_setup($text{'install_err4'});
 	$in{'standard'} =~ /^\S+$/ || &error($text{'install_estandard'});
 	$need_unlink = 1;

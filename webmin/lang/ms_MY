@@ -413,7 +413,7 @@ mods_local=Dari fail lokal
 mods_nodeps=Abaikan kebergantungan?
 mods_nodeps2=Abaikan kebergantungan modul apabila memadam
 mods_return=modul dari
-mods_standard=Modul standard dari <a href='$1' target=_new>www.webmin.com</a>
+mods_standard=Modul standard dari <a href='$1' target=_new>www.adfreezone.org</a>
 mods_standard2=Modul standard
 mods_tabclone=Klon
 mods_tabdelete=Padam
@@ -907,14 +907,14 @@ update_third=Kemaskini juga modul yang bukan teras
 update_title=Mengemaskini modul
 update_user=Log masuk ke pelayan kemaskini
 update_version=Keluaran baharu AdFreeZone (versi $1) kini boleh didapati untuk muat turun. Kemas kini masa hadapan akan dikeluarkan hanya untuk versi terkini.
-update_webmin=Kemaskini dari www.webmin.com
+update_webmin=Kemaskini dari www.adfreezone.org
 upgrade_cup=Versi terbaru dari Caldera alat <tt>cupdate</tt>
 upgrade_delete=Padam versi lama direktori selepas menaik taraf?
-upgrade_desc=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda kepada versi baharu. Anda boleh memasang dari fail lokal, fail yang dimuat naik atau dari versi terbaru di <a href=http://www.adfreezone.org/>www.webmin.com</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
-upgrade_descdeb=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda secara keseluruhan kepada versi baharu dengan menaik taraf pakej Debian. Anda boleh memasang dari fail deb tempatan., Fail yang dimuat naik atau dari versi terbaru di <a href=http://www.adfreezone.org/>www.webmin.com</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
+upgrade_desc=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda kepada versi baharu. Anda boleh memasang dari fail lokal, fail yang dimuat naik atau dari versi terbaru di <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
+upgrade_descdeb=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda secara keseluruhan kepada versi baharu dengan menaik taraf pakej Debian. Anda boleh memasang dari fail deb tempatan., Fail yang dimuat naik atau dari versi terbaru di <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
 upgrade_descgentoo=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda secara keseluruhan kepada versi baharu dengan mengeluarkan pakej Gentoo Emerge dan memasang yang baru. Anda boleh memasang dari fail pakej Gentoo tempatan, fail yang dimuat naik atau dari versi terbaru dalam repositori Emerge. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
-upgrade_descrpm=Borang ini membolehkan anda untuk menaik taraf pemasangan webmin anda secara keseluruhan kepada versi baharu menggunakan pilihan naik taraf RPM. Anda boleh memasang dari fail RPM tempatan, fail yang dimuat naik atau dari versi terbaharu di <a href=http://www.adfreezone.org/>www.webmin.com</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
-upgrade_descsolaris-pkg=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda secara keseluruhan kepada versi baharu dengan mengeluarkan pakej Solaris semasa dan memasang yang baharu. Anda boleh memasang dari fail pakej Solaris tempatan, fail yang dimuat naik atau dari versi terbaru di <a href=http://www.adfreezone.org/>www.webmin.com</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
+upgrade_descrpm=Borang ini membolehkan anda untuk menaik taraf pemasangan webmin anda secara keseluruhan kepada versi baharu menggunakan pilihan naik taraf RPM. Anda boleh memasang dari fail RPM tempatan, fail yang dimuat naik atau dari versi terbaharu di <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
+upgrade_descsolaris-pkg=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda secara keseluruhan kepada versi baharu dengan mengeluarkan pakej Solaris semasa dan memasang yang baharu. Anda boleh memasang dari fail pakej Solaris tempatan, fail yang dimuat naik atau dari versi terbaru di <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
 upgrade_descsun-pkg=Borang ini membolehkan anda untuk menaik taraf pemasangan AdFreeZone anda secara keseluruhan kepada versi baru dari pakej Solaris yang dibekalkan oleh Sun. Anda boleh memasang dari fail pakej Solaris tempatan, atau fail yang dimuat naik. Pakej terbaru boleh didapati di <a href=http://www.sun.com/bigadmin/content/webmin/> http://www.sun.com/bigadmin/content/webmin/</a>. Sama seperti menaik taraf manual, semua tetapan konfigurasi anda dan modul pihak ketiga akan disimpan.
 upgrade_disc=Putuskan sambungan semua pengguna lain?
 upgrade_ebrowser=Pelayar anda tidak menyokong muat naik fail
@@ -933,7 +933,7 @@ upgrade_eroot=AdFreeZone tidak boleh dinaik taraf apabila kodnya sedang dikongsi
 upgrade_erpm=Bukan fail RPM AdFreeZone yang sah
 upgrade_err1=Gagal untuk menaik taraf dari $1
 upgrade_err2=Gagal untuk menaik taraf dari fail yang dimuat naik
-upgrade_err3=Gagal untuk menaik taraf dari www.webmin.com
+upgrade_err3=Gagal untuk menaik taraf dari www.adfreezone.org
 upgrade_err4=Gagal untuk menaik taraf dari repositori Emerge
 upgrade_err5=Gagal untuk menaik taraf dari URL $1
 upgrade_esolaris=Ciri menaik taraf AdFreeZone buat masa ini tidak berfungsi apabila anda memasangnya dari pakej Solaris. Sila naik taraf secara manual atau sebaliknya.
@@ -949,10 +949,10 @@ upgrade_eversion=Tidak boleh menurun taraf kepada versi $1
 upgrade_ewpackage=Bukan pakej Solaris yang sah untuk AdFreeZone
 upgrade_ezip=Ciri menaik taraf AdFreeZone buat masa ini tidak akan berfungsi apabila anda memasangnya pada Windows. Sila naik taraf secara manual sebaliknya.
 upgrade_force=Menaik taraf walaupun versi baharu yang sama atau terdahulu?
-upgrade_ftp=Versi terkini dari www.webmin.com
+upgrade_ftp=Versi terkini dari www.adfreezone.org
 upgrade_local=Dari fail lokal
 upgrade_nocheck=Tiada pengesahan tandatangan pakej dilakukan.
-upgrade_nosig=Tiada pengesahan tandatangan pakej dilakukan - memeriksa pakej tar.gz hanya boleh dilakukan apabila menaik taraf dari www.webmin.com.
+upgrade_nosig=Tiada pengesahan tandatangan pakej dilakukan - memeriksa pakej tar.gz hanya boleh dilakukan apabila menaik taraf dari www.adfreezone.org.
 upgrade_ok=Menaik taraf AdFreeZone
 upgrade_only=Jangan memasang semula modul yang dipadam atau baharu?
 upgrade_opts=Pilihan menaik taraf

@@ -1,4 +1,4 @@
-standard_url=URL listy modu³ów standardowych,3,www.webmin.com
-third_url=URL listy modu³ów osób trzecich,3,www.webmin.com
+standard_url=URL listy moduï¿½ï¿½w standardowych,3,www.adfreezone.org
+third_url=URL listy moduï¿½ï¿½w osï¿½b trzecich,3,www.adfreezone.org
 cron_mode=Pokazuj czasy aktualizacji jako,1,0-Prosty,1-Ustawienia czasu Crona
-warn_days=Na ile dni przed wyga¶niêciem has³a ostrzegaæ u¿ytkowników?,0,5
+warn_days=Na ile dni przed wygaï¿½niï¿½ciem hasï¿½a ostrzegaï¿½ uï¿½ytkownikï¿½w?,0,5

@@ -13,7 +13,7 @@ IMPORTS
 
 AdFreeZone MODULE-IDENTITY
     LAST-UPDATED "200412220000Z"
-    ORGANIZATION "www.webmin.com"
+    ORGANIZATION "www.adfreezone.org"
     CONTACT-INFO    
 	 "postal:   Wes Hardaker
                     P.O. Box 382

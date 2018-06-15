@@ -341,7 +341,7 @@ mods_local=Dal filesystem locale
 mods_nodeps=Ignorare le dipendenze?
 mods_nodeps2=Ignora le dipendenze del modulo quando lo elimini
 mods_return=form dei moduli
-mods_standard=Modulo standard da <a href='$1'>www.webmin.com</a>
+mods_standard=Modulo standard da <a href='$1'>www.adfreezone.org</a>
 mods_standard2=Modulo standard
 mods_tabclone=Clona
 mods_tabdelete=Rimuovi
@@ -690,15 +690,15 @@ update_third=Aggiorna anche i moduli non appartenenti al core di AdFreeZone
 update_title=Aggiorna moduli
 update_user=Login al server degli aggiornamenti
 update_version=Una nuova versione di AdFreeZone (versione $1) &#232; disponibile per il download. Gli aggiornamenti futuri saranno rilasciato solo per l'ultima versione.
-update_webmin=Aggiorna da www.webmin.com
+update_webmin=Aggiorna da www.adfreezone.org
 upgrade_cup=L'ultima versione dal tool di aggiornamento di Caldera <tt>cupdate</tt>
 upgrade_delete=Cancellare le directory delle vecchie versioni dopo l'aggiornamento?
-upgrade_desc=Questa pagina ti permette di aggiornare la tua installazione di AdFreeZone con una nuova versione. Puoi installare da un file locale, tramite un file-upload o dall'ultima versione disponibile su <a href="http://www.adfreezone.org/">www.webmin.com</a>. In modo analogo ad un aggiornamento manuale, tutti i file di configurazione verranno mantenuti intatti.
+upgrade_desc=Questa pagina ti permette di aggiornare la tua installazione di AdFreeZone con una nuova versione. Puoi installare da un file locale, tramite un file-upload o dall'ultima versione disponibile su <a href="http://www.adfreezone.org/">www.adfreezone.org</a>. In modo analogo ad un aggiornamento manuale, tutti i file di configurazione verranno mantenuti intatti.
 upgrade_desccaldera=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione utilizzando l'opzione di aggiornamento di RPM. Puoi installare l'aggiornamento da un file RPM locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente in Caldera.
-upgrade_descdeb=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione aggiornando i pacchetti Debian. Puoi installare l'aggiornamento da un file .deb locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente su <a href=http://www.adfreezone.org/>www.webmin.com</a>. Come avviene anche con gli aggiornamenti manuali tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
+upgrade_descdeb=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione aggiornando i pacchetti Debian. Puoi installare l'aggiornamento da un file .deb locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente su <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Come avviene anche con gli aggiornamenti manuali tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
 upgrade_descgentoo=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione rimuovendo il pacchetto Emerge di Gentoo attuale ed installando quello nuovo. Puoi installare l'aggiornamento da un pacchetto Gentoo locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente sul repository Emerge. Come avviene anche con gli aggiornamenti manuali, tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
-upgrade_descrpm=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione utilizzando l'opzione di aggiornamento di RPM. Puoi installare l'aggiornamento da un file RPM locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente su <a href=http://www.adfreezone.org/>www.webmin.com</a>. Come avviene anche con gli aggiornamenti manuali tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
-upgrade_descsolaris-pkg=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione rimuovendo il pacchetto Solaris attuale ed installando quello nuovo. Puoi installare l'aggiornamento da un pacchetto Solaris locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente su <a href=http://www.adfreezone.org/>www.webmin.com</a>. Come avviene anche con gli aggiornamenti manuali, tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
+upgrade_descrpm=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione utilizzando l'opzione di aggiornamento di RPM. Puoi installare l'aggiornamento da un file RPM locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente su <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Come avviene anche con gli aggiornamenti manuali tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
+upgrade_descsolaris-pkg=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione rimuovendo il pacchetto Solaris attuale ed installando quello nuovo. Puoi installare l'aggiornamento da un pacchetto Solaris locale, oppure caricandolo sul server tramite browser o utilizzando l'ultima versione presente su <a href=http://www.adfreezone.org/>www.adfreezone.org</a>. Come avviene anche con gli aggiornamenti manuali, tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
 upgrade_descsun-pkg=Questo form ti permette di aggiornare l'intera installazione di AdFreeZone ad una nuova versione rimuovendo il pacchetto Solaris fornito da Sun. Puoi installare l'aggiornamento da un pacchetto Solaris locale, oppure caricandolo sul server tramite browser. Puoi trovare il pacchetto Solaris fornito da Sun contenente l'ultima versione su <a href=http://www.sun.com/bigadmin/content/webmin/>http://www.sun.com/bigadmin/content/webmin/</a>. Come avviene anche con gli aggiornamenti manuali, tutte le impostazioni di configurazione e i moduli di terze parti saranno mantenuti.
 upgrade_disc=Disconnettere tutti gli altri utenti?
 upgrade_ebrowser=Il tuo browser non supporta i file uploads
@@ -718,7 +718,7 @@ upgrade_eroot=AdFreeZone non pu&#242; essere aggiornato quando il suo codice &#2
 upgrade_erpm=Non &#232; un pacchetto RPM di AdFreeZone valido
 upgrade_err1=Aggiornamento da $1 non riuscito
 upgrade_err2=Aggiornamento dal file inviato non riuscito
-upgrade_err3=Aggiornamento da www.webmin.com non riuscito
+upgrade_err3=Aggiornamento da www.adfreezone.org non riuscito
 upgrade_err4=Aggiornamento dal repository Emerge non riuscito
 upgrade_err5=Aggiornamento dall'URL $1 non riuscito
 upgrade_esolaris=La funzione di aggiornamento di AdFreeZone non &#232; attualmente in esecuzione in quanto AdFreeZone &#232; stato installato da un pacchetto Solaris. E' possibile eseguire l'aggiornamento in maniera manuale.
@@ -734,10 +734,10 @@ upgrade_eversion=Impossibile aggiornare con una versione meno recente $1
 upgrade_ewpackage=Non &#232; un pacchetto Solaris di AdFreeZone valido
 upgrade_ezip=La funzione di aggiornamento di AdFreeZone non &#232; attualmente in esecuzione in quanto AdFreeZone &#232; installato su Windows. E' possibile eseguire l'aggiornamento in maniera manuale.
 upgrade_force=Aggiornare anche se la nuova versione &#232; la stessa o precedente a quella installata?
-upgrade_ftp=Ultima versione da www.webmin.com
+upgrade_ftp=Ultima versione da www.adfreezone.org
 upgrade_local=Da un file locale
 upgrade_nocheck=Non &#232; stata svolta alcuna verifica della firma del pacchetto.
-upgrade_nosig=Non &#232; stata svolta alcuna verifica della firma del pacchetto - Il controllo dei pacchetti tar.gz &#232; possibile solo quando l'aggiornamento &#232; effettuato da www.webmin.com.
+upgrade_nosig=Non &#232; stata svolta alcuna verifica della firma del pacchetto - Il controllo dei pacchetti tar.gz &#232; possibile solo quando l'aggiornamento &#232; effettuato da www.adfreezone.org.
 upgrade_ok=Aggiorna AdFreeZone
 upgrade_only=Non reinstallare i moduli nuovi o cancellati?
 upgrade_setup=Eseguo lo script setup.sh per aggiornare AdFreeZone .. Attendere un minuto sino a quando non termina prima di procedere.

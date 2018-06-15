@@ -62,7 +62,7 @@ if ($remote_user && @_ > 1) {
 					  : "/switch_user.cgi";
 	print qq~<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/top_bar.jpg">
 	  <tr>
-	    <td width="100%" nowrap><a href="http://www.webmin.com"><img src="/images/webmin_top.jpg" border="0" alt="AdFreeZone home page"></a></td>
+	    <td width="100%" nowrap><a href="http://www.adfreezone.org"><img src="/images/webmin_top.jpg" border="0" alt="AdFreeZone home page"></a></td>
 	    <td nowrap><a href='$logout'><img src="/images/logout.jpg" border="0" alt="$text{'main_logout'}"></a></td>
 	  </tr>
 	</table>~;
